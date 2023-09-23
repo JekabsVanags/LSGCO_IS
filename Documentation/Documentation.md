@@ -1,0 +1,116 @@
+# Anotācija
+
+Kvalifikācijas darba ietvaros ir izstrādāta informācijas sistēma kopā ar tās projektējumu, kas paredzēta Latvijas Skautu un Gaidu centrālajās organizācijas iekšējai lietošanai. Sistēmas galvenais mērķis ir optimizēt struktūrvienību darbību, samazinot nepieciešamību pēc ikgadējām atskaitēm un atvieglojot biedru un struktūrvienību aktivitāšu uzraudzību un pārvaldību. Tāpat sistēma palīdz informēt organizācijas biedrus par nenomaksātu biedra naudu un uzskaita informāciju par gaidāmajiem pasākumiem un iespējām palīdzēt to organizēšanā. Tāpat sistēma veic jaunu struktūrvienību izveidi, ko var veikt tikai administratori (biedri, kuri darbojas organizācijas nacionālajā līmenī), kā arī veido atskaites PDF un XLSX formātos. Sistēma ir izstrādāta tā, ka šī projekta ietvaros tiek izstrādāta sistēmas pamatfunkcionalitāte, ņemot vērā iespēju ieviest papildu funkcijas nākotnē.
+**Atslēgas vārdi:** informācijas sistēma, jaunatnes organizācija, biedrzinība
+
+
+# Abstract
+
+Qualification work includes, an information system, along with its specification, that has been developed for internal use by the Latvian Scout and Guide Central Organization. The main goal of the system is to optimize the operations of units, reducing the need for annual reports and facilitating the monitoring and management of members and unit activities. Additionally, the system helps inform organization members about unpaid membership fees and keeps track of upcoming events and opportunities to assist in their organization. The system also allows the creation of new units, which can only be done by administrators (members working at the national level of the organization), and it generates reports in PDF and XLSX formats. The system is developed in such a way that only the core functionality of the system is being developed within the scope of this project, with the possibility of introducing additional features in the future.
+**Key words:** information system, youth organization, member management
+
+# Ievads
+
+## Nolūks
+
+Šis dokuments ir paredzēts, lai aprakstītu izstrādājamās sistēmas "Latvijas Skautu un Gaidu centrālās organizācijas" jeb "LSGCO IS" programmatūras prasības un projektējumu.  Šī sistēma ir paredzēta Latvijas Skautu un Gaidu centrālās organizācijas iekšējai lietošanai. Šajā dokumentā tiks detalizēti aprakstītas sistēmas produkta prasības, projektējums un funkcionalitāte, kā arī sistēmas izstrāde un testēšana.
+
+## Darbības sfēra
+
+Sistēma "LSGCO IS" ir tīmekļa lietotne, kas nodrošina datu uzskaiti un pārvaldīšanu organizācijas ietvaros. Sistēmas galvenais mērķis ir strādāt kā biedruzinības platformai, kura ļauj organizācijai un tās struktūrvienībām izsekot saviem biedriem, šo biedru statusam, biedra naudas bilances stāvoklim, kā arī biedru datu uzturēšanai. Tāpat sistēma uzturēs informāciju par dažādu struktūrvienību veidotiem pasākumiem, brīvprātīgajiem, kas tajos piedalās un kuri to organizē. 
+Dati sistēmā tiek glabāti ar to īpašnieku atļauju reģistrējoties sistēmā, kā arī pievienojoties biedrībai. Struktūrvienību vadītājiem ir iespējas iegūt atskaites par pasākumiem un biedriem noteiktā laika periodā. Nacionālā līmeņa vadītājiem ir iespēja iegūt atskaites par vienu vai vairākām struktūrvienībām noteiktā laika periodā. Reģistrēšanās sistēmai ir slēgta, tikai struktūrvienības vadītāja ierosināta. Biedrs pēc reģistrēšanās papildina datus par sevi (kurus vēlas izpaust). Sistēma nodrošinās arī e-pasta apziņošanas sistēmu, kas ļaus paziņot biedriem par biedra maksas kavējumiem.
+
+## Saistība ar citiem dokumentiem
+
+PPS ir izstrādāts atbilstoši standartam "LVS 68:1996 Programmatūras prasību specifikācijas ceļvedis".
+
+PPA ir izstrādāts atbilstoši standartam "LVS 72:1996 Ieteicamā prakse programmatūras projektējuma aprakstīšanai".
+
+## Pārskats
+
+Dokumenta struktūru veido trīs daļas:
+
+1. **Vispārīgs apraksts**, kas ietver 
+   - produkta aprakstu
+   - pasūtītāju
+   - 0.līmeņa datu plūsmas diagrammu
+   - produkta perspektīvu
+   - darījumprasības
+   - sistēmas lietotājus 
+   - vispārējus ierobežojumus
+   - pieņēmumus un atkarības.
+  
+2. **Programmatūras prasību specifikācija**, kurā norādītas
+    - funkcionālās un nefunkcionālās prasības
+    - datu bāzes ER diagramma 
+    - konceptuālais datu bāzes apraksts
+    -  1.un 2.līmeņa datu plūsmas diagrammas
+    -  sistēmas moduļu sadalījums pēc funkcijām un funkciju apraksti.
+  
+3. **Programmatūras projektējuma apraksts**, kur aprakstīts 
+    - datu bāzes loģiskais un fiziskais modelis  
+    - lietotāja saskarņu projektējums
+    - testēšanas protokols
+
+# Apzīmējumu saraksts
+
+**DB** - datubāze;
+**ER** - entītiju relāciju;
+**MB** - megabaits;
+**PK** - primārā atslēga;
+**FK** - ārējā atslēga;
+**ID** - identifikators;
+**String** - simbolu virkne;
+**Char** - simbols;
+**Int** - vesels skaitlis;
+
+**LSGCO** - Latvijas Skautu un Gaidu centrālā organizācija
+**Vienība** - LSGCO struktūrvienība
+
+
+
+# 1 Vispārīgs apraksts
+
+## 1.1 Esošā stāvokļa apraksts
+
+LSGCO ir pāri 500 biedriem. Pašlaik biedru apzināšana un atskaites tiek veikta katrā vienībā atsevišķi lietojot excel tabulas. Tapēc tiek izstrādāts šis risinājums- informācijas sistēma, kura spēj uzskaitīt biedrus, sagatavot atskaites un vispārēji atvieglot struktūrvienību, kā arī organizācijas nacionālā līmeņa vadības darbu.
+
+## 1.2 Pasūtītājs
+
+Sistēma netiek veidota pēc pasūtījuma, bet pēc LSGCO biedra iniciatīvas kvalifikācijas darba ietvaros. Sistēmas izstrādes laikā tiek uzturēts dialogs ar LSGCO valdi, kā arī citiem biedriem, ar mērķi nākotnē ieviest šīs sistēmas lietošanu organizācijā.
+
+## 1.3 Produkta perspektīva
+
+Izstrādājamā sistēma ir pārsvarā neatkarīga un patstāvīga. *Vai šeit vajag rakstīt atkarības no framework vai bibleotēkām?*
+
+## 1.4 Darījumprasības
+Sistēmai ir jānodrošina sekojošas funkcijas:
+
+- Lietotāju reģistrācija, autentifikācija un autorizācija.
+- Lietotāju datu izveidošana, dzēšana, rediģēšana, lasīšana.
+- Vienību izveidošana, dzēšana, rediģēšana, lasīšana.
+- Pasākmu izveidošana, dzēšana, rediģēšana, lasīšana.
+- Lietotāju pievienošana/noņemšana no pasākumiem.
+- Atskaišu ģenerēšana par biedru sastāvu, pasākumiem.
+- Biedru naudas uzskaite, ziņojumi par kavētām biedra naudas iemaksām.
+
+## 1.5 Sistēmas lietotāji
+<img src="/Documentation/0_limena_dpd.png" />
+
+**Attēls 1.1.** *0. līmeņa datu plūsmas diagramma*
+Kā redzams attēlā 1.1., sistēmas visi lietotāji tiek uzskatīti par Biedriem. Katra nākamā sistēmas lietotāja grupa iegūst jaunas tiesības, nezaudējot iepriekšējās. Sākot no Priekšnieka atļaujas līmeņa ir iespējams iegūt atskaites.
+
+- Nereģistrēts lietotājs - lietotājs kurš spēj piekļūt tikai galvenajai lapai. *Vai šo ir vērts minēt?*
+-  Organizācijas biedrs (turpmāk Biedrs) - lietotājs, kurš spēj papildināt datus par sevi, pievienoties pasākumiem, saņemt paziņojumus par beidra naudām, apskatīt un pieteikties pasākumiem. Šim lietotājam ir piekļuve sistēmas "Biedrs" modulim un tā funkcijām.
+-   Struktūrvienības vadītājs (turpmāk Priekšnieks) - lietotājs, kurš spēj veikt visas darbības ko Biedrs, bet arī pārvaldīt vienības biedrus un to statusu, izveidot jaunu biedru, izveidot atskaites par vienību, izveidot pasākumus. Šim lietotājam ir piekļuve sistēmas "Biedrs" un "Vienība" moduļiem un to funkcijām.
+-   Nacionālā līmeņa biedrs (turpmāk Administrators) - lietotājs, kurš spēj veikt visas darbības ko Biedrs un Priekšnieks, bet arī pārvaldīt vienības, izveidot jaunu vienību, izveidot atskaites par organizāciju. Šim lietotājam ir piekļuve sistēmas "Biedrs", "Vienība" un "Valde" moduļiem un to funkcijām.
+   
+## 1.6 Vispārējie ierobežojumi
+- Lietotne ir veidota lietošanai tīmeklī Chrome, Firefox vai Safari pārlūkprogrammā. 
+- Sistēmas lietošanai ir nepieviešams stabils interneta savienojums.
+- Valsts datu regulas ierobežojumi saistībā ar privātpersonu datu glabāšanu.
+
+## 1.7 Pieņēmumi un atkarības
+1. Lietotājam ir ierīce, kas spēj izmantot pārlūkprogrammu;
+2. Lietotājam ir pieejams stabils interneta savienojums;
+3. Serveris un DB ir nepārtraukti pieejams visiem lietotājiem;
