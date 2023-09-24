@@ -1,0 +1,383 @@
+<mxfile host="app.diagrams.net" modified="2023-09-24T19:48:23.813Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="X8Vdzlxft9DzeP3LAfFf" version="21.8.2" type="device" pages="2">
+  <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
+    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D0EB0LL90PAMHTRZD_2f-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="oKWj-Yn3RWSEvRSN68fy-1" target="D0EB0LL90PAMHTRZD_2f-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D0EB0LL90PAMHTRZD_2f-3" value="Galvenā lapa" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="D0EB0LL90PAMHTRZD_2f-2" vertex="1" connectable="0">
+          <mxGeometry x="-0.12" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-1" value="LSGCO IS" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="185" y="510" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="oKWj-Yn3RWSEvRSN68fy-3" target="oKWj-Yn3RWSEvRSN68fy-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="373" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-15" value="Pieprasījuma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.1709" y="3" relative="1" as="geometry">
+            <mxPoint y="-27" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-22" value="Pietikšanās dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.1709" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-3" value="" style="swimlane;startSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="20" y="390" width="470" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-9" value="Biedrs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="oKWj-Yn3RWSEvRSN68fy-3" vertex="1">
+          <mxGeometry x="30" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-11" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="oKWj-Yn3RWSEvRSN68fy-3" vertex="1">
+          <mxGeometry x="340" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-12" value="Priekšnieks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="oKWj-Yn3RWSEvRSN68fy-3" vertex="1">
+          <mxGeometry x="185" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-5" value="" style="swimlane;startSize=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="oKWj-Yn3RWSEvRSN68fy-3" vertex="1">
+          <mxGeometry x="160" y="10" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.117;entryY=1.03;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="oKWj-Yn3RWSEvRSN68fy-1" target="oKWj-Yn3RWSEvRSN68fy-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="75" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-23" value="Skatu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-16" vertex="1" connectable="0">
+          <mxGeometry x="0.4924" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-24" value="Pieprasījumu&amp;nbsp; atbildes dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-16" vertex="1" connectable="0">
+          <mxGeometry x="0.6954" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.897;exitY=1.05;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;exitPerimeter=0;" parent="1" source="oKWj-Yn3RWSEvRSN68fy-5" target="oKWj-Yn3RWSEvRSN68fy-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="449" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-18" value="Atkaišu pieprasījuma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-17" vertex="1" connectable="0">
+          <mxGeometry x="-0.2485" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.087;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="oKWj-Yn3RWSEvRSN68fy-1" target="oKWj-Yn3RWSEvRSN68fy-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oKWj-Yn3RWSEvRSN68fy-20" value="Atskaišu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oKWj-Yn3RWSEvRSN68fy-19" vertex="1" connectable="0">
+          <mxGeometry x="0.1028" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D0EB0LL90PAMHTRZD_2f-1" value="Nereģistrēts lietotājs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="205" y="700" width="100" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="6GguuWpty2bciPeQia3-" name="1.limena DPD">
+    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-7" target="xGXgSaPmuUJwHho-_G7R-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="92" y="250" />
+              <mxPoint x="92" y="285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-41" value="Biedra&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-40" vertex="1" connectable="0">
+          <mxGeometry x="-0.0732" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" target="xGXgSaPmuUJwHho-_G7R-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="572.75" y="250" as="sourcePoint" />
+            <mxPoint x="676.9657287525381" y="361.7157287525381" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="677" y="250" />
+              <mxPoint x="677" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-79" value="Piedalīšanās&lt;br&gt;statusa&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-78" vertex="1" connectable="0">
+          <mxGeometry x="0.1913" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-7" value="" style="swimlane;startSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="80" y="150" width="690" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-8" value="Biedrs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="xGXgSaPmuUJwHho-_G7R-7" vertex="1">
+          <mxGeometry x="30" y="30" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-10" value="Priekšnieks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="xGXgSaPmuUJwHho-_G7R-7" vertex="1">
+          <mxGeometry x="270" y="30" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-11" value="" style="swimlane;startSize=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="xGXgSaPmuUJwHho-_G7R-7" vertex="1">
+          <mxGeometry x="200" y="10" width="480" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-9" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="xGXgSaPmuUJwHho-_G7R-11" vertex="1">
+          <mxGeometry x="270" y="20" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-22" value="BDR modulis" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="80" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-23" value="VNB modulis" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="280" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="xGXgSaPmuUJwHho-_G7R-24" target="xGXgSaPmuUJwHho-_G7R-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-68" value="Atskaišu &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-67" vertex="1" connectable="0">
+          <mxGeometry x="-0.535" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-24" value="VLD modulis" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="480" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-25" value="PSK modulis" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="690" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.855;exitY=0;exitDx=0;exitDy=4.35;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-26" target="xGXgSaPmuUJwHho-_G7R-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-39" value="Dati par&lt;br&gt;biedru/&lt;br&gt;biedra&lt;br&gt;naudu" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-37" vertex="1" connectable="0">
+          <mxGeometry x="-0.0776" y="-1" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-26" target="xGXgSaPmuUJwHho-_G7R-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="550" />
+              <mxPoint x="220" y="362" />
+              <mxPoint x="280" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-50" value="Vienības&lt;br&gt;biedru&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-49" vertex="1" connectable="0">
+          <mxGeometry x="0.1431" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.855;exitY=1;exitDx=0;exitDy=-4.35;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-26" target="xGXgSaPmuUJwHho-_G7R-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="148" y="600" />
+              <mxPoint x="548" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-59" value="Biedru&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-58" vertex="1" connectable="0">
+          <mxGeometry x="0.6344" y="-2" relative="1" as="geometry">
+            <mxPoint y="23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-26" value="Biedru datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="80" y="510" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=27.5;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-27" target="xGXgSaPmuUJwHho-_G7R-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-54" value="Dati&lt;br&gt;par&lt;br&gt;vienību" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-53" vertex="1" connectable="0">
+          <mxGeometry x="0.3278" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=-15;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-27" target="xGXgSaPmuUJwHho-_G7R-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-60" value="Vienību&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-57" vertex="1" connectable="0">
+          <mxGeometry x="0.4897" y="2" relative="1" as="geometry">
+            <mxPoint x="2" y="29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-27" value="Vienību&lt;br&gt;datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="385" y="510" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.855;exitY=0;exitDx=0;exitDy=4.35;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="xGXgSaPmuUJwHho-_G7R-29" target="xGXgSaPmuUJwHho-_G7R-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-72" value="Pasākumu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-71" vertex="1" connectable="0">
+          <mxGeometry x="0.0627" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-29" value="Pasākumu&lt;br&gt;datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="690" y="510" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.145;entryY=0;entryDx=0;entryDy=4.35;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-22" target="xGXgSaPmuUJwHho-_G7R-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-38" value="Atjaunināti&lt;br&gt;biedra&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-36" vertex="1" connectable="0">
+          <mxGeometry x="-0.1116" y="-2" relative="1" as="geometry">
+            <mxPoint y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.098;entryY=1.024;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-22" target="xGXgSaPmuUJwHho-_G7R-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-43" value="Biedra&lt;br&gt;dati/&lt;br&gt;biedra&lt;br&gt;naudas&lt;br&gt;statuss" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-42" vertex="1" connectable="0">
+          <mxGeometry x="0.3218" y="-1" relative="1" as="geometry">
+            <mxPoint y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.258;entryY=0.043;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-11" target="xGXgSaPmuUJwHho-_G7R-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="301" y="240" />
+              <mxPoint x="301" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-45" value="Vienības &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-44" vertex="1" connectable="0">
+          <mxGeometry x="0.1047" y="-2" relative="1" as="geometry">
+            <mxPoint y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=-15;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-23" target="xGXgSaPmuUJwHho-_G7R-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="418" />
+              <mxPoint x="290" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-48" value="Atjaunoti &lt;br&gt;vienības dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-47" vertex="1" connectable="0">
+          <mxGeometry x="-0.2574" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=-15;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="xGXgSaPmuUJwHho-_G7R-23" target="xGXgSaPmuUJwHho-_G7R-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="390" />
+              <mxPoint x="250" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-52" value="Jauna&lt;br&gt;biedra&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-51" vertex="1" connectable="0">
+          <mxGeometry x="-0.3242" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.208;entryY=0.994;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-23" target="xGXgSaPmuUJwHho-_G7R-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-56" value="Vienības &lt;br&gt;dati/&lt;br&gt;atskaišu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-55" vertex="1" connectable="0">
+          <mxGeometry x="0.3887" y="1" relative="1" as="geometry">
+            <mxPoint x="3" y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-24" target="xGXgSaPmuUJwHho-_G7R-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="418" />
+              <mxPoint x="490" y="538" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-62" value="Jaunas&lt;br&gt;vienības&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-61" vertex="1" connectable="0">
+          <mxGeometry x="-0.5697" y="-2" relative="1" as="geometry">
+            <mxPoint y="22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.629;entryY=0.006;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-11" target="xGXgSaPmuUJwHho-_G7R-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="240" />
+              <mxPoint x="330" y="351" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-64" value="Jauna&lt;br&gt;biedra&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-63" vertex="1" connectable="0">
+          <mxGeometry x="0.3429" relative="1" as="geometry">
+            <mxPoint y="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="xGXgSaPmuUJwHho-_G7R-9" target="xGXgSaPmuUJwHho-_G7R-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="220" />
+              <mxPoint x="560" y="260" />
+              <mxPoint x="492" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-66" value="Jaunas vienības&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-65" vertex="1" connectable="0">
+          <mxGeometry x="0.2132" y="2" relative="1" as="geometry">
+            <mxPoint x="1" y="22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.145;entryY=0;entryDx=0;entryDy=4.35;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="xGXgSaPmuUJwHho-_G7R-25" target="xGXgSaPmuUJwHho-_G7R-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-70" value="Jauna&amp;nbsp;&lt;br&gt;pasākuma&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-69" vertex="1" connectable="0">
+          <mxGeometry x="-0.2254" relative="1" as="geometry">
+            <mxPoint x="-2" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="xGXgSaPmuUJwHho-_G7R-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="362" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="760" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-75" value="Pasākuma&lt;br&gt;&amp;nbsp;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-74" vertex="1" connectable="0">
+          <mxGeometry x="-0.2131" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.355;exitY=0.006;exitDx=0;exitDy=0;entryX=0.925;entryY=1.019;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;exitPerimeter=0;" parent="1" source="xGXgSaPmuUJwHho-_G7R-25" target="xGXgSaPmuUJwHho-_G7R-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-77" value="Pasākumu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-76" vertex="1" connectable="0">
+          <mxGeometry x="-0.2644" y="1" relative="1" as="geometry">
+            <mxPoint x="1" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="xGXgSaPmuUJwHho-_G7R-25" target="xGXgSaPmuUJwHho-_G7R-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="390" />
+              <mxPoint x="650" y="563" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGXgSaPmuUJwHho-_G7R-81" value="Reģistrācijas&lt;br&gt;pasākumiem&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-80" vertex="1" connectable="0">
+          <mxGeometry x="0.1221" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
