@@ -122,12 +122,15 @@ Kā redzams attēlā 1.1., sistēmas visi lietotāji tiek uzskatīti par Biedrie
 # 2 Programmatūras prasību specifikācija
 
 ## 2.1 Datu bāzes apraksts
+
 <img src="/Documentation/DB_konceptuala_diagramma.png">
-     
+
 **Attēls 2.1.** *Konceptuālais datu bāzes modelis*
 Kā var redzēt attēlā 2.1. datubāzē ir 3 galvenās tabulas (Lieotājs (User), Vienība (Unit), Pasākums (Event)) ar 4 palīgtabulām (Biedra naudas nomaksa (Membership Fee Payments), Amats(Position), Iknedēļas nodarbība (Weekly Activity) un Reģistrācija pasākumam (Event Registration)). Tabulas ir iekrāsotas atkarībā no tā, kura moduļa funkcijas pārsvarā pārvalda šo tabulu- sarkans priekš BDR moduļa, zaļš priekš PSK moduļa, zils priekš VNB moduļa. Jāpiebilst, ka VLD modulis pārvalda arī Vienības entītiju.
 
 ## 2.2 Funkcionālās prasības
+
+### 2.2.2. Funkciju sadalījums pa modeļiem
 
 <img src="/Documentation/1_limena_dpd.png" alt="">
 
@@ -137,39 +140,60 @@ Attēlā 2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo
 Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, kas pieejama dažāda līmeņa piekļuves lietotājiem. Šie moduļi ir sekojoši:
 
 - "Biedrs" (**BDR**) modulis, kas ir domāts lietotāja personīgās informācijas uzturēšanai, labošanai un izmantošanai, kā arī biedra naudu izsekošanai. 
-
+Funkciju sadalījums pa sistēmas moduļiem
 - "Vienība" (**VNB**) modulis, kas ir domāts struktūrvienības informācijas uzturēšanai, labošanai un izmantošanai, jaunu biedru pievienošanai, kā arī vienības līmeņa atskaišu sagatavošanai.
 
 - "Valde" (**VLD**) modulis, kas ir domāts organizācijas līmeņa atskaišu sagatavošanai, jaunu vienību izveidei.
 
 - "Pasākums" (**PSK**) modulis, kas ir domāts pasākumu izveidei, uzturēšanai un izmantošanai, biedru pievienošanai pasākumu dalībnieku / organizatoru sarakstam.
   
-  | Modulis | Funkcijas apzīmējums | Funkcija                                            | Lietotāji                           |
-  | ------- | -------------------- | --------------------------------------------------- | ----------------------------------- |
-  | BDR     | BDR-01               | Biedra datu apskatīšana                             | Biedrs, Priekšnieks, Administrators |
-  |         | BDR-02               | Biedra datu atjaunošana                             | Biedrs, Priekšnieks, Administrators |
-  |         | BDR-03               | Izstāšanās pieteikuma iesniegšana                   | Biedrs, Priekšnieks, Administrators |
-  |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators |
-  |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                   |
-  |         | BDR-06               | Biedra naudas bilances pārrēķins                    | Autonoma funkcija                   |
-  | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators         |
-  |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators         |
-  |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators         |
-  |         | VNB-04               | Vienības datu apskaīšana                            | Priekšnieks, Administrators         |
-  |         | VNB-05               | Vienības datu atjaunošana                           | Priekšnieks, Administrators         |
-  |         | VNB-06               | Vienības biedru atskaites sagatavošana              | Priekšnieks, Administrators         |
-  |         | VNB-07               | Vienības biedra biedra naudas nomaksas reģistrēšana | Priekšnieks, Administrators         |
-  |         | VNB-08               | Vienības biedra amata pievienošana                  | Priekšnieks, Administrators         |
-  | VLD     | VLD-01               | Vienības pievienošana                               | Administrators                      |
-  |         | VLD-02               | Vienības dzēšana                                    | Administrators                      |
-  |         | VLD-03               | Biedru atskaites sagatavošana                       | Administrators                      |
-  |         | VLD-04               | Vienību atskaites sagatavošana                      | Administrators                      |
-  |         | VLD-05               | Biedra personīgo datu dzēšana                       | Administrators                      |
-  | PSK     | PSK-01               | Pasākuma izveidošana                                | Priekšnieks, Administrators         |
-  |         | PSK-02               | Pasākuma dzēšana                                    | Priekšnieks, Administrators         |
-  |         | PSK-03               | Pasākuma datu atjaunošana                           | Priekšnieks, Administrators         |
-  |         | PSK-04               | Pasākumu apsktīšana                                 | Biedrs, Priekšnieks, Administrators |
-  |         | PSK-05               | Pieteikšanās pasākumam                              | Biedrs, Priekšnieks, Administrators |
-  |         | PSK-06               | Atteikšanās no pasākuma                             | Biedrs, Priekšnieks, Administrators |
+  | Modulis | Funkcijas apzīmējums | Funkcija                                            | Lietotāji                                      |
+  | ------- | -------------------- | --------------------------------------------------- | ---------------------------------------------- |
+  | BDR     | BDR-01               | Biedra datu apskatīšana                             | Biedrs, Priekšnieks, Administrators            |
+  |         | BDR-02               | Biedra datu atjaunošana                             | Biedrs, Priekšnieks, Administrators            |
+  |         | BDR-03               | Izstāšanās pieteikuma iesniegšana                   | Biedrs, Priekšnieks, Administrators            |
+  |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators            |
+  |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                              |
+  | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators                    |
+  |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators                    |
+  |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators                    |
+  |         | VNB-04               | Vienības datu apskaīšana                            | Priekšnieks, Administrators                    |
+  |         | VNB-05               | Vienības datu atjaunošana                           | Priekšnieks, Administrators                    |
+  |         | VNB-06               | Vienības biedru atskaites sagatavošana              | Priekšnieks, Administrators                    |
+  |         | VNB-07               | Vienības biedra biedra naudas nomaksas reģistrēšana | Priekšnieks, Administrators                    |
+  |         | VNB-08               | Vienības biedra amata pievienošana                  | Priekšnieks, Administrators                    |
+  |         | VNB-09               | Iknedēļas nodarbības pievienošana                   | Priekšnieks, Administrators                    |
+  |         | VNB-10               | Iknedēļas nodarbības izmainīšana                    | Priekšnieks, Administrators                    |
+  |         | VNB-11               | Iknedēļas nodarbības noņemšana                      | Priekšnieks, Administrators                    |
+  |         | VNB-12               | Novadītas nodarbības atzīmēšana                     | Priekšnieks, Administrators, Biedrs (ar amatu) |
+  | VLD     | VLD-01               | Vienības pievienošana                               | Administrators                                 |
+  |         | VLD-02               | Vienības dzēšana                                    | Administrators                                 |
+  |         | VLD-03               | Biedru atskaites sagatavošana                       | Administrators                                 |
+  |         | VLD-04               | Vienību atskaites sagatavošana                      | Administrators                                 |
+  |         | VLD-05               | Biedra personīgo datu dzēšana                       | Administrators                                 |
+  | PSK     | PSK-01               | Pasākuma izveidošana                                | Priekšnieks, Administrators                    |
+  |         | PSK-02               | Pasākuma dzēšana                                    | Priekšnieks, Administrators                    |
+  |         | PSK-03               | Pasākuma datu atjaunošana                           | Priekšnieks, Administrators                    |
+  |         | PSK-04               | Pasākumu apsktīšana                                 | Biedrs, Priekšnieks, Administrators            |
+  |         | PSK-05               | Pieteikšanās pasākumam                              | Biedrs, Priekšnieks, Administrators            |
+  |         | PSK-06               | Atteikšanās no pasākuma                             | Biedrs, Priekšnieks, Administrators            |
+  |         | PSK-07               | Aktuālo pasākumu iegūšana                           | Biedrs, Priekšnieks, Administrators            |
 
 **Tabula 2.3.** *Funkciju sadalījums pa sistēmas moduļiem*
+
+
+
+### 2.2.2. Modulis "Biedrs"
+
+<img src="/Documentation/2_limena_BDR_DPD.png">
+**Attēls 2.4.** *BDR moduļa 2. līmeņa DPD diagrama*
+
+### 2.2.3. Modulis "Vienība"
+
+
+
+### 2.2.4. Modulis "Valde"
+
+
+
+### 2.2.5. Modulis "Pasākums"

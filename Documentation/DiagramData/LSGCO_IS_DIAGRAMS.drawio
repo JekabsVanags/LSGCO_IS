@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-09-24T19:48:23.813Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="X8Vdzlxft9DzeP3LAfFf" version="21.8.2" type="device" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-09-29T18:03:52.154Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="y0hgz_18rA7pFbVmTjHJ" version="21.8.2" type="device" pages="3">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
-    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="474" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -91,7 +91,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="6GguuWpty2bciPeQia3-" name="1.limena DPD">
-    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="567" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -375,6 +375,152 @@
         <mxCell id="xGXgSaPmuUJwHho-_G7R-81" value="Reģistrācijas&lt;br&gt;pasākumiem&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xGXgSaPmuUJwHho-_G7R-80" vertex="1" connectable="0">
           <mxGeometry x="0.1221" y="1" relative="1" as="geometry">
             <mxPoint x="-1" y="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="RomifQWhu---GyK7lGh1" name="2.limena_BDR_DPD">
+    <mxGraphModel dx="567" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-1" target="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-7" value="Apstrādāti &lt;br&gt;biedra dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-6">
+          <mxGeometry x="0.28" y="-1" relative="1" as="geometry">
+            <mxPoint x="87" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p9DNszMhC0L0ikfJBox9-1" value="BDR-01&lt;br&gt;&lt;p&gt;Biedra datu apskatīšana&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p9DNszMhC0L0ikfJBox9-2" value="BDR-02&lt;br&gt;&lt;p&gt;Biedra datu atjaunošana&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="210" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-3" target="vp05-B3GRNU1gS82rTva-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="322" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-19" value="Pieteikuma epasts" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-18">
+          <mxGeometry x="0.3408" y="-3" relative="1" as="geometry">
+            <mxPoint x="22" y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p9DNszMhC0L0ikfJBox9-3" value="BDR-03&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;p style=&quot;font-size: 10px;&quot;&gt;Izstāšanās pieteikuma iesniegšana&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="310" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p9DNszMhC0L0ikfJBox9-4" value="BDR-04&lt;br&gt;&lt;p style=&quot;font-size: 10px;&quot;&gt;Biedra naudas statusa iegūšana&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="420" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-5" target="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="510" />
+              <mxPoint x="95" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-33" value="Biedra naudas &lt;br&gt;atgādinājuma epasts" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-30">
+          <mxGeometry x="0.1475" y="-1" relative="1" as="geometry">
+            <mxPoint x="45" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p9DNszMhC0L0ikfJBox9-5" value="BDR-05&lt;br&gt;&lt;p style=&quot;font-size: 10px;&quot;&gt;Biedra naudas paziņojums&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="520" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="vp05-B3GRNU1gS82rTva-1" target="p9DNszMhC0L0ikfJBox9-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-10" value="Biedra&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-8">
+          <mxGeometry x="-0.2593" y="1" relative="1" as="geometry">
+            <mxPoint x="15" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="vp05-B3GRNU1gS82rTva-1" target="p9DNszMhC0L0ikfJBox9-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-13" value="Pieteikuma&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-12">
+          <mxGeometry x="0.05" y="-3" relative="1" as="geometry">
+            <mxPoint x="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vp05-B3GRNU1gS82rTva-1" value="" style="swimlane;startSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="10" y="170" width="170" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="vp05-B3GRNU1gS82rTva-2" value="Biedrs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry x="18.75" y="40" width="132.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vp05-B3GRNU1gS82rTva-10" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry x="23.75" y="210" width="127.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vp05-B3GRNU1gS82rTva-11" value="Priekšnieks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry x="22.5" y="120" width="128.75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="vp05-B3GRNU1gS82rTva-12" target="p9DNszMhC0L0ikfJBox9-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-5" value="Biedra &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-4">
+          <mxGeometry x="0.1583" y="5" relative="1" as="geometry">
+            <mxPoint x="-11" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vp05-B3GRNU1gS82rTva-12" value="Biedru datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="520" y="210" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HKc2-ndimWxw6g6DQAMn-2" target="p9DNszMhC0L0ikfJBox9-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-21" value="Biedra naudas &lt;br&gt;nomaksas dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-20">
+          <mxGeometry x="0.475" y="-1" relative="1" as="geometry">
+            <mxPoint x="27" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-2" value="Biedra naudu datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="530" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-2" target="vp05-B3GRNU1gS82rTva-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-11" value="Atjaunotie&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-9">
+          <mxGeometry x="-0.2" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-3" target="vp05-B3GRNU1gS82rTva-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-15" value="Biedra datu dzēšana" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-14">
+          <mxGeometry x="-0.4696" y="-1" relative="1" as="geometry">
+            <mxPoint x="29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.006;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="p9DNszMhC0L0ikfJBox9-4" target="vp05-B3GRNU1gS82rTva-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-24" value="Biedra naudas&lt;br&gt;bilances dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-23">
+          <mxGeometry x="0.249" y="2" relative="1" as="geometry">
+            <mxPoint x="21" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.625;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="HKc2-ndimWxw6g6DQAMn-2" target="p9DNszMhC0L0ikfJBox9-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HKc2-ndimWxw6g6DQAMn-29" value="Biedra naudas&lt;br&gt;nomaksas dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HKc2-ndimWxw6g6DQAMn-25">
+          <mxGeometry x="0.0154" y="-1" relative="1" as="geometry">
+            <mxPoint x="6" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>

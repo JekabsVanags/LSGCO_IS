@@ -7,6 +7,15 @@ CREATE TABLE "Membership Fee Payments"(
 );
 ALTER TABLE
     "Membership Fee Payments" ADD PRIMARY KEY("id");
+CREATE TABLE "Invite"(
+    "id" BIGINT NOT NULL,
+    "unit" BIGINT NOT NULL,
+    "rank" VARCHAR(255) CHECK
+        ("rank" IN('')) NOT NULL,
+        "event" BIGINT NOT NULL
+);
+ALTER TABLE
+    "Invite" ADD PRIMARY KEY("id");
 CREATE TABLE "Unit"(
     "id" BIGINT NOT NULL,
     "city" VARCHAR(255) NOT NULL,
@@ -102,6 +111,8 @@ ALTER TABLE
 ALTER TABLE
     "Membership Fee Payments" ADD CONSTRAINT "membership fee payments_user_recorded_foreign" FOREIGN KEY("user_recorded") REFERENCES "User"("id");
 ALTER TABLE
+    "Invite" ADD CONSTRAINT "invite_event_foreign" FOREIGN KEY("event") REFERENCES "Event"("id");
+ALTER TABLE
     "Membership Fee Payments" ADD CONSTRAINT "membership fee payments_user_payed_foreign" FOREIGN KEY("user_payed") REFERENCES "User"("id");
 ALTER TABLE
     "Event Registrations" ADD CONSTRAINT "event registrations_event_foreign" FOREIGN KEY("event") REFERENCES "Event"("id");
@@ -111,3 +122,5 @@ ALTER TABLE
     "User" ADD CONSTRAINT "user_activity_statuss_foreign" FOREIGN KEY("activity_statuss") REFERENCES "Position"("user");
 ALTER TABLE
     "Weekly Activity" ADD CONSTRAINT "weekly activity_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");
+ALTER TABLE
+    "Invite" ADD CONSTRAINT "invite_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");
