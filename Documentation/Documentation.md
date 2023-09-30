@@ -205,3 +205,9 @@ Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, ka
 <img src="/Documentation/2_limena_PSK_DPD.png">
 
 **Attēls 2.7.** *VNB moduļa 2. līmeņa PSK diagrama*
+
+## 2.3. Skatu projektējums
+
+<img src="/Documentation/sk_landing.png">
+
+**Attēls 2.8.** *Pievienošanās skats*
