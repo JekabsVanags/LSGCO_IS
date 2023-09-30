@@ -140,7 +140,8 @@ Attēlā 2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo
 Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, kas pieejama dažāda līmeņa piekļuves lietotājiem. Šie moduļi ir sekojoši:
 
 - "Biedrs" (**BDR**) modulis, kas ir domāts lietotāja personīgās informācijas uzturēšanai, labošanai un izmantošanai, kā arī biedra naudu izsekošanai. 
-Funkciju sadalījums pa sistēmas moduļiem
+  Funkciju sadalījums pa sistēmas moduļiem
+
 - "Vienība" (**VNB**) modulis, kas ir domāts struktūrvienības informācijas uzturēšanai, labošanai un izmantošanai, jaunu biedru pievienošanai, kā arī vienības līmeņa atskaišu sagatavošanai.
 
 - "Valde" (**VLD**) modulis, kas ir domāts organizācijas līmeņa atskaišu sagatavošanai, jaunu vienību izveidei.
@@ -181,26 +182,26 @@ Funkciju sadalījums pa sistēmas moduļiem
 
 **Tabula 2.3.** *Funkciju sadalījums pa sistēmas moduļiem*
 
+### 2.2.2. Modulis "Biedrs"
 
-
-### 2.2.2. Modulis "Biedrs" 
 <img src="/Documentation/2_limena_BDR_DPD.png">
 
 **Attēls 2.4.** *BDR moduļa 2. līmeņa DPD diagrama*
 
 ### 2.2.3. Modulis "Vienība"
+
 <img src="/Documentation/2_limena_VNB_DPD.png">
 
 **Attēls 2.5.** *VNB moduļa 2. līmeņa DPD diagrama*
 
-
 ### 2.2.4. Modulis "Valde"
+
 <img src="/Documentation/2_limena_VLD_DPD.png">
 
 **Attēls 2.6.** *VNB moduļa 2. līmeņa VLD diagrama*
 
-
 ### 2.2.5. Modulis "Pasākums"
+
 <img src="/Documentation/2_limena_PSK_DPD.png">
 
 **Attēls 2.7.** *VNB moduļa 2. līmeņa PSK diagrama*

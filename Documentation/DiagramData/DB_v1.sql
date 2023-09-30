@@ -26,7 +26,8 @@ CREATE TABLE "Unit"(
     "email" VARCHAR(255) NULL,
     "phone" VARCHAR(255) NULL,
     "comments" TEXT NOT NULL,
-    "bank_account" TEXT NOT NULL
+    "bank_account" TEXT NOT NULL,
+    "deleted_at" DATE NOT NULL
 );
 ALTER TABLE
     "Unit" ADD PRIMARY KEY("id");
@@ -69,7 +70,8 @@ CREATE TABLE "User"(
         "sex" VARCHAR(255)
     CHECK
         ("sex" IN('')) NULL,
-        "profile_picture" TEXT NULL
+        "profile_picture" TEXT NULL,
+        "password" TEXT NOT NULL
 );
 ALTER TABLE
     "User" ADD PRIMARY KEY("id");
@@ -98,7 +100,8 @@ CREATE TABLE "Event"(
         "necessary_volunteers" BIGINT NOT NULL,
         "registered_volunteers" BIGINT NOT NULL,
         "max_participants" BIGINT NOT NULL,
-        "registered_participants" BIGINT NOT NULL
+        "registered_participants" BIGINT NOT NULL,
+        "deleted_at" DATE NOT NULL
 );
 ALTER TABLE
     "Event" ADD PRIMARY KEY("id");
