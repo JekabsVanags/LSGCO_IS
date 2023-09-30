@@ -32,6 +32,22 @@ ALTER TABLE
     "Unit" ADD PRIMARY KEY("id");
 ALTER TABLE
     "Unit" ADD CONSTRAINT "unit_number_unique" UNIQUE("number");
+CREATE TABLE "Personal Information"(
+    "id" BIGINT NOT NULL,
+    "user" BIGINT NOT NULL,
+    "address" VARCHAR(255) NOT NULL,
+    "emergency_contact_number" VARCHAR(255) NOT NULL,
+    "emergency_contact_relationship" VARCHAR(255) CHECK
+        (
+            "emergency_contact_relationship" IN('')
+        ) NOT NULL,
+        "health_issues" TEXT NULL,
+        "medication_during_event" TEXT NULL,
+        "psychological_features" TEXT NULL,
+        "diet" TEXT NOT NULL
+);
+ALTER TABLE
+    "Personal Information" ADD PRIMARY KEY("id");
 CREATE TABLE "User"(
     "id" BIGINT NOT NULL,
     "permission_level" VARCHAR(255) CHECK
@@ -92,7 +108,8 @@ CREATE TABLE "Event Registrations"(
     "event" BIGINT NOT NULL,
     "role" VARCHAR(255) CHECK
         ("role" IN('')) NOT NULL,
-        "position" TEXT NOT NULL
+        "position" TEXT NOT NULL,
+        "private_info_permission" BOOLEAN NOT NULL
 );
 ALTER TABLE
     "Event Registrations" ADD PRIMARY KEY("id");
@@ -122,5 +139,7 @@ ALTER TABLE
     "User" ADD CONSTRAINT "user_activity_statuss_foreign" FOREIGN KEY("activity_statuss") REFERENCES "Position"("user");
 ALTER TABLE
     "Weekly Activity" ADD CONSTRAINT "weekly activity_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");
+ALTER TABLE
+    "Personal Information" ADD CONSTRAINT "personal information_user_foreign" FOREIGN KEY("user") REFERENCES "User"("id");
 ALTER TABLE
     "Invite" ADD CONSTRAINT "invite_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");

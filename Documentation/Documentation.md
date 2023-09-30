@@ -183,17 +183,24 @@ Funkciju sadalījums pa sistēmas moduļiem
 
 
 
-### 2.2.2. Modulis "Biedrs"
-
+### 2.2.2. Modulis "Biedrs" 
 <img src="/Documentation/2_limena_BDR_DPD.png">
+
 **Attēls 2.4.** *BDR moduļa 2. līmeņa DPD diagrama*
 
 ### 2.2.3. Modulis "Vienība"
+<img src="/Documentation/2_limena_VNB_DPD.png">
 
+**Attēls 2.5.** *VNB moduļa 2. līmeņa DPD diagrama*
 
 
 ### 2.2.4. Modulis "Valde"
+<img src="/Documentation/2_limena_VLD_DPD.png">
 
+**Attēls 2.6.** *VNB moduļa 2. līmeņa VLD diagrama*
 
 
 ### 2.2.5. Modulis "Pasākums"
+<img src="/Documentation/2_limena_PSK_DPD.png">
+
+**Attēls 2.7.** *VNB moduļa 2. līmeņa PSK diagrama*
