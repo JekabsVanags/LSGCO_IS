@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
     def landing 
-        puts("HER")
+        @sidebar_state = "login"
         render "static/landing"
     end
 end

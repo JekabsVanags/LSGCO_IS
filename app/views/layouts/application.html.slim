@@ -10,5 +10,6 @@ html
     = javascript_importmap_tags
 
   body
-    main.container.flex
-      == yield
+    main.container.flex.min-w-full
+      = render partial: "layouts/sidebar" 
+      = yield

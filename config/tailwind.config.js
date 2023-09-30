@@ -12,6 +12,12 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'scout-blue': '#556987',
+        'scout-gold': '#d7af64',
+        'scout-red' : '#dc5a64'
+      }
+      
     },
   },
   plugins: [

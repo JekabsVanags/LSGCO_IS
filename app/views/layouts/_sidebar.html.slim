@@ -1,0 +1,17 @@
+.h-screen.w-1/5.border-r-4.p-2.flex.flex-col.justify-between.min-w-min
+  = image_tag  "LSGCO_logo.png" 
+
+  -if @sidebar_state == "login"
+    .flex.flex-col 
+      label.input-label
+        |Lietotājs
+      input type="text" class="input-field-blue"
+      label.input-label
+        |Parole
+      input type="password" class="input-field-blue"
+      button.btn-primary.flex.items-center.justify-between.mt-4
+        |Pievienoties
+        img width="30" height="30" src="https://img.icons8.com/ios-filled/50/FFFFFF/login-rounded-right.png" alt="login-rounded-right"
+  -else
+    p
+     |Unknown state
