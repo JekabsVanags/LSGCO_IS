@@ -212,3 +212,14 @@ Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, ka
 <img src="/Documentation/sk_landing.png">
 
 **Attēls 2.8.** *Pievienošanās skats*
+
+# 4 Testēšas protokols
+
+## 4.1. Testēšanas procesu apraksts
+Sistēmas testēšanai tiek lietota rails bibleotēka rspec, kas ir paredzēta automātisko testu izveidei un dokumentēšanai. Rspec sintakse ir labi lasāma, un tās metodes nosaukums apraksta vēlamo sasniedzamo rezultātu. Turpmākajā nodaļā tiks uzskaitīti testa piemēri, kas tiek pārbaudīti sistēmā, kā arī to vēlamais rezultāts. Šos pašus datus var atrast arī projekta /spec/ mapē.
+
+## 4.2. Protokols
+   
+#### Lietotāju modelis
+> ***Testēšanas gadījumi [Vēlamie rezultāti]***
+> Sistēma neļauj izveidot lietotāju bez obligātajiem datiem [sistēma atgriež kļūdas paziņojumu]
