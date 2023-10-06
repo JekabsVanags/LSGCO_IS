@@ -3,10 +3,21 @@ CREATE TABLE "Membership Fee Payments"(
     "date" DATE NOT NULL,
     "amount" DOUBLE PRECISION NOT NULL,
     "user_recorded" BIGINT NOT NULL,
-    "user_payed" BIGINT NOT NULL
+    "user_payed" BIGINT NOT NULL,
+    "unit" BIGINT NOT NULL
 );
 ALTER TABLE
     "Membership Fee Payments" ADD PRIMARY KEY("id");
+CREATE TABLE "Rank History"(
+    "id" BIGINT NOT NULL,
+    "rank" VARCHAR(255) CHECK
+        ("rank" IN('')) NOT NULL,
+        "user" BIGINT NOT NULL,
+        "current?" BOOLEAN NOT NULL,
+        "date_attained" DATE NOT NULL
+);
+ALTER TABLE
+    "Rank History" ADD PRIMARY KEY("id");
 CREATE TABLE "Invite"(
     "id" BIGINT NOT NULL,
     "unit" BIGINT NOT NULL,
@@ -27,7 +38,8 @@ CREATE TABLE "Unit"(
     "phone" VARCHAR(255) NULL,
     "comments" TEXT NOT NULL,
     "bank_account" TEXT NOT NULL,
-    "deleted_at" DATE NOT NULL
+    "deleted_at" DATE NOT NULL,
+    "membership_fee" DOUBLE PRECISION NOT NULL
 );
 ALTER TABLE
     "Unit" ADD PRIMARY KEY("id");
@@ -53,9 +65,6 @@ CREATE TABLE "User"(
     "id" BIGINT NOT NULL,
     "permission_level" VARCHAR(255) CHECK
         ("permission_level" IN('')) NOT NULL,
-        "rank" VARCHAR(255)
-    CHECK
-        ("rank" IN('')) NOT NULL,
         "name" VARCHAR(255) NOT NULL,
         "surname" VARCHAR(255) NOT NULL,
         "unit" BIGINT NOT NULL,
@@ -71,7 +80,9 @@ CREATE TABLE "User"(
     CHECK
         ("sex" IN('')) NULL,
         "profile_picture" TEXT NULL,
-        "password" TEXT NOT NULL
+        "password" TEXT NOT NULL,
+        "agreed_to_data_collection" BOOLEAN NOT NULL,
+        "oath" BOOLEAN NOT NULL
 );
 ALTER TABLE
     "User" ADD PRIMARY KEY("id");
@@ -127,6 +138,8 @@ ALTER TABLE
 ALTER TABLE
     "Event Registrations" ADD CONSTRAINT "event registrations_user_foreign" FOREIGN KEY("user") REFERENCES "User"("id");
 ALTER TABLE
+    "Membership Fee Payments" ADD CONSTRAINT "membership fee payments_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");
+ALTER TABLE
     "User" ADD CONSTRAINT "user_unit_foreign" FOREIGN KEY("unit") REFERENCES "Unit"("id");
 ALTER TABLE
     "Membership Fee Payments" ADD CONSTRAINT "membership fee payments_user_recorded_foreign" FOREIGN KEY("user_recorded") REFERENCES "User"("id");
@@ -134,6 +147,8 @@ ALTER TABLE
     "Invite" ADD CONSTRAINT "invite_event_foreign" FOREIGN KEY("event") REFERENCES "Event"("id");
 ALTER TABLE
     "Membership Fee Payments" ADD CONSTRAINT "membership fee payments_user_payed_foreign" FOREIGN KEY("user_payed") REFERENCES "User"("id");
+ALTER TABLE
+    "Rank History" ADD CONSTRAINT "rank history_user_foreign" FOREIGN KEY("user") REFERENCES "User"("id");
 ALTER TABLE
     "Event Registrations" ADD CONSTRAINT "event registrations_event_foreign" FOREIGN KEY("event") REFERENCES "Event"("id");
 ALTER TABLE
