@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_145045) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_150451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_145045) do
     t.index ["user_id"], name: "index_rank_histories_on_user_id"
   end
 
+  create_table "units", force: :cascade do |t|
+    t.string "city"
+    t.integer "number"
+    t.string "legal_adress"
+    t.string "activity_location_name"
+    t.string "email"
+    t.string "phone"
+    t.text "comments"
+    t.text "bank_account"
+    t.date "deleted_at"
+    t.decimal "membership_fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "surname", null: false
@@ -56,6 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_145045) do
     t.boolean "agreed_to_data_collection"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "units_id"
+    t.index ["units_id"], name: "index_users_on_units_id"
   end
 
   add_foreign_key "personal_informations", "users"
