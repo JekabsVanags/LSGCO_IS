@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_01_095733) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_145045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "personal_informations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "address"
+    t.string "emergency_contact_number"
+    t.integer "emergency_contact_relationship"
+    t.text "health_issues"
+    t.text "medication_during_event"
+    t.text "psychological_features"
+    t.text "diet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_personal_informations_on_user_id"
+  end
+
+  create_table "rank_histories", force: :cascade do |t|
+    t.integer "rank", null: false
+    t.bigint "user_id", null: false
+    t.boolean "current", default: true, null: false
+    t.date "date_begin", null: false
+    t.date "date_of_oath"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rank_histories_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -33,4 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_01_095733) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "personal_informations", "users"
+  add_foreign_key "rank_histories", "users"
 end
