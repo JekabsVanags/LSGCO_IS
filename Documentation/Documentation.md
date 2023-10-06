@@ -14,7 +14,6 @@ Qualification work includes, an information system, along with its specification
 
 Šis dokuments ir paredzēts, lai aprakstītu izstrādājamās sistēmas "Latvijas Skautu un Gaidu centrālās organizācijas" jeb "LSGCO IS" programmatūras prasības un projektējumu.  Šī sistēma ir paredzēta Latvijas Skautu un Gaidu centrālās organizācijas iekšējai lietošanai. Šajā dokumentā tiks detalizēti aprakstītas sistēmas produkta prasības, projektējums un funkcionalitāte, kā arī sistēmas izstrāde un testēšana.
 
-
 ## Darbības sfēra
 
 Sistēma "LSGCO IS" ir tīmekļa lietotne, kas nodrošina datu uzskaiti un pārvaldīšanu organizācijas ietvaros. Sistēmas galvenais mērķis ir strādāt kā biedruzinības platformai, kura ļauj organizācijai un tās struktūrvienībām izsekot saviem biedriem, šo biedru statusam, biedra naudas bilances stāvoklim, kā arī biedru datu uzturēšanai. Tāpat sistēma uzturēs informāciju par dažādu struktūrvienību veidotiem pasākumiem, brīvprātīgajiem, kas tajos piedalās un kuri to organizē. 
@@ -82,7 +81,7 @@ Sistēma netiek veidota pēc pasūtījuma, bet pēc LSGCO biedra iniciatīvas kv
 
 ## 1.3 Produkta perspektīva
 
-Izstrādājamā sistēma ir pārsvarā neatkarīga un patstāvīga. *Vai šeit vajag rakstīt atkarības no framework vai bibleotēkām?*
+Izstrādājamā sistēma ir pārsvarā neatkarīga un patstāvīga.
 
 ## 1.4 Darījumprasības
 
@@ -100,10 +99,9 @@ Sistēmai ir jānodrošina sekojošas funkcijas:
 
 <img src="/Documentation/0_limena_dpd.png" />
 
-**Attēls 1.1.** *0. līmeņa datu plūsmas diagramma*
-Kā redzams attēlā 1.1., sistēmas visi lietotāji tiek uzskatīti par Biedriem. Katra nākamā sistēmas lietotāja grupa iegūst jaunas tiesības, nezaudējot iepriekšējās. Sākot no Priekšnieka atļaujas līmeņa ir iespējams iegūt atskaites.
+**Attēls 1.1.1.** *0. līmeņa datu plūsmas diagramma*
+Kā redzams attēlā 1.1.1., sistēmas visi lietotāji tiek uzskatīti par Biedriem. Katra nākamā sistēmas lietotāja grupa iegūst jaunas tiesības, nezaudējot iepriekšējās. Sākot no Priekšnieka atļaujas līmeņa ir iespējams iegūt atskaites.
 
-- Nereģistrēts lietotājs - lietotājs kurš spēj piekļūt tikai galvenajai lapai. *Vai šo ir vērts minēt?*
 - Organizācijas biedrs (turpmāk Biedrs) - lietotājs, kurš spēj papildināt datus par sevi, pievienoties pasākumiem, saņemt paziņojumus par beidra naudām, apskatīt un pieteikties pasākumiem. Šim lietotājam ir piekļuve sistēmas "Biedrs" modulim un tā funkcijām, daļai no "Pasākums" modeļa funkcijām.
 - Struktūrvienības vadītājs (turpmāk Priekšnieks) - lietotājs, kurš spēj veikt visas darbības ko Biedrs, bet arī pārvaldīt vienības biedrus un to statusu, izveidot jaunu biedru, izveidot atskaites par vienību, izveidot pasākumus. Šim lietotājam ir piekļuve sistēmas "Biedrs", "Pasākums" un "Vienība" moduļiem un to funkcijām.
 - Nacionālā līmeņa biedrs (turpmāk Administrators) - lietotājs, kurš spēj veikt visas darbības ko Biedrs un Priekšnieks, bet arī pārvaldīt vienības, izveidot jaunu vienību, izveidot atskaites par organizāciju. Šim lietotājam ir piekļuve sistēmas "Biedrs", "Vienība", "Pasākums" un "Valde" moduļiem un to funkcijām.
@@ -126,8 +124,8 @@ Kā redzams attēlā 1.1., sistēmas visi lietotāji tiek uzskatīti par Biedrie
 
 <img src="/Documentation/DB_konceptuala_diagramma.png">
 
-**Attēls 2.1.** *Konceptuālais datu bāzes modelis*
-Kā var redzēt attēlā 2.1. datubāzē ir 3 galvenās tabulas (Lieotājs (User), Vienība (Unit), Pasākums (Event)) ar 4 palīgtabulām (Biedra naudas nomaksa (Membership Fee Payments), Amats(Position), Iknedēļas nodarbība (Weekly Activity) un Reģistrācija pasākumam (Event Registration)). Tabulas ir iekrāsotas atkarībā no tā, kura moduļa funkcijas pārsvarā pārvalda šo tabulu- sarkans priekš BDR moduļa, zaļš priekš PSK moduļa, zils priekš VNB moduļa. Jāpiebilst, ka VLD modulis pārvalda arī Vienības entītiju.
+**Attēls 2.1.1.** *Konceptuālais datu bāzes modelis*
+Attēlā 2.2.1 var redzēt datubāzes konceptuālo modeli, kurā ir redzamas savstarpējās attiecības starp tabulu entītijām, kā arī to datu lauki.
 
 ## 2.2 Funkcionālās prasības
 
@@ -135,10 +133,10 @@ Kā var redzēt attēlā 2.1. datubāzē ir 3 galvenās tabulas (Lieotājs (User
 
 <img src="/Documentation/1_limena_dpd.png" alt="">
 
-   **Attēls 2.2.** *1. līmeņa datu plūsmas diagramma*
-Attēlā 2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo sistēmas moduļu miejdarbību ar sistēmas lietotājiem un datubāzi. Pārskatāmības dēļ 1. līmenī DB ir abstraktētas vairākās datubāzēs, un tā neatspoguļo reālo datubāzes uzbūvi. Detalizētāks modeļu funkciju apraksts ir apskatāms zemāk tabulā 2.2.
+   **Attēls 2.2.1.** *1. līmeņa datu plūsmas diagramma*
+Attēlā 2.2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo sistēmas moduļu miejdarbību ar sistēmas lietotājiem un datubāzi. Pārskatāmības dēļ 1. līmenī DB ir abstraktētas vairākās datubāzēs, un tā neatspoguļo reālo datubāzes uzbūvi. Detalizētāks modeļu funkciju apraksts ir apskatāms zemāk tabulā 2.2.
 
-Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, kas pieejama dažāda līmeņa piekļuves lietotājiem. Šie moduļi ir sekojoši:
+Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 - "Biedrs" (**BDR**) modulis, kas ir domāts lietotāja personīgās informācijas uzturēšanai, labošanai un izmantošanai, kā arī biedra naudu izsekošanai. 
   Funkciju sadalījums pa sistēmas moduļiem
@@ -148,6 +146,8 @@ Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, ka
 - "Valde" (**VLD**) modulis, kas ir domāts organizācijas līmeņa atskaišu sagatavošanai, jaunu vienību izveidei.
 
 - "Pasākums" (**PSK**) modulis, kas ir domāts pasākumu izveidei, uzturēšanai un izmantošanai, biedru pievienošanai pasākumu dalībnieku / organizatoru sarakstam.
+
+- "Sistēma" (**SYS**) modulis, kas ir paredzēts sistēmas darbībām un autorizācijām.
   
   | Modulis | Funkcijas apzīmējums | Funkcija                                            | Lietotāji                                      |
   | ------- | -------------------- | --------------------------------------------------- | ---------------------------------------------- |
@@ -180,35 +180,68 @@ Sistēma ir sadalīta 4 galvenajos modeļos, kuri atbilst funkcionalitātēm, ka
   |         | PSK-05               | Pieteikšanās pasākumam                              | Biedrs, Priekšnieks, Administrators            |
   |         | PSK-06               | Atteikšanās no pasākuma                             | Biedrs, Priekšnieks, Administrators            |
   |         | PSK-07               | Aktuālo pasākumu iegūšana                           | Biedrs, Priekšnieks, Administrators            |
+  | SYS     | SYS-01               | Pieslēgšanās                                        | Biedrs, Priekšnieks, Administrators            |
+  |         | SYS-02               | Atslēgšanās                                         | Biedrs, Priekšnieks, Administrators            |
+  |         | SYS-03               | Biedra naudas bilances pārrēķins                    | Autonoma funkcija                              |
 
-**Tabula 2.3.** *Funkciju sadalījums pa sistēmas moduļiem*
+**Tabula 2.2.2** *Funkciju sadalījums pa sistēmas moduļiem*
 
 ### 2.2.2. Modulis "Biedrs"
 
 <img src="/Documentation/2_limena_BDR_DPD.png">
 
-**Attēls 2.4.** *BDR moduļa 2. līmeņa DPD diagrama*
+**Attēls 2.2.3** *BDR moduļa 2. līmeņa DPD diagrama*
 
 ### 2.2.3. Modulis "Vienība"
 
 <img src="/Documentation/2_limena_VNB_DPD.png">
 
-**Attēls 2.5.** *VNB moduļa 2. līmeņa DPD diagrama*
+**Attēls 2.2.4** *VNB moduļa 2. līmeņa DPD diagrama*
 
 ### 2.2.4. Modulis "Valde"
 
 <img src="/Documentation/2_limena_VLD_DPD.png">
 
-**Attēls 2.6.** *VNB moduļa 2. līmeņa VLD diagrama*
+**Attēls 2.2.5** *VNB moduļa 2. līmeņa VLD diagrama*
 
 ### 2.2.5. Modulis "Pasākums"
 
 <img src="/Documentation/2_limena_PSK_DPD.png">
 
-**Attēls 2.7.** *VNB moduļa 2. līmeņa PSK diagrama*
+**Attēls 2.2.6** *VNB moduļa 2. līmeņa PSK diagrama*
 
-## 2.3. Skatu projektējums
+### 2.2.5. Modulis "Sistēma"
 
+<img src="/Documentation/2_limena_SYS_DPD.png">
+
+**Attēls 2.2.7** *VNB moduļa 2. līmeņa SYS diagrama*
+
+
+# 3 Projektējuma apraksts
+
+## 3.1. Datubāzes projektējums
+<img src="/Documentation/DB_logiska_diagramma.png">
+
+**Attēls 3.1.1.** *Loģiskais datu bāzes modelis*
+Kā var redzēt attēlā 2.1.2. datubāzē ir 3 galvenās tabulas (Lieotājs (User), Vienība (Unit), Pasākums (Event)) ar 5 palīgtabulām (Biedra naudas nomaksa (Membership Fee Payments), Amats(Position), Iknedēļas nodarbība (Weekly Activity), Pakāpes vēsture (Rank History) un Reģistrācija pasākumam (Event Registration)). Klāt konceptuālajam modelim ir nākuši datu tipi, kā arī palīglauki ārējām atslēgām un unikālajiem identifikatoriem. Sistēmas specifikas dēļ primārajām atslēgām tiek lietots unikāls ID lauks.
+
+## 3.2. Skatu projektējums
+
+### 3.2.1. Pievienošanās skats
 <img src="/Documentation/sk_landing.png">
 
-**Attēls 2.8.** *Pievienošanās skats*
+**Attēls 3.2.1** *Pievienošanās skats*
+
+
+# 4 Testēšas protokols
+
+## 4.1. Testēšanas procesu apraksts
+
+Sistēmas testēšanai tiek lietota rails bibleotēka rspec, kas ir paredzēta automātisko testu izveidei un dokumentēšanai. Rspec sintakse ir labi lasāma, un tās metodes nosaukums apraksta vēlamo sasniedzamo rezultātu. Turpmākajā nodaļā tiks uzskaitīti testa piemēri, kas tiek pārbaudīti sistēmā, kā arī to vēlamais rezultāts. Šos pašus datus var atrast arī projekta /spec/ mapē.
+
+## 4.2. Protokols
+
+#### Lietotāju modelis
+
+> ***Testēšanas gadījumi [Vēlamie rezultāti]***
+> Sistēma neļauj izveidot lietotāju bez obligātajiem datiem [sistēma atgriež kļūdas paziņojumu]
