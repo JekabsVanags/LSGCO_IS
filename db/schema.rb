@@ -10,9 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_150451) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_registrations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.integer "role", null: false
+    t.string "position"
+    t.boolean "private_info_permission", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_registrations_on_event_id"
+    t.index ["user_id"], name: "index_event_registrations_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "unit_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.date "date_from", null: false
+    t.date "date_to"
+    t.integer "event_type", null: false
+    t.integer "necessary_volunteers"
+    t.integer "registered_volunteers", default: 0
+    t.integer "max_participants"
+    t.integer "registered_participants", default: 0
+    t.date "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_events_on_unit_id"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.bigint "unit_id", null: false
+    t.bigint "event_id", null: false
+    t.integer "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invites_on_event_id"
+    t.index ["unit_id"], name: "index_invites_on_unit_id"
+  end
+
+  create_table "membership_fee_payments", force: :cascade do |t|
+    t.date "date"
+    t.decimal "amount"
+    t.integer "user_recorded"
+    t.integer "user_payed"
+    t.bigint "unit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_membership_fee_payments_on_unit_id"
+  end
 
   create_table "personal_informations", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -26,6 +76,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_150451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_personal_informations_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "unit_id", null: false
+    t.string "position_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_positions_on_unit_id"
+    t.index ["user_id"], name: "index_positions_on_user_id"
   end
 
   create_table "rank_histories", force: :cascade do |t|
@@ -75,6 +135,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_150451) do
     t.index ["units_id"], name: "index_users_on_units_id"
   end
 
+  create_table "weekly_activities", force: :cascade do |t|
+    t.bigint "unit_id", null: false
+    t.integer "day"
+    t.time "time"
+    t.integer "rank"
+    t.integer "times_organized"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_weekly_activities_on_unit_id"
+  end
+
+  add_foreign_key "event_registrations", "events"
+  add_foreign_key "event_registrations", "users"
+  add_foreign_key "events", "units"
+  add_foreign_key "invites", "events"
+  add_foreign_key "invites", "units"
+  add_foreign_key "membership_fee_payments", "units"
   add_foreign_key "personal_informations", "users"
+  add_foreign_key "positions", "units"
+  add_foreign_key "positions", "users"
   add_foreign_key "rank_histories", "users"
+  add_foreign_key "weekly_activities", "units"
 end
