@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :rank_history, dependent: :destroy
   has_one :personal_informations, dependent: :destroy
+  has_one :unit
 
   def years_in_organization
     ((Date.today - joined_date)/365).to_i
