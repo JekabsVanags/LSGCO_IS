@@ -3,7 +3,7 @@ FactoryBot.define do
     rank { 1 }
     user { nil }
     current { false }
-    date_begin { "2023-10-06" }
-    date_of_oath { "2023-10-06" }
+    date_begin { Faker::Date.past }
+    date_of_oath { Faker::Date.past }
   end
 end

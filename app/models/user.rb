@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :name, :surname, :activity_statuss, :membership_fee_bilance, :joined_date, :permission_level, presence: true
 
   enum activity_statuss: ["aktīvs", "interesents", "vecbiedrs"]
   enum sex: ["M", "F", "O"]
@@ -7,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :rank_history
   has_one :personal_informations, dependent: :destroy
-  has_one :unit
+  belongs_to :unit
 
   has_many :event_registrations
 

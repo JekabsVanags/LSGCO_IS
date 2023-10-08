@@ -53,17 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
     t.index ["unit_id"], name: "index_invites_on_unit_id"
   end
 
-  create_table "membership_fee_payments", force: :cascade do |t|
-    t.date "date"
-    t.decimal "amount"
-    t.integer "user_recorded"
-    t.integer "user_payed"
-    t.bigint "unit_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_membership_fee_payments_on_unit_id"
-  end
-
   create_table "personal_informations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "address"
@@ -78,16 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
     t.index ["user_id"], name: "index_personal_informations_on_user_id"
   end
 
-  create_table "positions", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "unit_id", null: false
-    t.string "position_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_positions_on_unit_id"
-    t.index ["user_id"], name: "index_positions_on_user_id"
-  end
-
   create_table "rank_histories", force: :cascade do |t|
     t.integer "rank", null: false
     t.bigint "user_id", null: false
@@ -100,14 +79,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   end
 
   create_table "units", force: :cascade do |t|
-    t.string "city"
-    t.integer "number"
-    t.string "legal_adress"
+    t.string "city", null: false
+    t.integer "number", null: false
+    t.string "legal_adress", null: false
     t.string "activity_location_name"
     t.string "email"
     t.string "phone"
     t.text "comments"
-    t.text "bank_account"
+    t.text "bank_account", null: false
     t.date "deleted_at"
     t.decimal "membership_fee"
     t.datetime "created_at", null: false
@@ -117,7 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "surname", null: false
-    t.integer "rank", null: false
     t.boolean "promise", null: false
     t.string "phone"
     t.string "email"
@@ -131,19 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
     t.boolean "agreed_to_data_collection"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "units_id"
-    t.index ["units_id"], name: "index_users_on_units_id"
-  end
-
-  create_table "weekly_activities", force: :cascade do |t|
-    t.bigint "unit_id", null: false
-    t.integer "day"
-    t.time "time"
-    t.integer "rank"
-    t.integer "times_organized"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_weekly_activities_on_unit_id"
+    t.bigint "unit_id"
+    t.index ["unit_id"], name: "index_users_on_unit_id"
   end
 
   add_foreign_key "event_registrations", "events"
@@ -151,10 +118,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   add_foreign_key "events", "units"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "units"
-  add_foreign_key "membership_fee_payments", "units"
   add_foreign_key "personal_informations", "users"
-  add_foreign_key "positions", "units"
-  add_foreign_key "positions", "users"
   add_foreign_key "rank_histories", "users"
-  add_foreign_key "weekly_activities", "units"
 end

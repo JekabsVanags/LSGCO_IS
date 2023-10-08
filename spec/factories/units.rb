@@ -4,11 +4,10 @@ FactoryBot.define do
     number { 1 }
     legal_adress { "MyString" }
     activity_location_name { "MyString" }
-    email { "MyString" }
-    phone { "MyString" }
+    email { Faker::Internet.email }
+    phone { Faker::PhoneNumber.phone_number }
     comments { "MyText" }
-    bank_account { "MyText" }
-    deleted_at { "2023-10-06" }
-    membership_fee { "9.99" }
+    bank_account { Faker::PhoneNumber.phone_number }
+    membership_fee { "2" }
   end
 end
