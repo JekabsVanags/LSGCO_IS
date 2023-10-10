@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
     surname {Faker::Name.name}
-    promise {false}
     activity_statuss {'aktīvs'}
     joined_date {DateTime.now - 1 }
     password_digest {Faker::Internet.password}

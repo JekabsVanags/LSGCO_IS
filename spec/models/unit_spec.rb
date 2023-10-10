@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Unit, type: :model do
   let(:unit) { build :unit }
+  let(:unit2) { build :unit }
   let(:user1) { build :user, unit: unit }
   let(:user2) { build :user, unit: unit }
- 
+  let(:event) { build :event, unit: unit }
+  let(:invite) { build :invite, event: event, unit: unit2}
+
   it("should be valid with valid attributes") do
     expect(unit).to be_valid
   end
@@ -33,7 +36,18 @@ RSpec.describe Unit, type: :model do
     user2.save!
 
     expect(unit.users.length).to eq(2)
-    expect(unit.users.first).to eq(user1)
-    expect(unit.users.first).to eq(user2)
+    expect(unit.users[0]).to eq(user1)
+    expect(unit.users[1]).to eq(user2)
+  end
+
+  it("should get units associated events") do
+    event.save!
+    expect(unit.events).not_to eq(nil)
+  end
+
+  it("should get units associated event invitatitons") do
+    event.save!
+    invite.save!
+    expect(unit2.event_invites.first).to eq(event)
   end
 end

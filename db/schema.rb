@@ -96,7 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "surname", null: false
-    t.boolean "promise", null: false
     t.string "phone"
     t.string "email"
     t.integer "activity_statuss", null: false

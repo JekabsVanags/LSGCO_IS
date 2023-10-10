@@ -6,11 +6,12 @@ class User < ApplicationRecord
   enum sex: ["M", "F", "O"]
   enum permission_level: ["biedrs", "vaditajs", "valde"]
 
-  has_many :rank_history
+  has_many :rank_histories
   has_one :personal_informations, dependent: :destroy
   belongs_to :unit
 
   has_many :event_registrations
+  has_many :events, through: :event_registrations
 
   def years_in_organization
     ((Date.today - joined_date)/365).to_i

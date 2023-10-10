@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:unit) { build :unit }
   let(:user) { build :user, unit: unit }
+  let(:event) { build :event, unit: unit }
+  let(:registration) { build :event_registration, user: user, event: event}
 
   it("should fill default attributes with default values") do 
     user = User.new()
@@ -34,6 +36,13 @@ RSpec.describe User, type: :model do
   end
 
   it("should get users units information") do
-    expect(user.unit).not_to eq(nil)
+    expect(user.unit).to eq(unit)
   end
+
+  it("should get users registered events information") do
+    event.save!
+    registration.save!
+
+    expect(user.events.first).to eq(event)
+  end 
 end
