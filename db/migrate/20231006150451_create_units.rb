@@ -15,6 +15,6 @@ class CreateUnits < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_reference :users, :units, index: true
+    add_reference :users, :unit, index: true
   end
 end

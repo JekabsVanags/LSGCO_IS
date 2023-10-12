@@ -241,7 +241,51 @@ Sistēmas testēšanai tiek lietota rails bibleotēka rspec, kas ir paredzēta a
 
 ## 4.2. Protokols
 
-#### Lietotāju modelis
+#### Lietotāju modeļa vienībtesti
 
-> ***Testēšanas gadījumi [Vēlamie rezultāti]***
-> Sistēma neļauj izveidot lietotāju bez obligātajiem datiem [sistēma atgriež kļūdas paziņojumu]
+> **Sistēma lietotāja objektu aizpilda ar noklusējuma datiem**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns lietotāja objekts bez aizpildītiem datiem
+> Vēlamais rezultāts- sistēmas lietotājs nav derīgs, bet tā *membership_fee_bilance* ir 0 un *permission_level* ir "biedrs"
+
+> **Lietotājs ar derīgiem datiem ir derīgs**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns lietotāja objekts, kas aizpildīts ar derīgiem datiem
+> Vēlamais rezultāts- sistēmas lietotājs ir derīgs
+
+> **Lietotājs ir derīgs ja nav aizpildīti neobligātie lauki**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns lietotāja objekts, kas aizpildīts tikai ar obligātajiem laukiem
+> Vēlamais rezultāts- sistēmas lietotājs ir derīgs
+
+> **Lietotājs nav derīgs ja nav aizpildīti obligātie lauki**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns lietotāja objekts, kurā aizpildīti tikai neobligātie lauki
+> Vēlamais rezultāts- sistēmas lietotājs nav derīgs
+
+> **No lietotāja var iegūt tā vienības datus**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns lietotāja objekts
+> Vēlamais rezultāts- lietotāja vienības dati nav tukši
+
+#### Vienības modeļa vienībtesti
+
+> **Vienība ar derīgiem datiem ir derīga**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns vienības objekts, kas aizpildīts ar derīgiem datiem
+> Vēlamais rezultāts- vienība ir derīga
+
+> **Vienība ir derīga ja nav aizpildīti neobligātie lauki**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns vienības objekts, kas aizpildīts tikai ar obligātajiem laukiem
+> Vēlamais rezultāts- vienība ir derīga
+
+> **Vienība nav derīga ja nav aizpildīti obligātie lauki**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- jauns vienības objekts, kurā aizpildīti tikai neobligātie lauki
+> Vēlamais rezultāts- vienība nav derīga
+
+> **No vienības var iegūt tās biedru (lietotāju) datus**
+> Automatizētais tests izveidots 9/10/2023
+> Ievaddati- eksistējošs vienības objekts, kam ppievienoti 2 lietotāja objekti
+> Vēlamais rezultāts- 2 lietotāji, kas atbilst vienībai pievienotajiem objektiem

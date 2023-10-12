@@ -1,10 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { build :user }
+  let(:unit) { build :unit }
+  let(:user) { build :user, unit: unit }
 
-  it("should display test user") do
-    puts user.name
-    puts user.email
+  it("should fill default attributes with default values") do 
+    user = User.new()
+    expect(user).not_to be_valid
+    expect(user.membership_fee_bilance).to eq(0)
+    expect(user.permission_level).to eq("biedrs")
+  end
+ 
+  it("should be valid with valid attributes") do
+    expect(user).to be_valid
+  end
+
+  it("should be valid without nullable fields") do
+    user.phone = nil
+    user.email = nil
+    user.birth_date = nil
+    user.sex = nil
+    expect(user).to be_valid
+  end
+
+  it("should be invalid without not nullable fields") do
+    user.name = nil
+    user.surname = nil
+    user.activity_statuss = nil
+    user.membership_fee_bilance = nil
+    user.joined_date = nil
+    user.permission_level = nil
+    expect(user).not_to be_valid
+  end
+
+  it("should get users units information") do
+    expect(user.unit).not_to eq(nil)
   end
 end
