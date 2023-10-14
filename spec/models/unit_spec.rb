@@ -8,6 +8,9 @@ RSpec.describe Unit, type: :model do
   let(:event) { build :event, unit: unit }
   let(:invite) { build :invite, event: event, unit: unit2}
 
+  let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user1, user_recorded: user2}
+ 
+ 
   it("should be valid with valid attributes") do
     expect(unit).to be_valid
   end
@@ -49,5 +52,15 @@ RSpec.describe Unit, type: :model do
     event.save!
     invite.save!
     expect(unit2.event_invites.first).to eq(event)
+  end
+  
+  it("should get the units membership fee payments") do
+    unit.save!
+    user1.save!
+    user2.save!
+    payment.save!
+
+    expect(unit.membership_fee_payments.length).to eq(1)
+    expect(unit.membership_fee_payments[0]).to eq(payment)
   end
 end

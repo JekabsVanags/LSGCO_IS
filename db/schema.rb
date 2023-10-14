@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_13_144015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_invites_on_event_id"
     t.index ["unit_id"], name: "index_invites_on_unit_id"
+  end
+
+  create_table "membership_fee_payments", force: :cascade do |t|
+    t.date "date", null: false
+    t.decimal "amount", null: false
+    t.bigint "user_recorded_id", null: false
+    t.bigint "user_payed_id", null: false
+    t.bigint "unit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_membership_fee_payments_on_unit_id"
+    t.index ["user_payed_id"], name: "index_membership_fee_payments_on_user_payed_id"
+    t.index ["user_recorded_id"], name: "index_membership_fee_payments_on_user_recorded_id"
   end
 
   create_table "personal_informations", force: :cascade do |t|
@@ -117,6 +130,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_114813) do
   add_foreign_key "events", "units"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "units"
+  add_foreign_key "membership_fee_payments", "units"
+  add_foreign_key "membership_fee_payments", "users", column: "user_payed_id"
+  add_foreign_key "membership_fee_payments", "users", column: "user_recorded_id"
   add_foreign_key "personal_informations", "users"
   add_foreign_key "rank_histories", "users"
 end

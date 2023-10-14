@@ -5,6 +5,9 @@ RSpec.describe User, type: :model do
   let(:user) { build :user, unit: unit }
   let(:event) { build :event, unit: unit }
   let(:registration) { build :event_registration, user: user, event: event}
+  let(:user2) { build :user, unit: unit }
+  let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user, user_recorded: user2}
+ 
 
   it("should fill default attributes with default values") do 
     user = User.new()
@@ -37,6 +40,26 @@ RSpec.describe User, type: :model do
 
   it("should get users units information") do
     expect(user.unit).to eq(unit)
+  end
+
+  it("should get users payed membership fee data") do
+    unit.save!
+    user.save!
+    user2.save!
+    payment.save!
+
+    expect(user.payed_fees).to eq([payment])
+    expect(user2.payed_fees).to eq([])
+  end
+
+  it("should get users registed membership fee data") do
+    unit.save!
+    user.save!
+    user2.save!
+    payment.save!
+
+    expect(user.registered_fees).to eq([])
+    expect(user2.registered_fees).to eq([payment])
   end
 
   it("should get users registered events information") do
