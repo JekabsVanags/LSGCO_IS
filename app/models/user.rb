@@ -11,6 +11,9 @@ class User < ApplicationRecord
   belongs_to :unit
 
   has_many :event_registrations
+  
+  has_many :payed_fees, foreign_key: "user_payed_id", class_name: "MembershipFeePayment"
+  has_many :registered_fees, foreign_key: "user_recorded_id", class_name: "MembershipFeePayment"
 
   def years_in_organization
     ((Date.today - joined_date)/365).to_i

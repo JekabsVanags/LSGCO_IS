@@ -4,6 +4,8 @@ RSpec.describe Unit, type: :model do
   let(:unit) { build :unit }
   let(:user1) { build :user, unit: unit }
   let(:user2) { build :user, unit: unit }
+  let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user1, user_recorded: user2}
+ 
  
   it("should be valid with valid attributes") do
     expect(unit).to be_valid
@@ -33,7 +35,17 @@ RSpec.describe Unit, type: :model do
     user2.save!
 
     expect(unit.users.length).to eq(2)
-    expect(unit.users.first).to eq(user1)
-    expect(unit.users.first).to eq(user2)
+    expect(unit.users[0]).to eq(user1)
+    expect(unit.users[1]).to eq(user2)
+  end
+
+  it("should get the units membership fee payments") do
+    unit.save!
+    user1.save!
+    user2.save!
+    payment.save!
+
+    expect(unit.membership_fee_payments.length).to eq(1)
+    expect(unit.membership_fee_payments[0]).to eq(payment)
   end
 end
