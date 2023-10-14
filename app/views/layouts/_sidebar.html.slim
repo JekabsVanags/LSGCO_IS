@@ -2,16 +2,21 @@
   = image_tag  "LSGCO_logo.png" 
 
   -if @sidebar_state == "login"
-    .flex.flex-col 
-      label.input-label
-        |Lietotājs
-      input type="text" class="input-field-blue"
-      label.input-label
-        |Parole
-      input type="password" class="input-field-blue"
-      button.btn-primary.flex.items-center.justify-between.mt-4
-        |Pievienoties
-        img width="30" height="30" src="https://img.icons8.com/ios-filled/50/FFFFFF/login-rounded-right.png" alt="login-rounded-right"
+    =form_tag session_path do
+      .flex.flex-col
+        label.input-label
+          |Lietotājs
+        input.input-field-blue type="text" name="username"
+        label.input-label
+          |Parole
+        input.input-field-blue type="password" name="password"
+        button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
+          |Pievienoties
+          =image_tag 'icons/login.svg', size:"30"
+  -elsif @sidebar_state == "pklv_biedrs"
+    =link_to session_path, class: "btn-primary flex items-center justify-between mt-4"
+      |Izrakstīties
+      =image_tag 'icons/logout.svg', size:"30"
   -else
     p
-     |Unknown state
+      |Unknown state
