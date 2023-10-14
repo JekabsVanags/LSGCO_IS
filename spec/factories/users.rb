@@ -4,7 +4,7 @@ FactoryBot.define do
     surname {Faker::Name.name}
     activity_statuss {'aktīvs'}
     joined_date {DateTime.now - 1 }
-    password_digest {Faker::Internet.password}
+    password_digest {BCrypt::Password.create(Faker::Internet.password).to_s}
     agreed_to_data_collection {true}
   end
 end
