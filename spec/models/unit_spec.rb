@@ -7,8 +7,9 @@ RSpec.describe Unit, type: :model do
   let(:user2) { build :user, unit: unit }
   let(:event) { build :event, unit: unit }
   let(:invite) { build :invite, event: event, unit: unit2}
-
   let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user1, user_recorded: user2}
+  let(:position) {build :position, unit: unit, user: user1, position_name: "Nodarbību vadītājs"}
+ 
  
  
   it("should be valid with valid attributes") do
@@ -62,5 +63,13 @@ RSpec.describe Unit, type: :model do
 
     expect(unit.membership_fee_payments.length).to eq(1)
     expect(unit.membership_fee_payments[0]).to eq(payment)
+  end
+
+  it("should get the units positions") do
+    unit.save!
+    user1.save!
+    position.save!
+
+    expect(unit.positions.first).to eq(position)
   end
 end

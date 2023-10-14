@@ -7,13 +7,14 @@ RSpec.describe User, type: :model do
   let(:registration) { build :event_registration, user: user, event: event}
   let(:user2) { build :user, unit: unit }
   let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user, user_recorded: user2}
+  let(:position) {build :position, unit: unit, user: user, position_name: "Nodarbību vadītājs"}
  
 
   it("should fill default attributes with default values") do 
     user = User.new()
     expect(user).not_to be_valid
     expect(user.membership_fee_bilance).to eq(0)
-    expect(user.permission_level).to eq("biedrs")
+    expect(user.permission_level).to eq("pklv_biedrs")
   end
  
   it("should be valid with valid attributes") do
@@ -68,4 +69,10 @@ RSpec.describe User, type: :model do
 
     expect(user.events.first).to eq(event)
   end 
+
+  it("should get users positions") do
+    position.save!
+
+    expect(user.positions.first).to eq(position)
+  end
 end
