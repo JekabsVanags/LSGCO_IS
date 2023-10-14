@@ -167,7 +167,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
   |         | VNB-09               | Iknedēļas nodarbības pievienošana                   | Priekšnieks, Administrators                    |
   |         | VNB-10               | Iknedēļas nodarbības izmainīšana                    | Priekšnieks, Administrators                    |
   |         | VNB-11               | Iknedēļas nodarbības noņemšana                      | Priekšnieks, Administrators                    |
-  |         | VNB-12               | Novadītas nodarbības atzīmēšana                     | Priekšnieks, Administrators, Biedrs (ar amatu) |
+  |         | VNB-12               | Novadītas nodarbības atzīmēšana                     | Priekšnieks, Administrators, Biedrs (ar vadītāja statusu) |
   | VLD     | VLD-01               | Vienības pievienošana                               | Administrators                                 |
   |         | VLD-02               | Vienības dzēšana                                    | Administrators                                 |
   |         | VLD-03               | Biedru atskaites sagatavošana                       | Administrators                                 |

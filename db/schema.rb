@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_144015) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_14_140924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_144015) do
     t.index ["user_id"], name: "index_personal_informations_on_user_id"
   end
 
+  create_table "positions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "unit_id", null: false
+    t.string "position_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_positions_on_unit_id"
+    t.index ["user_id"], name: "index_positions_on_user_id"
+  end
+
   create_table "rank_histories", force: :cascade do |t|
     t.integer "rank", null: false
     t.bigint "user_id", null: false
@@ -134,5 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_144015) do
   add_foreign_key "membership_fee_payments", "users", column: "user_payed_id"
   add_foreign_key "membership_fee_payments", "users", column: "user_recorded_id"
   add_foreign_key "personal_informations", "users"
+  add_foreign_key "positions", "units"
+  add_foreign_key "positions", "users"
   add_foreign_key "rank_histories", "users"
 end
