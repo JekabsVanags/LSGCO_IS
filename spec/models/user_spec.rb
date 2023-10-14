@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:unit) { build :unit }
   let(:user) { build :user, unit: unit }
+  let(:user2) { build :user, unit: unit }
+  let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user, user_recorded: user2}
+ 
 
   it("should fill default attributes with default values") do 
     user = User.new()
@@ -34,6 +37,26 @@ RSpec.describe User, type: :model do
   end
 
   it("should get users units information") do
-    expect(user.unit).not_to eq(nil)
+    expect(user.unit).to eq(unit)
+  end
+
+  it("should get users payed membership fee data") do
+    unit.save!
+    user.save!
+    user2.save!
+    payment.save!
+
+    expect(user.payed_fees).to eq([payment])
+    expect(user2.payed_fees).to eq([])
+  end
+
+  it("should get users registed membership fee data") do
+    unit.save!
+    user.save!
+    user2.save!
+    payment.save!
+
+    expect(user.registered_fees).to eq([])
+    expect(user2.registered_fees).to eq([payment])
   end
 end
