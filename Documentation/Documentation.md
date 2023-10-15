@@ -164,6 +164,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
   |         | BDR-03               | Izstāšanās pieteikuma iesniegšana                   | Biedrs, Priekšnieks, Administrators                       |
   |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators                       |
   |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                                         |
+  |         | BDR-06               | Biedra personīgo datu dzēšana                       | Biedrs, Priekšnieks, Administrators                       |
   | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators                               |
   |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators                               |
   |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators                               |
@@ -180,7 +181,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
   |         | VLD-02               | Vienības dzēšana                                    | Administrators                                            |
   |         | VLD-03               | Biedru atskaites sagatavošana                       | Administrators                                            |
   |         | VLD-04               | Vienību atskaites sagatavošana                      | Administrators                                            |
-  |         | VLD-05               | Biedra personīgo datu dzēšana                       | Administrators                                            |
   | PSK     | PSK-01               | Pasākuma izveidošana                                | Priekšnieks, Administrators                               |
   |         | PSK-02               | Pasākuma dzēšana                                    | Priekšnieks, Administrators                               |
   |         | PSK-03               | Pasākuma datu atjaunošana                           | Priekšnieks, Administrators                               |
@@ -203,36 +203,36 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 ##### 2.2.2.1 Biedra datu apskatīšana (BDR-01)
 
 | Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01) |
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
+| ------------------- | -------------------------------- |
+| Funkcijas mērķis    |                                  |
+| Ievaddati           |                                  |
+| Apstrāde            |                                  |
+| Izvaddati           |                                  |
+| Paziņojumi          |                                  |
 
 **Tabula 2.2.2.1** *Biedra datu apskatīšanas funkcijas projektējums*
 
 ##### 2.2.2.2 Biedra datu atjaunošana (BDR-02)
 
 | Funkcijas nosaukums | Biedra datu atjaunošana (BDR-02) |
-| ------------------- | ------------------------- |
-| Funkcijas mērķis    |                           |
-| Ievaddati           |                           |
-| Apstrāde            |                           |
-| Izvaddati           |                           |
-| Paziņojumi          |                           |
+| ------------------- | -------------------------------- |
+| Funkcijas mērķis    |                                  |
+| Ievaddati           |                                  |
+| Apstrāde            |                                  |
+| Izvaddati           |                                  |
+| Paziņojumi          |                                  |
 
 **Tabula 2.2.2.2** *Biedra datu atjaunošanas funkcijas projektējums*
 
 ##### 2.2.2.3 Izstāšanās pieteikuma iesniegšana (BDR-03)
 
 | Funkcijas nosaukums | Izstāšanās pieteikuma iesniegšana (BDR-03) |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    |                                    |
-| Ievaddati           |                                    |
-| Apstrāde            |                                    |
-| Izvaddati           |                                    |
-| Paziņojumi          |                                    |
+| ------------------- | ------------------------------------------ |
+| Funkcijas mērķis    |                                            |
+| Ievaddati           |                                            |
+| Apstrāde            |                                            |
+| Izvaddati           |                                            |
+| Paziņojumi          |                                            |
 
 **Tabula 2.2.2.3** *Izstāšanās pieteikuma iesniegšanas funkcijas projektējums*
 
@@ -240,26 +240,38 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 ##### 2.2.2.4 Biedra naudas statusa iegūšana (BDR-04)
 
 | Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04) |
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
+| ------------------- | --------------------------------------- |
+| Funkcijas mērķis    |                                         |
+| Ievaddati           |                                         |
+| Apstrāde            |                                         |
+| Izvaddati           |                                         |
+| Paziņojumi          |                                         |
 
 **Tabula 2.2.2.4** *Biedra naudas statusa iegūšanas funkcijas projektējums*
 
 ##### 2.2.2.5 Biedra naudas paziņojums (BDR-05)
 
 | Funkcijas nosaukums | Biedra naudas paziņojums (BDR-05) |
-| ------------------- | ------------------------------- |
-| Funkcijas mērķis    |                                 |
-| Ievaddati           |                                 |
-| Apstrāde            |                                 |
-| Izvaddati           |                                 |
-| Paziņojumi          |                                 |
+| ------------------- | --------------------------------- |
+| Funkcijas mērķis    |                                   |
+| Ievaddati           |                                   |
+| Apstrāde            |                                   |
+| Izvaddati           |                                   |
+| Paziņojumi          |                                   |
 
 **Tabula 2.2.2.5** *Biedra naudas paziņojuma funkcijas projektējums*
+
+##### 2.2.2.6 Biedra personīgo datu dzēšana (BDR-06)
+
+| Funkcijas nosaukums | Biedra personīgo datu dzēšana (BDR-06) |
+| ------------------- | -------------------------------------- |
+| Funkcijas mērķis    |                                        |
+| Ievaddati           |                                        |
+| Apstrāde            |                                        |
+| Izvaddati           |                                        |
+| Paziņojumi          |                                        |
+
+**Tabula 2.2.2.6** *Biedra personīgo datu dzēšanas funkcijas projektējums*
 
 
 #### 2.2.3. Modulis "Vienība"
@@ -271,30 +283,43 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 ##### 2.2.3.1 Biedra pievienošana (VNB-01)
 
 | Funkcijas nosaukums | Biedra pievienošana (VNB-01) |
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
+| ------------------- | ---------------------------- |
+| Funkcijas mērķis    |                              |
+| Ievaddati           |                              |
+| Apstrāde            |                              |
+| Izvaddati           |                              |
+| Paziņojumi          |                              |
 
 **Tabula 2.2.3.1** *Biedra pievienošanas funkcijas projektējums*
 
 ##### 2.2.3.2 Vienības biedru apskatīšana (VNB-02)
 
-| Funkcijas nosaukums | Vienības biedru apskatīšana (VNB-02)|
-| ------------------- | ------------------------- |
-| Funkcijas mērķis    |                           |
-| Ievaddati           |                           |
-| Apstrāde            |                           |
-| Izvaddati           |                           |
-| Paziņojumi          |                           |
+| Funkcijas nosaukums | Vienības biedru apskatīšana (VNB-02) |
+| ------------------- | ------------------------------------ |
+| Funkcijas mērķis    |                                      |
+| Ievaddati           |                                      |
+| Apstrāde            |                                      |
+| Izvaddati           |                                      |
+| Paziņojumi          |                                      |
 
 **Tabula 2.2.3.2** *Vienības biedru apskatīšanas funkcijas projektējums*
 
 ##### 2.2.3.3 Vienības biedra vienības nomaiņa (VNB-03)
 
 | Funkcijas nosaukums | Vienības biedra vienības nomaiņa (VNB-03) |
+| ------------------- | ----------------------------------------- |
+| Funkcijas mērķis    |                                           |
+| Ievaddati           |                                           |
+| Apstrāde            |                                           |
+| Izvaddati           |                                           |
+| Paziņojumi          |                                           |
+
+**Tabula 2.2.3.3** *Vienības biedra vienības nomaiņas funkcijas projektējums*
+
+
+##### 2.2.3.4 Vienības datu apskatīšana (VNB-04)
+
+| Funkcijas nosaukums | Vienības datu apskatīšana (VNB-04) |
 | ------------------- | ---------------------------------- |
 | Funkcijas mērķis    |                                    |
 | Ievaddati           |                                    |
@@ -302,42 +327,29 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Izvaddati           |                                    |
 | Paziņojumi          |                                    |
 
-**Tabula 2.2.3.3** *Vienības biedra vienības nomaiņas funkcijas projektējums*
-
-
-##### 2.2.3.4 Vienības datu apskatīšana (VNB-04)
-
-| Funkcijas nosaukums | Vienības datu apskatīšana (VNB-04)|
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
-
 **Tabula 2.2.3.4** *Vienības datu apskatīšanas funkcijas projektējums*
 
 ##### 2.2.3.5 Vienības datu atjaunošana (VNB-05)
 
-| Funkcijas nosaukums | Vienības datu atjaunošana (VNB-05)|
-| ------------------- | ------------------------------- |
-| Funkcijas mērķis    |                                 |
-| Ievaddati           |                                 |
-| Apstrāde            |                                 |
-| Izvaddati           |                                 |
-| Paziņojumi          |                                 |
+| Funkcijas nosaukums | Vienības datu atjaunošana (VNB-05) |
+| ------------------- | ---------------------------------- |
+| Funkcijas mērķis    |                                    |
+| Ievaddati           |                                    |
+| Apstrāde            |                                    |
+| Izvaddati           |                                    |
+| Paziņojumi          |                                    |
 
 **Tabula 2.2.3.5** *Vienības datu atjaunošanas funkcijas projektējums*
 
 ##### 2.2.3.6 Vienības biedru atskaites sagatavošana (VNB-06)
 
 | Funkcijas nosaukums | Vienības biedru atskaites sagatavošana (VNB-06) |
-| ------------------- | -------------------------------- |
-| Funkcijas mērķis    |                                  |
-| Ievaddati           |                                  |
-| Apstrāde            |                                  |
-| Izvaddati           |                                  |
-| Paziņojumi          |                                  |
+| ------------------- | ----------------------------------------------- |
+| Funkcijas mērķis    |                                                 |
+| Ievaddati           |                                                 |
+| Apstrāde            |                                                 |
+| Izvaddati           |                                                 |
+| Paziņojumi          |                                                 |
 
 **Tabula 2.2.3.5** *Vienības biedru atskaites sagatavošanas funkcijas projektējums*
 
@@ -345,36 +357,36 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 ##### 2.2.3.7 Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07)
 
 | Funkcijas nosaukums | Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07) |
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
+| ------------------- | ------------------------------------------------------------ |
+| Funkcijas mērķis    |                                                              |
+| Ievaddati           |                                                              |
+| Apstrāde            |                                                              |
+| Izvaddati           |                                                              |
+| Paziņojumi          |                                                              |
 
 **Tabula 2.2.3.7** *Vienības biedra biedra naudas nomaksas reģistrēšanas funkcijas projektējums*
 
 ##### 2.2.3.8 Vienības biedra amata pievienošana (VNB-08)
 
 | Funkcijas nosaukums | Vienības biedra amata pievienošana (VNB-08) |
-| ------------------- | ------------------------- |
-| Funkcijas mērķis    |                           |
-| Ievaddati           |                           |
-| Apstrāde            |                           |
-| Izvaddati           |                           |
-| Paziņojumi          |                           |
+| ------------------- | ------------------------------------------- |
+| Funkcijas mērķis    |                                             |
+| Ievaddati           |                                             |
+| Apstrāde            |                                             |
+| Izvaddati           |                                             |
+| Paziņojumi          |                                             |
 
 **Tabula 2.2.3.8** *Vienības biedra amata pievienošanas funkcijas projektējums*
 
 ##### 2.2.3.9 Iknedēļas nodarbības pievienošana (VNB-09)
 
 | Funkcijas nosaukums | Iknedēļas nodarbības pievienošana (VNB-09) |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    |                                    |
-| Ievaddati           |                                    |
-| Apstrāde            |                                    |
-| Izvaddati           |                                    |
-| Paziņojumi          |                                    |
+| ------------------- | ------------------------------------------ |
+| Funkcijas mērķis    |                                            |
+| Ievaddati           |                                            |
+| Apstrāde            |                                            |
+| Izvaddati           |                                            |
+| Paziņojumi          |                                            |
 
 **Tabula 2.2.3.9** *Iknedēļas nodarbības pievienošanas funkcijas projektējums*
 
@@ -382,36 +394,36 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 ##### 2.2.3.10 Iknedēļas nodarbības izmainīšana (VNB-10)
 
 | Funkcijas nosaukums | Iknedēļas nodarbības izmainīšana (VNB-10) |
-| ------------------- | ----------------------------- |
-| Funkcijas mērķis    |                               |
-| Ievaddati           |                               |
-| Apstrāde            |                               |
-| Izvaddati           |                               |
-| Paziņojumi          |                               |
+| ------------------- | ----------------------------------------- |
+| Funkcijas mērķis    |                                           |
+| Ievaddati           |                                           |
+| Apstrāde            |                                           |
+| Izvaddati           |                                           |
+| Paziņojumi          |                                           |
 
 **Tabula 2.2.3.10** *Iknedēļas nodarbības izmainīšanas funkcijas projektējums*
 
 ##### 2.2.3.11 Iknedēļas nodarbības noņemšana (VNB-11)
 
 | Funkcijas nosaukums | Iknedēļas nodarbības noņemšana (VNB-11) |
-| ------------------- | ------------------------------- |
-| Funkcijas mērķis    |                                 |
-| Ievaddati           |                                 |
-| Apstrāde            |                                 |
-| Izvaddati           |                                 |
-| Paziņojumi          |                                 |
+| ------------------- | --------------------------------------- |
+| Funkcijas mērķis    |                                         |
+| Ievaddati           |                                         |
+| Apstrāde            |                                         |
+| Izvaddati           |                                         |
+| Paziņojumi          |                                         |
 
 **Tabula 2.2.3.11** *Iknedēļas nodarbības noņemšanas funkcijas projektējums*
 
 ##### 2.2.3.12 Novadītas nodarbības atzīmēšana (VNB-12)
 
 | Funkcijas nosaukums | Novadītas nodarbības atzīmēšana (VNB-12) |
-| ------------------- | -------------------------------- |
-| Funkcijas mērķis    |                                  |
-| Ievaddati           |                                  |
-| Apstrāde            |                                  |
-| Izvaddati           |                                  |
-| Paziņojumi          |                                  |
+| ------------------- | ---------------------------------------- |
+| Funkcijas mērķis    |                                          |
+| Ievaddati           |                                          |
+| Apstrāde            |                                          |
+| Izvaddati           |                                          |
+| Paziņojumi          |                                          |
 
 **Tabula 2.2.3.12** *Novadītas nodarbības atzīmēšanas funkcijas projektējums*
 
@@ -471,19 +483,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                         |
 
 **Tabula 2.2.4.4** *Vienību atskaites sagatavošanas funkcijas projektējums*
-
-##### 2.2.4.5 Biedru personīgo datu dzēšana (VLD-05)
-
-| Funkcijas nosaukums | Biedru personīgo datu dzēšana (VLD-05) |
-| ------------------- | -------------------------------------- |
-| Funkcijas mērķis    |                                        |
-| Ievaddati           |                                        |
-| Apstrāde            |                                        |
-| Izvaddati           |                                        |
-| Paziņojumi          |                                        |
-
-**Tabula 2.2.4.5** *Biedru personīgo datu dzēšanas funkcijas projektējums*
-
 
 
 #### 2.2.5. Modulis "Pasākums"
@@ -636,6 +635,20 @@ Kā var redzēt attēlā 2.1.2. datubāzē ir 3 galvenās tabulas (Lieotājs (Us
 
 ![Pievienošanās skats](sk_landing.png)
 **Attēls 3.2.1** *Pievienošanās skats*
+
+### 3.3. Projektējumi
+
+#### 3.3.1. Lietotāja dzīvescikla projektējums
+
+Zinot, ka šī sistēma ir slēgta, un nav brīvi pieejama, lietotāja izveide un dzēšana neatbilst klasiskas tīmekļa lietotnes lietotāju reģistrācijai.
+
+![Lietotāja izveidošana](Profila_izveide_swimlane.png)
+**Attēls 3.3.1** *Lietotāja izveidošanas diagramma*
+Attēlā 3.3.1. ir apskatīta lietotāja izveide- lai izveidotu lietotāju, cits lietotājs ar vadītāja privilēģijām reģistrē interesentu ievadot pamatinformāciju. Pēc tam uz jaunā lietotāja vai jaunā lietotāja vecāka e-pastu tiek nosūtīts unikāls links, kurš ir derīgs vienu nedēļu no tā izveides laika. Ja lietotājs izmanto sekojošo linku, tam tiek prasīts ievadīt paroli un papildus informāciju. Ja lietotājs veic šīs darbības, turpmāk viņam sistēma ir pieejama lietojot lietotājvārdu, ko ģenerē sistēma (Vāda pirmais burts + Uzvārds + Vienības nummurs) un iepriekš ievadīto paroli.
+
+![Lietotāja dzēšana](Profila_dzēšana_swimlane.png)
+**Attēls 3.3.2** *Lietotāja dzēšana diagramma*
+Attēlā 3.3.2. ir apskatīta lietotāja dzēšana- situācija, kad lietotājs vēlas izstāties no organizācijas. Kad lietotājs iesniedz pieteikumu izstāties no organizācijas, sistēma automātiski dzēš lietotāja personīgos datus un viņa vienības priekšniekam atnāk paziņojums, par šī lietotāja izstāšanos. Ja vadītājs apstiprina šo iesniegumu, lietotāja statuss tiek nomainīts uz "izstājies". Šāds lietotājs neparādās atskaitēs, un nespēj pieslēgties sistēmai, bet tā pamatdati tiek saglabāti organizācijas lietošanai. Ja vienības priekšnieks neapstiprina izstāšanos biedrs turpina parādīties atskaitēs un spēj piekļūt sistēmai.
 
 ## 4 Testēšanas pārskats
 
