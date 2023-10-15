@@ -1,0 +1,12 @@
+= form_for @user do |f|
+  = f.label :name, "Vārds"
+  = f.text_field :name
+  = f.label :surname, "Uzvārds"
+  = f.text_field :surname
+  = f.label :email, "E-pasts"
+  = f.email_field :email
+  = f.label :joined_date, "Pievienošanās datums"
+  = f.date_field :joined_date
+  = f.select :activity_statuss, options_for_select(["Aktīvs", "Interesents", "Vadītājs", "Vecbiedrs"])
+  = f.submit
+  

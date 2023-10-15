@@ -1,0 +1,11 @@
+h 
+  |Welcome 
+  =current_user.name
+
+= form_tag password_update_path(current_user)
+  label.input-label 
+    |Ievadi savu paroli
+  input.input-field-blue type="password" name="password_digest"
+  input.input-field-blue type="hidden" name="old_password" value=@old_password
+  button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
+    |Atjaunot paroli

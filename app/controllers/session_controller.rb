@@ -2,11 +2,7 @@ class SessionController < ApplicationController
   before_action :authorized?, only: [:destory]
 
   def create
-    if params[:username].include?("@")
-      user = User.find_by(email: params[:username])
-    else
-      user = User.find_by(username: params[:username])
-    end
+    user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -19,6 +15,14 @@ class SessionController < ApplicationController
   def destory 
     session.clear
     redirect_to root_path, notice: "Izrakstīšanās veiksmīga"
+  end
+
+  def first_login
+    @user = User.find(params[:id])
+    @old_password = params[:password]
+    @sidebar_state = @user.permission_level
+    session[:user_id] = @user.id
+    redirect_to root_path unless @user.authenticate(params[:password]) || @user.created_at == @user.updated_at
   end
 
 end

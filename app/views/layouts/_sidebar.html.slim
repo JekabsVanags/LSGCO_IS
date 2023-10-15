@@ -17,6 +17,13 @@
     =link_to session_path, class: "btn-primary flex items-center justify-between mt-4"
       |Izrakstīties
       =image_tag 'icons/logout.svg', size:"30"
+  -elsif @sidebar_state == "pklv_vaditajs"
+    =link_to new_user_path, class: "btn-primary flex items-center justify-between mt-4"
+      |Pievienot biedru
+      =image_tag 'icons/new_user.svg', size:"30"
+    =link_to session_path, class: "btn-primary flex items-center justify-between mt-4"
+      |Izrakstīties
+      =image_tag 'icons/logout.svg', size:"30"
   -else
     p
       |Unknown state
