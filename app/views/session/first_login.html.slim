@@ -1,11 +1,19 @@
-h 
-  |Welcome 
-  =current_user.name
+.flex.flex-col.justify-start.p-10
+  div
+    h1.title-normal
+      |Sveiks, #{current_user.name}.
+    p.paragraph-normal
+      |Tu esi reģistrēts LSGCO Informācijas Sistēmā kā #{current_user.unit.city+"s "+current_user.unit.number.to_s}. vienības biedrs. 
+      |Lai pabeigtu savu reģistrāciju, lūdzu ievadi savu paroli!
 
-= form_tag password_update_path(current_user)
-  label.input-label 
-    |Ievadi savu paroli
-  input.input-field-blue type="password" name="password_digest"
-  input.input-field-blue type="hidden" name="old_password" value=@old_password
-  button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
-    |Atjaunot paroli
+  .flex.flex-col.mt-20
+    = form_tag password_update_path(current_user)
+      label.input-label 
+        |Parole
+      input.input-field-blue.w-1/2 type="password" name="password_digest"
+      label.input-label 
+        |Atkārto paroli
+      input.input-field-blue.w-1/2 type="password" name="repeat_password"
+      input.input-field-blue type="hidden" name="old_password" value=@old_password
+      button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
+        |Izveidot paroli

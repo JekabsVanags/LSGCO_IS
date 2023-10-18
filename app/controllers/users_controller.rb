@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :unit_access?, only: [:create, :unit_update]
 
   def get
+    @new_user = session[:new_user]
     @user = current_user
   end
 
@@ -26,12 +27,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @new_user = session[:new_user]
   end
 
-  def edit_user_params
+  def update
     @user = User.find(params[:id])
 
-    if @user.update(user_edit_params)
+    if @user.update(user_update_params)
       redirect_to root_path, notice: "User edited."
     else
       redirect_to root_path, notice: "Error."
@@ -63,6 +65,11 @@ class UsersController < ApplicationController
   def password_update
     @user = User.find(params[:id])
 
+    if params[:password_digest] != params[:repeat_password]
+      redirect_to activation_path(@user.id, params[:old_password]), notice: "Paroles nesakrīt"
+      return
+    end
+
     if @user.authenticate(params[:old_password])
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
     else
@@ -72,7 +79,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      redirect_to root_path, notice: "New password."
+      redirect_to edit_user_path(current_user), notice: "Parole izveidota"
     else
       redirect_to root_path, notice: "Error."
     end
@@ -84,7 +91,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:activity_statuss, :unit_id)
   end
 
-  def update_user_params
+  def user_update_params
     params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_data_collection)
   end
 

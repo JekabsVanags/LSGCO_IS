@@ -21,8 +21,9 @@ class SessionController < ApplicationController
     @user = User.find(params[:id])
     @old_password = params[:password]
     @sidebar_state = @user.permission_level
-    session[:user_id] = @user.id
-    redirect_to root_path unless @user.authenticate(params[:password]) || @user.created_at == @user.updated_at
+    session[:user_id] = @user.created_at > Date.today-7 ? @user.id : nil
+    session[:new_user] = true
+    redirect_to root_path unless @user.authenticate(params[:password]) && @user.created_at == @user.updated_at && session[:user_id]
   end
 
 end

@@ -1,7 +1,6 @@
-.flex.flex-col
-  h1 
-    =@current_user.name + " "
-    =@current_user.surname + " ir ienācis profilā"
-  br
-  p 
-  |PROFILA SKATS TBD
+.flex.flex-col.justify-start.p-10.w-full
+  .flex.flex-col
+    h1.title-normal 
+      =@new_user ? "Lapni lūgts LSGCO IS #{@current_user.name} #{@current_user.surname}" : "#{@current_user.name} #{@current_user.surname} ir ienācis profilā"
+    p.paragraph-normal
+    |PROFILA SKATS TBD
