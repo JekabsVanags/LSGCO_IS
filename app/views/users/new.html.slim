@@ -1,4 +1,4 @@
-.flex.flex-col.justify-start.p-10
+.flex.flex-col.justify-start.p-10.w-4/5
   div 
     h1.title-normal
       |Pievienot Biedru
@@ -6,7 +6,7 @@
       |Ievadi jaunā biedra datus. Ja biedrs ir mazskauts/guntiņa, lūdzu e-pastā norādīt vienu no vecāku e-pastiem. 
       |Jaunais biedrs saņems e-pastu par pievienošanos sistēmai ar instrukcijām, kā izveidot paroli.
 
-  .flex.flex-col.mt-20
+  .flex.flex-col.mt-10
     = form_for @user do |f|
       = f.label :name, "Vārds", class: "input-label"
       = f.text_field :name, class: "input-field-blue w-1/2"

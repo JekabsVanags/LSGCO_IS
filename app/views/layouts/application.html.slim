@@ -9,8 +9,7 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags  "application"
 
-  body
+  body.flex
     =render partial: "layouts/popup_notices"
-    main.container.flex.min-w-full
-      = render partial: "layouts/sidebar" 
-      = yield
+    = render partial: "layouts/sidebar" 
+    = yield
