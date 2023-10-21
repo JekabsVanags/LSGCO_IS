@@ -19,9 +19,10 @@ class UsersController < ApplicationController
     @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s
     if @user.save
       link = activation_path(id: @user.id, password: password)
-      redirect_to root_path, notice: "User created, link: " + link
+      UserMailer.first_login_email(current_user, @user, link).deliver_later
+      redirect_to root_path, notice: "Biedrs pievienots"
     else
-      redirect_to root_path, notice: "Error."
+      redirect_to root_path, notice: "Kļūda"
     end
   end
 
@@ -34,9 +35,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_update_params)
-      redirect_to root_path, notice: "User edited."
+      redirect_to root_path, notice: "Dati atjaunoti"
     else
-      redirect_to root_path, notice: "Error."
+      redirect_to root_path, notice: "Kļūda"
     end
   end
 
@@ -46,18 +47,18 @@ class UsersController < ApplicationController
     if user_unit_edit_params[:unit_id]
       @user.unit = Unit.find(user_unit_edit_params[:unit_id])
       if @user.save!
-        redirect_to root_path, notice: "New Unit."
+        redirect_to root_path, notice: "Vienība nomainīta"
       else
-        redirect_to root_path, notice: "Fail."
+        redirect_to root_path, notice: "Kļūda"
       end
     end
 
     if user_unit_edit_params[:activity_statuss]
       @user.activity_statuss = user_unit_edit_params[:activity_statuss]
       if @user.save!
-        redirect_to root_path, notice: "Activity statuss updated."
+        redirect_to root_path, notice: "Aktivitātes statuss nomainīts"
       else
-        redirect_to root_path, notice: "Fail."
+        redirect_to root_path, notice: "Kļūda"
       end
     end
   end
@@ -74,14 +75,14 @@ class UsersController < ApplicationController
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
     else
       session.clear
-      redirect_to root_path, notice: "Error."
+      redirect_to root_path, notice: "Kļūda"
       return
     end
 
     if @user.save
       redirect_to edit_user_path(current_user), notice: "Parole izveidota"
     else
-      redirect_to root_path, notice: "Error."
+      redirect_to root_path, notice: "Kļūda"
     end
   end
 
