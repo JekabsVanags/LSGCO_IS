@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :name, :surname, :activity_statuss, :membership_fee_bilance, :joined_date, :permission_level, presence: true
 
-  enum activity_statuss: ["aktīvs", "interesents", "vadītājs", "vecbiedrs", "izstājies"]
+  enum activity_statuss: ["Aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Izstājies"]
   enum sex: ["M", "F", "O"]
   enum permission_level: ["pklv_biedrs", "pklv_vaditajs", "pklv_valde"]
 

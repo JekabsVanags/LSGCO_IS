@@ -1,7 +1,10 @@
-.flex.flex-col
-  h1 
-    =@current_user.name + " "
-    =@current_user.surname + " ir ienācis profilā"
-  br
-  p 
-  |PROFILA SKATS TBD
+.flex.flex-col.justify-start.p-10.w-4/5
+  .flex.flex-col
+    div.flex.justify-between
+      h1.title-normal 
+        =@new_user ? "Lapni lūgts LSGCO IS #{@current_user.name} #{@current_user.surname}" : "#{@current_user.name} #{@current_user.surname} ir ienācis profilā"
+      =link_to "Labot datus" ,edit_user_path(@user.id), class:"btn-ternary"
+    p.paragraph-normal
+    |PROFILA SKATS TBD
+  
+    =render partial: "info-panel", :locals => {:user => @user}

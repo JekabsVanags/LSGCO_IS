@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         'scout-blue': '#556987',
+        'scout-blue-darkened': '#3B495E',
         'scout-gold': '#d7af64',
         'scout-red' : '#dc5a64'
       }

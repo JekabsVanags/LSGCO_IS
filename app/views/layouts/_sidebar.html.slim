@@ -1,4 +1,4 @@
-.h-screen.w-1/5.border-r-4.p-2.flex.flex-col.justify-between.min-w-min
+.h-screen.border-r-4.w-1/5.p-2.flex.flex-col.justify-between
   = image_tag  "LSGCO_logo.png" 
 
   -if @sidebar_state == "login"
@@ -10,13 +10,27 @@
         label.input-label
           |Parole
         input.input-field-blue type="password" name="password"
-        button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
+        button.btn-primary.flex.items-center.justify-between.my-3 type="submit" 
           |Pievienoties
           =image_tag 'icons/login.svg', size:"30"
   -elsif @sidebar_state == "pklv_biedrs"
-    =link_to session_path, class: "btn-primary flex items-center justify-between mt-4"
+    =link_to session_path, class: "btn-primary flex items-center justify-between mx-4"
       |Izrakstīties
       =image_tag 'icons/logout.svg', size:"30"
+  -elsif @sidebar_state == "pklv_vaditajs"
+    .flex.flex-col.divide-y-2.divide-scout-gold 
+      div
+        =link_to new_user_path, class: current_page?(controller: 'users', action: 'new') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+          |Pievienot biedru
+          =image_tag 'icons/new_user.svg', size:"30"
+     
+      div
+        =link_to profile_path, class: current_page?('/profile') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+          |Mans profils
+          =image_tag 'icons/current_user.svg', size:"30"
+        =link_to session_path, class: "btn-primary flex items-center justify-between my-3"
+          |Izrakstīties
+          =image_tag 'icons/logout.svg', size:"30"
   -else
     p
       |Unknown state
