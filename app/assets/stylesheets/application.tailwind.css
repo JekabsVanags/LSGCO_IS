@@ -5,7 +5,15 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-md font-sans text-xl font-semibold h-[60px];
+    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-md font-sans text-xl font-semibold h-[50px];
+  }
+  
+  .btn-secondary {
+    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl font-semibold h-[50px];
+  } 
+
+  .btn-ternary {
+    @apply py-2 px-4 m-1 text-scout-blue underline text-start font-sans text-xl font-semibold h-[50px];
   } 
 
   .input-label {

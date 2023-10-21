@@ -7,4 +7,8 @@ class Unit < ApplicationRecord
   has_many :event_invites, through: :invites, source: :event
   has_many :membership_fee_payments
   has_many :positions
+
+  def full_name 
+    "#{city}s #{number.to_s}. vienība"
+  end
 end

@@ -3,7 +3,7 @@
     h1.title-normal
       |Sveiks, #{current_user.name}.
     p.paragraph-normal
-      |Tu esi reģistrēts LSGCO Informācijas Sistēmā kā #{current_user.unit.city+"s "+current_user.unit.number.to_s}. vienības biedrs. 
+      |Tu esi reģistrēts LSGCO Informācijas Sistēmā kā #{current_user.unit.full_name}. vienības biedrs. 
       |Lai pabeigtu savu reģistrāciju, lūdzu ievadi savu paroli!
 
   .flex.flex-col.mt-20

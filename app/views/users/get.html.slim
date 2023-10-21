@@ -4,3 +4,5 @@
       =@new_user ? "Lapni lūgts LSGCO IS #{@current_user.name} #{@current_user.surname}" : "#{@current_user.name} #{@current_user.surname} ir ienācis profilā"
     p.paragraph-normal
     |PROFILA SKATS TBD
+  
+    =render partial: "info-panel", :locals => {:user => @user}
