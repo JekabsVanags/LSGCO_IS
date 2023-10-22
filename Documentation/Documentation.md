@@ -205,11 +205,11 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 | Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01) |
 | ------------------- | -------------------------------- |
-| Funkcijas mērķis    |                                  |
-| Ievaddati           |                                  |
-| Apstrāde            |                                  |
-| Izvaddati           |                                  |
-| Paziņojumi          |                                  |
+| Funkcijas mērķis    |  Lietotājs var apskatīt savus datus                                |
+| Ievaddati           |  Lietotāja ID (vesels skaitlis)                                |
+| Apstrāde            |  1) No DB iegūst lietotāja objektu.                             |
+| Izvaddati           |   Lietotāja objekta dati                               |
+| Paziņojumi          |   -                               |
 
 **Tabula 2.2.2.1** *Biedra datu apskatīšanas funkcijas projektējums*
 
@@ -217,11 +217,11 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 | Funkcijas nosaukums | Biedra datu atjaunošana (BDR-02) |
 | ------------------- | -------------------------------- |
-| Funkcijas mērķis    |                                  |
-| Ievaddati           |                                  |
-| Apstrāde            |                                  |
-| Izvaddati           |                                  |
-| Paziņojumi          |                                  |
+| Funkcijas mērķis    |  Lietotājs spēj atjaunot datus par sevi.                                |
+| Ievaddati           |   Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne ar @ simbolu); <br> Telefona numurs (8 simbolus gara simbolu virkne, kas satur tikai ciparus); <br> Dzimšanas datums (datums); <br> Dzimums (Vīrietis / Sieviete / Cits); <br> Piekrišana datu ievākšanai (patiesuma vērtība); <br> Pašreizējā lietotāja ID (vesels skaitlis);         |
+| Apstrāde            |  1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                             |
+| Izvaddati           | 1) Ja izdodas saglabāt lietotāju - tiek parādīts paziņojums 1. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 2.                                 |
+| Paziņojumi          |      1) Dati atjaunoti <br> 2) Kļūda                            |
 
 **Tabula 2.2.2.2** *Biedra datu atjaunošanas funkcijas projektējums*
 
@@ -273,6 +273,19 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.2.6** *Biedra personīgo datu dzēšanas funkcijas projektējums*
 
+##### 2.2.2.7 Paroles izveide (BDR-07)
+
+| Funkcijas nosaukums | Paroles izveide (BDR-07)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Jauns lietotājs spēj izveidot savu paroli                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Ievaddati           | Lietotāja ID (vesels skaitlis); <br> Vecā parole (simbolu virkne); <br> Jaunā parole (simbolu virkne); <br> Jaunās paroles atkārtojums (simbolu virkne);                                                                                                                                                                                                                                                                                                                                                    |
+| Apstrāde            | 1) DB tiek atrasts lietotājs ar norādīto lietotāja ID; <br> 2) Pārbauda vai atkārtotā parole sakrīt ar jauno paroli; <br>2.1) Ja jaunā parole un tās atkārtojums sakrīt, pārbauda vai šī lietotāja parole sakrīt ar norādīto veco paroli; <br> 2.1.1) Ja paroles sakrīt, tad lietotāja parole tiek atjaunota uz norādīto jauno paroli. Funkcija ir veiksmīga; <br> 2.1.2) Ja paroles nesakrīt, tad funkcija ir neveiksmīga; <br> 2.2) Ja jaunā parole un tās atkārtojums nesakrīt funkcija tiek pārtraukta. |
+| Izvaddati           | 1) Funkcija ir veiksmīga- lietotāja parole ir atjaunota, tiek parādīts paziņojums 1. <br> 2) Funkcija ir pārtraukta- lietotāja parole netiek atjaunota, tiek parādīts paziņojums 2. <br> 3) Funkcija ir neveiksmīga-lietotāja parole netiek atjaunota, tiek parādīts paziņojums 3.                                                                                                                                                                                                                          |
+| Paziņojumi          | 1)  'Parole izveidota' <br> 2) 'Paroles nesakrīt' <br> 3) 'Kļūda'                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+**Tabula 2.2.2.7** *Paroles izveides funkcijas projektējums*
+
+
 #### 2.2.3. Modulis "Vienība"
 
 ![VNB moduļa 2. līmeņa DPD diagrama](2_limena_VNB_DPD.png)
@@ -281,13 +294,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.3.1 Biedra pievienošana (VNB-01)
 
-| Funkcijas nosaukums | Biedra pievienošana (VNB-01) |
-| ------------------- | ---------------------------- |
-| Funkcijas mērķis    |                              |
-| Ievaddati           |                              |
-| Apstrāde            |                              |
-| Izvaddati           |                              |
-| Paziņojumi          |                              |
+| Funkcijas nosaukums | Biedra pievienošana (VNB-01)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Priekšnieks spēj savai vienībai pievienot jaunu biedru.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne); <br> Pievienošanās datums (datums); <br> Status (Aktīvs/Interesents/Vadītājs/Vecbiedrs/Izstājies); <br> Pakāpe ('MZSK/GNT' / 'SK/G' / 'DZSK/DZG' / 'ROV/LG' / 'VAD' / 'VIEDSK/VIEDG' / 'CITS'); <br> Aktīvais lietotājs (lietotāja objekts).<br>                                                                                                                                                                                                                                                                                                               |
+| Apstrāde            | 1) Tiek izveidots jauns lietotāja objekts ar ievaddatu vērtībām (vārds, uzvārds, epasts, pievienošanās datums, status, pakāpe) zem aktīvā lietotāja vienības. Ja rodas problēmas validējot datus, tiek parādīti sistēmas ģenerētie paziņojumi. <br> 2) Jaunajam lietotājam tiek uzģenerēta pagaidu parole. <br> 3) Jaunajam lietotājam tiek uzģenerēts lietotājvārds (VārdsUzvārds + Vienības nummurs). 4) Jaunais lietotājs tiek saglabāts DB. <br> 4.1) Ja lietotājs tiek saglbāts veiksmīgi, lietotājam tiek nosūtīts epasts ar linku paroles izveidei, funkcija ir veiksmīga. <br> 4.2) Ja lietotājs netiek saglabāts, funkcija ir neveiksmīga. |
+| Izvaddati           | 1) Funkcija ir veiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 1. <br> 2) Funkcija ir neveiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 2.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Paziņojumi          | 1) Biedrs pievienots <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 **Tabula 2.2.3.1** *Biedra pievienošanas funkcijas projektējums*
 
@@ -303,15 +316,15 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.3.2** *Vienības biedru apskatīšanas funkcijas projektējums*
 
-##### 2.2.3.3 Vienības biedra vienības nomaiņa (VNB-03)
+##### 2.2.3.3 Vienības biedra datu nomaiņa (VNB-03)
 
-| Funkcijas nosaukums | Vienības biedra vienības nomaiņa (VNB-03) |
-| ------------------- | ----------------------------------------- |
-| Funkcijas mērķis    |                                           |
-| Ievaddati           |                                           |
-| Apstrāde            |                                           |
-| Izvaddati           |                                           |
-| Paziņojumi          |                                           |
+| Funkcijas nosaukums | Vienības biedra datu nomaiņa (VNB-03) |
+| ------------------- | ------------------------------------- |
+| Funkcijas mērķis    |                                       |
+| Ievaddati           |                                       |
+| Apstrāde            |                                       |
+| Izvaddati           |                                       |
+| Paziņojumi          |                                       |
 
 **Tabula 2.2.3.3** *Vienības biedra vienības nomaiņas funkcijas projektējums*
 
@@ -557,13 +570,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.5.7 Aktuālo pasākumu iegūšana (PSK-07)
 
-| Funkcijas nosaukums | Aktuālo pasākumu iegūšana (PSK-07) |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    |                                    |
-| Ievaddati           |                                    |
-| Apstrāde            |                                    |
-| Izvaddati           |                                    |
-| Paziņojumi          |                                    |
+| Funkcijas nosaukums | Aktuālo pasākumu iegūšana (PSK-07)                                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj apskatīt pasākumus uz kuriem ir uzaicināta viņa vienība un atbilst viņa darbības pakāpe, kas vel nav notikuši                                                                |
+| Ievaddati           | Vienība (vienības objekts); <br> Darbības Pakāpe (noteikta simbolu virkne); <br> Pašreizējais datums (datums)                                                                               |
+| Apstrāde            | 1) No DB tiek iegūti pasākumi, kuru sākuma datums ir lielāks, nekā pašreizējais datums; <br> 2) No iegūtajiem ierakstiem atlasam tos, kam eksistē ielūgums ievadītajai vienībai un pakāpei. |
+| Izvaddati           | Saraksts ar 0 vai vairāk pasākuma objektiem                                                                                                                                                 |
+| Paziņojumi          | -                                                                                                                                                                                           |
 
 **Tabula 2.2.5.5** *Aktuālo pasākumu iegūšanas funkcijas projektējums*
 
@@ -633,7 +646,7 @@ Zinot, ka šī sistēma ir slēgta, un nav brīvi pieejama, lietotāja izveide u
 
 ![Lietotāja izveidošana](Profila_izveide_swimlane.png)
 **Attēls 3.3.1** *Lietotāja izveidošanas diagramma*
-Attēlā 3.3.1. ir apskatīta lietotāja izveide- lai izveidotu lietotāju, cits lietotājs ar vadītāja privilēģijām reģistrē interesentu ievadot pamatinformāciju. Pēc tam uz jaunā lietotāja vai jaunā lietotāja vecāka e-pastu tiek nosūtīts unikāls links, kurš ir derīgs vienu nedēļu no tā izveides laika. Ja lietotājs izmanto sekojošo linku, tam tiek prasīts ievadīt paroli un papildus informāciju. Ja lietotājs veic šīs darbības, turpmāk viņam sistēma ir pieejama lietojot lietotājvārdu, ko ģenerē sistēma (Vāda pirmais burts + Uzvārds + Vienības nummurs) un iepriekš ievadīto paroli.
+Attēlā 3.3.1. ir apskatīta lietotāja izveide- lai izveidotu lietotāju, cits lietotājs ar vadītāja privilēģijām reģistrē interesentu ievadot pamatinformāciju. Pēc tam uz jaunā lietotāja vai jaunā lietotāja vecāka e-pastu tiek nosūtīts unikāls links, kurš ir derīgs vienu nedēļu no tā izveides laika. Ja lietotājs izmanto sekojošo linku, tam tiek prasīts ievadīt paroli un papildus informāciju. Ja lietotājs veic šīs darbības, turpmāk viņam sistēma ir pieejama lietojot lietotājvārdu, ko ģenerē sistēma (Vārds + Uzvārds + Vienības nummurs) un iepriekš ievadīto paroli.
 
 ![Lietotāja dzēšana](Profila_dzēšana_swimlane.png)
 **Attēls 3.3.2** *Lietotāja dzēšana diagramma*
@@ -646,3 +659,4 @@ Attēlā 3.3.2. ir apskatīta lietotāja dzēšana- situācija, kad lietotājs v
 Sistēmas testēšanai tiek lietota rails bibleotēka rspec, kas ir paredzēta automātisko testu izveidei un dokumentēšanai. Rspec sintakse ir labi lasāma, un tās metodes nosaukums apraksta vēlamo sasniedzamo rezultātu. Turpmākajā nodaļā tiks uzskaitīti testa piemēri, kas tiek pārbaudīti sistēmā, kā arī to vēlamais rezultāts. Šos pašus datus var atrast arī projekta /spec/ mapē.
 
 ### 4.2. Automatizēto vienībtestu protokols
+**TESTI TIKS APRAKSTĪTI PROJEKTA BEIGU STADIJĀ**
