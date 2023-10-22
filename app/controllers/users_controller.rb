@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def get
     @new_user = session[:new_user]
     @user = current_user
+    @events = @user.unit.get_actual_events(@user.rank)
   end
 
   def new
@@ -12,12 +13,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.except(:rank))
     @user.unit = current_user.unit
     password = Faker::Alphanumeric.alphanumeric
     @user.password_digest = BCrypt::Password.create(password).to_s
+
+    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_params[:rank], current: true)
+
     @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s
-    if @user.save
+    if @user.save && @rank.save
       link = activation_path(id: @user.id, password: password)
       UserMailer.first_login_email(current_user, @user, link).deliver_later
       redirect_to root_path, notice: "Biedrs pievienots"
@@ -97,6 +101,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date)
+    params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date, :rank)
   end
 end

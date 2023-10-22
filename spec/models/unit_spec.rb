@@ -6,7 +6,9 @@ RSpec.describe Unit, type: :model do
   let(:user1) { build :user, unit: unit }
   let(:user2) { build :user, unit: unit }
   let(:event) { build :event, unit: unit }
-  let(:invite) { build :invite, event: event, unit: unit2}
+  let(:event2) { build :event, unit: unit }
+  let(:invite) { build :invite, event: event, unit: unit2, rank: "SK/G"}
+  let(:invite2) { build :invite, event: event2, unit: unit2, rank: "SK/G"}
   let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user1, user_recorded: user2}
   let(:position) {build :position, unit: unit, user: user1, position_name: "Nodarbību vadītājs"}
  
@@ -71,5 +73,25 @@ RSpec.describe Unit, type: :model do
     position.save!
 
     expect(unit.positions.first).to eq(position)
+  end
+
+
+  it("should get units full name") do
+    unit.save!
+
+    expect(unit2.full_name).to eq("#{unit.city}s #{unit.number}. vienība")
+  end
+
+  it("should get upcoming events for a rank") do
+    unit2.save!
+    event.save!
+    event2.save!
+    invite.save!
+    invite2.save!
+
+    expect(unit2.get_actual_events("SK/G").length).to eq(2)
+    expect(unit2.get_actual_events("SK/G")[0]).to eq(event)
+    expect(unit2.get_actual_events("SK/G")[1]).to eq(event2)
+    expect(unit2.get_actual_events("MZSK/GNT").length).to eq(0)
   end
 end

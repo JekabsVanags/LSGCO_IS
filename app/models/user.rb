@@ -21,4 +21,9 @@ class User < ApplicationRecord
   def years_in_organization
     ((Date.today - joined_date)/365).to_i
   end
+
+  def rank
+    history = rank_histories.where(current: true).first
+    history ? history.rank : "Tev nav norādīta pakāpe"
+  end
 end

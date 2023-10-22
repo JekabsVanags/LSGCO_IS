@@ -11,4 +11,8 @@ class Unit < ApplicationRecord
   def full_name 
     "#{city}s #{number.to_s}. vienība"
   end
+
+  def get_actual_events(rank)
+  invites.where(rank: rank).map(&:event)
+  end
 end

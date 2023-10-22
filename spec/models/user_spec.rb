@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:unit) { build :unit }
-  let(:user) { build :user, unit: unit }
+  let(:user) { build :user, unit: unit, joined_date: Date.today - 1008 }
   let(:event) { build :event, unit: unit }
   let(:registration) { build :event_registration, user: user, event: event}
   let(:user2) { build :user, unit: unit }
   let(:payment) {build :membership_fee_payment, unit: unit, user_payed: user, user_recorded: user2}
   let(:position) {build :position, unit: unit, user: user, position_name: "Nodarbību vadītājs"}
+  let(:rank_current) {build :rank_history, {rank: "SK/G", current: true, user: user}}
+  let(:rank_old) {build :rank_history, {rank: "MZSK/GNT", current: false, user: user}}
  
 
   it("should fill default attributes with default values") do 
@@ -74,5 +76,20 @@ RSpec.describe User, type: :model do
     position.save!
 
     expect(user.positions.first).to eq(position)
+  end
+
+  it("should get users current rank and rank history") do
+    user.save!
+    rank_current.save!
+    rank_old.save!
+
+    expect(user.rank).to eq("SK/G")
+    expect(user.rank_histories.length).to eq(2)
+  end
+
+  it("should get users time in organization") do
+    user.save!
+
+    expect(user.years_in_organization).to eq(2)
   end
 end
