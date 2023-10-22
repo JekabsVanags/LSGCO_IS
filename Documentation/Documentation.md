@@ -166,6 +166,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
   |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators                       |
   |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                                         |
   |         | BDR-06               | Biedra personīgo datu dzēšana                       | Biedrs, Priekšnieks, Administrators                       |
+  |         | BDR-07               | Paroles izveide                                     | Biedrs, Priekšnieks, Administrators                       |
   | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators                               |
   |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators                               |
   |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators                               |
