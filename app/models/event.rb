@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
-  enum event_type: ["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]
+  enum event_type: ['Nometne', 'Pārgājiens', 'Darba grupa', 'Labais darbs', 'Cits']
   validates :name, :date_from, :event_type, presence: true
-  
+
   belongs_to :unit
 
   has_many :invites

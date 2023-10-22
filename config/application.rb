@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,7 +11,7 @@ module LSGCOIs
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.factory_bot.definition_file_paths = ["spec/factories"]
+    config.factory_bot.definition_file_paths = ['spec/factories']
 
     # Configuration for the application, engines, and railties goes here.
     #

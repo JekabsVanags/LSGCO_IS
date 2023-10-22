@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -9,7 +8,6 @@ class UserMailer < ApplicationMailer
     @creator = creator
     @user = user
     @link = link
-    mail to: @user.email, subject: "Jūsu reģistrēšana LSGCO Informācijas Sistēmā", from: "lsgcois@skautiungaidas.lv"
-
+    mail to: @user.email, subject: 'Jūsu reģistrēšana LSGCO Informācijas Sistēmā', from: 'lsgcois@skautiungaidas.lv'
   end
 end
