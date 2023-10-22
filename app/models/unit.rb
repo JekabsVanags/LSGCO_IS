@@ -13,6 +13,6 @@ class Unit < ApplicationRecord
   end
 
   def get_actual_events(rank)
-    invites.where(rank:).map(&:event)
+    invites.future.where(rank:).map(&:event)
   end
 end
