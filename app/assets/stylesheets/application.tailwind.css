@@ -40,6 +40,10 @@
     @apply text-scout-blue font-extrabold text-4xl mb-2;
   }
 
+  .subtitle{
+    @apply font-bold text-xl mb-2;
+  }
+
   .paragraph-normal{
     @apply text-xl;
   }

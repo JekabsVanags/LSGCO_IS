@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :unit do
-    city { "MyString" }
+    city { 'MyString' }
     number { 1 }
-    legal_adress { "MyString" }
-    activity_location_name { "MyString" }
+    legal_adress { 'MyString' }
+    activity_location_name { 'MyString' }
     email { Faker::Internet.email }
     phone { Faker::PhoneNumber.phone_number }
-    comments { "MyText" }
+    comments { 'MyText' }
     bank_account { Faker::PhoneNumber.phone_number }
-    membership_fee { "2" }
+    membership_fee { '2' }
   end
 end

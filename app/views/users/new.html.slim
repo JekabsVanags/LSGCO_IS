@@ -21,4 +21,7 @@
         .flex.flex-col.w-1/3
           = f.label :activity_statuss, "Statuss", class: "input-label-inline"
           = f.select :activity_statuss, options_for_select(["Aktīvs", "Interesents", "Vadītājs", "Vecbiedrs"]), {}, class: "input-field-blue"
+      .flex.flex-col.w-1/2
+          = f.label :rank, "Pakāpe", class: "input-label-inline"
+          = f.select :rank, options_for_select(["MZSK/GNT","SK/G", "DZSK/DZG", "ROV/LG", "VAD", "VIEDSK/VIEDG", "CITS"]), {}, class: "input-field-blue"
       = f.submit class: "btn-primary w-1/2 text-center"

@@ -1,0 +1,34 @@
+
+div.flex.flex-col.gap-4
+  div.flex.gap-2 
+    h1.subtitle 
+      |Vārds: 
+    p.paragraph-normal 
+      =@user.name
+  div.flex.gap-2   
+    h1.subtitle 
+      |Uzvārds: 
+    p.paragraph-normal 
+      =@user.surname
+  div.flex.gap-2   
+    h1.subtitle 
+      |Vienība: 
+    p.paragraph-normal 
+      =@user.unit.full_name
+  div.flex.gap-2   
+    h1.subtitle 
+      |Pakāpe: 
+    p.paragraph-normal 
+      =@user.rank
+  div.flex.gap-2   
+    h1.subtitle 
+      |Epasts: 
+    p.paragraph-normal 
+      =@user.email
+  div.flex.gap-2   
+    h1.subtitle 
+      |Telefons: 
+    p.paragraph-normal 
+      =@user.phone
+
+    

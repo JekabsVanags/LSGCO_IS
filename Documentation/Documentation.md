@@ -32,7 +32,7 @@ PPA ir izstrādāts atbilstoši standartam "LVS 72:1996 Ieteicamā prakse progra
 Dokumenta struktūru veido trīs daļas:
 
 1. **Vispārīgs apraksts**, kas ietver
-
+   
    - produkta aprakstu
    - pasūtītāju
    - 0.līmeņa datu plūsmas diagrammu
@@ -43,7 +43,7 @@ Dokumenta struktūru veido trīs daļas:
    - pieņēmumus un atkarības.
 
 2. **Programmatūras prasību specifikācija**, kurā norādītas
-
+   
    - funkcionālās un nefunkcionālās prasības
    - datu bāzes ER diagramma
    - konceptuālais datu bāzes apraksts
@@ -51,12 +51,13 @@ Dokumenta struktūru veido trīs daļas:
    - sistēmas moduļu sadalījums pēc funkcijām un funkciju apraksti.
 
 3. **Programmatūras projektējuma apraksts**, kur aprakstīts
-
+   
    - datu bāzes loģiskais un fiziskais modelis  
    - daļējs funkciju projektējums
    - lietotāja saskarņu projektējums
-4. **Testēšanas pārskats**, kurš iekļauj
 
+4. **Testēšanas pārskats**, kurš iekļauj
+   
    - testēšanas procesa aprakstu
    - automatizēto vienībtestu dokumentāciju
    - integrācijas testēšanas protokolu
@@ -236,7 +237,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.2.3** *Izstāšanās pieteikuma iesniegšanas funkcijas projektējums*
 
-
 ##### 2.2.2.4 Biedra naudas statusa iegūšana (BDR-04)
 
 | Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04) |
@@ -272,7 +272,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                        |
 
 **Tabula 2.2.2.6** *Biedra personīgo datu dzēšanas funkcijas projektējums*
-
 
 #### 2.2.3. Modulis "Vienība"
 
@@ -316,7 +315,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.3.3** *Vienības biedra vienības nomaiņas funkcijas projektējums*
 
-
 ##### 2.2.3.4 Vienības datu apskatīšana (VNB-04)
 
 | Funkcijas nosaukums | Vienības datu apskatīšana (VNB-04) |
@@ -352,7 +350,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                                 |
 
 **Tabula 2.2.3.5** *Vienības biedru atskaites sagatavošanas funkcijas projektējums*
-
 
 ##### 2.2.3.7 Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07)
 
@@ -390,7 +387,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.3.9** *Iknedēļas nodarbības pievienošanas funkcijas projektējums*
 
-
 ##### 2.2.3.10 Iknedēļas nodarbības izmainīšana (VNB-10)
 
 | Funkcijas nosaukums | Iknedēļas nodarbības izmainīšana (VNB-10) |
@@ -426,8 +422,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                          |
 
 **Tabula 2.2.3.12** *Novadītas nodarbības atzīmēšanas funkcijas projektējums*
-
-
 
 #### 2.2.4. Modulis "Valde"
 
@@ -471,7 +465,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.4.3** *Biedru atskaites sagatavošanas funkcijas projektējums*
 
-
 ##### 2.2.4.4 Vienību atskaites sagatavošana (VLD-04)
 
 | Funkcijas nosaukums | Vienību atskaites sagatavošana (VLD-04) |
@@ -483,7 +476,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                         |
 
 **Tabula 2.2.4.4** *Vienību atskaites sagatavošanas funkcijas projektējums*
-
 
 #### 2.2.5. Modulis "Pasākums"
 
@@ -526,7 +518,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                    |
 
 **Tabula 2.2.5.3** *Pasākuma datu atjaunošanas funkcijas projektējums*
-
 
 ##### 2.2.5.4 Pasākumu apskatīšana (PSK-04)
 
@@ -575,8 +566,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          |                                    |
 
 **Tabula 2.2.5.5** *Aktuālo pasākumu iegūšanas funkcijas projektējums*
-
-
 
 #### 2.2.6. Modulis "Sistēma"
 
