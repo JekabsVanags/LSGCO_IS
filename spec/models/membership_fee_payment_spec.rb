@@ -7,8 +7,8 @@ RSpec.describe MembershipFeePayment, type: :model do
   let(:payment) { build :membership_fee_payment, unit:, user_payed: user1, user_recorded: user2 }
 
   it('should create membership fee payment') do
-    payment = MembershipFeePayment.new(unit:, user_payed: user1, user_recorded: user2, amount: 20,
-                                       date: Date.today)
+    MembershipFeePayment.new(unit:, user_payed: user1, user_recorded: user2, amount: 20,
+                             date: Date.today)
   end
 
   it('should not validate payment with wrong data') do
