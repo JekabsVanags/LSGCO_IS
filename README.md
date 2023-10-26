@@ -3,8 +3,8 @@
 LSGCO IS ir biedrzinības sistēma, kas ir paredzēta organizācijas iekšējai lietošanai, lai risinātu biedru pārvaldību, biedra naudas nomaksu, pasākumu reģistrāciju, un citus jautājumus.
 
 ## Izmantotās tehnoloģijas
--Sistēma ir veidota Ruby on Rails vidē, lai nodrošinātu ātru un kvalitatīvu sistēmas izstrādi un iebūvētu e-pastu izsūtīšanu.
--Frontend tiek lietota .slim templating valoda
+- Sistēma ir veidota Ruby on Rails vidē, lai nodrošinātu ātru un kvalitatīvu sistēmas izstrādi un iebūvētu e-pastu izsūtīšanu.
+- Frontend tiek lietota .slim templating valoda
 
 ## Palaišana
 
