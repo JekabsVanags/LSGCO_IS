@@ -47,4 +47,12 @@
   .paragraph-normal{
     @apply text-xl;
   }
+
+  .paragraph-dark{
+    @apply text-xl font-bold;
+  }
+
+  .paragraph-emp{
+    @apply text-xl font-bold text-scout-red;
+  }
 }

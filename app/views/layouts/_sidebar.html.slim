@@ -13,24 +13,22 @@
         button.btn-primary.flex.items-center.justify-between.my-3 type="submit" 
           |Pievienoties
           =image_tag 'icons/login.svg', size:"30"
-  -elsif @sidebar_state == "pklv_biedrs"
-    =link_to session_path, class: "btn-primary flex items-center justify-between mx-4"
-      |Izrakstīties
-      =image_tag 'icons/logout.svg', size:"30"
-  -elsif @sidebar_state == "pklv_vaditajs"
-    .flex.flex-col.divide-y-2.divide-scout-gold 
+  -else
+  .flex.flex-col.divide-y-2.divide-scout-gold 
+    -if @sidebar_state == "pklv_vaditajs"
+        div
+          =link_to new_user_path, class: current_page?(controller: 'users', action: 'new') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+            |Pievienot biedru
+            =image_tag 'icons/new_user.svg', size:"30"
+    -if @sidebar_state == "pklv_biedrs" || @sidebar_state == "pklv_vaditajs"
       div
-        =link_to new_user_path, class: current_page?(controller: 'users', action: 'new') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
-          |Pievienot biedru
-          =image_tag 'icons/new_user.svg', size:"30"
-     
-      div
-        =link_to profile_path, class: current_page?('/profile') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+        =link_to aptaujas_lapa_path, class: controller_name == 'personal_information' ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+          |Aptaujas lapa 
+          =image_tag 'icons/private_information.svg', size:"30"
+        =link_to profils_path, class: current_page?(controller: 'users', action: 'profile') ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
           |Mans profils
           =image_tag 'icons/current_user.svg', size:"30"
         =link_to session_path, class: "btn-primary flex items-center justify-between my-3"
           |Izrakstīties
           =image_tag 'icons/logout.svg', size:"30"
-  -else
-    p
-      |Unknown state
+     

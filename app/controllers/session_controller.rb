@@ -6,7 +6,7 @@ class SessionController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to profile_path, notice: 'Pieslēgšanās veiksmīga'
+      redirect_to profils_path, notice: 'Pieslēgšanās veiksmīga'
     else
       redirect_to root_path, alert: 'Nepareiza parole vai lietotājvārds'
     end

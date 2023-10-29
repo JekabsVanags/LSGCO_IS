@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
   post '/session', to: 'session#create'
   get '/session', to: 'session#destory' # Using get to link to destory due to rails depriciation of link_to method specification
-  get ':password/activation', as: 'activation', to: 'session#first_login'
+  get ':password/aktivizet', to: 'session#first_login'
 
-  get '/profile', to: 'users#get'
-  post 'users/:id/password_update', to: 'users#password_update', as: 'password_update'
-  resources :users do
+  get '/profils', to: 'users#profile'
+  post 'lietotajs/:id/atjaunot_paroli', to: 'users#password_update'
+  resources :users, path: :lietotajs  do
     member do
       post 'unit_update'
     end
   end
+
+  get '/aptaujas_lapa', to: 'personal_information#show'
+  delete '/aptaujas_lapa', to: 'personal_information#destroy'
+  get '/aptaujas_lapa/iesniegt', to: 'personal_information#new'
+  post '/aptaujas_lapa/iesniegt', to: 'personal_information#create'
+  patch '/aptaujas_lapa/iesniegt', to: 'personal_information#update'
+  get '/aptaujas_lapa/labot', to: 'personal_information#edit'
+
+  resources :personal_information, except: ["index"]
 
   root 'static#landing'
 end

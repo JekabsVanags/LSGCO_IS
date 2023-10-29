@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized?
-  before_action :unit_access?, only: %i[create unit_update]
-
-  def get
-    @new_user = session[:new_user]
-    @user = current_user
-    @events = @user.unit.get_actual_events(@user.rank)
-  end
+  before_action :unit_access?, only: ["create", "unit_update"]
 
   def new
     @user = User.new
@@ -43,6 +37,27 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, notice: 'Kļūda'
     end
+  end
+
+  def destory
+    @User.find(params[:id])
+
+    if @user.update(activity_statuss: "Izstājies")
+      session.clear
+      if @user.personal_information.present?
+        @user.personal_information.destory
+      end
+      redirect_to root_path, notice: 'Profils dzēsts'
+    else
+      redirect_to root_path, notice: 'Kļūda'
+    end
+
+  end
+
+  def profile
+    @new_user = session[:new_user]
+    @user = current_user
+    @events = @user.unit.get_actual_events(@user.rank)
   end
 
   def unit_update

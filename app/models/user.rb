@@ -2,12 +2,12 @@ class User < ApplicationRecord
   has_secure_password
   validates :name, :surname, :activity_statuss, :membership_fee_bilance, :joined_date, :permission_level, presence: true
 
-  enum activity_statuss: %w[Aktīvs Interesents Vadītājs Vecbiedrs Izstājies]
-  enum sex: %w[M F O]
-  enum permission_level: %w[pklv_biedrs pklv_vaditajs pklv_valde]
+  enum activity_statuss: ["Aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Izstājies"]
+  enum sex: ["M", "F", "O"]
+  enum permission_level: ["pklv_biedrs", "pklv_vaditajs", "pklv_valde"]
 
   has_many :rank_histories
-  has_one :personal_informations, dependent: :destroy
+  has_one :personal_information, dependent: :destroy
   belongs_to :unit
 
   has_many :event_registrations
@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :registered_fees, foreign_key: 'user_recorded_id', class_name: 'MembershipFeePayment'
 
   has_many :positions
+
+  scope :active_members, -> { where(:activity_statuss != "Izstājies") }
+  scope :ex_members, -> { where(:activity_statuss == "Izstājies") }
 
   def years_in_organization
     ((Date.today - joined_date) / 365).to_i

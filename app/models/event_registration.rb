@@ -5,5 +5,5 @@ class EventRegistration < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
-  enum role: %w[Dalībnieks Brīvprātīgais Organizētājs]
+  enum role: ["Dalībnieks", "Brīvprātīgais", "Organizētājs"]
 end
