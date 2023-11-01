@@ -145,13 +145,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(aktivizet_path(user.id, old_password))
     end
 
-    it 'redirects to root_path with a notice if passwords do not match' do
+    it 'redirects to user_edit_path with a notice if passwords do not match' do
       user.password = "test"
       user.save!
       old_password = "test"
       session[:new_user] = false
       patch :password_update, params: { id: user.id, old_password: old_password, password_digest: 'new_password', repeat_password: 'different_password' }
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(edit_user_path(user.id))
     end
   end
 end

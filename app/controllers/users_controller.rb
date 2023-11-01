@@ -84,25 +84,31 @@ class UsersController < ApplicationController
 
   def password_update
     @user = User.find(params[:id])
+    path = session[:new_user] == true ? aktivizet_path(@user.id, params[:old_password]) : edit_user_path(@user.id)
+    success_notice = session[:new_user] == true ? "Parole izveidota" : "Parole atjuanota"
 
     if params[:password_digest] != params[:repeat_password]
-      path = session[:new_user] ? aktivizet_path(@user.id, params[:old_password]) : root_path
       redirect_to path, notice: 'Paroles nesakrīt'
       return
     end
-
+  
     if @user.authenticate(params[:old_password])
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
     else
+      if session[:new_user] == true
       session.clear
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to root_path, notice: 'Nepareiza parole'
+      else 
+      redirect_to edit_user_path(current_user), notice: 'Nepareiza pašreizējā parole'
+      end
+
       return
     end
 
     if @user.save
-      redirect_to edit_user_path(current_user), notice: 'Parole izveidota'
+      redirect_to edit_user_path(current_user), notice: success_notice
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to path, notice: 'Kļūda'
     end
   end
 

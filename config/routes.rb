@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, path: :lietotajs  do
     member do
       post 'unit_update'
+      post 'password_update'
     end
   end
 
