@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  before_action :authorized?, only: [:destory]
+  before_action :authorized?, only: [:destroy]
 
   def create
     user = User.find_by(username: params[:username])
@@ -12,7 +12,7 @@ class SessionController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     session.clear
     redirect_to root_path, notice: 'Izrakstīšanās veiksmīga'
   end

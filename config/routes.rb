@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post '/session', to: 'session#create'
-  get '/session', to: 'session#destory' # Using get to link to destory due to rails depriciation of link_to method specification
-  get ':password/aktivizet', to: 'session#first_login'
+  get '/session', to: 'session#destroy' # Using get to link to destroy due to rails depriciation of link_to method specification
+  get ':password/aktivizet', to: 'session#first_login', as: "aktivizet"
 
   get '/profils', to: 'users#profile'
   post 'lietotajs/:id/atjaunot_paroli', to: 'users#password_update'

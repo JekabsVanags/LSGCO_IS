@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s
     if @user.save && @rank.save
-      link = activation_path(id: @user.id, password:)
+      link = aktivizet_path(id: @user.id, password:)
       UserMailer.first_login_email(current_user, @user, link).deliver_later
       redirect_to root_path, notice: 'Biedrs pievienots'
     else
@@ -39,13 +39,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def destory
-    @User.find(params[:id])
+  def destroy
+    @user = User.find(params[:id])
 
     if @user.update(activity_statuss: "Izstājies")
       session.clear
       if @user.personal_information.present?
-        @user.personal_information.destory
+        @user.personal_information.destroy
       end
       redirect_to root_path, notice: 'Profils dzēsts'
     else
@@ -86,7 +86,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if params[:password_digest] != params[:repeat_password]
-      redirect_to activation_path(@user.id, params[:old_password]), notice: 'Paroles nesakrīt'
+      path = session[:new_user] ? aktivizet_path(@user.id, params[:old_password]) : root_path
+      redirect_to path, notice: 'Paroles nesakrīt'
       return
     end
 
