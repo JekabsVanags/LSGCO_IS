@@ -1,0 +1,21 @@
+div style="font-family: sans"
+  h1 style="font-size: 2.25rem; color: #556987"
+    | Sveiks, #{@user.name}!
+  p
+    | Jūs pēdējā laikā neesat veicis biedra naudas maksājumus. 
+  
+  -if @last_payment
+    p style="margin-bottom: 30px"  
+      | Pēdējais maksājums reģistrēts #{@last_payment.created_at.strftime("%d.%m.%y")}, #{@last_payment.amount} eiro apmērā.
+
+  p 
+    | Lūdzam tevi pārskaitīt #{@user.membership_fee_bilance.abs.to_s + "€"  } uz tavu vienības kontu:
+  b
+    =@user.unit.bank_account 
+
+  p style="margin-top: 10px" 
+    em 
+      | Ja radušies kādi jautājumi, vai neskaidrības, lūdzu sazinieties ar savu vienības priekšnieku pa talruni #{@user.unit.phone}
+
+  p style="margin-top: 30px" 
+  | Arvien Modri! LSGCO informācijas sistēma

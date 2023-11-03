@@ -1,0 +1,15 @@
+
+'Sveiks, #{@user.name}!
+= "\r\n" * 2
+'Jūs pēdējā laikā neesat veicis biedra naudas maksājumus. 
+= "\r\n" 
+-if @last_payment
+  'Pēdējais maksājums reģistrēts #{@last_payment.created_at.strftime("%d.%m.%y")}, #{@last_payment.amount} eiro apmērā.
+= "\r\n" * 2
+'Lūdzam tevi pārskaitīt #{@user.membership_fee_bilance.abs.to_s + "€"  } uz tavu vienības kontu:
+= "\r\n" 
+=@user.unit.bank_account 
+= "\r\n" * 2
+'Ja radušies kādi jautājumi, vai neskaidrības, lūdzu sazinieties ar savu vienības priekšnieku pa talruni #{@user.unit.phone}
+= "\r\n" * 2
+'Arvien Modri! LSGCO informācijas sistēma

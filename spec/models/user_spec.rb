@@ -91,4 +91,14 @@ RSpec.describe User, type: :model do
 
     expect(user.years_in_organization).to eq(2)
   end
+
+  it('should reduce the bilance by membership fee') do
+    unit.membership_fee = 2
+    unit.save!
+    user.save!
+
+    user.recalculate_bilance
+
+    expect(user.membership_fee_bilance).to eq(-2)
+  end
 end
