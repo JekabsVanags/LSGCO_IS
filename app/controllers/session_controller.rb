@@ -1,18 +1,18 @@
 class SessionController < ApplicationController
-  before_action :authorized?, only: [:destory]
+  before_action :authorized?, only: [:destroy]
 
   def create
     user = User.find_by(username: params[:username])
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to profile_path, notice: 'Pieslēgšanās veiksmīga'
+      redirect_to profils_path, notice: 'Pieslēgšanās veiksmīga'
     else
       redirect_to root_path, alert: 'Nepareiza parole vai lietotājvārds'
     end
   end
 
-  def destory
+  def destroy
     session.clear
     redirect_to root_path, notice: 'Izrakstīšanās veiksmīga'
   end

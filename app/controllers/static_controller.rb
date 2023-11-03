@@ -9,6 +9,6 @@ class StaticController < ApplicationController
   def redirect_logged_in
     return unless current_user.present?
 
-    redirect_to profile_path
+    redirect_to profils_path
   end
 end

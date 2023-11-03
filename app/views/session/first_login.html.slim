@@ -7,7 +7,7 @@
       |Lai pabeigtu savu reģistrāciju, lūdzu ievadi savu paroli!
 
   .flex.flex-col.mt-20
-    = form_tag password_update_path(current_user)
+    = form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
       label.input-label 
         |Parole
       input.input-field-blue.w-1/2 type="password" name="password_digest"

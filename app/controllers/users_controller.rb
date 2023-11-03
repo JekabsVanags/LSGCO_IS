@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized?
-  before_action :unit_access?, only: %i[create unit_update]
-
-  def get
-    @new_user = session[:new_user]
-    @user = current_user
-    @events = @user.unit.get_actual_events(@user.rank)
-  end
+  before_action :unit_access?, only: ["create", "unit_update"]
 
   def new
     @user = User.new
@@ -22,7 +16,7 @@ class UsersController < ApplicationController
 
     @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s
     if @user.save && @rank.save
-      link = activation_path(id: @user.id, password:)
+      link = aktivizet_path(id: @user.id, password:)
       UserMailer.first_login_email(current_user, @user, link).deliver_later
       redirect_to root_path, notice: 'Biedrs pievienots'
     else
@@ -43,6 +37,27 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, notice: 'Kļūda'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+
+    if @user.update(activity_statuss: "Izstājies")
+      session.clear
+      if @user.personal_information.present?
+        @user.personal_information.destroy
+      end
+      redirect_to root_path, notice: 'Profils dzēsts'
+    else
+      redirect_to root_path, notice: 'Kļūda'
+    end
+
+  end
+
+  def profile
+    @new_user = session[:new_user]
+    @user = current_user
+    @events = @user.unit.get_actual_events(@user.rank)
   end
 
   def unit_update
@@ -69,24 +84,31 @@ class UsersController < ApplicationController
 
   def password_update
     @user = User.find(params[:id])
+    path = session[:new_user] == true ? aktivizet_path(@user.id, params[:old_password]) : edit_user_path(@user.id)
+    success_notice = session[:new_user] == true ? "Parole izveidota" : "Parole atjuanota"
 
     if params[:password_digest] != params[:repeat_password]
-      redirect_to activation_path(@user.id, params[:old_password]), notice: 'Paroles nesakrīt'
+      redirect_to path, notice: 'Paroles nesakrīt'
       return
     end
-
+  
     if @user.authenticate(params[:old_password])
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
     else
+      if session[:new_user] == true
       session.clear
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to root_path, notice: 'Nepareiza parole'
+      else 
+      redirect_to edit_user_path(current_user), notice: 'Nepareiza pašreizējā parole'
+      end
+
       return
     end
 
     if @user.save
-      redirect_to edit_user_path(current_user), notice: 'Parole izveidota'
+      redirect_to edit_user_path(current_user), notice: success_notice
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to path, notice: 'Kļūda'
     end
   end
 
