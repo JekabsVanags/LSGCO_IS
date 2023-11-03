@@ -17,6 +17,13 @@ rails db:seed
 ```
 Lai palaistu produkcijas versiju palaidiet docker image, TBD
 
+## Automātisko darbu izpildes sākšana
+
+Lai sāktu cron darbus jāpalaiž šī komanda. Default enviroment ir production
+```bash
+bundle exec whenever --update-crontab --set environment='development'
+```
+
 ## Piebildes
 
 Darbs izstrādāts Latvijas Universitātes Datorzinātņu profesionālās bakalaura programmas kvalifikācijas darba ietvaros, ar LSGCO atbalstu.
