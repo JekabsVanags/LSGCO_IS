@@ -1,0 +1,21 @@
+script src = javascript_path("views/unit-show")
+
+table id="myTable" class="display"
+  thead
+    tr
+      th Name
+      th Rank
+      th Status
+      th 
+      th
+
+  tbody
+    - @members.each do |member|
+      tr
+        td= member.name
+        td= member.rank
+        td= member.activity_statuss
+        td 
+          =link_to "Mainīt datus", profils_path, class:"btn-primary"
+        td 
+          =link_to "Apskatīt", profils_path, class:"btn-primary"
