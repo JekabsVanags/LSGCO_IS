@@ -1,11 +1,13 @@
 class UnitController < ApplicationController
   before_action :authorized?
   before_action :unit_access?
+  before_action :unit_member?
 
   def show
     @unit = Unit.find(params[:id])
-    @weekly_activity = @unit.weekly_activities.all
+    @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @members = @unit.users
+    @unit_leader = User.where(unit: @unit, permission_level: "pklv_vaditajs").first
   end
 
   def edit
@@ -30,5 +32,9 @@ class UnitController < ApplicationController
 
   def unit_update_params
     params.require(:unit).permit(:city, :number, :legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments)
+  end
+
+  def unit_member?
+    redirect_to root_path, alert: "Nav atļauts" unless current_user.unit.id == params[:id].to_i || current_user.pklv_valde?
   end
 end

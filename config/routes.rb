@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       post "unit_update"
       post "password_update"
+      post "promise"
     end
   end
 

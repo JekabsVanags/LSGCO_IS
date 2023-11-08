@@ -1,6 +1,4 @@
 .flex.flex-col.items-center.gap-2
-  h1.title-normal
-    |Tava biedra naudas bilance
   -if @user.membership_fee_bilance >= 0
     h1.main-title.text-green-800
       =@user.membership_fee_bilance.to_s + "€"

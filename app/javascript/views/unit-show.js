@@ -1,9 +1,16 @@
 $(document).ready(function() {
-  $('#myTable').DataTable(
+  $('#unitMemberTable').DataTable(
     {
       "paging":   false,
       "ordering": true,
-      "info":     false
+      "info":     false,
+      "searching": false,
+
+      columnDefs: [{
+        orderable: false,
+        targets: "no-sort"
+      }]
+  
     }
   );
 });

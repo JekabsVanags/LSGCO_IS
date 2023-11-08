@@ -1,0 +1,59 @@
+div.flex.flex-col.divide-y-2.h-full
+  div
+    div.flex.gap-2 
+      h1.subtitle 
+        |Nosaukums: 
+      p.paragraph-normal 
+        =@unit.full_name
+    div.flex.gap-2 
+      h1.subtitle 
+        |Juridiskā adrese: 
+      p.paragraph-normal 
+        =@unit.legal_adress
+    div.flex.gap-2 
+      h1.subtitle 
+        |Epasts: 
+      p.paragraph-normal 
+        =@unit.email.present? ? @unit.email : "#{@unit_leader.email} (vienības priekšnieka epasts)"
+    div.flex.gap-2 
+      h1.subtitle 
+        |Telefons: 
+      p.paragraph-normal 
+        =@unit.phone.present? ? @unit.phone : "#{@unit_leader.phone} (vienības priekšnieka telefons)"
+  div.pt-5.pb-5
+    div.flex.gap-2 
+      h1.subtitle 
+        |Bankas konts: 
+      p.paragraph-normal 
+        =@unit.bank_account
+    .flex.gap-2 
+      h1.subtitle 
+        |Dalības maksa: 
+      p.paragraph-normal 
+        =@unit.membership_fee.to_s + "€"
+  div.pt-5.pb-5
+    -if @unit.comments.present?  
+      .flex.flex-col
+        h1.subtitle 
+          |Publiskie komentāri: 
+        p.paragraph-normal.max-h-44.overflow-auto.text-sm
+          =@unit.comments
+  div.pt-5.pb-5
+    div.flex.gap-2 
+      h1.subtitle 
+        |Nodarbību vieta: 
+      p.paragraph-normal 
+        =@unit.activity_location_name
+    div.flex.flex-col
+      h1.subtitle 
+        |Nodarbību grafiks: 
+      -if @weekly_activities.present?
+        table.w-full.border-spacing-y-72
+          - @weekly_activities.each do |activity|
+            tr
+              td =activity.day 
+              td =activity.time.strftime("%H:%M")
+              td =activity.rank 
+      -else
+        p.paragraph-normal 
+          |Nav norādīts nodarbību grafiks

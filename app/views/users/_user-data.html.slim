@@ -19,7 +19,13 @@ div.flex.flex-col.gap-4
     h1.subtitle 
       |Pakāpe: 
     p.paragraph-normal 
-      =@user.rank
+      | #{@user.rank} #{ @user.promise? ? (@user.sex == "F" ? "☘️" : "⚜️") : "" }
+  - if @user.promise?
+    div.flex.gap-2   
+      h1.subtitle 
+        |Solījuma datums: 
+      p.paragraph-normal 
+        = @user.promise?
   div.flex.gap-2   
     h1.subtitle 
       |Epasts: 
@@ -30,5 +36,12 @@ div.flex.flex-col.gap-4
       |Telefons: 
     p.paragraph-normal 
       =@user.phone
+  -if @user.positions.present?
+    .flex.gap-2 
+      h1.subtitle 
+        |Amati vienībā:
+      p.paragraph-normal 
+        =@user.positions.map(&:position_name).join(', ')
+
 
     
