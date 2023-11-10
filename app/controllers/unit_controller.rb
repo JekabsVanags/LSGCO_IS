@@ -18,7 +18,7 @@ class UnitController < ApplicationController
   def update
     @unit = Unit.find(params[:id])
     if @unit.update(unit_update_params)
-      redirect_to root_path, notice: "Vienības infromācija atjaunota"
+      redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
     else
       redirect_to root_path, notice: "Kļūda"
     end
