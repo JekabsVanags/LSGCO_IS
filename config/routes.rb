@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :unit, path: :vieniba
+  resources :positions, only: ["create", "destroy"]
 
   get "/aptaujas_lapa", to: "personal_information#show"
   delete "/aptaujas_lapa", to: "personal_information#destroy"

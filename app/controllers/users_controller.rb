@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys
     @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
+    @new_position = Position.new()
   end
 
   def update

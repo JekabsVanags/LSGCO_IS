@@ -25,5 +25,12 @@
           = select_tag :unit_id, options_for_select(@units, @user.unit.id), class: "input-field-blue w-1/2"
           button.btn-primary.w-2/5 type="submit" 
             |Mainīt vienību
+        br
+        = form_for @new_position do |f|
+          = f.label :position_name, "Amata nosaukums", class: "input-label"
+          = f.text_field :position_name, class: "input-field-blue"
+          = f.hidden_field :user_id, value: @user.id
+          = f.submit "Pievienot amatu", class: "btn-secondary"
+
         .flex.place-content-end.mt-5 
           =link_to "Atgriezties", unit_path(current_user.unit), class: "btn-primary p-4 w-2/5 flex items-center"
