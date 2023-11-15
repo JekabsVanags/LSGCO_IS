@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   resources :unit, path: :vieniba
   resources :positions, only: ["create", "destroy"]
   resources :weekly_activities, only: ["create", "destroy"]
+  resources :membership_fee_payments, path: :biedra_naudas_maksajumi, only: ["create", "destroy"] do
+    member do
+      get "list"
+    end
+  end
 
   get "/aptaujas_lapa", to: "personal_information#show"
   delete "/aptaujas_lapa", to: "personal_information#destroy"

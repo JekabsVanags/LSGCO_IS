@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_05_134955) do
   create_table "membership_fee_payments", force: :cascade do |t|
     t.date "date", null: false
     t.decimal "amount", null: false
+    t.boolean "recalled", default: false
     t.bigint "user_recorded_id", null: false
     t.bigint "user_payed_id", null: false
     t.bigint "unit_id", null: false

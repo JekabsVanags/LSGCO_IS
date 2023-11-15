@@ -4,6 +4,7 @@ class UnitController < ApplicationController
   before_action :unit_member?
 
   def show
+    session[:current_tab] = "unit"
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @members = @unit.users

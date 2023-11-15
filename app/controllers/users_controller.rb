@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
 
   def new
+    session[:current_tab] = "new_member"
     @user = User.new
   end
 
@@ -62,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    session[:current_tab] = "profile"
     @new_user = session[:new_user]
     @user = current_user
     @events = @user.unit.get_actual_events(@user.rank)

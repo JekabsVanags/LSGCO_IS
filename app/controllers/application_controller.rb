@@ -7,9 +7,15 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id])
   end
 
+  def current_tab
+    return unless session[:current_tab]
+
+    @current_tab = session[:current_tab]
+  end
+
   def authorized?
     if !current_user.present?
-      redirect_to root_path, alert: 'Tu neesi piereģistrējies'
+      redirect_to root_path, alert: "Tu neesi piereģistrējies"
     else
       @sidebar_state = current_user.permission_level
     end
@@ -18,14 +24,14 @@ class ApplicationController < ActionController::Base
   def unit_access?
     return unless !current_user.pklv_vaditajs? && !current_user.pklv_valde?
 
-    redirect_to root_path, alert: 'Nav atļauts'
+    redirect_to root_path, alert: "Nav atļauts"
   end
 
   def org_access?
     return if current_user.pklv_valde?
 
-    redirect_to root_path, alert: 'Nav atļauts'
+    redirect_to root_path, alert: "Nav atļauts"
   end
 
-  helper_method :current_user
+  helper_method :current_user, :current_tab
 end
