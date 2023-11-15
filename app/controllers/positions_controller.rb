@@ -1,20 +1,20 @@
-class PositionController < ApplicationController
-  brefore_action :unit_access?
+class PositionsController < ApplicationController
+  before_action :unit_access?
 
   def create
-    @unit = current_user.unit
-    @position = Position.new(position_params, unit: @unit)
+    @position = Position.new(position_params)
+    @position.unit = current_user.unit
     if @position.save!
-      redirect_to user_path(@user), notice: "Pozīcija izveidota"
+      redirect_to user_path(position_params[:user_id]), notice: "Pozīcija izveidota"
     else
-      redirect_to user_path(@user), notice: "Kļūda"
+      redirect_to user_path(position_params[:user_id]), notice: "Kļūda"
     end
   end
 
   def destroy
     @position = Position.find(params[:id])
     @user = @position.user_id
-    if @position.delete!
+    if @position.delete
       redirect_to user_path(@user), notice: "Pozīcija dzēsta"
     else
       redirect_to user_path(@user), notice: "Kļūda"

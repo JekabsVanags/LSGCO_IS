@@ -5,7 +5,7 @@
         h1.title-normal.text-center
           |Tava biedra naudas bilance
         .border-2.rounded-xl.p-5.w-full
-          =render partial: "bilance-data", locals: {user: @user} 
+          =render partial: "bilance_data", locals: {user: @user} 
         
       div.h-2/3.overflow-y-auto.mt-4
         h1.title-normal.text-center
@@ -27,4 +27,4 @@
           |Par tevi
         =link_to "Labot datus" ,edit_user_path(@user.id), class:"btn-ternary"
       .border-2.rounded-xl.h-full.p-5.w-full.text-end
-        =render partial: "user-data", locals: {user: @user} 
+        =render partial: "user_data", locals: {user: @user} 

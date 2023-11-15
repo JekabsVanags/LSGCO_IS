@@ -4,7 +4,7 @@
       h1.title-normal
         |Biedrs
       .border-2.rounded-xl.h-full.p-5.w-full.text-end
-        =render partial: "user-data", locals: {user: @user}
+        =render partial: "user_data", locals: {user: @user}
     .flex.flex-col.w-2/5
       h1.title-normal
         |Vienību priekšnieka darbības
@@ -15,7 +15,7 @@
             |Mainīt pakāpi
         = form_tag promise_user_path(@user), class: "flex items-center place-content-between"
           input type="date" class="input-field-blue w-1/2" name="promise_date" value= (@user.promise? ? @user.promise? : Date.today)
-          button.btn-primary.w-2/5.disabled:bg-scout-red type="submit" disabled= @user.promise?
+          button.btn-primary.w-2/5.disabled:bg-scout-gray type="submit" disabled= @user.promise?
             = @user.promise? ? "Solījums veikts" : "Reģistrēt solījumu"
         = form_tag unit_update_user_path(@user), class: "flex items-center place-content-between"
           = select_tag :activity_statuss, options_for_select(["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs"], @user.activity_statuss), class: "input-field-blue w-1/2"
@@ -27,10 +27,19 @@
             |Mainīt vienību
         br
         = form_for @new_position do |f|
-          = f.label :position_name, "Amata nosaukums", class: "input-label"
-          = f.text_field :position_name, class: "input-field-blue"
-          = f.hidden_field :user_id, value: @user.id
-          = f.submit "Pievienot amatu", class: "btn-secondary"
+          h1.title-normal.text-lg.ml-2
+            |Biedra amati vienībā
+          .flex.items-center.place-content-between
+            = f.text_field :position_name, class: "input-field-blue w-1/2"
+            = f.hidden_field :user_id, value: @user.id
+            = f.submit "Pievienot amatu", class: "btn-secondary w-2/5"
+        -@user.positions.each do |position|
+          .flex.items-center.place-content-between
+            h1.text-xl
+              =position.position_name
+            h1.paragraph-normal 
+              |No #{position.created_at.strftime("%d/%m/%Y")}
+            =button_to "Dzēst", position_path(position), method: :delete, class: "btn-secondary border-scout-red text-scout-red min-h-[18px]"
 
         .flex.place-content-end.mt-5 
           =link_to "Atgriezties", unit_path(current_user.unit), class: "btn-primary w-2/5 flex items-center"

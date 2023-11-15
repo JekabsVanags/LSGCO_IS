@@ -12,7 +12,8 @@ class UnitController < ApplicationController
 
   def edit
     @unit = Unit.find(params[:id])
-    @weekly_activity = @unit.weekly_activities.all
+    @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
+    @new_activity = WeeklyActivity.new
   end
 
   def update
@@ -31,7 +32,7 @@ class UnitController < ApplicationController
   end
 
   def unit_update_params
-    params.require(:unit).permit(:city, :number, :legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments)
+    params.require(:unit).permit(:city, :number, :legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments, :membership_fee)
   end
 
   def unit_member?

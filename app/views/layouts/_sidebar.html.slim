@@ -20,7 +20,7 @@
             =link_to new_user_path, class: current_page?(new_user_path) ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Pievienot biedru
               =image_tag 'icons/new_user.svg', size:"30"
-            =link_to unit_path(current_user.unit), class: current_page?(unit_path(current_user.unit)) ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+            =link_to unit_path(current_user.unit), class: current_page?(unit_path(current_user.unit)) || current_page?(edit_unit_path(current_user.unit)) || request.original_url =~ (/^.*\/lietotajs\/\d+$/) ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Mana vienība 
               =image_tag 'icons/unit.svg', size:"30"
       -if @sidebar_state == "pklv_biedrs" || @sidebar_state == "pklv_vaditajs" || @sidebar_state == "pklv_valde"

@@ -9,7 +9,7 @@
   }
 
   .btn-secondary {
-    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl font-semibold h-[50px] hover:border-scout-blue-darkened;
+    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[50px] hover:border-scout-blue-darkened;
   }
 
   .btn-ternary {

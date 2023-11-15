@@ -6,18 +6,48 @@
       |Atjauno vienības datus
   .flex.flex-col.mt-10.w-full
     = form_for @unit do |f|
-      = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
-      = f.text_field :legal_adress, class: 'input-field-blue w-full'
-      = f.label :activity_location_name, 'Nodarbību notikšanas vieta', class: 'input-label'
-      = f.text_field :activity_location_name, class: 'input-field-blue w-full'
-      = f.label :email, "Epasts #{!@unit.email.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
-      = f.email_field :email, class: 'input-field-blue w-full'
-      = f.label :phone, "Telefona nummurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
-      = f.phone_field :phone, class: 'input-field-blue w-full'
-      = f.label :bank_account, 'Bankas konts', class: 'input-label'
-      = f.text_field :bank_account, class: 'input-field-blue w-full'
-      = f.label :membership_fee, 'Biedra ', class: 'input-label'
-      = f.number_field :membership_fee, class: 'input-field-blue w-full'
-      = f.label :comments, 'Publiskie komentāri', class: 'input-label'
-      = f.text_area :comments, class: 'input-field-blue w-full h-20 overflow-auto'
-      = f.submit "Atjaunot datus", class: "btn-primary w-full"
+      div.flex.w-full.mb-20
+        .flex.flex-col.w-1/2.content-around.h-2/3
+          = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
+          = f.text_field :legal_adress, class: 'input-field-blue w-full'
+          = f.label :activity_location_name, 'Nodarbību notikšanas vieta', class: 'input-label'
+          = f.text_field :activity_location_name, class: 'input-field-blue w-full'
+          = f.label :comments, 'Publiskie komentāri', class: 'input-label'
+          = f.text_area :comments, class: 'input-field-blue w-full h-60 overflow-auto'
+          
+        .flex.flex-col.w-1/2.ml-10.content-around.h-2/3
+          = f.label :email, "Epasts #{!@unit.email.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
+          = f.email_field :email, class: 'input-field-blue w-full'
+          = f.label :phone, "Telefona nummurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka telefona nummurs)" : ""}", class: 'input-label'
+          = f.phone_field :phone, class: 'input-field-blue w-full'
+          = f.label :bank_account, 'Bankas konts', class: 'input-label'
+          = f.text_field :bank_account, class: 'input-field-blue w-full'
+          = f.label :membership_fee, 'Biedra nauda (vienības)', class: 'input-label'
+          = f.number_field :membership_fee, class: 'input-field-blue w-full'
+          = f.submit "Atjaunot vienības datus", class: "btn-primary w-full mt-9"
+    
+  .w-full.flex
+    .w-1/2
+      h1.title-normal.text-lg
+        |Nodarbību grafiks
+      -if @weekly_activities.present?
+        div class="max-h-[155px] overflow-auto"
+          table.w-full.border-spacing-y-40
+            -@weekly_activities.each do |activity|
+              tr
+                td =activity.day
+                td =activity.time.strftime("%H:%M")
+                td =activity.rank
+                td.text-end =button_to "Dzēst", weekly_activity_path(activity), method: :delete, class: "btn-secondary border-scout-red text-scout-red min-h-[18px]"
+      -else
+        p.paragraph-normal
+          |Nav norādīts nodarbību grafiks          
+      
+    .flex.flex-col.w-1/2.ml-10.mt-6
+      = form_for @new_activity do |f|
+        .flex.flex-col
+          .flex
+            = f.select :day,  options_for_select(["Pirmdiena", "Otrdiena", "Trešdiena", "Ceturtdiena", "Piektdiena", "Sestdiena", "Svētdiena"]), {}, class: "input-field-blue w-1/2"
+            = f.time_field :time, class: "input-field-blue w-1/2"
+            = f.select :rank,  options_for_select(["Mazskauti/Guntiņas", "Skauti/Gaidas", "Dižskauti/Dižgaidas", "Roveri/Lielgaidas"]), {}, class: "input-field-blue w-1/2"
+          = f.submit "Pievienot nodarbību", class: "btn-secondary self-end text-end"
