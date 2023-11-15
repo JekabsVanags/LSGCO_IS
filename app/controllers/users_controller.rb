@@ -128,7 +128,6 @@ class UsersController < ApplicationController
       else 
       redirect_to edit_user_path(current_user), notice: 'Nepareiza pašreizējā parole'
       end
-
       return
     end
 

@@ -103,17 +103,18 @@ RSpec.describe UsersController, type: :controller do
   describe "POST #unit_update" do
     it "updates the users unit and redirects" do
       new_unit = create(:unit)
-      patch :unit_update, params: { id: user.id, user: { unit_id: new_unit.id } }
+      patch :unit_update, params: { id: user.id, unit_id: new_unit.id }
+      user.reload
       expect(user.unit).to eq(new_unit)
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(user_path(user))
     end
 
     it "updates the users activity status and redirects" do
       session[:user_id] = current_user.id
-      patch :unit_update, params: { id: user.id, user: { activity_statuss: "Interesents" } }
+      patch :unit_update, params: { id: user.id, activity_statuss: "Interesents" }
       user.reload
       expect(user.activity_statuss).to eq("Interesents")
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(user_path(user))
     end
   end
 
@@ -130,9 +131,16 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(edit_user_path(current_user))
     end
 
-    it "redirects to root_path on unsuccessful password update" do
+    it "redirects to root_path on unsuccessful password update for new users" do
+      session[:new_user] = true
       patch :password_update, params: { id: user.id, old_password: "wrong_password", password_digest: "new_password", repeat_password: "new_password" }
       expect(response).to redirect_to(root_path)
+    end
+
+    it "redirects to edit_user_path on unsuccessful password update for existing users with notice" do
+      patch :password_update, params: { id: user.id, old_password: "wrong_password", password_digest: "new_password", repeat_password: "new_password" }
+      expect(response).to redirect_to(edit_user_path(current_user))
+      expect(flash[:notice]).to eq("Nepareiza pašreizējā parole")
     end
 
     it "redirects to aktivizet_path with a notice if passwords do not match and user is new" do
