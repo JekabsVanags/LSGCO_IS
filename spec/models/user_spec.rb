@@ -99,6 +99,6 @@ RSpec.describe User, type: :model do
 
     user.recalculate_bilance
 
-    expect(user.membership_fee_bilance).to eq(-2)
+    expect(user.membership_fee_bilance).to eq(-4)
   end
 end

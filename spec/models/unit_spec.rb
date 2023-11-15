@@ -5,12 +5,15 @@ RSpec.describe Unit, type: :model do
   let(:unit2) { build :unit }
   let(:user1) { build :user, unit: }
   let(:user2) { build :user, unit: }
-  let(:event) { build :event, unit: }
-  let(:event2) { build :event, unit: }
+  let(:event) { build :event, unit: unit, date_from: Date.today + 200}
+  let(:event2) { build :event, unit: unit, date_from: Date.today + 200 }
   let(:invite) { build :invite, event:, unit: unit2, rank: 'SK/G' }
   let(:invite2) { build :invite, event: event2, unit: unit2, rank: 'SK/G' }
   let(:payment) { build :membership_fee_payment, unit:, user_payed: user1, user_recorded: user2 }
   let(:position) { build :position, unit:, user: user1, position_name: 'Nodarbību vadītājs' }
+  let(:weekly_activity1) {build :weekly_activity, unit: unit}
+  let(:weekly_activity2) {build :weekly_activity, unit: unit}
+
 
   it('should be valid with valid attributes') do
     expect(unit).to be_valid
@@ -85,10 +88,18 @@ RSpec.describe Unit, type: :model do
     event2.save!
     invite.save!
     invite2.save!
-
+   
     expect(unit2.get_actual_events('SK/G').length).to eq(2)
     expect(unit2.get_actual_events('SK/G')[0]).to eq(event)
     expect(unit2.get_actual_events('SK/G')[1]).to eq(event2)
     expect(unit2.get_actual_events('MZSK/GNT').length).to eq(0)
+  end
+
+  it('should get units weekly activities') do
+    unit.save!
+    weekly_activity1.save!
+    weekly_activity2.save!
+
+    expect(unit.weekly_activities.length).to eq(2)
   end
 end

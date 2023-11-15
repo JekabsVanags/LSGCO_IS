@@ -7,6 +7,7 @@ class Unit < ApplicationRecord
   has_many :event_invites, through: :invites, source: :event
   has_many :membership_fee_payments
   has_many :positions
+  has_many :weekly_activities
 
   def full_name
     "#{city}s #{number}. vienība"

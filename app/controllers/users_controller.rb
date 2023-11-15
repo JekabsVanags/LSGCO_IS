@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authorized?
-  before_action :unit_access?, only: ["create", "unit_update"]
+  before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
 
   def new
+    session[:current_tab] = "new_member"
     @user = User.new
   end
 
@@ -27,6 +28,13 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @new_user = session[:new_user]
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys
+    @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
+    @new_position = Position.new()
   end
 
   def update
@@ -55,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    session[:current_tab] = "profile"
     @new_user = session[:new_user]
     @user = current_user
     @events = @user.unit.get_actual_events(@user.rank)
@@ -66,19 +75,39 @@ class UsersController < ApplicationController
     if user_unit_edit_params[:unit_id]
       @user.unit = Unit.find(user_unit_edit_params[:unit_id])
       if @user.save!
-        redirect_to root_path, notice: 'Vienība nomainīta'
+        redirect_to user_path(@user), notice: 'Vienība nomainīta'
       else
-        redirect_to root_path, notice: 'Kļūda'
+        redirect_to user_path(@user), notice: 'Kļūda'
       end
     end
 
-    return unless user_unit_edit_params[:activity_statuss]
+    if user_unit_edit_params[:activity_statuss]
+      @user.activity_statuss = user_unit_edit_params[:activity_statuss]
+      if @user.save!
+        redirect_to user_path(@user), notice: 'Aktivitātes statuss nomainīts'
+      else
+        redirect_to user_path(@user), notice: 'Kļūda'
+      end
+    end
 
-    @user.activity_statuss = user_unit_edit_params[:activity_statuss]
-    if @user.save!
-      redirect_to root_path, notice: 'Aktivitātes statuss nomainīts'
+    if user_unit_edit_params[:rank] 
+    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_unit_edit_params[:rank], current: true)
+
+    if @user.rank_histories.where(current: true).update(current: false) && @rank.save!
+      redirect_to user_path(@user), notice: 'Pakāpe nomainīta'
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to user_path(@user), notice: 'Kļūda'
+    end
+    end
+  end
+
+  def promise
+    @user = User.find(params[:id])
+
+    if @user.rank_histories.where(current: true).update(date_of_oath: params[:promise_date] || Date.today)
+      redirect_to user_path(@user), notice: 'Solījums atzīmēts'
+    else
+      redirect_to user_path(@user), notice: 'Kļūda'
     end
   end
 
@@ -101,7 +130,6 @@ class UsersController < ApplicationController
       else 
       redirect_to edit_user_path(current_user), notice: 'Nepareiza pašreizējā parole'
       end
-
       return
     end
 
@@ -115,7 +143,7 @@ class UsersController < ApplicationController
   protected
 
   def user_unit_edit_params
-    params.require(:user).permit(:activity_statuss, :unit_id)
+    params.permit(:activity_statuss, :unit_id, :rank)
   end
 
   def user_update_params

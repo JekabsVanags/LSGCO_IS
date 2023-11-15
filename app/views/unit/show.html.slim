@@ -1,0 +1,16 @@
+script src = javascript_path("views/unit-show")
+
+.flex.flex-col.justify-start.p-10.w-4/5
+  .flex.w-full.h-full
+    .max-h-1/3.h-fit.w-2/5.overflow-y-auto
+      .flex.justify-between.items-center
+        h1.title-normal 
+          |Vienības dati
+        =link_to "Labot datus" ,edit_unit_path(@unit), class:"btn-ternary"
+      .border-2.rounded-xl.p-4
+        =render "unit_data"
+    .max-h-1/3.h-fit.w-3/5.ml-10
+      h1.title-normal
+        |Vienības biedri
+      .border-2.rounded-xl.overflow-y-auto
+        =render "unit_member_table"

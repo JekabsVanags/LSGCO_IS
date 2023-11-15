@@ -1,0 +1,22 @@
+table.table-auto.w-full id="membershipFeeTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Datums 
+      th.px-6.py-3.text-start Summa
+      th.px-6.py-3.text-start Maksājumu reģistrēja
+      th.px-6.py-3.no-sort Atsaukt 
+
+  tbody
+    - @payments.each do |payment|
+      tr.border-b
+        td.px-6.py-3 
+          = payment.date
+        td.px-6.py-3 class="#{payment.amount > 0 ? "text-green-800" : "text-scout-red"}" 
+          = payment.amount
+        td.px-6.py-3 
+          | #{payment.user_recorded.name} #{payment.user_recorded.surname}
+        td.px-6.py-3
+          -if !payment.recalled
+            =button_to membership_fee_payment_path(payment), method: :delete, class: "block w-5 ml-8"
+              =image_tag 'icons/cancel.svg', size:"30"
+        

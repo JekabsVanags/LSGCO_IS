@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_03_182228) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_05_134955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_182228) do
   create_table "membership_fee_payments", force: :cascade do |t|
     t.date "date", null: false
     t.decimal "amount", null: false
+    t.boolean "recalled", default: false
     t.bigint "user_recorded_id", null: false
     t.bigint "user_payed_id", null: false
     t.bigint "unit_id", null: false
@@ -142,6 +143,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_182228) do
     t.index ["unit_id"], name: "index_users_on_unit_id"
   end
 
+  create_table "weekly_activities", force: :cascade do |t|
+    t.bigint "unit_id", null: false
+    t.integer "day", null: false
+    t.time "time", null: false
+    t.integer "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_weekly_activities_on_unit_id"
+  end
+
   add_foreign_key "event_registrations", "events"
   add_foreign_key "event_registrations", "users"
   add_foreign_key "events", "units"
@@ -154,4 +165,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_182228) do
   add_foreign_key "positions", "units"
   add_foreign_key "positions", "users"
   add_foreign_key "rank_histories", "users"
+  add_foreign_key "weekly_activities", "units"
 end
