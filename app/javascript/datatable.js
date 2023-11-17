@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#membershipFeeTable').DataTable(
+  $('#dataTable').DataTable(
     {
       "paging":   true,
       "ordering": true,
@@ -22,7 +22,7 @@ $(document).ready(function() {
       }],
 
       language: {
-        emptyTable: "Nav maksājumu"
+        emptyTable: "Nav datu"
       }
     }
   );

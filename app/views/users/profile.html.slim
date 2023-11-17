@@ -5,7 +5,7 @@
         h1.title-normal.text-center
           |Tava biedra naudas bilance
         .border-2.rounded-xl.p-5.w-full
-          =render partial: "bilance_data", locals: {user: @user} 
+          =render "bilance_data"
         
       div.h-2/3.overflow-y-auto.mt-4
         h1.title-normal.text-center
@@ -20,11 +20,11 @@
               td
             tbody
             -@events.each do |event|
-              =render partial: "events/event-list-item", locals: {event: event}
+              =render partial: "events/event_list_item", locals: {event: event}
     .flex.flex-col.h-full.w-3/5.pl-10 
       .flex.justify-between.items-center
         h1.title-normal 
           |Par tevi
         =link_to "Labot datus" ,edit_user_path(@user.id), class:"btn-ternary"
       .border-2.rounded-xl.h-full.p-5.w-full.text-end
-        =render partial: "user_data", locals: {user: @user} 
+        =render "user_data"

@@ -20,6 +20,9 @@
             =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Pievienot biedru
               =image_tag 'icons/new_user.svg', size:"30"
+            =link_to events_path, class: current_tab == "events" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Pasākumi
+              =image_tag 'icons/events.svg', size:"30"
             =link_to unit_path(current_user.unit), class: current_tab == "unit" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Mana vienība 
               =image_tag 'icons/unit.svg', size:"30"
