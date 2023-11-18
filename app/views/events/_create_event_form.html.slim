@@ -28,7 +28,7 @@
       label for="ranks" class="input-label mb-2"
         |Pasākums paredzēts šīm pakāpēm:
       .flex.flex-wrap.w-full class="h-[60px]"
-        -['MZSK/GNT', 'SK/G', 'DZSK/DZG', 'ROV/LG', 'VAD', 'VIEDSK/VIEDG', 'CITS'].each do |rank|
+        -ranks_short.each do |rank|
           .flex.p-2
             = check_box_tag 'event[ranks][]', rank, false,  class: 'border-2 border-scout-blue rounded-sm'
             = label_tag "rank#{rank}", rank, class: 'text-sm font-bold text-scout-blue ml-2'
@@ -39,6 +39,6 @@
           .flex.p-2 
             = check_box_tag 'event[units][]', unit.id, false, class: 'border-2 border-scout-blue rounded-sm'
             = label_tag "units#{unit.id}", unit.full_name, class: 'text-sm font-bold text-scout-blue ml-2'
-      = f.submit "Iesniegt", class: 'btn-primary w-full mt-11'
+      = f.submit "Izveidot pasākumu", class: 'btn-primary w-full mt-11'
 
 

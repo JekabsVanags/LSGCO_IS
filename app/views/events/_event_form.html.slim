@@ -1,29 +1,28 @@
 
-=form_for @event do |f|
-  .flex.w-full 
-    .flex.flex-col.w-1/2
-      = f.label :name, "Nosaukums", class: 'input-label'
-      = f.text_field :name, required: true, class: 'input-field-blue w-full'
-      = f.label :name, "Apraksts", class: 'input-label'   
-      = f.text_area :description, class: 'input-field-blue w-full h-60 overflow-auto'
-      .flex.w-full.mt-2
-        .flex.flex-col.w-full
-          = f.label :event_type, "Pasākuma veids", class: 'input-label'
-          = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
-      .flex.w-full.mt-2
-        .flex.flex-col.w-1/2
-          = f.label :date_from, "No", class: 'input-label'
-          = f.date_field :date_from, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
-        .flex.flex-col.ml-10.w-1/2
-          = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
-          = f.date_field :date_to, value: Date.today + 1, class: 'input-field-blue w-full'
-      .flex.w-full.mt-2
-        .flex.flex-col.w-1/2
-          = f.label :necessary_volunteers, "Vajadzīgie brīvprātīgie", class: 'input-label'
-          = f.number_field :necessary_volunteers, required: true, class: 'input-field-blue w-full'
-        .flex.flex-col.ml-10.w-1/2
-          = f.label :max_participants, "Maksimālais dalībnieku skaits", class: 'input-label'
-          = f.number_field :max_participants, required: true, class: 'input-field-blue w-full'
-      = f.submit "Iesniegt", class: 'btn-primary w-full mt-11'
+.flex.flex-col.w-full
+  =form_for @event do |f|
+    = f.label :name, "Nosaukums", class: 'input-label'
+    = f.text_field :name, required: true, class: 'input-field-blue w-full'
+    = f.label :name, "Apraksts", class: 'input-label'   
+    = f.text_area :description, class: 'input-field-blue w-full h-60 overflow-auto'
+    .flex.w-full.mt-2
+      .flex.flex-col.w-full
+        = f.label :event_type, "Pasākuma veids", class: 'input-label'
+        = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
+    .flex.w-full.mt-2
+      .flex.flex-col.w-1/2
+        = f.label :date_from, "No", class: 'input-label'
+        = f.date_field :date_from, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+      .flex.flex-col.ml-10.w-1/2
+        = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
+        = f.date_field :date_to, value: Date.today + 1, class: 'input-field-blue w-full'
+    .flex.w-full.mt-2
+      .flex.flex-col.w-1/2
+        = f.label :necessary_volunteers, "Vajadzīgie brīvprātīgie", class: 'input-label'
+        = f.number_field :necessary_volunteers, required: true, class: 'input-field-blue w-full'
+      .flex.flex-col.ml-10.w-1/2
+        = f.label :max_participants, "Maksimālais dalībnieku skaits", class: 'input-label'
+        = f.number_field :max_participants, required: true, class: 'input-field-blue w-full'
+    = f.submit "Atjaunot pasākuma datus", class: 'btn-primary w-full mt-11'
 
 

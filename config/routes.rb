@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   #Pasākumu ceļi
   resources :events, path: :pasakums
+  resources :invites, only: ["create", "destroy"]
 
   #Lapa kurā nav vajadzīga reģistrācija
   root "static#landing"

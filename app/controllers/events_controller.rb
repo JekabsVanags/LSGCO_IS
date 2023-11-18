@@ -19,7 +19,9 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @units = Unit.all.order(city: :asc)
+    @invites = Invite.where(event: @event)
+    @invite = Invite.new()
+    @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
   end
 
   def create
