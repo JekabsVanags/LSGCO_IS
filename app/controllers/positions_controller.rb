@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :unit_access?
+  before_action :unit_access?, :authorized?
 
   def create
     @position = Position.new(position_params)

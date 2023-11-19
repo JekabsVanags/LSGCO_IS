@@ -17,3 +17,7 @@
 .last, .first {
   font-weight: 600 !important;
 }
+
+p{
+  white-space: pre-wrap
+}

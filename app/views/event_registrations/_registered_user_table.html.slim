@@ -1,0 +1,32 @@
+table.table-auto.w-full id="dataTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Vārds 
+      th.px-6.py-3.text-start Uzvārds
+      th.px-6.py-3.text-start Pakāpe
+      th.px-6.py-3.text-start Vienība 
+      th.px-6.py-3.text-start Dalība kā  
+      th.px-6.py-3.text-start Aptaujas lapa
+      th.px-6.py-3.text-start Dzēst 
+
+  tbody
+    - @registrations.each do |registration|
+      tr.border-b
+        td.px-6.py-3 
+          = registration.user.name
+        td.px-6.py-3 
+          = registration.user.surname
+        td.px-6.py-3 
+          | #{registration.user.rank} #{ registration.user.promise? ? (registration.user.sex == "F" ? "☘️" : "⚜️") : "" }
+        td.px-6.py-3 
+          = registration.user.unit.full_name 
+        td 
+          = registration.role
+        td.px-6.py-3 
+          =link_to aptaujas_lapa_skatit_path(id: registration.id), class: "block w-5"
+            =image_tag 'icons/show.svg', size:"30"
+        td.px-6.py-3 
+          =button_to event_registration_path(registration.id), method: :delete, class: "block w-5"
+            =image_tag 'icons/cancel.svg', size:"30"
+
+      

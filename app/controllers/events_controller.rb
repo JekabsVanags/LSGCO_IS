@@ -5,10 +5,15 @@ class EventsController < ApplicationController
   def index
     session[:current_tab] = "events"
     @events = current_user.unit.events
-    @invites = current_user.unit.invites.map(&:event)
+    @invites = current_user.unit.invites.map(&:event).uniq
   end
 
   def show
+    @event = Event.find(params[:id])
+    @event_registration = EventRegistration.new
+  end
+
+  def show_unit
     @event = Event.find(params[:id])
   end
 

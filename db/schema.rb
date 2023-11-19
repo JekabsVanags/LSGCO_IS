@@ -136,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_05_134955) do
     t.string "password_digest"
     t.integer "permission_level", default: 0, null: false
     t.boolean "agreed_to_data_collection"
+    t.boolean "volunteer", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "unit_id"

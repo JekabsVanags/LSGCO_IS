@@ -9,5 +9,8 @@ class Event < ApplicationRecord
   has_many :event_registrations
   has_many :users, through: :event_registrations
 
+  attr_accessor :registered
+
   default_scope { where(deleted_at: nil) }
+  scope :future, -> { where("date_from > ?", Date.today) }
 end

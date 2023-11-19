@@ -1,5 +1,3 @@
-script src = javascript_path("datatable")
-
 .flex.flex-col.justify-start.p-10.w-4/5
   .flex.w-full.h-full
     .max-h-1/3.h-fit.w-1/2.overflow-y-auto
@@ -13,4 +11,4 @@ script src = javascript_path("datatable")
       h1.title-normal
         |Vienības ielūgumi
       .border-2.rounded-xl.overflow-y-auto
-        |tetr
+        =render "invite_table"

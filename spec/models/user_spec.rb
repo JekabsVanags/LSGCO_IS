@@ -10,6 +10,10 @@ RSpec.describe User, type: :model do
   let(:position) { build :position, unit:, user:, position_name: 'Nodarbību vadītājs' }
   let(:rank_current) { build :rank_history, { rank: 'SK/G', current: true, user: } }
   let(:rank_old) { build :rank_history, { rank: 'MZSK/GNT', current: false, user: } }
+  let(:event) { build :event, unit: unit, date_from: Date.today + 200, necessary_volunteers: 10, registered_volunteers: 2 }
+  let(:event2) { build :event, unit: unit, date_from: Date.today + 200,necessary_volunteers: 10, registered_volunteers: 2 }
+  let(:invite) { build :invite, event:, unit: unit, rank: 'SK/G' }
+  let(:invite2) { build :invite, event: event2, unit: unit, rank: 'MZSK/GNT' }
 
   it('should fill default attributes with default values') do
     user = User.new
@@ -101,4 +105,29 @@ RSpec.describe User, type: :model do
 
     expect(user.membership_fee_bilance).to eq(-4)
   end
+
+  it('should return all upcomming events for volunteers') do
+    user.volunteer = true
+    unit.save!
+    user.save!
+    rank_current.save!
+    event.save!
+    event2.save!
+    invite.save!
+    
+    expect(user.available_events.length).to eq(2)
+  end
+
+  it('should return only applicable upcomming events for non volunteers') do
+    unit.save!
+    user.save!
+    rank_current.save!
+    event.save!
+    event2.save!
+    invite.save!
+    
+    expect(user.available_events.length).to eq(1)
+    expect(user.available_events[0]).to eq(event)
+  end
+
 end

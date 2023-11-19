@@ -46,6 +46,12 @@ class PersonalInformationController < ApplicationController
     @info = current_user.personal_information
   end
 
+  def display
+    @registration = EventRegistration.find(params[:id])
+    @user = @registration.user
+    @info = @user.personal_information
+  end
+
   protected
 
   def personal_information_params

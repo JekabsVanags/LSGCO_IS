@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post "/aptaujas_lapa/iesniegt", to: "personal_information#create"
   patch "/aptaujas_lapa/iesniegt", to: "personal_information#update"
   get "/aptaujas_lapa/labot", to: "personal_information#edit"
+  get "/aptaujas_lapa/skatit", to: "personal_information#display"
 
   #Vienības darbības sfēras ceļi
   resources :unit, path: :vieniba
@@ -35,8 +36,13 @@ Rails.application.routes.draw do
   end
 
   #Pasākumu ceļi
-  resources :events, path: :pasakums
+  resources :events, path: :pasakums do
+    member do
+      get "show_unit"
+    end
+  end
   resources :invites, only: ["create", "destroy"]
+  resources :event_registrations, only: ["create", "destroy", "show"]
 
   #Lapa kurā nav vajadzīga reģistrācija
   root "static#landing"

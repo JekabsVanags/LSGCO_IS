@@ -37,14 +37,6 @@ class User < ApplicationRecord
 
   def recalculate_bilance()
     bilance = membership_fee_bilance
-    fee = unit.membership_fee
-    new_bilance = bilance - fee
-    update(membership_fee_bilance: new_bilance)
-    reload
-  end
-
-  def recalculate_bilance()
-    bilance = membership_fee_bilance
     fee = 2
     if activity_statuss != "Daļēji aktīvs"
       fee += unit.membership_fee
@@ -52,5 +44,20 @@ class User < ApplicationRecord
     new_bilance = bilance - fee
     update(membership_fee_bilance: new_bilance)
     reload
+  end
+
+  def available_events
+    events = unit.get_actual_events(rank)
+
+    if volunteer
+      future_events = Event.future.where("necessary_volunteers >= registered_volunteers")
+      events.concat(future_events)
+    end
+
+    events.each do |event|
+      event.registered = event_registrations.exists?(event: event)
+    end
+
+    return events.uniq
   end
 end

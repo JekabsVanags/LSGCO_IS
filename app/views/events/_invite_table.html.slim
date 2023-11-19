@@ -1,0 +1,23 @@
+table.table-auto.w-full id="dataTable2"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Nosaukums 
+      th.px-6.py-3.text-start Datums
+      th.px-6.py-3.text-start Brīvprātīgie 
+      th.px-6.py-3.text-start Dalībnieki
+      th.px-6.py-3.no-sort
+
+  tbody
+    - @invites.each do |invite|
+      tr.border-b
+        td.px-6.py-3 
+          = invite.name
+        td.px-6.py-3 
+          ="#{invite.date_from.strftime("%d.%m")}#{invite.date_to ? "-" + invite.date_to.strftime("%d.%m") : ""}"
+        td.px-6.py-3 
+          | #{invite.registered_volunteers} / #{ invite.necessary_volunteers }
+        td.px-6.py-3 
+          | #{invite.registered_participants} / #{ invite.max_participants }
+        td.px-6.py-3 
+          =link_to show_unit_event_path(invite), class: "block w-5"
+              =image_tag 'icons/show.svg', size:"30"
