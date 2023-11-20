@@ -37,7 +37,7 @@
   }
 
   .title-normal{
-    @apply text-scout-blue font-extrabold text-4xl mb-2;
+    @apply text-scout-blue font-extrabold text-3xl mb-2;
   }
 
   .subtitle{
@@ -45,7 +45,7 @@
   }
 
   .paragraph-normal{
-    @apply text-xl;
+    @apply text-lg;
   }
 
   .paragraph-dark{

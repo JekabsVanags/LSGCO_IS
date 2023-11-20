@@ -1,7 +1,7 @@
-tr.border-y-2.h-16
+tr.border-y-2.h-16 class="#{event.registered ? "text-scout-blue" : "text-black"}"
   td.paragraph-normal
     =event.name 
   td.paragraph-normal
     ="#{event.date_from.strftime("%d.%m")}#{event.date_to ? "-" + event.date_to.strftime("%d.%m") : ""}"
   td.paragraph-normal.text-end 
-    =link_to "Apskatīt", root_path, class:"btn-ternary"
+    =link_to "Apskatīt", event_path(event), class:"btn-ternary"

@@ -1,0 +1,25 @@
+.flex.flex-col.justify-start.p-10.w-4/5
+  h1.title-normal
+    |Labot pasākuma datus 
+  .flex.w-full.h-full
+    .flex.w-1/2 
+      =render "event_form"
+    .flex.w-1/2.flex-col.ml-10
+      p.input-label.mb-1 
+        |Uz pasākumu ir ielūgti
+      .flex.flex-col.w-full.border-2.border-scout-blue.rounded-xl.p-4.overflow-auto class="max-h-[80vh]"
+        =form_for @invite do |f|
+          .flex.items-center.place-content-between.w-full  
+            = f.select :unit, options_for_select(@units), {}, class: "input-field-blue ml-0 pr-10"
+            = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue ml-[-40px]"
+            = f.hidden_field :event, value: @event.id
+            = f.submit "Ielūgt", class: "btn-secondary"
+        table
+          -@invites.each do |invite|
+            tr.flex.items-center.place-content-between
+              td.ml-2
+                =invite.unit.full_name
+              td.text-end 
+                =invite.rank
+              td
+                =button_to "Dzēst", invite_path(invite.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red min-h-[18px]"

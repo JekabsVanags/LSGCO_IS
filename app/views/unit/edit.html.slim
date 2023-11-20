@@ -49,5 +49,5 @@
           .flex
             = f.select :day,  options_for_select(["Pirmdiena", "Otrdiena", "Trešdiena", "Ceturtdiena", "Piektdiena", "Sestdiena", "Svētdiena"]), {}, class: "input-field-blue w-1/2"
             = f.time_field :time, required: true, class: "input-field-blue w-1/2"
-            = f.select :rank,  options_for_select(["Mazskauti/Guntiņas", "Skauti/Gaidas", "Dižskauti/Dižgaidas", "Roveri/Lielgaidas"]), {}, class: "input-field-blue w-1/2"
+            = f.select :rank,  options_for_select(ranks_full), {}, class: "input-field-blue w-1/2"
           = f.submit "Pievienot nodarbību", class: "btn-secondary self-end text-end"

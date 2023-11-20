@@ -66,7 +66,8 @@ class UsersController < ApplicationController
     session[:current_tab] = "profile"
     @new_user = session[:new_user]
     @user = current_user
-    @events = @user.unit.get_actual_events(@user.rank)
+    @events = @user.available_events.sort_by(&:date_from)
+     
   end
 
   def unit_update
@@ -147,7 +148,7 @@ class UsersController < ApplicationController
   end
 
   def user_update_params
-    params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_data_collection)
+    params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_data_collection, :volunteer)
   end
 
   def user_params

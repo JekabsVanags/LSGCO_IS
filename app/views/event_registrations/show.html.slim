@@ -1,0 +1,9 @@
+.flex.flex-col.justify-start.p-10.w-4/5
+  .flex.w-full.h-full
+    .flex.flex-col.w-full
+      h1.title-normal.text-2xl
+        |"#{@event.name}" reģistrējušies dalībnieki
+      .border-2.rounded-xl.overflow-y-auto class="max-h-[80vh]"
+        =render "registered_user_table"
+
+  =link_to "< Atgriezties", show_unit_event_path(@event), class: "btn-primary w-fit"

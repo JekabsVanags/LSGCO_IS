@@ -23,6 +23,9 @@
             = f.label :sex, "Dzimums", class: "input-label"
             = f.select :sex, options_for_select([["Vīrietis", "M"], ["Sieviete", "F"], ["Cits", "O"]]), {}, class: "input-field-blue"
         .flex.mt-4.mb-6.mx-1.items-center
+          = f.check_box :volunteer, class: "border-2 border-scout-blue rounded-md h-6 w-6"
+          = f.label :volunteer, "Vēlos, lai man rāda pasākumus kuros var piedalīties kā brīvprātīgais", class: "input-label"
+        .flex.mt-4.mb-6.mx-1.items-center
           = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6"
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label"
         = f.submit "Iesniegt", class: "btn-primary w-full"

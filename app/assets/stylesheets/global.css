@@ -7,12 +7,17 @@
   margin: 10px;
   font-weight: 800;
   color: #556987;
+  cursor: pointer;
 }
 
 .paginate_button:hover{
-  color: #3B495E
+  color: #3B495E;
 }
 
 .last, .first {
   font-weight: 600 !important;
+}
+
+p{
+  white-space: pre-wrap
 }
