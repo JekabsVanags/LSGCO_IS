@@ -42,5 +42,6 @@
             =button_to "Dzēst", position_path(position), method: :delete, class: "btn-secondary border-scout-red text-scout-red min-h-[18px]"
 
         .flex.items-end.mt-5.flex-col
+          =button_to "Atiestatīt paroli", send_password_reset_user_path(@user), class: "btn-primary"
           =link_to "Maksājumi", list_membership_fee_payment_path(@user), class: "btn-primary w-2/5 flex items-center"
-          =link_to "< Atgriezties", unit_path(current_user.unit), class: "btn-primary w-2/5 flex items-center mt-5"
+      =link_to "< Atgriezties", unit_path(current_user.unit), class: "btn-primary w-2/5 flex items-center mt-5 self-end"

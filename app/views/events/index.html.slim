@@ -3,12 +3,12 @@
     .max-h-1/3.h-fit.w-1/2.overflow-y-auto
       .flex.justify-between.items-center
         h1.title-normal 
-          |Vienības pasākumi
+          |Vienības rīkotie pasākumi
         =link_to "+ Pievienot pasākumu" ,new_event_path, class:"btn-secondary"
       .border-2.rounded-xl.overflow-y-auto
         =render "event_table"
     .max-h-1/3.h-fit.w-1/2.ml-10
       h1.title-normal
-        |Vienības ielūgumi
+        |Vienības tuvākie pasākumi
       .border-2.rounded-xl.overflow-y-auto
         =render "invite_table"

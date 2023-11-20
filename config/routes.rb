@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   #Lietotāja daļas ceļi
   get ":password/aktivizet", to: "session#first_login", as: "aktivizet"
+  get ":password/atjaunot", to: "session#password_reset", as: "atjaunot"
 
   get "/profils", to: "users#profile"
   post "lietotajs/:id/atjaunot_paroli", to: "users#password_update"
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       post "unit_update"
       post "password_update"
       post "promise"
+      post "send_password_reset"
     end
   end
 

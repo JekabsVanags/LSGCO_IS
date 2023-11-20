@@ -68,10 +68,13 @@ class EventsController < ApplicationController
   end
 
   def generate_invites(units, ranks, event)
-    ranks.each do |rank|
-      units.each do |unit_id|
-        unit = Unit.find(unit_id)
-        Invite.create(rank:, unit:, event:)
+    return true unless units.present? && ranks.present?
+    if units.present? && ranks.present?
+      ranks.each do |rank|
+        units.each do |unit_id|
+          unit = Unit.find(unit_id)
+          Invite.create(rank:, unit:, event:)
+        end
       end
     end
   end

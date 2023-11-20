@@ -4,7 +4,15 @@ class EventRegistrationsController < ApplicationController
   def create
     @registration = EventRegistration.new(registration_params)
     @registration.user = current_user
-    if @registration.save!
+    @event = Event.find(registration_params[:event_id])
+
+    if registration_params[:role] == "Dalībnieks"
+      @event.registered_participants += 1
+    else
+      @event.registered_volunteers += 1
+    end
+
+    if @registration.save! && @event.save!
       redirect_to event_path(registration_params[:event_id]), notice: "Reģistrēta dalība"
     else
       redirect_to event_path(registration_params[:event_id]), notice: "Kļūda"
@@ -14,10 +22,17 @@ class EventRegistrationsController < ApplicationController
   def destroy
     @registration = EventRegistration.find(params[:id])
     @event = @registration.event
-    if @registration.delete
-      redirect_to event_path(registration_params[:event_id]), notice: "Reģistrācija atsaukta"
+
+    if @registration.role == "Dalībnieks"
+      @event.registered_participants -= 1
     else
-      redirect_to event_path(registration_params[:event_id]), notice: "Kļūda"
+      @event.registered_volunteers -= 1
+    end
+
+    if @registration.delete && @event.save!
+      redirect_to event_path(@event.id), notice: "Reģistrācija atsaukta"
+    else
+      redirect_to event_path(@event.id), notice: "Kļūda"
     end
   end
 

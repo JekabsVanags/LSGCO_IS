@@ -6,15 +6,15 @@ class SessionController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to profils_path, notice: 'Pieslēgšanās veiksmīga'
+      redirect_to profils_path, notice: "Pieslēgšanās veiksmīga"
     else
-      redirect_to root_path, alert: 'Nepareiza parole vai lietotājvārds'
+      redirect_to root_path, alert: "Nepareiza parole vai lietotājvārds"
     end
   end
 
   def destroy
     session.clear
-    redirect_to root_path, notice: 'Izrakstīšanās veiksmīga'
+    redirect_to root_path, notice: "Izrakstīšanās veiksmīga"
   end
 
   def first_login
@@ -24,6 +24,16 @@ class SessionController < ApplicationController
     session[:user_id] = @user.created_at > Date.today - 7 ? @user.id : nil
     session[:new_user] = true
     return if @user.authenticate(params[:password]) && @user.created_at == @user.updated_at && session[:user_id]
+
+    redirect_to root_path
+  end
+
+  def password_reset
+    @user = User.find(params[:id])
+    @old_password = params[:password]
+    @sidebar_state = @user.permission_level
+    session[:user_id] = @user.updated_at > Date.today - 7 ? @user.id : nil
+    return if @user.authenticate(params[:password]) && session[:user_id]
 
     redirect_to root_path
   end

@@ -3,46 +3,52 @@
     h1.title-normal
       |#{@user.name} #{@user.surname} aptaujas lapa
     div.divide-y-2.border-scout-blue.border-2.p-4.rounded-xl.w-3/4
-      div.space-y-2.pb-3
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Adrese: 
-          p.paragraph-normal 
-            =@info.address
+      -if @info.present?
+        div.space-y-2.pb-3
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Adrese: 
+            p.paragraph-normal 
+              =@info.address
 
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Kontakttālrunis: 
-          p.paragraph-normal 
-            |#{@info.emergency_contact_number} (#{@info.emergency_contact_relationship})
-      
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Kontakttālrunis: 
+            p.paragraph-normal 
+              |#{@info.emergency_contact_number} (#{@info.emergency_contact_relationship})
+        
+        div.space-y-2.pt-3
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Veselības problēmas: 
+            p.paragraph-normal 
+              =@info.health_issues
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Lietotie medicīnas preperāti: 
+            p.paragraph-normal 
+              =@info.medication_during_event
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Psiholoģiskās iezīmes: 
+            p.paragraph-normal 
+              =@info.psychological_features
+          .flex.space-x-2
+            p.paragraph-dark 
+              |Diētas ierobežojumi: 
+            p.paragraph-normal 
+              =@info.diet
+      -else 
+        div.pb-3.pt-3
+          p.paragraph-dark.text-scout-red
+              |Lietotājs nav iesniedzis digitālu aptaujas lapu
+
       div.space-y-2.pt-3.pb-3
-       .flex.space-x-2
-          p.paragraph-dark 
-            |Komentāri uz pasākumu: 
-          p.paragraph-normal 
-            =@registration.position
+        .flex.space-x-2
+            p.paragraph-dark 
+              |Komentāri uz pasākumu: 
+            p.paragraph-normal 
+              =@registration.position
 
-      div.space-y-2.pt-3
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Veselības problēmas: 
-          p.paragraph-normal 
-            =@info.health_issues
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Lietotie medicīnas preperāti: 
-          p.paragraph-normal 
-            =@info.medication_during_event
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Psiholoģiskās iezīmes: 
-          p.paragraph-normal 
-            =@info.psychological_features
-        .flex.space-x-2
-          p.paragraph-dark 
-            |Diētas ierobežojumi: 
-          p.paragraph-normal 
-            =@info.diet
   =link_to "< Atgriezties", event_registration_path(@registration.event), class: "btn-primary w-fit"
       

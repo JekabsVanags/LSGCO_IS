@@ -12,7 +12,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assigns a new user instance and renders the template" do
+    it "gets a new user instance and renders the template" do
       get :new
       expect(assigns(:user)).to be_a_new(User)
       expect(response).to render_template(:new)
@@ -39,7 +39,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #edit" do
-    it "assigns the user to be edited, can set new_user flag to tell that user is new" do
+    it "gets the user to be edited, can set new_user flag to tell that user is new" do
       user_to_edit = create(:user, unit: unit)
       session[:new_user] = true
       get :edit, params: { id: user_to_edit.id }
@@ -84,7 +84,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #profile" do
-    it "assigns the current user and associated upcoming events and render profile" do
+    it "gets the current user and associated upcoming events and render profile" do
       event = create(:event, unit: unit, date_from: Date.today + 3)
       event2 = create(:event, unit: unit, date_from: Date.today - 3)
       invite = create(:invite, event: event, unit: unit, rank: "SK/G")
@@ -159,6 +159,20 @@ RSpec.describe UsersController, type: :controller do
       session[:new_user] = false
       patch :password_update, params: { id: user.id, old_password: old_password, password_digest: "new_password", repeat_password: "different_password" }
       expect(response).to redirect_to(edit_user_path(user.id))
+    end
+
+    describe "POST #send_password_reset" do
+      it "sends a password reset email" do
+        ActiveJob::Base.queue_adapter = :test
+        user.save!
+
+        post :send_password_reset, params: { id: user.id }
+
+        expect(response).to redirect_to(user_path(user))
+        expect(flash[:notice]).to eq("Epasts ar paroles atjaunošanas instrukcijām nosūtīts")
+
+        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+      end
     end
   end
 end
