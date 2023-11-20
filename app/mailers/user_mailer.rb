@@ -6,6 +6,12 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: "Jūsu reģistrēšana LSGCO Informācijas Sistēmā", from: "lsgcois@skautiungaidas.lv"
   end
 
+  def password_reset_email(user, link)
+    @user = user
+    @link = link
+    mail to: @user.email, subject: "Paroles atjaunošana LSGCO Informācijas Sistēmā", from: "lsgcois@skautiungaidas.lv"
+  end
+
   def membership_fee_late_email(user)
     @user = user
     @last_payment = @user.payed_fees.last

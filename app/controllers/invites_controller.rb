@@ -15,7 +15,7 @@ class InvitesController < ApplicationController
     @invite = Invite.find(params[:id])
     @event = @invite.event
     if @invite.delete
-      redirect_to edit_event_path(@event), notice: "Ielūgums izveidota"
+      redirect_to edit_event_path(@event), notice: "Ielūgums dzēsts"
     else
       redirect_to edit_event_path(@event), notice: "Kļūda"
     end

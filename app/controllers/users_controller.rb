@@ -115,7 +115,7 @@ class UsersController < ApplicationController
   def password_update
     @user = User.find(params[:id])
     path = session[:new_user] == true ? aktivizet_path(@user.id, params[:old_password]) : edit_user_path(@user.id)
-    success_notice = session[:new_user] == true ? "Parole izveidota" : "Parole atjuanota"
+    success_notice = session[:new_user] == true ? "Parole izveidota" : "Parole atjaunota"
 
     if params[:password_digest] != params[:repeat_password]
       redirect_to path, notice: 'Paroles nesakrīt'
@@ -139,6 +139,18 @@ class UsersController < ApplicationController
     else
       redirect_to path, notice: 'Kļūda'
     end
+  end
+
+  def send_password_reset 
+    @user = User.find(params[:id])
+    password = Faker::Alphanumeric.alphanumeric
+    @user.password_digest = BCrypt::Password.create(password).to_s
+    @user.save!
+
+    @link = atjaunot_path(id: @user.id, password:)
+
+    UserMailer.password_reset_email(@user, @link).deliver_later
+    redirect_to user_path(@user), notice: "Epasts ar paroles atjaunošanas instrukcijām nosūtīts"
   end
 
   protected
