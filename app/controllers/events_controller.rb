@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :authorized?
   before_action :unit_access?, except: ["show"]
 
+  helper RegistrationHelpers
+
   def index
     session[:current_tab] = "events"
     @events = current_user.unit.events

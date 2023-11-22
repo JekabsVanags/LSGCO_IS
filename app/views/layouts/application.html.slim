@@ -16,7 +16,10 @@ html
   script src = javascript_path("datatable")
 
 
-  body.flex
-    =render partial: "layouts/popup_notices"
-    = render partial: "layouts/sidebar" 
+  body class="#{agent_mobile? ? "flex flex-col" : "flex"}"
+    = render partial: "layouts/popup_notices"
+    -if agent_mobile?
+      = render partial: "layouts/dropdown_menu" 
+    -else  
+      = render partial: "layouts/sidebar_menu" 
     = yield

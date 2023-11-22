@@ -1,11 +1,11 @@
-.flex.flex-col.justify-start.p-10.w-4/5
+.flex.flex-col.justify-start.px-10.py-5.lg:w-4/5.lg:p-10
   div
     h1.title-normal
       |Izlabo savus datus
     p.paragraph-normal
       = @new_user ? "Ievadi savus datus, lai mēs varētu pabeigt reģistrāciju!" : "Atjauno aktuālos datus."
-  div.flex.content-arround.w-full
-    div.flex.flex-col.mt-10.w-1/2
+  div.flex.flex-col.w-full.lg:content-arround.lg:flex-row
+    div.flex.flex-col.mt-2.lg:w-1/2.lg:mt-10 id="data_reset_form"
       = form_for @user do |f|
         = f.label :name, "Vārds", class: "input-label"
         = f.text_field :name, class: "input-field-blue w-full"
@@ -29,8 +29,10 @@
           = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6"
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label"
         = f.submit "Iesniegt", class: "btn-primary w-full"
+      button.btn-ternary id="password_reset_button"
+        | Atjaunot paroli
 
-    div.flex.flex-col.mt-10.w-1/2.items-end
+    div.flex.flex-col.mt-10.lg:w-1/2.lg:items-end id="password_reset_form"
       div.border-2.rounded-xl.p-3
         h1.title-normal
           |Atjaunot paroli
