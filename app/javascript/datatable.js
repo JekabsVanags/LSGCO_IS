@@ -1,3 +1,4 @@
+const pageLength = window.clientWidth > 1024 ? 13 : 5
 $(document).ready(function() {
   $('#dataTable').DataTable(
     {
@@ -5,7 +6,7 @@ $(document).ready(function() {
       "ordering": true,
       "info":     false,
       "searching": false,
-      "pageLength": 13,
+      "pageLength": pageLength,
       "bLengthChange" : false,
       "pagingType": "full",
 
@@ -32,7 +33,7 @@ $(document).ready(function() {
       "ordering": true,
       "info":     false,
       "searching": false,
-      "pageLength": 13,
+      "pageLength": pageLength,
       "bLengthChange" : false,
       "pagingType": "full",
 
