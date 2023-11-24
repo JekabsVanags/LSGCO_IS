@@ -1,7 +1,7 @@
   .flex.flex-col.mt-10
     = form_for @info, url: aptaujas_lapa_iesniegt_path do |f|
-      .flex.flex-row.w-full
-        div.w-1/2
+      .flex.flex-col.w-full.lg:flex-row
+        div.lg:w-1/2
           = f.label :health_issues, "Vai dalībniekam ir kādas veselības problēmas vai ir bijušas traumas, hroniskas slimības, epilepsija u.t.t ? Lūdzu, miniet visu, ar ko vad. būtu jārēķinās!", class: "input-label w-11/12"   
           = f.text_area :health_issues, class: "input-field-blue w-11/12 h-[100px]"
           = f.label :medication_during_event, "Vai dalībnieks lieto kādus īpašus medicīniskus preparātus? (uzrādīt nosaukumu un lietošanas kārtību, nodrošināt klātesamību)", class: "input-label w-11/12"   
@@ -10,16 +10,16 @@
           = f.text_area :psychological_features,  class: "input-field-blue w-11/12 h-[100px]"
           = f.label :diet, "Vai dalībniekam nepieciešama kāda īpaša diēta?", class: "input-label w-11/12"   
           = f.text_area :diet, class: "input-field-blue w-11/12 h-[100px]"
-        div.flex-col.w-1/2
+        div.flex-col.lg:w-1/2
           div.mt-4
             = f.label :address, "Adrese", class: "input-label"
             = f.text_field :address, required: true, class: "input-field-blue w-11/12"
             .flex.mb-4.w-11/12
               .w-3/4
-                = f.label :emergency_contact_number, "Ārkārtas kontakttālrunis", class: "input-label"
+                = f.label :emergency_contact_number, "Ārkārtas kontakttālrunis, kas", class: "input-label"
                 = f.telephone_field :emergency_contact_number, required: true, class: "input-field-blue w-[95%]"
               .flex.flex-col.w-1/4
-                = f.label :emergency_contact_relationship, "Nodrādītā persona ir:", class: "input-label-inline"
+                = f.label :emergency_contact_relationship, "ir", class: "input-label-inline"
                 = f.select :emergency_contact_relationship, options_for_select( ["Tēvs", "Māte", "Vecvecāks", "Dzīvesbiedrs"]), {required: true}, class: "input-field-blue"
 
           div

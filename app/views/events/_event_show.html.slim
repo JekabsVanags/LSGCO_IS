@@ -1,22 +1,21 @@
-  .flex.flex-col.w-2/3.place-content-between
+  .flex.flex-col.w-full.h-full.lg:w-2/3.place-content-between
     div  
       h1.title-normal 
         =@event.name
-      div.flex.gap-2
-        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit.mb-5
+      div.flex.flex-col.gap-1.lg:flex-row.mb-5
+        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             =@event.event_type
-        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit.mb-5
+        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             | No: #{@event.date_from.strftime("%d/%m/%y")}
-        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit.mb-5
+        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             | Līdz: #{@event.date_to.strftime("%d/%m/%y")}
-        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit.mb-5
+        div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             | Rīko: #{@event.unit.full_name}
             .flex.flex-col.w-2/3
       div.border-l-2.pl-2.w-full.border-scout-blue
         p
           =@event.description
-    =link_to "< Atgriezties", profils_path, class: "btn-primary w-fit"

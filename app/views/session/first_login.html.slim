@@ -1,4 +1,4 @@
-.flex.flex-col.justify-start.p-10
+flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   div
     h1.title-normal
       |Sveiks, #{current_user.name}.
@@ -10,10 +10,10 @@
     = form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
       label.input-label 
         |Parole
-      input.input-field-blue.w-1/2 type="password" name="password_digest"
+      input.input-field-blue.lg:w-1/2 type="password" name="password_digest"
       label.input-label 
         |Atkārto paroli
-      input.input-field-blue.w-1/2 type="password" name="repeat_password"
+      input.input-field-blue.lg:w-1/2 type="password" name="repeat_password"
       input.input-field-blue type="hidden" name="old_password" value=@old_password
       button.btn-primary.flex.items-center.justify-between.mt-4 type="submit" 
         |Izveidot paroli

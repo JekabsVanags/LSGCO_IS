@@ -1,4 +1,45 @@
-div.border-2.flex.justify-between.px-5
-  = image_tag  "LSGCO_logo.png", class:"h-32 text-center"
-  button 
-    =image_tag src="icons/cancel.svg", size: "30px"
+script src= javascript_path("sidebar")
+
+div.border-2.flex.flex-col.px-5
+  div.flex.justify-between.items-center
+    = image_tag  "LSGCO_logo.png", class:"h-32 text-center"
+    button.h-15 
+      =image_tag src="icons/burger_menu.svg", size: "30px", id: "dropdown-button"
+  
+  div hidden="true" id="dropdown"
+    -if @sidebar_state == "login"
+      =form_tag session_path do
+        .flex.flex-col
+          label.input-label
+            |Lietotājs
+          input.input-field-blue type="text" name="username"
+          label.input-label
+            |Parole
+          input.input-field-blue type="password" name="password"
+          button.btn-primary.flex.items-center.justify-between.my-3 type="submit" 
+            |Pievienoties
+            =image_tag 'icons/login.svg', size:"30"
+    -else
+      .flex.flex-col.divide-y-2.divide-scout-gold 
+        -if @sidebar_state == "pklv_vaditajs"
+            div
+              =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+                |Pievienot biedru
+                =image_tag 'icons/new_user.svg', size:"30"
+              =link_to events_path, class: current_tab == "events" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+                |Pasākumi
+                =image_tag 'icons/events.svg', size:"30"
+              =link_to unit_path(current_user.unit), class: current_tab == "unit" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+                |Mana vienība 
+                =image_tag 'icons/unit.svg', size:"30"
+        -if @sidebar_state == "pklv_biedrs" || @sidebar_state == "pklv_vaditajs" || @sidebar_state == "pklv_valde"
+          div
+            =link_to aptaujas_lapa_path, class: current_tab == "private_info" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Aptaujas lapa 
+              =image_tag 'icons/private_information.svg', size:"30"
+            =link_to profils_path, class: current_tab == "profile" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Mans profils
+              =image_tag 'icons/current_user.svg', size:"30"
+            =link_to session_path, class: "btn-primary flex items-center justify-between my-3"
+              |Izrakstīties
+              =image_tag 'icons/logout.svg', size:"30"

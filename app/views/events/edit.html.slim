@@ -1,19 +1,19 @@
-.flex.flex-col.justify-start.p-10.w-4/5
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   h1.title-normal
     |Labot pasākuma datus 
-  .flex.w-full.h-full
-    .flex.w-1/2 
+  .flex.flex-col-reverse.w-full.h-full.lg:flex-row
+    .flex.lg:w-1/2 
       =render "event_form"
-    .flex.w-1/2.flex-col.ml-10
+    .flex.mb-10.lg:w-1/2.flex-col.lg:ml-10.lg:mb-0
       p.input-label.mb-1 
         |Uz pasākumu ir ielūgti
-      .flex.flex-col.w-full.border-2.border-scout-blue.rounded-xl.p-4.overflow-auto class="max-h-[80vh]"
+      .flex.flex-col.w-full.border-2.border-scout-blue.rounded-xl.p-4.overflow-auto class="max-h-[400px] lg:max-h-[80vh]"
         =form_for @invite do |f|
-          .flex.items-center.place-content-between.w-full  
-            = f.select :unit, options_for_select(@units), {}, class: "input-field-blue ml-0 pr-10"
-            = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue ml-[-40px]"
+          .flex.flex-col.items-center.place-content-between.w-full.lg:flex-row
+            = f.select :unit, options_for_select(@units), {}, class: "input-field-blue ml-0 pr-10 w-full lg:w-fit"
+            = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue lg:ml-[-40px] w-full lg:w-fit"
             = f.hidden_field :event, value: @event.id
-            = f.submit "Ielūgt", class: "btn-secondary"
+            = f.submit "Ielūgt", class: "btn-secondary w-full lg:w-fit"
         table
           -@invites.each do |invite|
             tr.flex.items-center.place-content-between
@@ -22,4 +22,4 @@
               td.text-end 
                 =invite.rank
               td
-                =button_to "Dzēst", invite_path(invite.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red min-h-[18px]"
+                =button_to "#{agent_mobile? ? "X" : "Dzēst"}", invite_path(invite.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"

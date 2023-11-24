@@ -1,4 +1,6 @@
-.flex.flex-col.justify-start.px-10.py-5.lg:w-4/5.lg:p-10
+script src = javascript_path("views/user_edit")
+
+.flex.flex-col.justify-start.p-5.lg:w-4/5.lg:p-10
   div
     h1.title-normal
       |Izlabo savus datus
@@ -29,22 +31,21 @@
           = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6"
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label"
         = f.submit "Iesniegt", class: "btn-primary w-full"
-      button.btn-ternary id="password_reset_button"
+      button.btn-ternary class="form_toggle"
         | Atjaunot paroli
 
-    div.flex.flex-col.mt-10.lg:w-1/2.lg:items-end id="password_reset_form"
-      div.border-2.rounded-xl.p-3
-        h1.title-normal
-          |Atjaunot paroli
-        =form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
-          label.input-label 
-            |Vecā parole
-          input.input-field-blue type="password" name="old_password"
-          label.input-label 
-            |Jaunā parole
-          input.input-field-blue type="password" name="password_digest"
-          label.input-label 
-            |Atkārto paroli
-          input.input-field-blue type="password" name="repeat_password"
-          button.btn-secondary.flex.items-center.justify-between.mt-4 type="submit" 
-            |Atjaunot
+    div.flex.flex-col.mt-10.lg:w-1/2.lg:items-end.hidden id="password_reset_form"
+      =form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
+        label.input-label 
+          |Vecā parole
+        input.input-field-blue.w-full type="password" name="old_password"
+        label.input-label 
+          |Jaunā parole
+        input.input-field-blue.w-full type="password" name="password_digest"
+        label.input-label 
+          |Atkārto paroli
+        input.input-field-blue.w-full type="password" name="repeat_password"
+        button.btn-primary.flex.items-center.justify-between.mt-4.w-full type="submit" 
+          |Iesniegt
+      button.btn-ternary class="form_toggle"
+        | Atjaunot datus

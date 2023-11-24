@@ -1,5 +1,5 @@
-.flex.flex-col.justify-start.p-10.w-4/5
-  div
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+  div.flex.flex-col
     h1.title-normal
       |Aptaujas lapa
     -if @info.present?
@@ -7,46 +7,46 @@
         |Aptaujas lapa tiek lietota, lai pasākumu rīkotājiem būtu zināmas Jūsu vajadzības. 
         |Šos datus jebkurā brīdī varat dzēst, un tie tiks dzēsti no mūsu datubāzes. 
       
-      div.divide-y-2.border-scout-blue.border-2.p-4.m-6.rounded-xl.w-3/4
-        div.space-y-2.pb-3
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Adrese: 
-            p.paragraph-normal 
-              =@info.address
+      .my-5.flex.flex-col
+        .flex.flex-col.items-end
+          =link_to "Labot aptaujas lapu", aptaujas_lapa_labot_path, class: "btn-ternary m-0 p-2"
+          =button_to "Dzēst aptaujas lapu", aptaujas_lapa_path, method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
+        
+        .border-2.border-scout-blue.rounded-xl.p-4.overflow-y-auto
+          div.space-y-2.pb-3
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Adrese: 
+              p.paragraph-normal 
+                =@info.address
 
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Kontakttālrunis: 
-            p.paragraph-normal 
-              |#{@info.emergency_contact_number} (#{@info.emergency_contact_relationship})
-        
-        div.space-y-2.pt-3
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Veselības problēmas: 
-            p.paragraph-normal 
-              =@info.health_issues
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Lietotie medicīnas preperāti: 
-            p.paragraph-normal 
-              =@info.medication_during_event
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Psiholoģiskās iezīmes: 
-            p.paragraph-normal 
-              =@info.psychological_features
-          .flex.space-x-2
-            p.paragraph-dark 
-              |Diētas ierobežojumi: 
-            p.paragraph-normal 
-              =@info.diet
-        
-      .flex.align-between
-        =link_to "Labot aptaujas lapu", aptaujas_lapa_labot_path, class: "btn-primary"
-        =button_to "Dzēst aptaujas lapu", aptaujas_lapa_path, method: :delete, class: "btn-ternary"
-        
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Kontakttālrunis: 
+              p.paragraph-normal 
+                |#{@info.emergency_contact_number} (#{@info.emergency_contact_relationship})
+          
+          div.space-y-2.pt-3
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Veselības problēmas: 
+              p.paragraph-normal 
+                =@info.health_issues
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Lietotie medicīnas preperāti: 
+              p.paragraph-normal 
+                =@info.medication_during_event
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Psiholoģiskās iezīmes: 
+              p.paragraph-normal 
+                =@info.psychological_features
+            div.lg:flex.gap-2
+              p.paragraph-dark 
+                |Diētas ierobežojumi: 
+              p.paragraph-normal 
+                =@info.diet
     -else
       p.paragraph-normal.mb-4
         |Aptaujas lapa tiek lietota, lai pasākumu rīkotājiem būtu zināmas Jūsu vajadzības. 
@@ -55,5 +55,5 @@
         |Jums pašlaik nav iesniegta aptaujas lapa
       p.paragraph-emp.mb-4  
         |Ja aptaujas lapa netiks izveidota un iesniegta elektroniski, to vajadzēs aizpildīt papīra formatā un nodot pasākuma vadītājam.
-      =link_to "Iesniegt aptaujas lapu", aptaujas_lapa_iesniegt_path, class: "btn-primary"
+      =link_to "Iesniegt aptaujas lapu", aptaujas_lapa_iesniegt_path, class: "btn-primary self-center lg:self-end"
       
