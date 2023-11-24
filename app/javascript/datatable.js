@@ -1,58 +1,32 @@
-const pageLength = window.clientWidth > 1024 ? 13 : 5
+function initializeDataTable(tableSelector) {
+  const pageLength = window.clientWidth > 1024 ? 13 : 5;
 
-$(document).ready(function() {
-  $('#dataTable').DataTable(
-    {
-      "paging":   true,
-      "ordering": true,
-      "info":     false,
-      "searching": false,
-      "pageLength": pageLength,
-      "bLengthChange" : false,
-      "pagingType": "full",
+  $(tableSelector).DataTable({
+    paging: true,
+    ordering: true,
+    info: false,
+    searching: false,
+    pageLength: pageLength,
+    bLengthChange: false,
+    pagingType: "full",
 
-      "fnDrawCallback": function(oSettings) {
-        if (oSettings._iDisplayLength > oSettings.fnRecordsDisplay()) {
-            $(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
-        } else {
-             $(oSettings.nTableWrapper).find('.dataTables_paginate').show();
-        }},
+    fnDrawCallback: function (oSettings) {
+      const paginateElement = $(oSettings.nTableWrapper).find('.dataTables_paginate');
+      oSettings._iDisplayLength > oSettings.fnRecordsDisplay() ? paginateElement.hide() : paginateElement.show();
+    },
 
-      columnDefs: [{
-        orderable: false,
-        targets: "no-sort"
-      }],
+    columnDefs: [{
+      orderable: false,
+      targets: "no-sort"
+    }],
 
-      language: {
-        emptyTable: "Nav datu"
-      }
+    language: {
+      emptyTable: "Nav datu"
     }
-  );
-  $('#dataTable2').DataTable(
-    {
-      "paging":   true,
-      "ordering": true,
-      "info":     false,
-      "searching": false,
-      "pageLength": pageLength,
-      "bLengthChange" : false,
-      "pagingType": "full",
+  });
+}
 
-      "fnDrawCallback": function(oSettings) {
-        if (oSettings._iDisplayLength > oSettings.fnRecordsDisplay()) {
-            $(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
-        } else {
-             $(oSettings.nTableWrapper).find('.dataTables_paginate').show();
-        }},
-
-      columnDefs: [{
-        orderable: false,
-        targets: "no-sort"
-      }],
-
-      language: {
-        emptyTable: "Nav datu"
-      }
-    }
-  );
+$(document).on('turbo:load', function () {
+  initializeDataTable('#dataTable');
+  initializeDataTable('#dataTable2');
 });

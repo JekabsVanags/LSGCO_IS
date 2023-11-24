@@ -1,5 +1,4 @@
 function showDropdown() {
-  const toggleValue = !$('#dropdown').attr('hidden')
   $('#dropdown').toggle(500);
 }
 
