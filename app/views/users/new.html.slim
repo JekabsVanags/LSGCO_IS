@@ -1,4 +1,4 @@
-flex.flex-col.justify-start.px-10.py-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   div 
     h1.title-normal
       |Pievienot Biedru
@@ -24,4 +24,4 @@ flex.flex-col.justify-start.px-10.py-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       .flex.flex-col.w-full
           = f.label :rank, "Pakāpe", class: "input-label-inline"
           = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue"
-      = f.submit class: "btn-primary w-full text-center"
+      = f.submit "Pievienot Biedru", class: "btn-primary w-full text-center"

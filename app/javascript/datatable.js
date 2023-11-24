@@ -1,4 +1,5 @@
 const pageLength = window.clientWidth > 1024 ? 13 : 5
+
 $(document).ready(function() {
   $('#dataTable').DataTable(
     {

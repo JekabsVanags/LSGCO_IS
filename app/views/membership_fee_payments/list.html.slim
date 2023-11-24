@@ -1,13 +1,13 @@
-.flex.flex-col.justify-start.p-10.w-4/5
-  .flex.w-full.h-full
-    .flex.flex-col.w-3/4
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+  .flex.flex-col.w-full.h-full.lg:flex-row
+    .flex.flex-col.lg:w-3/4
       h1.title-normal
         |#{@user.name} #{@user.surname} biedra naudas maksājumi
       .border-2.rounded-xl.overflow-y-auto
         =render "payment_table"
-    .flex.flex-col.w-1/4.ml-10
+    .flex.flex-col.mt-10.lg:w-1/4.lg:ml-10.lg:mt-0
       h1.title-normal
         |Jauns maksājums
       =render "payment_form"
 
-      =link_to "< Atgriezties", user_path(@user), class: "btn-primary w-full"
+      =link_to "< Atgriezties", user_path(@user), class: "btn-primary w-full mt-10 lg:mt-0"

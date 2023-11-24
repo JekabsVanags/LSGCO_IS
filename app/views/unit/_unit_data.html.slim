@@ -1,32 +1,32 @@
 div.flex.flex-col.divide-y-2.h-full
   div
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Nosaukums:
       p.paragraph-normal
         =@unit.full_name
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Juridiskā adrese:
       p.paragraph-normal
         =@unit.legal_adress
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Epasts:
       p.paragraph-normal
         =@unit.email.present? ? @unit.email : "#{@unit_leader.email} (vienības priekšnieka epasts)"
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Telefons:
       p.paragraph-normal
         =@unit.phone.present? ? @unit.phone : "#{@unit_leader.phone} (vienības priekšnieka telefons)"
   div.pt-5.pb-5
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Bankas konts:
       p.paragraph-normal
         =@unit.bank_account
-    .flex.gap-2
+    .lg:flex.gap-2
       h1.subtitle
         |Dalības maksa:
       p.paragraph-normal
@@ -39,7 +39,7 @@ div.flex.flex-col.divide-y-2.h-full
         p.paragraph-normal.max-h-44.overflow-auto.text-sm
           =@unit.comments
   div.pt-5.pb-5
-    div.flex.gap-2
+    div.lg:flex.gap-2
       h1.subtitle
         |Nodarbību vieta:
       p.paragraph-normal

@@ -22,20 +22,20 @@ div.flex.flex-col.gap-4
       | #{@user.rank} #{ @user.promise? ? (@user.sex == "F" ? "☘️" : "⚜️") : "" }
   - if @user.promise?
     div.flex.gap-2   
-      h1.subtitle 
+      h1.subtitle.text-start 
         |Solījuma datums: 
-      p.paragraph-normal 
+      p.paragraph-normal.text-start 
         = @user.promise?
   div.flex.gap-2   
     h1.subtitle 
       |Epasts: 
     p.paragraph-normal 
-      =@user.email
+      =@user.email.present? ? @user.email :  "-"
   div.flex.gap-2   
     h1.subtitle 
       |Telefons: 
     p.paragraph-normal 
-      =@user.phone
+      =@user.phone.present? ? @user.phone : "-"
   -if @user.positions.present?
     .flex.gap-2 
       h1.subtitle 

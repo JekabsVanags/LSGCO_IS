@@ -1,13 +1,13 @@
-.flex.flex-col.justify-start.p-10.w-4/5
-  .flex.w-full.h-full
-    .max-h-1/3.h-fit.w-1/2.overflow-y-auto
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+  .flex.flex-col.w-full.h-full.lg:flex-row
+    .max-h-1/3.h-fit.lg:w-1/2.overflow-y-auto
       .flex.justify-between.items-center
         h1.title-normal 
           |Vienības rīkotie pasākumi
-        =link_to "+ Pievienot pasākumu" ,new_event_path, class:"btn-secondary"
+        =link_to "+Pasākums" ,new_event_path, class:"btn-secondary"
       .border-2.rounded-xl.overflow-y-auto
         =render "event_table"
-    .max-h-1/3.h-fit.w-1/2.ml-10
+    .max-h-1/3.h-fit.mt-10.lg:w-1/2.lg:ml-10.lg:mt-0
       h1.title-normal
         |Vienības tuvākie pasākumi
       .border-2.rounded-xl.overflow-y-auto

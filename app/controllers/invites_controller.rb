@@ -2,6 +2,11 @@ class InvitesController < ApplicationController
   before_action :authorized?, :unit_access?
 
   def create
+    if Invite.where({ rank: invite_params[:rank], unit: Unit.find(invite_params[:unit]), event: Event.find(invite_params[:event]) }).present?
+      redirect_to edit_event_path(invite_params[:event]), notice: "Ielūgums jau eksistē"
+      return
+    end
+
     @invite = Invite.new({ rank: invite_params[:rank], unit: Unit.find(invite_params[:unit]), event: Event.find(invite_params[:event]) })
 
     if @invite.save!
