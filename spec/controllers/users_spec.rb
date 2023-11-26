@@ -11,6 +11,8 @@ RSpec.describe UsersController, type: :controller do
     session[:user_id] = current_user.id
   end
 
+  #TBD INDEX
+
   describe "GET #new" do
     it "gets a new user instance and renders the template" do
       get :new

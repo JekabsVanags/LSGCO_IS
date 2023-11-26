@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    session[:current_tab] = "user_list"
+    @users = User.all
+  end
+
   def create
     @user = User.new(user_params.except(:rank))
     @user.unit = current_user.unit

@@ -1,11 +1,12 @@
 function initializeDataTable(tableSelector) {
-  const pageLength = window.clientWidth > 1024 ? 13 : 5;
+  const pageLength = window.innerWidth > 1024 ? 13 : 5;
 
-  $(tableSelector).DataTable({
+  return $(tableSelector).DataTable({
+    dom: 'lrtip',
     paging: true,
     ordering: true,
     info: false,
-    searching: false,
+    searching: true,
     pageLength: pageLength,
     bLengthChange: false,
     pagingType: "full",
@@ -27,6 +28,10 @@ function initializeDataTable(tableSelector) {
 }
 
 $(document).on('turbo:load', function () {
-  initializeDataTable('#dataTable');
+  var table = initializeDataTable('#dataTable');
   initializeDataTable('#dataTable2');
+
+  $('#searchField').on( 'keyup', function () {
+      table.search( this.value ).draw();
+  } );
 });

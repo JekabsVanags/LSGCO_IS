@@ -17,12 +17,12 @@ class ApplicationController < ActionController::Base
     if !current_user.present?
       redirect_to root_path, alert: "Tu neesi piereģistrējies"
     else
-      @sidebar_state = current_user.permission_level
+      @user_permission_level = current_user.permission_level
     end
   end
 
   def unit_access?
-    return unless !current_user.pklv_vaditajs? && !current_user.pklv_valde?
+    return if current_user.pklv_vaditajs? || current_user.pklv_valde?
 
     redirect_to root_path, alert: "Nav atļauts"
   end

@@ -20,7 +20,6 @@ class SessionController < ApplicationController
   def first_login
     @user = User.find(params[:id])
     @old_password = params[:password]
-    @sidebar_state = @user.permission_level
     session[:user_id] = @user.created_at > Date.today - 7 ? @user.id : nil
     session[:new_user] = true
     return if @user.authenticate(params[:password]) && @user.created_at == @user.updated_at && session[:user_id]
@@ -31,7 +30,6 @@ class SessionController < ApplicationController
   def password_reset
     @user = User.find(params[:id])
     @old_password = params[:password]
-    @sidebar_state = @user.permission_level
     session[:user_id] = @user.updated_at > Date.today - 7 ? @user.id : nil
     return if @user.authenticate(params[:password]) && session[:user_id]
 

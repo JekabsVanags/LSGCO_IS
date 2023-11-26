@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get "/aptaujas_lapa/skatit", to: "personal_information#display"
 
   #Vienības darbības sfēras ceļi
-  resources :unit, path: :vieniba
+  resources :units, path: :vieniba
   resources :positions, only: ["create", "destroy"]
   resources :weekly_activities, only: ["create", "destroy"]
   resources :membership_fee_payments, path: :biedra_naudas_maksajumi, only: ["create", "destroy"] do

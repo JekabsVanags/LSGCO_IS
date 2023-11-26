@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe UnitController, type: :controller do
+RSpec.describe UnitsController, type: :controller do
   let(:unit) { create(:unit) }
   let(:unit2) { create(:unit) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_vaditajs") }
@@ -8,6 +8,8 @@ RSpec.describe UnitController, type: :controller do
   before do
     session[:user_id] = user.id
   end
+
+  #TBD INDEX + NEW + CREATE tests
 
   describe "GET #show" do
     it "gets unit, weekly activities, members, and unit leader" do
@@ -46,10 +48,10 @@ RSpec.describe UnitController, type: :controller do
   describe "PATCH #update" do
     context "with valid params" do
       it "updates the unit and redirects to show page with notice" do
-        patch :update, params: { id: unit.id, unit: { city: "New City" } }
+        patch :update, params: { id: unit.id, unit: { comments: "New City" } }
 
         unit.reload
-        expect(unit.city).to eq("New City")
+        expect(unit.comments).to eq("New City")
         expect(response).to redirect_to(unit_path(unit))
         expect(flash[:notice]).to eq("Vienības infromācija atjaunota")
       end
