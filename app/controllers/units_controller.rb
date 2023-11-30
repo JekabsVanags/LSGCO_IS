@@ -10,7 +10,7 @@ class UnitsController < ApplicationController
 
   def index
     session[:current_tab] = "unit_list"
-    @units = Unit.all()
+    @units = Unit.all
   end
 
   def show
@@ -24,6 +24,7 @@ class UnitsController < ApplicationController
   def create
     @leader = User.find(params[:leader_id])
     @unit = Unit.new(unit_create_params)
+
     if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit)
       redirect_to unit_path(@unit), notice: "Jauna vienība izveidota"
     else

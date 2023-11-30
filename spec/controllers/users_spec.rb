@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe UsersController, type: :controller do
   let(:unit) { create(:unit) }
-  let(:user) { create(:user, unit: unit) }
+  let(:user) { create(:user, unit: unit, permission_level: "pklv_biedrs") }
+  let(:user2) { create(:user, unit: unit) }
+  let(:user3) { create(:user, unit: unit) }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:rank) { create(:rank_history, user: current_user, rank: "SK/G", current: true) }
 
@@ -11,7 +13,24 @@ RSpec.describe UsersController, type: :controller do
     session[:user_id] = current_user.id
   end
 
-  #TBD INDEX
+  describe "GET #index" do
+    it "gets the list of users" do
+      user.save!
+      user2.save!
+      user3.save!
+
+      get :index
+      expect(assigns(:users)).to eq(User.all)
+      expect(assigns(:users).length).to eq(4)
+      expect(response).to render_template(:index)
+    end
+
+    it "doesnt get the list without permissions" do
+      session[:user_id] = user.id
+      get :index
+      expect(response).to redirect_to(root_path)
+    end
+  end
 
   describe "GET #new" do
     it "gets a new user instance and renders the template" do
