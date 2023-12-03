@@ -5,6 +5,7 @@ table.table-auto.w-full id="dataTable"
       th.px-6.py-3.text-start Uzvārds
       th.px-6.py-3.text-start Pakāpe
       th.px-6.py-3.text-start Statuss
+      th.px-6.py-3.text-start Bilanse
       th.px-6.py-3.no-sort
 
   tbody
@@ -18,6 +19,8 @@ table.table-auto.w-full id="dataTable"
           | #{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }
         td.px-6.py-3 
           = user.activity_statuss
+        td.px-6.py-3 
+          | #{user.membership_fee_bilance} €
         td.px-6.py-3 
           =link_to user_path(user), class: "block w-5"
             =image_tag 'icons/edit.svg', size:"30"

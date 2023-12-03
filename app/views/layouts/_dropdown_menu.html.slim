@@ -35,7 +35,7 @@ div.border-2.flex.flex-col.px-5
 
         -if @user_permission_level == "pklv_vaditajs"
             div
-              =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+                  =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : current_user.unit.unit_active? ? "btn-primary flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3 disabled-link"
                 |Pievienot biedru
                 =image_tag 'icons/new_user.svg', size:"30"
               =link_to events_path, class: current_tab == "events" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"

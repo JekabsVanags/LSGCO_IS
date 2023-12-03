@@ -41,6 +41,10 @@ Rails.application.routes.draw do
     end
   end
 
+  #Atskaišu ceļi
+  get "/biedru_atskaites", to: "reports#member_report"
+  get "/vienibas_atskaites", to: "reports#unit_report"
+
   #Pasākumu ceļi
   resources :events, path: :pasakums do
     member do
