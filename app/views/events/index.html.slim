@@ -4,7 +4,7 @@
       .flex.justify-between.items-center
         h1.title-normal 
           |Vienības rīkotie pasākumi
-        =link_to "+Pasākums" ,new_event_path, class:"btn-secondary"
+        =link_to "+Pasākums" ,new_event_path, class:  @current_user.unit.unit_active? ? 'btn-primary ' : "btn-primary disabled-link"
       .border-2.rounded-xl.overflow-y-auto
         =render "event_table"
     .max-h-1/3.h-fit.mt-10.lg:w-1/2.lg:ml-10.lg:mt-0

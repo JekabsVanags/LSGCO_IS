@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
   before_action :authorized?
   before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
+  before_action :org_access?, only: ["index"]
+  before_action :unit_active?, only: ["create"]
 
   def new
     session[:current_tab] = "new_member"
     @user = User.new
+  end
+
+  def index
+    session[:current_tab] = "user_list"
+    @users = User.all
   end
 
   def create
@@ -33,7 +40,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys
-    @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
+    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]}
     @new_position = Position.new()
   end
 
@@ -67,7 +74,7 @@ class UsersController < ApplicationController
     @new_user = session[:new_user]
     @user = current_user
     @events = @user.available_events.sort_by(&:date_from)
-     
+
   end
 
   def unit_update
@@ -91,7 +98,7 @@ class UsersController < ApplicationController
       end
     end
 
-    if user_unit_edit_params[:rank] 
+    if user_unit_edit_params[:rank]
     @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_unit_edit_params[:rank], current: true)
 
     if @user.rank_histories.where(current: true).update(current: false) && @rank.save!
@@ -121,14 +128,14 @@ class UsersController < ApplicationController
       redirect_to path, notice: 'Paroles nesakrīt'
       return
     end
-  
+
     if @user.authenticate(params[:old_password])
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
     else
       if session[:new_user] == true
       session.clear
       redirect_to root_path, notice: 'Nepareiza parole'
-      else 
+      else
       redirect_to edit_user_path(current_user), notice: 'Nepareiza pašreizējā parole'
       end
       return
@@ -141,7 +148,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def send_password_reset 
+  def send_password_reset
     @user = User.find(params[:id])
     password = Faker::Alphanumeric.alphanumeric
     @user.password_digest = BCrypt::Password.create(password).to_s

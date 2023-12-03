@@ -18,6 +18,11 @@
   font-weight: 600 !important;
 }
 
+.disabled-link {
+  pointer-events: none;
+  background-color: #7d8787;
+}
+
 p{
   white-space: pre-wrap
 }

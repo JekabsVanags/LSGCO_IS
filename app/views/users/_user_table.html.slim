@@ -1,0 +1,24 @@
+table.table-auto.w-full id="dataTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Vārds 
+      th.px-6.py-3.text-start Uzvārds
+      th.px-6.py-3.text-start Pakāpe
+      th.px-6.py-3.text-start Statuss
+      th.px-6.py-3.no-sort
+
+  tbody
+    - @users.each do |user|
+      tr.border-b
+        td.px-6.py-3 
+          = user.name
+        td.px-6.py-3 
+          = user.surname
+        td.px-6.py-3 
+          | #{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }
+        td.px-6.py-3 
+          = user.activity_statuss
+        td.px-6.py-3 
+          =link_to user_path(user), class: "block w-5"
+            =image_tag 'icons/edit.svg', size:"30"
+      

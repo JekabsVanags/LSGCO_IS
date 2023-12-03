@@ -16,4 +16,13 @@ class Unit < ApplicationRecord
   def get_actual_events(rank)
     invites.future.where(rank:).map(&:event)
   end
+
+  def unit_leader
+    leader = users.where(permission_level: "pklv_vaditajs").first
+    leader.present? ? "#{leader.name} #{leader.surname}" : "-"
+  end
+
+  def unit_active?
+    !deleted_at.present?
+  end
 end

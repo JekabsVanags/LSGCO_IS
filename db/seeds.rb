@@ -11,8 +11,8 @@ if Rails.env.development?
                            username: "JekabsVanags29", permission_level: "pklv_vaditajs")
   RankHistory.create(date_begin: (Date.today - 1075), user: admin_user, rank: "DZSK/DZG")
 
-  test_event1 = Event.create(name: "Nometne", date_from: (Date.today + 60), event_type: "Nometne", unit: org_unit)
-  test_event2 = Event.create(name: "Pārgājiens", date_from: (Date.today + 90), event_type: "Pārgājiens", unit: org_unit)
+  test_event1 = Event.create(name: "Nometne", date_from: (Date.today + 60), date_to: (Date.today + 60),  event_type: "Nometne", unit: org_unit)
+  test_event2 = Event.create(name: "Pārgājiens", date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: org_unit)
   Invite.create(event: test_event1, unit: test_unit, rank: "DZSK/DZG")
   Invite.create(event: test_event2, unit: test_unit, rank: "DZSK/DZG")
 end

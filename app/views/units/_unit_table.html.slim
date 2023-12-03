@@ -1,0 +1,21 @@
+table.table-auto.w-full id="dataTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Nosaukums 
+      th.px-6.py-3.text-start Priekšnieks
+      th.px-6.py-3.text-start Statuss
+      th.px-6.py-3.no-sort
+
+  tbody
+    - @units.each do |unit|
+      tr.border-b
+        td.px-6.py-3 
+          = unit.full_name
+        td.px-6.py-3 
+          = unit.unit_leader
+        td.px-6.py-3 
+          = unit.unit_active? ? "Aktīva" : "Neaktīva kopš #{unit.deleted_at}"
+        td.px-6.py-3 
+          =link_to unit_path(unit), class: "block w-5"
+            =image_tag 'icons/edit.svg', size:"30"
+      
