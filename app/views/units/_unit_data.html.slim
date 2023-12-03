@@ -1,4 +1,8 @@
 div.flex.flex-col.divide-y-2.h-full
+  -if @unit.deleted_at.present?
+    div.lg:flex.gap-2
+      h1.subtitle.text-scout-red
+        |!!!Vienība neaktīva!!!
   div
     div.lg:flex.gap-2
       h1.subtitle

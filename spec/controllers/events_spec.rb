@@ -3,8 +3,10 @@ require "rails_helper"
 RSpec.describe EventsController, type: :controller do
   let(:unit) { create(:unit) }
   let(:unit2) { create(:unit) }
+  let(:unit3) { create(:unit, deleted_at: Date.today) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:user2) { create(:user, unit: unit, permission_level: "pklv_biedrs") }
+  let(:user3) { create(:user, unit: unit3, permission_level: "pklv_valde") }
   let(:event) { create(:event, unit: unit) }
   let(:event2) { create(:event, unit: unit) }
   let(:invite) { create(:invite, unit: unit, event: event) }
@@ -53,7 +55,7 @@ RSpec.describe EventsController, type: :controller do
       get :new
 
       expect(assigns(:event)).to be_a_new(Event)
-      expect(assigns(:units)).to eq(Unit.all.order(city: :asc))
+      expect(assigns(:units)).to eq(Unit.where(deleted_at: nil).order(city: :asc))
     end
   end
 
@@ -108,6 +110,21 @@ RSpec.describe EventsController, type: :controller do
 
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to eq("Nav atļauts")
+      expect(Event.count).to eq(0)
+      expect(Invite.count).to eq(0)
+    end
+
+    it "cannot create if unit is innactive" do
+      unit3.save!
+      user3.save!
+      session[:user_id] = user3.id
+
+      post :create, params: {
+                      event: { name: "Test Event", date_from: Date.today, date_to: Date.tomorrow, necessary_volunteers: 2, max_participants: 2, event_type: "Pārgājiens" },
+                    }
+
+      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to eq("Vienība neaktīva")
       expect(Event.count).to eq(0)
       expect(Invite.count).to eq(0)
     end

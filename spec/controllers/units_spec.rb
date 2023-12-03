@@ -11,7 +11,6 @@ RSpec.describe UnitsController, type: :controller do
     session[:user_id] = user.id
   end
 
-
   describe "GET #index" do
     it "gets the list of units" do
       session[:user_id] = admin.id
@@ -56,8 +55,8 @@ RSpec.describe UnitsController, type: :controller do
   describe "POST #create" do
     it "creates a new unit and updates the leader" do
       session[:user_id] = admin.id
-      post :create, params:  { leader_id: leader.id, unit: { city: "Latvija", number: 0, legal_adress: "Edvarda Smiļģa iela 48",
-        email: "info@skautiungaidas.lv", bank_account: "GB59BARC20038041146187", membership_fee: "0" } }
+      post :create, params: { leader_id: leader.id, unit: { city: "Latvija", number: 0, legal_adress: "Edvarda Smiļģa iela 48",
+                                                           email: "info@skautiungaidas.lv", bank_account: "GB59BARC20038041146187", membership_fee: "0" } }
 
       expect(Unit.count).to eq(2)
 
@@ -78,6 +77,28 @@ RSpec.describe UnitsController, type: :controller do
       leader.reload
       expect(leader.permission_level).to_not eq("pklv_vaditajs")
       expect(leader.unit).to eq(unit)
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "marks a unit as innactive (soft delete)" do
+      session[:user_id] = admin.id
+      delete :destroy, params: { id: unit.id }
+
+      unit.reload
+
+      expect(unit.deleted_at).to_not be(nil)
+    end
+  end
+
+  describe "PATCH #undestory" do
+    it "marks a unit as active (reverses soft delete)" do
+      session[:user_id] = admin.id
+      patch :undestory, params: { id: unit.id }
+
+      unit.reload
+
+      expect(unit.deleted_at).to be(nil)
     end
   end
 

@@ -21,4 +21,8 @@ class Unit < ApplicationRecord
     leader = users.where(permission_level: "pklv_vaditajs").first
     leader.present? ? "#{leader.name} #{leader.surname}" : "-"
   end
+
+  def unit_active?
+    !deleted_at.present?
+  end
 end

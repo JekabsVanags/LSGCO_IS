@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authorized?
   before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
   before_action :org_access?, only: ["index"]
+  before_action :unit_active?, only: ["create"]
 
   def new
     session[:current_tab] = "new_member"
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys
-    @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
+    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]}
     @new_position = Position.new()
   end
 

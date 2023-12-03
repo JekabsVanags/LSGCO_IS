@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :authorized?
   before_action :unit_access?, except: ["show"]
+  before_action :unit_active?, only: ["create"]
+
 
   helper RegistrationHelpers
 
@@ -21,14 +23,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new()
-    @units = Unit.all.order(city: :asc)
+    @units = Unit.where(deleted_at: nil).order(city: :asc)
   end
 
   def edit
     @event = Event.find(params[:id])
     @invites = Invite.where(event: @event)
     @invite = Invite.new()
-    @units = Unit.all.map {|unit| [unit.full_name, unit.id]}
+    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]}
   end
 
   def create

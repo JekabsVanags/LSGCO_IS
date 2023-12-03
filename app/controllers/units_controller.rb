@@ -1,6 +1,6 @@
 class UnitsController < ApplicationController
   before_action :authorized?, :unit_access?, :unit_member?
-  before_action :org_access?, only: ["create", "index", "new"]
+  before_action :org_access?, only: ["create", "index", "new", "destroy"]
 
   def new
     session[:current_tab] = "new_unit"
@@ -42,6 +42,24 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     if @unit.update(unit_update_params)
       redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
+    else
+      redirect_to root_path, notice: "Kļūda"
+    end
+  end
+
+  def destroy
+    @unit = Unit.find(params[:id])
+    if @unit.update(deleted_at: Date.today)
+      redirect_to unit_path(@unit), notice: "Vienības atzīmēta kā neaktīva"
+    else
+      redirect_to root_path, notice: "Kļūda"
+    end
+  end
+
+  def undestory
+    @unit = Unit.find(params[:id])
+    if @unit.update(deleted_at: nil)
+      redirect_to unit_path(@unit), notice: "Vienības atzīmēta kā aktīva"
     else
       redirect_to root_path, notice: "Kļūda"
     end

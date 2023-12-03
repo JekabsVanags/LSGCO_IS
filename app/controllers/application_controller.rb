@@ -33,5 +33,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "Nav atļauts"
   end
 
+  def unit_active?
+    return unless !current_user.unit.unit_active?
+
+    redirect_to root_path, alert: "Vienība neaktīva"
+  end
+
   helper_method :current_user, :current_tab
 end

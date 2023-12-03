@@ -2,9 +2,10 @@ require "rails_helper"
 
 RSpec.describe UsersController, type: :controller do
   let(:unit) { create(:unit) }
+  let(:unit3) { create(:unit, deleted_at: Date.today) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_biedrs") }
   let(:user2) { create(:user, unit: unit) }
-  let(:user3) { create(:user, unit: unit) }
+  let(:user3) { create(:user, unit: unit3, permission_level: "pklv_valde") }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:rank) { create(:rank_history, user: current_user, rank: "SK/G", current: true) }
 
@@ -56,6 +57,16 @@ RSpec.describe UsersController, type: :controller do
       post :create, params: { user: { name: "", surname: "", rank: "" } }
       expect(response).to redirect_to(root_path)
       expect(flash[:notice]).to eq("Kļūda")
+    end
+
+    it "cannot create if unit is innactive" do
+      unit3.save!
+      session[:user_id] = user3.id
+
+      post :create, params: { user: { name: "John", surname: "Doe", rank: "SK/G", email: "test@test", activity_statuss: "Aktīvs", joined_date: Date.today } }
+
+      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to eq("Vienība neaktīva")
     end
   end
 
