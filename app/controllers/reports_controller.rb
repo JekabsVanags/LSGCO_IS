@@ -8,7 +8,11 @@ class ReportsController < ApplicationController
       @unit = Unit.find(params[:id])
       @users = @unit.users
     else
-      @units = Unit.where(deleted_at: nil).map { |unit| [unit.full_name, unit.id] }
+      @units = Unit.where(deleted_at: nil).map do |unit|
+        unless unit.number == 0
+          [unit.full_name, unit.id]
+        end
+      end.compact
     end
   end
 

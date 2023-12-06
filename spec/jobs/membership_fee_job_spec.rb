@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe MembershipFeeJob, type: :job do
+  let(:base_unit) { build :unit, number: 0, membership_fee: 2 }
   let(:unit) { create :unit, membership_fee: 1 }
   let(:unit2) { create :unit, membership_fee: 3 }
 
@@ -12,6 +13,7 @@ RSpec.describe MembershipFeeJob, type: :job do
   before(:each) do
     unit.save!
     unit2.save!
+    base_unit.save!
     user.save!
     user1.save!
     user2.save!
@@ -26,6 +28,7 @@ RSpec.describe MembershipFeeJob, type: :job do
     user1.reload
     user2.reload
     user3.reload
+    base_unit.save!
 
     expect(user.membership_fee_bilance.to_i).to eq(-3)
     expect(user2.membership_fee_bilance.to_i).to eq(-5)

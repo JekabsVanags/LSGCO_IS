@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:unit) { build :unit }
+  let(:base_unit) {build :unit, number: 0, membership_fee: 2}
   let(:user) { build :user, unit:, joined_date: Date.today - 1008 }
   let(:event) { build :event, unit: }
   let(:registration) { build :event_registration, user:, event: }
@@ -99,6 +100,7 @@ RSpec.describe User, type: :model do
   it('should reduce the bilance by membership fee') do
     unit.membership_fee = 2
     unit.save!
+    base_unit.save!
     user.save!
 
     user.recalculate_bilance

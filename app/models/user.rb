@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   def recalculate_bilance()
     bilance = membership_fee_bilance
-    fee = 2
+    fee = Unit.find_by(number: 0).membership_fee
     if activity_statuss != "Daļēji aktīvs"
       fee += unit.membership_fee
     end
