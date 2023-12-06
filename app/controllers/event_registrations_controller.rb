@@ -7,9 +7,19 @@ class EventRegistrationsController < ApplicationController
     @event = Event.find(registration_params[:event_id])
 
     if registration_params[:role] == "Dalībnieks"
-      @event.registered_participants += 1
+      if @event.max_participants > @event.registered_participants
+        @event.registered_participants += 1
+      else
+        redirect_to event_path(registration_params[:event_id]), notice: "Pārāk daudz dalībnieku"
+        return
+      end
     else
-      @event.registered_volunteers += 1
+      if @event.necessary_volunteers > @event.registered_volunteers
+        @event.registered_volunteers += 1
+      else
+        redirect_to event_path(registration_params[:event_id]), notice: "Pieteikami brīvprātīgo"
+        return
+      end
     end
 
     if @registration.save! && @event.save!

@@ -10,7 +10,7 @@ class Unit < ApplicationRecord
   has_many :weekly_activities
 
   def full_name
-    "#{city}s #{number}. vienība"
+    number == 0 ? "LSGCO" : "#{city}s #{number}. vienība"
   end
 
   def get_actual_events(rank)

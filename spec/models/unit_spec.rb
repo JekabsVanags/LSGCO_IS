@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Unit, type: :model do
-  let(:unit) { build :unit }
+  let(:unit) { build :unit, number: 0 }
   let(:unit2) { build :unit }
   let(:user1) { build :user, unit: }
   let(:user2) { build :user, unit: }
@@ -79,7 +79,8 @@ RSpec.describe Unit, type: :model do
   it('should get units full name') do
     unit.save!
 
-    expect(unit2.full_name).to eq("#{unit.city}s #{unit.number}. vienība")
+    expect(unit2.full_name).to eq("#{unit2.city}s #{unit2.number}. vienība")
+    expect(unit.full_name).to eq("LSGCO")
   end
 
   it('should get upcoming events for a rank') do

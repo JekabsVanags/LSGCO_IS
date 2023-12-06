@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe EventRegistrationsController, type: :controller do
   let(:unit) { create(:unit) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_valde") }
-  let(:event) { create(:event, unit: unit) }
+  let(:event) { create(:event, unit: unit, max_participants: 2, necessary_volunteers: 2) }
   let(:event_registration) { build(:event_registration, user: user, event: event, role: "Dalībnieks") }
 
   before do
@@ -29,6 +29,25 @@ RSpec.describe EventRegistrationsController, type: :controller do
       expect(flash[:notice]).to eq("Reģistrēta dalība")
       expect(EventRegistration.count).to eq(1)
       expect(event.registered_volunteers).to eq(1)
+    end
+
+    it "doesnt create registration if participant limit reached" do
+      event_registration.save!
+      event.update(registered_participants: 2, registered_volunteers: 2)
+      event.reload
+      post :create, params: { event_registration: { event_id: event.id, role: "Dalībnieks" } }
+
+      expect(response).to redirect_to(event_path(event.id))
+      expect(flash[:notice]).to eq("Pārāk daudz dalībnieku")
+      expect(EventRegistration.count).to eq(1)
+      expect(event.registered_participants).to eq(2)
+
+      post :create, params: { event_registration: { event_id: event.id, role: "Brīvprātīgais" } }
+
+      expect(response).to redirect_to(event_path(event.id))
+      expect(flash[:notice]).to eq("Pieteikami brīvprātīgo")
+      expect(EventRegistration.count).to eq(1)
+      expect(event.registered_volunteers).to eq(2)
     end
   end
 
