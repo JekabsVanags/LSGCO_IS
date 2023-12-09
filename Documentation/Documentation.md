@@ -204,25 +204,25 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.2.1 Biedra datu apskatīšana (BDR-01)
 
-| Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01) |
-| ------------------- | -------------------------------- |
-| Funkcijas mērķis    |  Lietotājs var apskatīt savus datus                                |
-| Ievaddati           |  Lietotāja ID (vesels skaitlis)                                |
-| Apstrāde            |  1) No DB iegūst lietotāja objektu.                             |
-| Izvaddati           |   Lietotāja objekta dati                               |
-| Paziņojumi          |   -                               |
+| Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01)   |
+| ------------------- | ---------------------------------- |
+| Funkcijas mērķis    | Lietotājs var apskatīt savus datus |
+| Ievaddati           | Lietotāja ID (vesels skaitlis)     |
+| Apstrāde            | 1) No DB iegūst lietotāja objektu. |
+| Izvaddati           | Lietotāja objekta dati             |
+| Paziņojumi          | -                                  |
 
 **Tabula 2.2.2.1** *Biedra datu apskatīšanas funkcijas projektējums*
 
 ##### 2.2.2.2 Biedra datu atjaunošana (BDR-02)
 
-| Funkcijas nosaukums | Biedra datu atjaunošana (BDR-02) |
-| ------------------- | -------------------------------- |
-| Funkcijas mērķis    |  Lietotājs spēj atjaunot datus par sevi.                                |
-| Ievaddati           |   Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne ar @ simbolu); <br> Telefona numurs (8 simbolus gara simbolu virkne, kas satur tikai ciparus); <br> Dzimšanas datums (datums); <br> Dzimums (Vīrietis / Sieviete / Cits); <br> Piekrišana datu ievākšanai (patiesuma vērtība); <br> Pašreizējā lietotāja ID (vesels skaitlis);         |
-| Apstrāde            |  1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                             |
-| Izvaddati           | 1) Ja izdodas saglabāt lietotāju - tiek parādīts paziņojums 1. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 2.                                 |
-| Paziņojumi          |      1) Dati atjaunoti <br> 2) Kļūda                            |
+| Funkcijas nosaukums | Biedra datu atjaunošana (BDR-02)                                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj atjaunot datus par sevi.                                                                                                                                                                                                                                                                                                                           |
+| Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne ar @ simbolu); <br> Telefona numurs (8 simbolus gara simbolu virkne, kas satur tikai ciparus); <br> Dzimšanas datums (datums); <br> Dzimums (Vīrietis / Sieviete / Cits); <br> Piekrišana datu ievākšanai (patiesuma vērtība); <br> Pašreizējā lietotāja ID (vesels skaitlis); |
+| Apstrāde            | 1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                                                                                                                                                                                                                |
+| Izvaddati           | 1) Ja izdodas saglabāt lietotāju - tiek parādīts paziņojums 1. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 2.                                                                                                                                                                                                                               |
+| Paziņojumi          | 1) Dati atjaunoti <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                   |
 
 **Tabula 2.2.2.2** *Biedra datu atjaunošanas funkcijas projektējums*
 
@@ -285,7 +285,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          | 1)  'Parole izveidota' <br> 2) 'Paroles nesakrīt' <br> 3) 'Kļūda'                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 **Tabula 2.2.2.7** *Paroles izveides funkcijas projektējums*
-
 
 #### 2.2.3. Modulis "Vienība"
 
@@ -623,6 +622,38 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.6.3** *Biedra naudas bilances pārrēķina funkcijas projektējums*
 
+### 2.3. Nefunkcionālās prasības
+
+#### 2.3.1. Veiktspējas prasības
+
+- Sistēma spēj nodrošināt darbību vienlaicīgi 500 lietotājiem
+
+- Sistēmas atbilde pēc 97% pieprasījumu notiek mazāk kā 2 sekunžu laikā.
+
+#### 2.3.2. Drošības prasības
+
+- Paroles tiek šifrētas
+
+- Lietotājiem ir tiesības dzēst konfidenciālos datus no sistēmas jebkurā brīdī
+
+- Datubāzes ir aizsargātas no SQL injekcijām
+
+#### 2.3.3. Izmantojamības prasības
+
+- 80% lietotāju saprot lietotāja saskarni intuitīvi un spēj to lietot bez papildus palīdzības
+
+- Sistēma neļauj lietotājiem veikt neatgriezeniskas funkcijas nejauši
+
+- Sistēma veido atgriezenisko saiti ar lietotāju lietojot paziņojumus
+
+#### 2.3.4. Uzturēšanas prasības
+
+- Lietotne 
+
+
+
+    
+
 ## 3 Projektējuma apraksts
 
 ### 3.1. Datubāzes projektējums
@@ -660,4 +691,5 @@ Attēlā 3.3.2. ir apskatīta lietotāja dzēšana- situācija, kad lietotājs v
 Sistēmas testēšanai tiek lietota rails bibleotēka rspec, kas ir paredzēta automātisko testu izveidei un dokumentēšanai. Rspec sintakse ir labi lasāma, un tās metodes nosaukums apraksta vēlamo sasniedzamo rezultātu. Turpmākajā nodaļā tiks uzskaitīti testa piemēri, kas tiek pārbaudīti sistēmā, kā arī to vēlamais rezultāts. Šos pašus datus var atrast arī projekta /spec/ mapē.
 
 ### 4.2. Automatizēto vienībtestu protokols
+
 **TESTI TIKS APRAKSTĪTI PROJEKTA BEIGU STADIJĀ**

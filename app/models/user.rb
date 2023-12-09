@@ -35,7 +35,7 @@ class User < ApplicationRecord
     history.present? ? history.date_of_oath : false
   end
 
-  def recalculate_bilance()
+  def recalculate_bilance
     bilance = membership_fee_bilance
     fee = Unit.find_by(number: 0).membership_fee
     if activity_statuss != "Daļēji aktīvs"

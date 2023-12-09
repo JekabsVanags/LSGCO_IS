@@ -56,15 +56,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    @unit = @user.unit
 
     if @user.update(activity_statuss: "Izstājies")
-      session.clear
       if @user.personal_information.present?
         @user.personal_information.destroy
       end
-      redirect_to root_path, notice: 'Profils dzēsts'
+      redirect_to unit_path(@unit), notice: 'Profils dzēsts'
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to unit_path(@unit), notice: 'Kļūda'
     end
 
   end
