@@ -221,7 +221,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Funkcijas mērķis    | Lietotājs spēj atjaunot datus par sevi.                                                                                                                                                                                                                                                                                                                           |
 | Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne ar @ simbolu); <br> Telefona numurs (8 simbolus gara simbolu virkne, kas satur tikai ciparus); <br> Dzimšanas datums (datums); <br> Dzimums (Vīrietis / Sieviete / Cits); <br> Piekrišana datu ievākšanai (patiesuma vērtība); <br> Pašreizējā lietotāja ID (vesels skaitlis); |
-| Apstrāde            | 1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                                                                                                                                                                                                                |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                                                                                                                                                                                                                |
 | Izvaddati           | 1) Ja izdodas saglabāt lietotāju - tiek parādīts paziņojums 1. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 2.                                                                                                                                                                                                                               |
 | Paziņojumi          | 1) Dati atjaunoti <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                   |
 
@@ -229,13 +229,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.2.3 Izstāšanās pieteikuma iesniegšana (BDR-03)
 
-| Funkcijas nosaukums | Izstāšanās pieteikuma iesniegšana (BDR-03) |
-| ------------------- | ------------------------------------------ |
-| Funkcijas mērķis    |                                            |
-| Ievaddati           |                                            |
-| Apstrāde            |                                            |
-| Izvaddati           |                                            |
-| Paziņojumi          |                                            |
+| Funkcijas nosaukums | Izstāšanās pieteikuma iesniegšana (BDR-03)                                                                                                   |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj iesniegt paziņojumu, ka vēlas izstāties no organizācijas.                                                                     |
+| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);<br/>                                                                                              |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja objektu;<br/>2) Lietotāja aktivitātes statusu atjauninam uz "Neaktīvs";<br/>2.1) DB atrodam lietotāja |
+| Izvaddati           |                                                                                                                                              |
+| Paziņojumi          |                                                                                                                                              |
 
 **Tabula 2.2.2.3** *Izstāšanās pieteikuma iesniegšanas funkcijas projektējums*
 

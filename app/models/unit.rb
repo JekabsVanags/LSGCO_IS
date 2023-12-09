@@ -18,9 +18,7 @@ class Unit < ApplicationRecord
   end
 
   def unit_leader
-    leader = users.where(permission_level: "pklv_vaditajs").first
-    leader_backup = users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
-    leader.present? ? "#{leader.name} #{leader.surname}" : leader_backup.present? ? "#{leader_backup.name} #{leader_backup.surname}" : "-"
+    users.where(unit: @unit, permission_level: "pklv_vaditajs").first || users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def unit_active?

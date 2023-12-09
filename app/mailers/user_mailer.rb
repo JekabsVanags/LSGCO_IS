@@ -23,6 +23,6 @@ class UserMailer < ApplicationMailer
     @leader = leader
     @link = link
 
-    mail to: @user.email, subject: "Biedrs #{user.name} #{user.surname} vēlas izstāties no organizācijas", from: "lsgcois@skautiungaidas.lv"
+    mail to: @leader.email, subject: "Biedrs #{user.name} #{user.surname} vēlas izstāties no organizācijas", from: "lsgcois@skautiungaidas.lv"
   end
 end

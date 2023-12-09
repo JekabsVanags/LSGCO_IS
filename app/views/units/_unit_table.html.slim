@@ -12,7 +12,7 @@ table.table-auto.w-full id="dataTable"
         td.px-6.py-3 
           = unit.full_name
         td.px-6.py-3 
-          = unit.unit_leader
+          = unit.unit_leader ? "#{unit.unit_leader.name} #{unit.unit_leader.surname}" : "-"
         td.px-6.py-3 
           = unit.unit_active? ? "Aktīva" : "Neaktīva kopš #{unit.deleted_at}"
         td.px-6.py-3 
