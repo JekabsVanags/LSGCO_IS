@@ -159,41 +159,42 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 - "Sistēma" (**SYS**) modulis, kas ir paredzēts sistēmas darbībām un autorizācijām.
   
-  | Modulis | Funkcijas apzīmējums | Funkcija                                            | Lietotāji                                                 |
-  | ------- | -------------------- | --------------------------------------------------- | --------------------------------------------------------- |
-  | BDR     | BDR-01               | Biedra datu apskatīšana                             | Biedrs, Priekšnieks, Administrators                       |
-  |         | BDR-02               | Biedra datu atjaunošana                             | Biedrs, Priekšnieks, Administrators                       |
-  |         | BDR-03               | Izstāšanās pieteikuma iesniegšana                   | Biedrs, Priekšnieks, Administrators                       |
-  |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators                       |
-  |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                                         |
-  |         | BDR-06               | Biedra personīgo datu dzēšana                       | Biedrs, Priekšnieks, Administrators                       |
-  |         | BDR-07               | Paroles izveide                                     | Biedrs, Priekšnieks, Administrators                       |
-  | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators                               |
-  |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators                               |
-  |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators                               |
-  |         | VNB-04               | Vienības datu apskaīšana                            | Priekšnieks, Administrators                               |
-  |         | VNB-05               | Vienības datu atjaunošana                           | Priekšnieks, Administrators                               |
-  |         | VNB-06               | Vienības biedru atskaites sagatavošana              | Priekšnieks, Administrators                               |
-  |         | VNB-07               | Vienības biedra biedra naudas nomaksas reģistrēšana | Priekšnieks, Administrators                               |
-  |         | VNB-08               | Vienības biedra amata pievienošana                  | Priekšnieks, Administrators                               |
-  |         | VNB-09               | Iknedēļas nodarbības pievienošana                   | Priekšnieks, Administrators                               |
-  |         | VNB-10               | Iknedēļas nodarbības izmainīšana                    | Priekšnieks, Administrators                               |
-  |         | VNB-11               | Iknedēļas nodarbības noņemšana                      | Priekšnieks, Administrators                               |
-  |         | VNB-12               | Novadītas nodarbības atzīmēšana                     | Priekšnieks, Administrators, Biedrs (ar vadītāja statusu) |
-  | VLD     | VLD-01               | Vienības pievienošana                               | Administrators                                            |
-  |         | VLD-02               | Vienības dzēšana                                    | Administrators                                            |
-  |         | VLD-03               | Biedru atskaites sagatavošana                       | Administrators                                            |
-  |         | VLD-04               | Vienību atskaites sagatavošana                      | Administrators                                            |
-  | PSK     | PSK-01               | Pasākuma izveidošana                                | Priekšnieks, Administrators                               |
-  |         | PSK-02               | Pasākuma dzēšana                                    | Priekšnieks, Administrators                               |
-  |         | PSK-03               | Pasākuma datu atjaunošana                           | Priekšnieks, Administrators                               |
-  |         | PSK-04               | Pasākumu apsktīšana                                 | Biedrs, Priekšnieks, Administrators                       |
-  |         | PSK-05               | Pieteikšanās pasākumam                              | Biedrs, Priekšnieks, Administrators                       |
-  |         | PSK-06               | Atteikšanās no pasākuma                             | Biedrs, Priekšnieks, Administrators                       |
-  |         | PSK-07               | Aktuālo pasākumu iegūšana                           | Biedrs, Priekšnieks, Administrators                       |
-  | SYS     | SYS-01               | Pieslēgšanās                                        | Biedrs, Priekšnieks, Administrators                       |
-  |         | SYS-02               | Atslēgšanās                                         | Biedrs, Priekšnieks, Administrators                       |
-  |         | SYS-03               | Biedra naudas bilances pārrēķins                    | Autonoma funkcija                                         |
+  | Modulis | Funkcijas apzīmējums | Funkcija                                            | Lietotāji                           |
+  | ------- | -------------------- | --------------------------------------------------- | ----------------------------------- |
+  | BDR     | BDR-01               | Biedra datu apskatīšana                             | Biedrs, Priekšnieks, Administrators |
+  |         | BDR-02               | Biedra datu atjaunošana                             | Biedrs, Priekšnieks, Administrators |
+  |         | BDR-03               | Izstāšanās pieteikuma iesniegšana                   | Biedrs, Priekšnieks, Administrators |
+  |         | BDR-04               | Biedra naudas statusa iegūšana                      | Biedrs, Priekšnieks, Administrators |
+  |         | BDR-05               | Biedra naudas paziņojums                            | Autonoma funkcija                   |
+  |         | BDR-06               | Biedra personīgo datu dzēšana                       | Biedrs, Priekšnieks, Administrators |
+  |         | BDR-07               | Paroles izveide                                     | Biedrs, Priekšnieks, Administrators |
+  | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators         |
+  |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators         |
+  |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators         |
+  |         | VNB-04               | Vienības datu apskaīšana                            | Priekšnieks, Administrators         |
+  |         | VNB-05               | Vienības datu atjaunošana                           | Priekšnieks, Administrators         |
+  |         | VNB-06               | Vienības biedru atskaites sagatavošana              | Priekšnieks, Administrators         |
+  |         | VNB-07               | Vienības biedra biedra naudas nomaksas reģistrēšana | Priekšnieks, Administrators         |
+  |         | VNB-08               | Vienības biedra amata pievienošana                  | Priekšnieks, Administrators         |
+  |         | VNB-09               | Iknedēļas nodarbības pievienošana                   | Priekšnieks, Administrators         |
+  |         | VNB-10               | Iknedēļas nodarbības izmainīšana                    | Priekšnieks, Administrators         |
+  |         | VNB-11               | Iknedēļas nodarbības noņemšana                      | Priekšnieks, Administrators         |
+  |         | VNB-12               | Vienības biedra apskatīšana                         | Priekšnieks, Administrators         |
+  | VLD     | VLD-01               | Vienības pievienošana                               | Administrators                      |
+  |         | VLD-02               | Vienības dzēšana                                    | Administrators                      |
+  |         | VLD-03               | `Biedru` atskaites sagatavošana                     | Administrators                      |
+  |         | VLD-04               | Vienības atjaunošana                                | Administrators                      |
+  |         | VLD-05               | Organizācijas vienību apskatīšana                   | Administrators                      |
+  | PSK     | PSK-01               | Pasākuma izveidošana                                | Priekšnieks, Administrators         |
+  |         | PSK-02               | Pasākuma dzēšana                                    | Priekšnieks, Administrators         |
+  |         | PSK-03               | Pasākuma datu atjaunošana                           | Priekšnieks, Administrators         |
+  |         | PSK-04               | Pasākumu apsktīšana                                 | Biedrs, Priekšnieks, Administrators |
+  |         | PSK-05               | Pieteikšanās pasākumam                              | Biedrs, Priekšnieks, Administrators |
+  |         | PSK-06               | Atteikšanās no pasākuma                             | Biedrs, Priekšnieks, Administrators |
+  |         | PSK-07               | Aktuālo pasākumu iegūšana                           | Biedrs, Priekšnieks, Administrators |
+  | SYS     | SYS-01               | Pieslēgšanās                                        | Biedrs, Priekšnieks, Administrators |
+  |         | SYS-02               | Atslēgšanās                                         | Biedrs, Priekšnieks, Administrators |
+  |         | SYS-03               | Biedra naudas bilances pārrēķins                    | Autonoma funkcija                   |
 
 **Tabula 2.2.2** *Funkciju sadalījums pa sistēmas moduļiem*
 
@@ -205,13 +206,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.2.1 Biedra datu apskatīšana (BDR-01)
 
-| Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01)   |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    | Lietotājs var apskatīt savus datus |
-| Ievaddati           | Lietotāja ID (vesels skaitlis)     |
-| Apstrāde            | 1) No DB iegūst lietotāja objektu. |
-| Izvaddati           | Lietotāja objekta dati             |
-| Paziņojumi          | -                                  |
+| Funkcijas nosaukums | Biedra datu apskatīšana (BDR-01)    |
+| ------------------- | ----------------------------------- |
+| Funkcijas mērķis    | Lietotājs var apskatīt savus datus  |
+| Ievaddati           | Lietotāja ID (vesels skaitlis)      |
+| Apstrāde            | 1) No DB iegūst lietotāja ierakstu. |
+| Izvaddati           | Lietotāja ieraksta dati             |
+| Paziņojumi          | -                                   |
 
 **Tabula 2.2.2.1** *Biedra datu apskatīšanas funkcijas projektējums*
 
@@ -221,7 +222,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Funkcijas mērķis    | Lietotājs spēj atjaunot datus par sevi.                                                                                                                                                                                                                                                                                                                           |
 | Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne ar @ simbolu); <br> Telefona numurs (8 simbolus gara simbolu virkne, kas satur tikai ciparus); <br> Dzimšanas datums (datums); <br> Dzimums (Vīrietis / Sieviete / Cits); <br> Piekrišana datu ievākšanai (patiesuma vērtība); <br> Pašreizējā lietotāja ID (vesels skaitlis); |
-| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja  objektu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotāja objektu.                                                                                                                                                                                                                |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja  ierakstu; <br> 2) Atjaunojam lietotāja datus ar norādītajām vērtībām; <br> 3) Saglabājam lietotājaierakstuu.                                                                                                                                                                                                              |
 | Izvaddati           | 1) Ja izdodas saglabāt lietotāju - tiek parādīts paziņojums 1. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 2.                                                                                                                                                                                                                               |
 | Paziņojumi          | 1) Dati atjaunoti <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                   |
 
@@ -229,49 +230,49 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.2.3 Izstāšanās pieteikuma iesniegšana (BDR-03)
 
-| Funkcijas nosaukums | Izstāšanās pieteikuma iesniegšana (BDR-03)                                                                                                   |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Funkcijas mērķis    | Lietotājs spēj iesniegt paziņojumu, ka vēlas izstāties no organizācijas.                                                                     |
-| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);<br/>                                                                                              |
-| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja objektu;<br/>2) Lietotāja aktivitātes statusu atjauninam uz "Neaktīvs";<br/>2.1) DB atrodam lietotāja |
-| Izvaddati           |                                                                                                                                              |
-| Paziņojumi          |                                                                                                                                              |
+| Funkcijas nosaukums | Izstāšanās pieteikuma iesniegšana (BDR-03)                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj iesniegt paziņojumu, ka vēlas izstāties no organizācijas.                                                                                                                                                                                                                                                                                                                                                                                       |
+| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);<br/>                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja ierakstu;<br/>2) Lietotāja aktivitātes statusu atjauninam uz "Neaktīvs";<br/>2.1.) Ja lietotāja satuss sekmīgi atjaunināts, tad DB atrodam lietotāja vienības priekšnieku; <br/>2.1.1) Vienības priekšniekam nosūtam e-pastu, kas satus: paziņojumu, ka lietotājs vēlas izstāties, linku uz lietotāja paneli. Funkcijas darbība ir veiksmīga.<br/>2.2) Ja lietotāja satuss netiek atjaunināts, funkcija ir neveiksmīga. |
+| Izvaddati           | 1) Funkcija ir veiksmīga- paziņojums ir nosūtīts, status atjaunots, tiek parādīts paziņojums 1. <br> 2) Funkcija ir neveiksmīga- status nav atjaunots, tiek parādīts paziņojums 2. <br>                                                                                                                                                                                                                                                                        |
+| Paziņojumi          | 1) 'Jūsu iesniegums ir nosūtīts' <br> 2) 'Kļūda'                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 **Tabula 2.2.2.3** *Izstāšanās pieteikuma iesniegšanas funkcijas projektējums*
 
 ##### 2.2.2.4 Biedra naudas statusa iegūšana (BDR-04)
 
-| Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04)                                                                          |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Funkcijas mērķis    | Lietotājs spēj iegūt savu pašreizējo bilansi                                                                     |
-| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);                                                                       |
-| Apstrāde            | 1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atgriež pašreizējo biedra naudas bilanses vērtību; <br> |
-| Izvaddati           | Lietotāja pašreizējās bilanses dati                                                                              |
-| Paziņojumi          | -                                                                                                                |
+| Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04)                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj iegūt savu pašreizējo bilansi                                                                      |
+| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);                                                                        |
+| Apstrāde            | 1) No DB iegūstam pašreizējā leitotāja  ierakstu; <br> 2) Atgriež pašreizējo biedra naudas bilanses vērtību; <br> |
+| Izvaddati           | Lietotāja pašreizējās bilanses dati                                                                               |
+| Paziņojumi          | -                                                                                                                 |
 
 **Tabula 2.2.2.4** *Biedra naudas statusa iegūšanas funkcijas projektējums*
 
 ##### 2.2.2.5 Biedra naudas paziņojums (BDR-05)
 
-| Funkcijas nosaukums | Biedra naudas paziņojums (BDR-05) |
-| ------------------- | --------------------------------- |
-| Funkcijas mērķis    |                                   |
-| Ievaddati           |                                   |
-| Apstrāde            |                                   |
-| Izvaddati           |                                   |
-| Paziņojumi          |                                   |
+| Funkcijas nosaukums | Biedra naudas paziņojums (BDR-05)                                                                                                                                                                                                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājam tiek nosūtīts paziņojums, par biedra naudas parādu. <br/>                                                                                                                                                                                                                                                                   |
+| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);                                                                                                                                                                                                                                                                                             |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja ierakstu;<br/>2) Iegūstam pašreizējā lietotāja pēdējā maksājuma datus;<br/>3) Uz lietotāja epastu tiek nosūtīts epasts, kas satur: paziņojumu, ka biedrs nav maksājis biedra naudu, pēdējā maksājuma datumu un summu, parāda summu, vienības kontu, vienības priekšnieka telefona nummuru.<br/> |
+| Izvaddati           | Epasts uz lietotāja epastu                                                                                                                                                                                                                                                                                                             |
+| Paziņojumi          | -                                                                                                                                                                                                                                                                                                                                      |
 
 **Tabula 2.2.2.5** *Biedra naudas paziņojuma funkcijas projektējums*
 
 ##### 2.2.2.6 Biedra personīgo datu dzēšana (BDR-06)
 
-| Funkcijas nosaukums | Biedra personīgo datu dzēšana (BDR-06) |
-| ------------------- | -------------------------------------- |
-| Funkcijas mērķis    |                                        |
-| Ievaddati           |                                        |
-| Apstrāde            |                                        |
-| Izvaddati           |                                        |
-| Paziņojumi          |                                        |
+| Funkcijas nosaukums | Biedra personīgo datu dzēšana (BDR-06)                                                                                                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj izdzēst savus personīgos datus (veselības informācija, kontakttalruņi). Tas neietver lietotāja pamatinformāciju.                                                                           |
+| Ievaddati           | Lietotāja ID (vesels skaitlis);                                                                                                                                                                           |
+| Apstrāde            | 1) No DB dzēšam personīgo informāciju, kas ir piesaistīta lietotājam.                                                                                                                                     |
+| Izvaddati           | 1) Funkcija ir veiksmīga- personīgās informācijas ieraksts ir idzēsts, tiek parādīts paziņojums 1. <br> 2) Funkcija ir neveiksmīga- radusies kļūda, ieraksts nav dzēsts, tiek parādīts paziņojums 2. <br> |
+| Paziņojumi          | 1) 'Aptaujas lapa dzēsta.'<br/>2) 'Kļūda'                                                                                                                                                                 |
 
 **Tabula 2.2.2.6** *Biedra personīgo datu dzēšanas funkcijas projektējums*
 
@@ -295,61 +296,61 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.3.1 Biedra pievienošana (VNB-01)
 
-| Funkcijas nosaukums | Biedra pievienošana (VNB-01)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Funkcijas mērķis    | Priekšnieks spēj savai vienībai pievienot jaunu biedru.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne); <br> Pievienošanās datums (datums); <br> Status (Aktīvs/Interesents/Vadītājs/Vecbiedrs/Izstājies); <br> Pakāpe ('MZSK/GNT' / 'SK/G' / 'DZSK/DZG' / 'ROV/LG' / 'VAD' / 'VIEDSK/VIEDG' / 'CITS'); <br> Aktīvais lietotājs (lietotāja objekts).<br>                                                                                                                                                                                                                                                                                                               |
-| Apstrāde            | 1) Tiek izveidots jauns lietotāja objekts ar ievaddatu vērtībām (vārds, uzvārds, epasts, pievienošanās datums, status, pakāpe) zem aktīvā lietotāja vienības. Ja rodas problēmas validējot datus, tiek parādīti sistēmas ģenerētie paziņojumi. <br> 2) Jaunajam lietotājam tiek uzģenerēta pagaidu parole. <br> 3) Jaunajam lietotājam tiek uzģenerēts lietotājvārds (VārdsUzvārds + Vienības nummurs). 4) Jaunais lietotājs tiek saglabāts DB. <br> 4.1) Ja lietotājs tiek saglbāts veiksmīgi, lietotājam tiek nosūtīts epasts ar linku paroles izveidei, funkcija ir veiksmīga. <br> 4.2) Ja lietotājs netiek saglabāts, funkcija ir neveiksmīga. |
-| Izvaddati           | 1) Funkcija ir veiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 1. <br> 2) Funkcija ir neveiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 2.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Paziņojumi          | 1) Biedrs pievienots <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Funkcijas nosaukums | Biedra pievienošana (VNB-01)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Priekšnieks spēj savai vienībai pievienot jaunu biedru.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Ievaddati           | Vārds (simbolu virkne); <br> Uzvārds (simbolu virkne); <br> Epasts (simbolu virkne); <br> Pievienošanās datums (datums); <br> Status (Aktīvs/Interesents/Vadītājs/Vecbiedrs/Izstājies); <br> Pakāpe ('MZSK/GNT' / 'SK/G' / 'DZSK/DZG' / 'ROV/LG' / 'VAD' / 'VIEDSK/VIEDG' / 'CITS'); <br> Aktīvais lietotājs (lietotāja ieraksts).<br>                                                                                                                                                                                                                                                                                                               |
+| Apstrāde            | 1) Tiek izveidots jauns lietotāja ieraksts ar ievaddatu vērtībām (vārds, uzvārds, epasts, pievienošanās datums, status, pakāpe) zem aktīvā lietotāja vienības. Ja rodas problēmas validējot datus, tiek parādīti sistēmas ģenerētie paziņojumi. <br> 2) Jaunajam lietotājam tiek uzģenerēta pagaidu parole. <br> 3) Jaunajam lietotājam tiek uzģenerēts lietotājvārds (VārdsUzvārds + Vienības nummurs). 4) Jaunais lietotājs tiek saglabāts DB. <br> 4.1) Ja lietotājs tiek saglbāts veiksmīgi, lietotājam tiek nosūtīts epasts ar linku paroles izveidei, funkcija ir veiksmīga. <br> 4.2) Ja lietotājs netiek saglabāts, funkcija ir neveiksmīga. |
+| Izvaddati           | 1) Funkcija ir veiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 1. <br> 2) Funkcija ir neveiksmīga- lietotājs tiek novirzīts uz sākuma skatu, tiek parādīts paziņojums 2.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Paziņojumi          | 1) Biedrs pievienots <br> 2) Kļūda                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 **Tabula 2.2.3.1** *Biedra pievienošanas funkcijas projektējums*
 
 ##### 2.2.3.2 Vienības biedru apskatīšana (VNB-02)
 
-| Funkcijas nosaukums | Vienības biedru apskatīšana (VNB-02) |
-| ------------------- | ------------------------------------ |
-| Funkcijas mērķis    |                                      |
-| Ievaddati           |                                      |
-| Apstrāde            |                                      |
-| Izvaddati           |                                      |
-| Paziņojumi          |                                      |
+| Funkcijas nosaukums | Vienības biedru apskatīšana (VNB-02)                                          |
+| ------------------- | ----------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks spēja apskatīt savas vienības biedrus                    |
+| Ievaddati           | Vienības ID (vesels skaitlis);                                                |
+| Apstrāde            | 1) No DB iegūstam visus biedru ierakstus, kuru vienība sakrīt ar vienības ID. |
+| Izvaddati           | Vienības lietotāju dati.                                                      |
+| Paziņojumi          | -                                                                             |
 
 **Tabula 2.2.3.2** *Vienības biedru apskatīšanas funkcijas projektējums*
 
 ##### 2.2.3.3 Vienības biedra datu nomaiņa (VNB-03)
 
-| Funkcijas nosaukums | Vienības biedra datu nomaiņa (VNB-03) |
-| ------------------- | ------------------------------------- |
-| Funkcijas mērķis    |                                       |
-| Ievaddati           |                                       |
-| Apstrāde            |                                       |
-| Izvaddati           |                                       |
-| Paziņojumi          |                                       |
+| Funkcijas nosaukums | Vienības biedra datu nomaiņa (VNB-03)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks spēj atjaunot datus par savas vienības biedru.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Ievaddati           | Aktivitātes status (aktīvs/daļēji_aktīvs/interesents/vadītājs/vecbiedrs/neaktīvs/izstājies); <br>Pakāpe (mzsk_gnt/sk_g/dzsk_dzg/rov_lg/vad/viedsk_viedg/cits); <br>Solījuma datums (datums); <br> Lietotāja ID (vesels skaitlis);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Apstrāde            | 1) No DB iegūstam pašreizējā lietotāja  ierakstu; <br> 2.1.1) Ja ir norādīts aktivitātes status, tad atjaunojam šo lietotāja ieraksta vērtību.<br/>2.1.2)Funkcija ir veiksmīga, ja ieraksts tiek veiksmīgi saglabāts, lietotājam parādās paziņojums 1. <br/>2.2.1) Ja ir norādīta pakāpe, izveidojam pakāpes ierakstu, kas saistīts ar lietotāja ierakstu.<br/>2.2.2)Funkcija ir veiksmīga, ja ierakst tiek veiksmīgi saglabāts, lietotājam parādās paziņojums 2. <br/>2.3.1) Ja ir norādīs solījuma datums, atrodam lietotāja aktīvo pakāpes ierakstu.<br/>2.3.2)Pakāpes ierakstā izmainam solījuma datuma vērtību uz norādīto <br/>2.3.3)Funkcija ir veiksmīga, ja ierakst tiek veiksmīgi saglabāts, lietotājam parādās paziņojums 3. <br/> |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1-3. <br> 2) Ja neizdodas saglabāt lietotāju- tiek parādīts paziņojums 4.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Paziņojumi          | 1) 'Aktivitātes status nomainīts' <br>2) 'Pakāpe nomainīta'<br/>3) 'Solījums atzīmēts' <br/>4) 'Ķļūda'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 **Tabula 2.2.3.3** *Vienības biedra vienības nomaiņas funkcijas projektējums*
 
 ##### 2.2.3.4 Vienības datu apskatīšana (VNB-04)
 
-| Funkcijas nosaukums | Vienības datu apskatīšana (VNB-04) |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    |                                    |
-| Ievaddati           |                                    |
-| Apstrāde            |                                    |
-| Izvaddati           |                                    |
-| Paziņojumi          |                                    |
+| Funkcijas nosaukums | Vienības datu apskatīšana (VNB-04)                                                                                                                                                                                                                                                                        |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var apskatīt savas vienības datus.                                                                                                                                                                                                                                                   |
+| Ievaddati           | Vienības ID (vesels skaitlis)                                                                                                                                                                                                                                                                             |
+| Apstrāde            | 1) No DB iegūst vienības ierakstu. <br/>2) No DB iegūstam vienības priekšnieka lietotāja ierakstu (pirmais lietotājs, kura piekļuve ir Priekšnieks, vai kura piekļuve ir Valde, kura aktivitātes status ir Vadītājs)<br/>3) No DB iegūstam vienības iknedēļas nodarbību ierakstus.<br/>4) Atgriežam datus |
+| Izvaddati           | Vienības ieraksta dati + Vienības priekšnieka dati + Iknedēļas nodarbību dati                                                                                                                                                                                                                             |
+| Paziņojumi          | -                                                                                                                                                                                                                                                                                                         |
 
 **Tabula 2.2.3.4** *Vienības datu apskatīšanas funkcijas projektējums*
 
 ##### 2.2.3.5 Vienības datu atjaunošana (VNB-05)
 
-| Funkcijas nosaukums | Vienības datu atjaunošana (VNB-05) |
-| ------------------- | ---------------------------------- |
-| Funkcijas mērķis    |                                    |
-| Ievaddati           |                                    |
-| Apstrāde            |                                    |
-| Izvaddati           |                                    |
-| Paziņojumi          |                                    |
+| Funkcijas nosaukums | Vienības datu atjaunošana (VNB-05)                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks spēj atjaunot datus par savu vienību.                                                                                                                                                                                                                                                                                                                                                                      |
+| Ievaddati           | Juridiskā adrese (simbolu virkne); <br>Nodarbību adrese (simbolu virkne); <br>Komentāri (simbolu virkne); <br>Epasts (simbolu virkne, kas satur @ simbolu); <br>Telefons (simbolu virkne, kas satur tikai skaitļus); <br>Bankas konts (simbolu virkne, kas atbilst bankas konta nummuram); <br>Biedra nauda (skaitlis ar 2 zīmēm pēc komata); <br>Vienības priekšnieka ID (vesels skaitlis)<br/> Vienības ID (vesels skaitlis); |
+| Apstrāde            | 1) No DB iegūstam vienības un vienības priekšnieka ierakstu; <br>2)  Atjaunojam vienības ieraksta vērtības.<br/>3)  Vienības priekšnieka ierakstam mainam piekļuves uz Vadītājs<br/>4) Funkcija ir veiksmīga, ja abi ieraksti tiek veiksmīgi saglabāts.<br/>                                                                                                                                                                    |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                                                                                                                                                                                                                                                                                       |
+| Paziņojumi          | 1) 'Vienības infromācija atjaunota' <br>2) 'Kļūda'<br/>                                                                                                                                                                                                                                                                                                                                                                         |
 
 **Tabula 2.2.3.5** *Vienības datu atjaunošanas funkcijas projektējums*
 
@@ -367,73 +368,73 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.3.7 Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07)
 
-| Funkcijas nosaukums | Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07) |
-| ------------------- | ------------------------------------------------------------ |
-| Funkcijas mērķis    |                                                              |
-| Ievaddati           |                                                              |
-| Apstrāde            |                                                              |
-| Izvaddati           |                                                              |
-| Paziņojumi          |                                                              |
+| Funkcijas nosaukums | Vienības biedra biedra naudas nomaksas reģistrēšana (VNB-07)                                                                                                                                                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var reģistrēt biedra naudas nomaksas faktu.                                                                                                                                                                                                                |
+| Ievaddati           | Lietotāja ID (vesels skaitlis);<br/>Vienības priekšnieka ID (vesels skaitlis);<br/>Datums (datums);<br/>Summa (skaitlis ar 2 zīmēm pēc komata);                                                                                                                                 |
+| Apstrāde            | 1) No DB iegūstam lietotāja un vienības priekšnieka ierakstus.<br/>2) Izveidojam jaunu maksājuma ierakstu, ar norādīto summu un datumu, kur to veicis ir lietotājs un reģistrējis vienībās priekšnieks.<br/>3) Funkcija ir veiksmīga, ja šis ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                                                                                                                                       |
+| Paziņojumi          | 1) 'Maksājums reģistrēts'<br/>2) 'Kļūda'                                                                                                                                                                                                                                        |
 
 **Tabula 2.2.3.7** *Vienības biedra biedra naudas nomaksas reģistrēšanas funkcijas projektējums*
 
 ##### 2.2.3.8 Vienības biedra amata pievienošana (VNB-08)
 
-| Funkcijas nosaukums | Vienības biedra amata pievienošana (VNB-08) |
-| ------------------- | ------------------------------------------- |
-| Funkcijas mērķis    |                                             |
-| Ievaddati           |                                             |
-| Apstrāde            |                                             |
-| Izvaddati           |                                             |
-| Paziņojumi          |                                             |
+| Funkcijas nosaukums | Vienības biedra amata pievienošana (VNB-08)                                                                                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var pievienot vienības biedram amatu.                                                                                                                                                        |
+| Ievaddati           | Lietotāja ID (vesels skaitlis);<br/>Amata nosaukums (simbolu virkne)<br/>                                                                                                                                         |
+| Apstrāde            | 1) No DB iegūstam lietotāja ierakstu.<br/>2) Izveidojam jaunu amata ierakstu, kas piesaistīts lietotāja ierakstam, ar norādīto nosaukumu.<br/>3) Funkcija ir veiksmīga, ja šis ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                                                                         |
+| Paziņojumi          | 1) 'Amats izveidots'<br/>2) Kļūda''                                                                                                                                                                               |
 
 **Tabula 2.2.3.8** *Vienības biedra amata pievienošanas funkcijas projektējums*
 
-##### 2.2.3.9 Iknedēļas nodarbības pievienošana (VNB-09)
+##### 2.2.3.9 Vienības biedra amata dzēšana (VNB-09)
 
-| Funkcijas nosaukums | Iknedēļas nodarbības pievienošana (VNB-09) |
-| ------------------- | ------------------------------------------ |
-| Funkcijas mērķis    |                                            |
-| Ievaddati           |                                            |
-| Apstrāde            |                                            |
-| Izvaddati           |                                            |
-| Paziņojumi          |                                            |
+| Funkcijas nosaukums | Iknedēļas nodarbības pievienošana (VNB-09)                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var noņemt vienības biedram amatu.                                                                   |
+| Ievaddati           | Amata ID (vesels skaitlis);<br/>                                                                                          |
+| Apstrāde            | 1) No DB iegūstam amata ierakstu;<br/>2) Funkcija ir veiksmīga, ja ieraksts tiek veiksmīgi dzēsts.                        |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2. |
+| Paziņojumi          | 1) 'Amats dzēsts'<br/>2) Kļūda''                                                                                          |
 
-**Tabula 2.2.3.9** *Iknedēļas nodarbības pievienošanas funkcijas projektējums*
+**Tabula 2.2.3.9** *Vienības biedra amata dzēšanas funkcijas projektējums*
 
-##### 2.2.3.10 Iknedēļas nodarbības izmainīšana (VNB-10)
+##### 2.2.3.10 Iknedēļas nodarbības pievienošana (VNB-10)
 
-| Funkcijas nosaukums | Iknedēļas nodarbības izmainīšana (VNB-10) |
-| ------------------- | ----------------------------------------- |
-| Funkcijas mērķis    |                                           |
-| Ievaddati           |                                           |
-| Apstrāde            |                                           |
-| Izvaddati           |                                           |
-| Paziņojumi          |                                           |
+| Funkcijas nosaukums | Iknedēļas nodarbības pievienošana (VNB-10)                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var pievienot vienības iknedēļas nodarbību.                                                                                                                                                                |
+| Ievaddati           | Vienības ID (vesels skaitlis);<br/>Diena (nedēļas diena)<br/>Laiks (laiks formātā HH:MM)<br/>Pakāpe(mazskauti_guntiņas/skauti_gaidas/dižskauti_dižgaidas/roveri_lielgaidas)<br/>                                                |
+| Apstrāde            | 1) No DB iegūstam vienības ierakstu.<br/>2) Izveidojam jaunu iknedēļas nodarbības ierakstu, kas piesaistīts vienības ierakstam, ar norādītajiem datiem.<br/>3) Funkcija ir veiksmīga, ja šis ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                                                                                       |
+| Paziņojumi          | 1) 'Iknedēļas nodarbība izveidota'<br/>2) Kļūda''                                                                                                                                                                               |
 
-**Tabula 2.2.3.10** *Iknedēļas nodarbības izmainīšanas funkcijas projektējums*
+**Tabula 2.2.3.10** *Iknedēļas nodarbības pievienošanas funkcijas projektējums*
 
 ##### 2.2.3.11 Iknedēļas nodarbības noņemšana (VNB-11)
 
-| Funkcijas nosaukums | Iknedēļas nodarbības noņemšana (VNB-11) |
-| ------------------- | --------------------------------------- |
-| Funkcijas mērķis    |                                         |
-| Ievaddati           |                                         |
-| Apstrāde            |                                         |
-| Izvaddati           |                                         |
-| Paziņojumi          |                                         |
+| Funkcijas nosaukums | Iknedēļas nodarbības noņemšana (VNB-11)                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks var noņemt vienības iknedēļas nodarbību.                                                             |
+| Ievaddati           | Iknedēļas nodarbības ID (vesels skaitlis);<br/>                                                                           |
+| Apstrāde            | 1) No DB iegūstam iknedēļas nodarbības ierakstu;<br/>2) Funkcija ir veiksmīga, ja ieraksts tiek veiksmīgi dzēsts.         |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2. |
+| Paziņojumi          | 1) 'Iknedēļas nodarbība dzēsta'<br/>2) Kļūda''                                                                            |
 
 **Tabula 2.2.3.11** *Iknedēļas nodarbības noņemšanas funkcijas projektējums*
 
-##### 2.2.3.12 Novadītas nodarbības atzīmēšana (VNB-12)
+##### 2.2.3.12 Vienības biedra apskatīšana (VNB-12)
 
-| Funkcijas nosaukums | Novadītas nodarbības atzīmēšana (VNB-12) |
-| ------------------- | ---------------------------------------- |
-| Funkcijas mērķis    |                                          |
-| Ievaddati           |                                          |
-| Apstrāde            |                                          |
-| Izvaddati           |                                          |
-| Paziņojumi          |                                          |
+| Funkcijas nosaukums | Vienības biedra apskatīšana (VNB-12)                                                                                                                       |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Vienības priekšnieks spēj apskatīt atsevišķa biedra datus.                                                                                                 |
+| Ievaddati           | Biedra ID (vesels skaitlis)                                                                                                                                |
+| Apstrāde            | 1) No DB iegūstam biedra ierakstu.<br/>2) No DB iegūstam amata ierakstus, kas ir piesaistīti biedram.<br/>3) Iegūstam pakāpes, kurās biedrs vel nav bijis. |
+| Izvaddati           | Biedra dati + amatu dati + nākotnes pakāpes                                                                                                                |
+| Paziņojumi          | -                                                                                                                                                          |
 
 **Tabula 2.2.3.12** *Novadītas nodarbības atzīmēšanas funkcijas projektējums*
 
@@ -445,25 +446,25 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.4.1 Vienības pievienošana (VLD-01)
 
-| Funkcijas nosaukums | Vienības pievienošana (VLD-01) |
-| ------------------- | ------------------------------ |
-| Funkcijas mērķis    |                                |
-| Ievaddati           |                                |
-| Apstrāde            |                                |
-| Izvaddati           |                                |
-| Paziņojumi          |                                |
+| Funkcijas nosaukums | Vienības pievienošana (VLD-01)                                                                                                                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Valdes loceklis spēj izveidot jaunu vienību.                                                                                                                                                                                                                                                                        |
+| Ievaddati           | Pilsēta (simbolu virkne)<br/>Cipars (vesels skaitlis)<br/>Juridiskā adrese (simbolu virkne); <br>Bankas konts (simbolu virkne, kas atbilst bankas konta nummuram); <br>Vienības priekšnieka ID (vesels skaitlis);                                                                                                   |
+| Apstrāde            | 1) No DB iegūstam vienības priekšnieka ierakstu. Šim ierakstam ir jābūt ar aktivitātes statusu Vadītājs.<br/>2) Izveidojam jaunu vienības ierakstu ar ievaddatiem.<br/>3) Vienības priekšnieka ierakstam nomainam piekļuvi uz Vadītājs.<br/>4) Funkcija ir veiksmīga, ja jaunais ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                                                                                                                                                                           |
+| Paziņojumi          | 1) 'Jauna vienība izveidota'<br/>2) 'Ķļūda'                                                                                                                                                                                                                                                                         |
 
 **Tabula 2.2.4.1** *Vienības pievienošanas funkcijas projektējums*
 
-##### 2.2.4.2 Vienības dzēšana (VLD-02)
+##### 2.2.4.2 Vienības nestingrā dzēšana (VLD-02)
 
-| Funkcijas nosaukums | Vienības dzēšana (VLD-02) |
-| ------------------- | ------------------------- |
-| Funkcijas mērķis    |                           |
-| Ievaddati           |                           |
-| Apstrāde            |                           |
-| Izvaddati           |                           |
-| Paziņojumi          |                           |
+| Funkcijas nosaukums | Vienības dzēšana (VLD-02)                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Valdes loceklis spēj atjaunot vienību.                                                                                                                          |
+| Ievaddati           | Vienības ID (vesels skaitlis);                                                                                                                                  |
+| Apstrāde            | 1) No DB iegūstam vienības ierakstu.<br/>2) Vienības ierakstā ievada dzēšanas datuma lauku.<br/>4) Funkcija ir veiksmīga, ja ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                       |
+| Paziņojumi          | 1) 'Vienības atzīmēta kā neaktīva'<br/>2) 'Kļūda'                                                                                                               |
 
 **Tabula 2.2.4.2** *Vienības dzēšanas funkcijas projektējums*
 
@@ -479,17 +480,29 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.4.3** *Biedru atskaites sagatavošanas funkcijas projektējums*
 
-##### 2.2.4.4 Vienību atskaites sagatavošana (VLD-04)
+##### 2.2.4.4 Vienības atjaunošana (VLD-04)
 
-| Funkcijas nosaukums | Vienību atskaites sagatavošana (VLD-04) |
-| ------------------- | --------------------------------------- |
-| Funkcijas mērķis    |                                         |
-| Ievaddati           |                                         |
-| Apstrāde            |                                         |
-| Izvaddati           |                                         |
-| Paziņojumi          |                                         |
+| Funkcijas nosaukums | Vienības atjaunošana (VLD-04)                                                                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Valdes loceklis spēj iepriekš "dzēstu" vienību atjaunot.                                                                                                        |
+| Ievaddati           | Vienības ID (vesels skaitlis);                                                                                                                                  |
+| Apstrāde            | 1) No DB iegūstam vienības ierakstu.<br/>2) Vienības ierakstā notīra dzēšanas datuma lauku.<br/>4) Funkcija ir veiksmīga, ja ieraksts tiek veiksmīgi saglabāts. |
+| Izvaddati           | 1) Ja funkcija ir veiksmīga - tiek parādīts paziņojums 1. <br> 2) Ja funkcija ir neveiksmīga- tiek parādīts paziņojums 2.                                       |
+| Paziņojumi          | 1) 'Vienības atzīmēta kā aktīva'<br/>2) 'Kļūda'                                                                                                                 |
 
-**Tabula 2.2.4.4** *Vienību atskaites sagatavošanas funkcijas projektējums*
+**Tabula 2.2.4.4** *Vienības atjaunošanas funkcijas projektējums*
+
+##### 2.2.4.5 Organizācijas vienību apskatīšana (VLD-05)
+
+| Funkcijas nosaukums | Organizācijas vienību apskatīšana (VLD-04)                        |
+| ------------------- | ----------------------------------------------------------------- |
+| Funkcijas mērķis    | Valdes loceklis spēj apskatīt sarakstu ar organizācijas vienībām. |
+| Ievaddati           | -                                                                 |
+| Apstrāde            | 1) No DB iegūstam visus vienību ierakstus.                        |
+| Izvaddati           | 1) Vienību dati                                                   |
+| Paziņojumi          | -                                                                 |
+
+**Tabula 2.2.4.4** *Organizācijas vienību apskatīšanas funkcijas projektējums*
 
 #### 2.2.5. Modulis "Pasākums"
 
@@ -574,7 +587,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Funkcijas nosaukums | Aktuālo pasākumu iegūšana (PSK-07)                                                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Funkcijas mērķis    | Lietotājs spēj apskatīt pasākumus uz kuriem ir uzaicināta viņa vienība un atbilst viņa darbības pakāpe, kas vel nav notikuši                                                                |
-| Ievaddati           | Vienība (vienības objekts); <br> Darbības Pakāpe (noteikta simbolu virkne); <br> Pašreizējais datums (datums)                                                                               |
+| Ievaddati           | Vienība (vienības ieraksts); <br> Darbības Pakāpe (noteikta simbolu virkne); <br> Pašreizējais datums (datums)                                                                              |
 | Apstrāde            | 1) No DB tiek iegūti pasākumi, kuru sākuma datums ir lielāks, nekā pašreizējais datums; <br> 2) No iegūtajiem ierakstiem atlasam tos, kam eksistē ielūgums ievadītajai vienībai un pakāpei. |
 | Izvaddati           | Saraksts ar 0 vai vairāk pasākuma objektiem                                                                                                                                                 |
 | Paziņojumi          | -                                                                                                                                                                                           |
@@ -613,13 +626,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.6.3 Biedra naudas bilances pārrēķins (SYS-03)
 
-| Funkcijas nosaukums | Biedra naudas bilances pārrēķins (SYS-03) |
-| ------------------- | ----------------------------------------- |
-| Funkcijas mērķis    |                                           |
-| Ievaddati           |                                           |
-| Apstrāde            |                                           |
-| Izvaddati           |                                           |
-| Paziņojumi          |                                           |
+| Funkcijas nosaukums | Biedra naudas bilances pārrēķins (SYS-03)                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Katra mēneša beigās sistēma automātiski pārrēķina lietotāju bilanci.                                                                                                                                                                                                                                                                                                                                                         |
+| Ievaddati           | Visi lietotāju ieraksti                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Apstrāde            | Katram lietotāja ierakstam<br/>1) No DB iegūstam lietotāja ierakstu;<br/>2) Iegūstam lietotāja vienības dalības maksu un organizācijas dalības maksu.<br/>3) Lietotāja ieraksta biedra naudas bilances lauka vērtībai atņemam summu no vienības un organizācijas dalības maksām.<br/>4) Ja lietotāja bilance ir mazāka kā -30 (biedrs ir parādā vairāk kā 30 eiro), tiek izsaukta funkcija BDR-05 (Biedra naudas paziņojums) |
+| Izvaddati           | -                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Paziņojumi          | -                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 **Tabula 2.2.6.3** *Biedra naudas bilances pārrēķina funkcijas projektējums*
 
@@ -649,9 +662,9 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 #### 2.3.4. Uzturēšanas prasības
 
+- Lietotne automātisko datu izpildi fiksē datubāzē
+
 - Lietotnē daļai no datu (biedri, vienības, pasākumi) tiek pielietota nestingrā dzēšana
-
-
 
     
 
@@ -683,7 +696,7 @@ Attēlā 3.3.1. ir apskatīta lietotāja izveide- lai izveidotu lietotāju, cits
 
 ![Lietotāja dzēšana](Profila_dzēšana_swimlane.png)
 **Attēls 3.3.2** *Lietotāja dzēšana diagramma*
-Attēlā 3.3.2. ir apskatīta lietotāja dzēšana- situācija, kad lietotājs vēlas izstāties no organizācijas. Kad lietotājs iesniedz pieteikumu izstāties no organizācijas, sistēma automātiski dzēš lietotāja personīgos datus un viņa vienības priekšniekam atnāk paziņojums, par šī lietotāja izstāšanos. Ja vadītājs apstiprina šo iesniegumu, lietotāja statuss tiek nomainīts uz "izstājies". Šāds lietotājs neparādās atskaitēs, un nespēj pieslēgties sistēmai, bet tā pamatdati tiek saglabāti organizācijas lietošanai. Ja vienības priekšnieks neapstiprina izstāšanos biedrs turpina parādīties atskaitēs un spēj piekļūt sistēmai.
+Attēlā 3.3.2. ir apskatīta lietotāja dzēšana- situācija, kad lietotājs vēlas izstāties no organizācijas. Kad lietotājs iesniedz pieteikumu izstāties no organizācijas, sistēma automātiski dzēš lietotāja personīgos datus un viņa vienības priekšniekam atnāk paziņojums, par šī lietotāja izstāšanos. Ja vadītājs apstiprina šo iesniegumu, lietotāja status tiek nomainīts uz "izstājies". Šāds lietotājs neparādās atskaitēs, un nespēj pieslēgties sistēmai, bet tā pamatdati tiek saglabāti organizācijas lietošanai. Ja vienības priekšnieks neapstiprina izstāšanos biedrs turpina parādīties atskaitēs un spēj piekļūt sistēmai.
 
 ## 4 Testēšanas pārskats
 

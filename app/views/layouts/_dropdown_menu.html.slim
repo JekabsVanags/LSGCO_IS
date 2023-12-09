@@ -29,10 +29,7 @@ div.border-2.flex.flex-col.px-5
             =link_to units_path, class: current_tab == "unit_list" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Vienības
               =image_tag 'icons/units.svg', size:"30"
-            =link_to users_path, class: current_tab == "user_list" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
-              |Biedri
-              =image_tag 'icons/unit.svg', size:"30"
-
+              
         -if @user_permission_level == "pklv_vaditajs"
             div
                   =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : current_user.unit.unit_active? ? "btn-primary flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3 disabled-link"

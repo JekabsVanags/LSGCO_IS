@@ -6,7 +6,8 @@ script src = javascript_path("views/user_edit")
       h1.title-normal
         |Izlabo savus datus
 
-      =button_to "Iesniegums par izstāšanos no organizācijas", resignation_user_path(current_user), class:"btn-ternary text-scout-red"
+      -if @current_user.activity_statuss != "Neaktīvs"
+        =button_to "Iesniegums par izstāšanos no organizācijas", resignation_user_path(current_user), class:"btn-ternary text-scout-red"
     p.paragraph-normal
       = @new_user ? "Ievadi savus datus, lai mēs varētu pabeigt reģistrāciju!" : "Atjauno aktuālos datus."
   div.flex.flex-col.w-full.lg:content-arround.lg:flex-row

@@ -25,7 +25,7 @@ class UnitsController < ApplicationController
     @leader = User.find(params[:leader_id])
     @unit = Unit.new(unit_create_params)
 
-    if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit)
+    if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit) && @leader.activity_statuss == "Vadītājs"
       redirect_to unit_path(@unit), notice: "Jauna vienība izveidota"
     else
       redirect_to root_path, notice: "Kļūda"
@@ -36,10 +36,24 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @new_activity = WeeklyActivity.new
+    @leader_candidates = @unit.users.where(activity_statuss: "Vadītājs").map { |user| ["#{user.name} #{user.surname}", user.id] }
   end
 
   def update
+    @leader = User.find(params[:leader_id])
+
     @unit = Unit.find(params[:id])
+
+    if @leader != @unit.unit_leader
+      if !@unit.unit_leader.pklv_valde?
+        @unit.unit_leader.update(permission_level: "pklv_biedrs")
+      end
+
+      if !@leader.pklv_valde?
+        @leader.update(permission_level: "pklv_vaditajs")
+      end
+    end
+
     if @unit.update(unit_update_params)
       redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
     else
@@ -72,7 +86,7 @@ class UnitsController < ApplicationController
   end
 
   def unit_update_params
-    params.require(:unit).permit(:legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments, :membership_fee)
+    params.require(:unit).permit(:legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments, :membership_fee, :leader_id)
   end
 
   def unit_member?
