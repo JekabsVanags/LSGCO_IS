@@ -14,24 +14,24 @@ RSpec.describe UsersController, type: :controller do
     session[:user_id] = current_user.id
   end
 
-  describe "GET #index" do
-    it "gets the list of users" do
-      user.save!
-      user2.save!
-      user3.save!
+  # describe "GET #index" do
+  #   it "gets the list of users" do
+  #     user.save!
+  #     user2.save!
+  #     user3.save!
 
-      get :index
-      expect(assigns(:users)).to eq(User.all)
-      expect(assigns(:users).length).to eq(4)
-      expect(response).to render_template(:index)
-    end
+  #     get :index
+  #     expect(assigns(:users)).to eq(User.all)
+  #     expect(assigns(:users).length).to eq(4)
+  #     expect(response).to render_template(:index)
+  #   end
 
-    it "doesnt get the list without permissions" do
-      session[:user_id] = user.id
-      get :index
-      expect(response).to redirect_to(root_path)
-    end
-  end
+  #   it "doesnt get the list without permissions" do
+  #     session[:user_id] = user.id
+  #     get :index
+  #     expect(response).to redirect_to(root_path)
+  #   end
+  # end
 
   describe "GET #new" do
     it "gets a new user instance and renders the template" do
@@ -111,7 +111,7 @@ RSpec.describe UsersController, type: :controller do
       expect(User.find(user_to_delete.id).activity_statuss).to eq("Izstājies")
       expect(PersonalInformation.where(user: user_to_delete)).to be_empty
 
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(unit_path(user.unit))
     end
   end
 

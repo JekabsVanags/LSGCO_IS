@@ -18,7 +18,7 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @members = @unit.users.where.not(activity_statuss: "Izstājies")
-    @unit_leader = @unit.unit_leader
+    @unit_leader = @unit.users.where(unit: @unit, permission_level: "pklv_vaditajs").first || @unit.users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def create
@@ -40,9 +40,8 @@ class UnitsController < ApplicationController
   end
 
   def update
-    @leader = User.find(params[:leader_id])
-
     @unit = Unit.find(params[:id])
+    @leader = params[:leader_id] ? User.find(params[:leader_id]) : @unit.unit_leader
 
     if @leader != @unit.unit_leader
       if !@unit.unit_leader.pklv_valde?
