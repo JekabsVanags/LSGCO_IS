@@ -103,6 +103,7 @@ Sistēmai ir jānodrošina sekojošas funkcijas:
 - Lietotāju pievienošana/noņemšana no pasākumiem.
 - Atskaišu ģenerēšana par biedru sastāvu, pasākumiem.
 - Biedru naudas uzskaite, ziņojumi par kavētām biedra naudas iemaksām.
+- Adaprīvais dizains telefona lietotājiem.
 
 ### 1.5 Sistēmas lietotāji
 
@@ -240,13 +241,13 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 ##### 2.2.2.4 Biedra naudas statusa iegūšana (BDR-04)
 
-| Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04) |
-| ------------------- | --------------------------------------- |
-| Funkcijas mērķis    |                                         |
-| Ievaddati           |                                         |
-| Apstrāde            |                                         |
-| Izvaddati           |                                         |
-| Paziņojumi          |                                         |
+| Funkcijas nosaukums | Biedra naudas statusa iegūšana (BDR-04)                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Funkcijas mērķis    | Lietotājs spēj iegūt savu pašreizējo bilansi                                                                     |
+| Ievaddati           | Pašreizējā lietotāja ID (vesels skaitlis);                                                                       |
+| Apstrāde            | 1) No DB iegūstam pašreizējā leitotāja  objektu; <br> 2) Atgriež pašreizējo biedra naudas bilanses vērtību; <br> |
+| Izvaddati           | Lietotāja pašreizējās bilanses dati                                                                              |
+| Paziņojumi          | -                                                                                                                |
 
 **Tabula 2.2.2.4** *Biedra naudas statusa iegūšanas funkcijas projektējums*
 
@@ -648,7 +649,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 #### 2.3.4. Uzturēšanas prasības
 
-- Lietotne 
+- Lietotnē daļai no datu (biedri, vienības, pasākumi) tiek pielietota nestingrā dzēšana
 
 
 

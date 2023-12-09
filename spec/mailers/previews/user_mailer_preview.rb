@@ -11,4 +11,8 @@ class UserMailerPreview < ActionMailer::Preview
   def membership_fee_late_email
     UserMailer.membership_fee_late_email(User.first)
   end
+
+  def user_resignation_email
+    UserMailer.user_resignation_email(User.first, User.first, "/")
+  end
 end

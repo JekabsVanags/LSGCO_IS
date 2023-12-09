@@ -17,7 +17,7 @@ class UnitsController < ApplicationController
     session[:current_tab] = "unit" unless session[:current_tab] == "unit_list"
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
-    @members = @unit.users
+    @members = @unit.users.where.not(activity_statuss: "Izstājies")
     @unit_leader = User.where(unit: @unit, permission_level: "pklv_vaditajs").first
   end
 

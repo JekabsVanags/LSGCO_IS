@@ -160,6 +160,19 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), notice: "Epasts ar paroles atjaunošanas instrukcijām nosūtīts"
   end
 
+  def resignation
+    @user = @current_user
+
+    @link = user_path(@user.id)
+
+    if @user.update(activity_statuss: "Neaktīvs")
+      UserMailer.user_resignation_email(@user, @user.unit.unit_leader, @link).deliver_later
+      redirect_to edit_user_path(current_user), notice: "Jūsu iesniegums ir nosūtīts"
+    else
+      redirect_to edit_user_path(current_user), notice: 'Kļūda'
+    end
+  end
+
   protected
 
   def user_unit_edit_params

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post "password_update"
       post "promise"
       post "send_password_reset"
+      post "resignation"
     end
   end
 

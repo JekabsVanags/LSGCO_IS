@@ -1,0 +1,13 @@
+div style="font-family: sans"
+  h1 style="font-size: 2.25rem; color: #556987"
+    | Sviecināti, #{@leader}!
+  p style="margin-bottom: 50px"  
+    | Jūsu vienības biedrs, #{@user.name} #{@user.surname} ir nosūtījis šo iesniegumu caur LSGCO IS ar nodomu izstāties no orgaizācijas.
+
+  p style="margin-bottom: 50px" 
+    | Lai dzēstu lietotāju no sistēmas, lūdzam apmeklēt biedra paneli, kurā izvēlēties pogu "Dzēst biedru".
+
+  =link_to "Lietotāja panelis", @link, style: "background-color: #556987; border-radius: 0.375rem; color: white; font-size: 1.25rem; font-weight: 600; height: 50px; padding: 0.5rem 1rem; text-align: start; text-decoration: none"
+
+  p style="margin-top: 50px" 
+  | Arvien Modri! LSGCO informācijas sistēma

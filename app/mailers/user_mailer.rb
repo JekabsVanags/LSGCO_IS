@@ -17,4 +17,12 @@ class UserMailer < ApplicationMailer
     @last_payment = @user.payed_fees.last
     mail to: @user.email, subject: "Jums ir iekavējušies biedra naudas maksājumi", from: "lsgcois@skautiungaidas.lv"
   end
+
+  def user_resignation_email(user, leader, link)
+    @user = user
+    @leader = leader
+    @link = link
+
+    mail to: @user.email, subject: "Biedrs #{user.name} #{user.surname} vēlas izstāties no organizācijas", from: "lsgcois@skautiungaidas.lv"
+  end
 end

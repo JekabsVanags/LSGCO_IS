@@ -31,6 +31,7 @@ script src = javascript_path("views/user_edit")
           = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6"
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label"
         = f.submit "Iesniegt", class: "btn-primary w-full"
+      =button_to "Izstāties no organizācijas", resignation_user_path(current_user), class:"btn-ternary text-scout-red"
       button.btn-ternary class="form_toggle"
         | Atjaunot paroli
 
