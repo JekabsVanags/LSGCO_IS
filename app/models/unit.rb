@@ -10,7 +10,7 @@ class Unit < ApplicationRecord
   has_many :weekly_activities
 
   def full_name
-    "#{city}s #{number}. vienība"
+    number == 0 ? "LSGCO" : "#{city}s #{number}. vienība"
   end
 
   def get_actual_events(rank)
@@ -18,8 +18,7 @@ class Unit < ApplicationRecord
   end
 
   def unit_leader
-    leader = users.where(permission_level: "pklv_vaditajs").first
-    leader.present? ? "#{leader.name} #{leader.surname}" : "-"
+    users.where(unit: @unit, permission_level: "pklv_vaditajs").first || users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def unit_active?

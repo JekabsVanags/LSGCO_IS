@@ -56,15 +56,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    @unit = @user.unit
 
     if @user.update(activity_statuss: "Izstājies")
-      session.clear
       if @user.personal_information.present?
         @user.personal_information.destroy
       end
-      redirect_to root_path, notice: 'Profils dzēsts'
+      redirect_to unit_path(@unit), notice: 'Profils dzēsts'
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to unit_path(@unit), notice: 'Kļūda'
     end
 
   end
@@ -158,6 +158,19 @@ class UsersController < ApplicationController
 
     UserMailer.password_reset_email(@user, @link).deliver_later
     redirect_to user_path(@user), notice: "Epasts ar paroles atjaunošanas instrukcijām nosūtīts"
+  end
+
+  def resignation
+    @user = @current_user
+
+    @link = user_path(@user.id)
+
+    if @user.update(activity_statuss: "Neaktīvs")
+      UserMailer.user_resignation_email(@user, @user.unit.unit_leader, @link).deliver_later
+      redirect_to edit_user_path(current_user), notice: "Jūsu iesniegums ir nosūtīts"
+    else
+      redirect_to edit_user_path(current_user), notice: 'Kļūda'
+    end
   end
 
   protected

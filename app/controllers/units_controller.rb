@@ -17,15 +17,15 @@ class UnitsController < ApplicationController
     session[:current_tab] = "unit" unless session[:current_tab] == "unit_list"
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
-    @members = @unit.users
-    @unit_leader = User.where(unit: @unit, permission_level: "pklv_vaditajs").first
+    @members = @unit.users.where.not(activity_statuss: "Izstājies")
+    @unit_leader = @unit.users.where(unit: @unit, permission_level: "pklv_vaditajs").first || @unit.users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def create
     @leader = User.find(params[:leader_id])
     @unit = Unit.new(unit_create_params)
 
-    if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit)
+    if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit) && @leader.activity_statuss == "Vadītājs"
       redirect_to unit_path(@unit), notice: "Jauna vienība izveidota"
     else
       redirect_to root_path, notice: "Kļūda"
@@ -36,10 +36,23 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @new_activity = WeeklyActivity.new
+    @leader_candidates = @unit.users.where(activity_statuss: "Vadītājs").map { |user| ["#{user.name} #{user.surname}", user.id] }
   end
 
   def update
     @unit = Unit.find(params[:id])
+    @leader = params[:leader_id] ? User.find(params[:leader_id]) : @unit.unit_leader
+
+    if @leader != @unit.unit_leader
+      if !@unit.unit_leader.pklv_valde?
+        @unit.unit_leader.update(permission_level: "pklv_biedrs")
+      end
+
+      if !@leader.pklv_valde?
+        @leader.update(permission_level: "pklv_vaditajs")
+      end
+    end
+
     if @unit.update(unit_update_params)
       redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
     else
@@ -72,7 +85,7 @@ class UnitsController < ApplicationController
   end
 
   def unit_update_params
-    params.require(:unit).permit(:legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments, :membership_fee)
+    params.require(:unit).permit(:legal_adress, :activity_location_name, :email, :phone, :bank_account, :comments, :membership_fee, :leader_id)
   end
 
   def unit_member?

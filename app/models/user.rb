@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :name, :surname, :activity_statuss, :membership_fee_bilance, :joined_date, :permission_level, presence: true
 
-  enum activity_statuss: ["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Izstājies"]
+  enum activity_statuss: ["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Neaktīvs", "Izstājies"]
   enum sex: ["M", "F", "O"]
   enum permission_level: ["pklv_biedrs", "pklv_vaditajs", "pklv_valde"]
 
@@ -35,9 +35,9 @@ class User < ApplicationRecord
     history.present? ? history.date_of_oath : false
   end
 
-  def recalculate_bilance()
+  def recalculate_bilance
     bilance = membership_fee_bilance
-    fee = 2
+    fee = Unit.find_by(number: 0).membership_fee
     if activity_statuss != "Daļēji aktīvs"
       fee += unit.membership_fee
     end

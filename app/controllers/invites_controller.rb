@@ -10,7 +10,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new({ rank: invite_params[:rank], unit: Unit.find(invite_params[:unit]), event: Event.find(invite_params[:event]) })
 
     if @invite.save!
-      redirect_to edit_event_path(invite_params[:event]), notice: "Ielūgums izveidota"
+      redirect_to edit_event_path(invite_params[:event]), notice: "Ielūgums izveidots"
     else
       redirect_to edit_event_path(invite_params[:event]), notice: "Kļūda"
     end

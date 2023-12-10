@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post "password_update"
       post "promise"
       post "send_password_reset"
+      post "resignation"
     end
   end
 
@@ -40,6 +41,10 @@ Rails.application.routes.draw do
       get "list"
     end
   end
+
+  #Atskaišu ceļi
+  get "/biedru_atskaites", to: "reports#member_report"
+  get "/vienibas_atskaites", to: "reports#unit_report"
 
   #Pasākumu ceļi
   resources :events, path: :pasakums do

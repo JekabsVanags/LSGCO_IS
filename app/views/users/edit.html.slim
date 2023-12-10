@@ -2,8 +2,12 @@ script src = javascript_path("views/user_edit")
 
 .flex.flex-col.justify-start.p-5.lg:w-4/5.lg:p-10
   div
-    h1.title-normal
-      |Izlabo savus datus
+    div.flex.justify-between
+      h1.title-normal
+        |Izlabo savus datus
+
+      -if @current_user.activity_statuss != "Neaktīvs"
+        =button_to "Iesniegums par izstāšanos no organizācijas", resignation_user_path(current_user), class:"btn-ternary text-scout-red"
     p.paragraph-normal
       = @new_user ? "Ievadi savus datus, lai mēs varētu pabeigt reģistrāciju!" : "Atjauno aktuālos datus."
   div.flex.flex-col.w-full.lg:content-arround.lg:flex-row

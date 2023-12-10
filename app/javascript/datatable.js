@@ -27,9 +27,14 @@ function initializeDataTable(tableSelector) {
   });
 }
 
+document.addEventListener('turbo:before-cache', function () {
+  $('#dataTable').DataTable().destroy();
+  $('#dataTable2').DataTable().destroy();
+});
+
 $(document).on('turbo:load', function () {
   var table = initializeDataTable('#dataTable');
-  initializeDataTable('#dataTable2');
+  initializeDataTable('#dataTable2');  
 
   $('#searchField').on( 'keyup', function () {
       table.search( this.value ).draw();

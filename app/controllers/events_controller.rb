@@ -58,8 +58,8 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
 
-    if @event.update(deleted_at: Time.now)
-      redirect_to events_path, notice: "Pasākums atjaunots"
+    if @event.update(deleted_at: Time.now) && delete_invites(@event) && delete_registrations(@event)
+      redirect_to events_path, notice: "Pasākums dzēsts"
     else
       redirect_to events_path, notice: "Kļūda"
     end
@@ -80,6 +80,18 @@ class EventsController < ApplicationController
           Invite.create(rank:, unit:, event:)
         end
       end
+    end
+  end
+
+  def delete_invites(event)
+    event.invites.each do |invite|
+      invite.delete
+    end
+  end
+
+  def delete_registrations(event)
+    event.event_registrations.each do |registration|
+      registration.delete
     end
   end
 end

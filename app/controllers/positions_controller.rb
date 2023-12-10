@@ -5,7 +5,7 @@ class PositionsController < ApplicationController
     @position = Position.new(position_params)
     @position.unit = current_user.unit
     if @position.save!
-      redirect_to user_path(position_params[:user_id]), notice: "Pozīcija izveidota"
+      redirect_to user_path(position_params[:user_id]), notice: "Amats izveidots"
     else
       redirect_to user_path(position_params[:user_id]), notice: "Kļūda"
     end
@@ -15,7 +15,7 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @user = @position.user_id
     if @position.delete
-      redirect_to user_path(@user), notice: "Pozīcija dzēsta"
+      redirect_to user_path(@user), notice: "Amats dzēsts"
     else
       redirect_to user_path(@user), notice: "Kļūda"
     end

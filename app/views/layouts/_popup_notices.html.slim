@@ -1,9 +1,16 @@
-div.absolute.bottom-10.right-10
+script src= javascript_path("popups")
+div.absolute.bottom-5.right-10
   -if notice
-    div.bg-green-100.border-3.border-red-400.px-4.py-3.rounded.min-w-20
-      p.text-xl
-        = notice
-  -if alert
-    div.bg-red-100.border-3.border-red-400.px-4.py-3.rounded.min-w-20
-      p.text-xl
-        = alert
+    div.border-scout-gold.border-t-8.bg-scout-blue.rounded-b.text-white.px-4.py-3.shadow-md[id="popup"]
+      .flex
+        div.px-3.py-1
+          img src= asset_path("icons/info")
+        div.text-lg.pr-3
+          = notice
+  -elsif alert
+    div.border-scout-red.border-t-8.bg-scout-blue.rounded-b.text-white.px-4.py-3.shadow-md[id="popup"]
+      .flex
+        div.px-3.py-1
+          img src= asset_path("icons/alert")
+        div.text-lg.pr-3
+          = alert

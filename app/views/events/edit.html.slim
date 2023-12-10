@@ -2,8 +2,9 @@
   h1.title-normal
     |Labot pasākuma datus 
   .flex.flex-col-reverse.w-full.h-full.lg:flex-row
-    .flex.lg:w-1/2 
+    .flex.flex-col.lg:w-1/2 
       =render "event_form"
+      =button_to "Dzēst pasākumu", event_path(@event.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
     .flex.mb-10.lg:w-1/2.flex-col.lg:ml-10.lg:mb-0
       p.input-label.mb-1 
         |Uz pasākumu ir ielūgti

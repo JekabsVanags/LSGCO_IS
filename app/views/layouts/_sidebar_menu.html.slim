@@ -15,6 +15,15 @@
           =image_tag 'icons/login.svg', size:"30"
   -else
     .flex.flex-col.divide-y-2.divide-scout-gold 
+      -if @user_permission_level == "pklv_valde" || @user_permission_level == "pklv_vaditajs"
+        div 
+          -if @user_permission_level == "pklv_valde"
+            =link_to biedru_atskaites_path, class: current_tab == "member_report" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Biedru atskaite
+              =image_tag 'icons/report.svg', size:"30"
+          =link_to vienibas_atskaites_path, class: current_tab == "unit_report" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Vienības atskaite
+              =image_tag 'icons/report.svg', size:"30"
       -if @user_permission_level == "pklv_valde"
         div 
           =link_to new_unit_path, class: current_tab == "new_unit" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
@@ -23,11 +32,8 @@
           =link_to units_path, class: current_tab == "unit_list" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
             |Vienības
             =image_tag 'icons/units.svg', size:"30"
-          =link_to users_path, class: current_tab == "user_list" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
-            |Biedri
-            =image_tag 'icons/unit.svg', size:"30"
         
-      -if @user_permission_level == "pklv_vaditajs" 
+      -if @user_permission_level == "pklv_vaditajs" ||  @user_permission_level == "pklv_valde" && @current_user.activity_statuss == "Vadītājs"
           div
             =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : current_user.unit.unit_active? ? "btn-primary flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3 disabled-link"
               |Pievienot biedru
