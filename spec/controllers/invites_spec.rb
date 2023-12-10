@@ -17,7 +17,7 @@ RSpec.describe InvitesController, type: :controller do
       post :create, params: { invite: { rank: "SK/G", unit: unit.id, event: event.id } }
 
       expect(response).to redirect_to(edit_event_path(event))
-      expect(flash[:notice]).to eq("Ielūgums izveidota")
+      expect(flash[:notice]).to eq("Ielūgums izveidots")
     end
 
     it "user with insuffisient permissions cannot create an invite" do

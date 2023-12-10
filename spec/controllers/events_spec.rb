@@ -158,7 +158,7 @@ RSpec.describe EventsController, type: :controller do
       event.reload
 
       expect(response).to redirect_to(events_path)
-      expect(flash[:notice]).to eq("Pasākums atjaunots")
+      expect(flash[:notice]).to eq("Pasākums dzēsts")
       expect(event.deleted_at).not_to be_nil
     end
 

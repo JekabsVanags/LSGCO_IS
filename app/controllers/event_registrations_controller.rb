@@ -1,5 +1,6 @@
 class EventRegistrationsController < ApplicationController
   before_action :authorized?
+  before_action :unit_access?, only: :destroy
 
   def create
     @registration = EventRegistration.new(registration_params)
@@ -7,14 +8,14 @@ class EventRegistrationsController < ApplicationController
     @event = Event.find(registration_params[:event_id])
 
     if registration_params[:role] == "Dalībnieks"
-      if @event.max_participants > @event.registered_participants
+      if !@event.max_participants || @event.max_participants > @event.registered_participants
         @event.registered_participants += 1
       else
         redirect_to event_path(registration_params[:event_id]), notice: "Pārāk daudz dalībnieku"
         return
       end
     else
-      if @event.necessary_volunteers > @event.registered_volunteers
+      if !@event.necessary_volunteers || @event.necessary_volunteers > @event.registered_volunteers
         @event.registered_volunteers += 1
       else
         redirect_to event_path(registration_params[:event_id]), notice: "Pieteikami brīvprātīgo"
@@ -35,7 +36,7 @@ class EventRegistrationsController < ApplicationController
 
     if @registration.role == "Dalībnieks"
       @event.registered_participants -= 1
-    else
+    elsif @registration.role == "Brīvprātīgais"
       @event.registered_volunteers -= 1
     end
 

@@ -59,7 +59,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update(deleted_at: Time.now) && delete_invites(@event) && delete_registrations(@event)
-      redirect_to events_path, notice: "Pasākums atjaunots"
+      redirect_to events_path, notice: "Pasākums dzēsts"
     else
       redirect_to events_path, notice: "Kļūda"
     end
