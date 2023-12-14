@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-12-10T15:11:12.979Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="IyaNBcjPyr21SRwJrmVy" version="22.0.2" type="device" pages="10">
+<mxfile host="Electron" modified="2023-12-14T15:04:37.423Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="JH1mWXxSA06clyMKvZXs" version="22.0.2" type="device" pages="10">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
     <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -404,7 +404,7 @@
         <mxCell id="SORPuBcUJhG7LsbTGvI3-10" value="Sistēma" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="950" y="570" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="_RINTh6XosqMoDz_c5jx-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="xGXgSaPmuUJwHho-_G7R-25" target="xGXgSaPmuUJwHho-_G7R-29">
+        <mxCell id="_RINTh6XosqMoDz_c5jx-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="xGXgSaPmuUJwHho-_G7R-25" target="xGXgSaPmuUJwHho-_G7R-29" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="810" y="390" />
@@ -412,7 +412,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="_RINTh6XosqMoDz_c5jx-2" value="Ielūgumu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_RINTh6XosqMoDz_c5jx-1">
+        <mxCell id="_RINTh6XosqMoDz_c5jx-2" value="Ielūgumu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="_RINTh6XosqMoDz_c5jx-1" vertex="1" connectable="0">
           <mxGeometry x="-0.0337" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -607,7 +607,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="2.limena_PSK_DPD" id="HjhPy4mUsqIYgYORl6Yw">
-    <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2045" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="smBA0Inm2jj-qsSQyGSD-0" />
         <mxCell id="smBA0Inm2jj-qsSQyGSD-1" parent="smBA0Inm2jj-qsSQyGSD-0" />
@@ -652,7 +652,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jQl35UlGP5zOyr-lm_Hc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="smBA0Inm2jj-qsSQyGSD-23" target="jQl35UlGP5zOyr-lm_Hc-0">
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="smBA0Inm2jj-qsSQyGSD-1" source="smBA0Inm2jj-qsSQyGSD-23" target="jQl35UlGP5zOyr-lm_Hc-0" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="650" y="520" />
@@ -660,7 +660,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="jQl35UlGP5zOyr-lm_Hc-4" value="Biedru dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jQl35UlGP5zOyr-lm_Hc-3">
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-4" value="Biedru dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="jQl35UlGP5zOyr-lm_Hc-3" vertex="1" connectable="0">
           <mxGeometry x="0.7076" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -689,7 +689,7 @@
             <mxPoint x="53" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jQl35UlGP5zOyr-lm_Hc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=-15;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="smBA0Inm2jj-qsSQyGSD-26" target="jQl35UlGP5zOyr-lm_Hc-0">
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=-15;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="smBA0Inm2jj-qsSQyGSD-1" source="smBA0Inm2jj-qsSQyGSD-26" target="jQl35UlGP5zOyr-lm_Hc-0" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="640" y="425" />
@@ -697,7 +697,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="jQl35UlGP5zOyr-lm_Hc-2" value="Pasākumu &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jQl35UlGP5zOyr-lm_Hc-1">
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-2" value="Pasākumu &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="jQl35UlGP5zOyr-lm_Hc-1" vertex="1" connectable="0">
           <mxGeometry x="0.1061" relative="1" as="geometry">
             <mxPoint x="-140" y="140" as="offset" />
           </mxGeometry>
@@ -711,9 +711,9 @@
         <mxCell id="ReZCUSPsO-2el5Cs7sPV-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="smBA0Inm2jj-qsSQyGSD-1" source="AhzboDb438PN-dDn9kWq-1" target="ReZCUSPsO-2el5Cs7sPV-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ReZCUSPsO-2el5Cs7sPV-35" value="Aktuālo pasākumu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ReZCUSPsO-2el5Cs7sPV-34" vertex="1" connectable="0">
+        <mxCell id="ReZCUSPsO-2el5Cs7sPV-35" value="Aktuālo &lt;br&gt;pasākumu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ReZCUSPsO-2el5Cs7sPV-34" vertex="1" connectable="0">
           <mxGeometry x="-0.0915" y="3" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint x="-44" y="-3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="AhzboDb438PN-dDn9kWq-1" value="PSK-07&lt;br&gt;Aktuālo pasākumu iegūšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">
@@ -757,7 +757,7 @@
             <mxPoint x="19" y="2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="ReZCUSPsO-2el5Cs7sPV-0" target="BGaGpXArZXksQFDA-Fel-0">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="smBA0Inm2jj-qsSQyGSD-1" source="ReZCUSPsO-2el5Cs7sPV-0" target="BGaGpXArZXksQFDA-Fel-0" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="210" y="640" />
@@ -765,12 +765,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-4" value="Ielūguma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BGaGpXArZXksQFDA-Fel-3">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-4" value="Ielūguma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BGaGpXArZXksQFDA-Fel-3" vertex="1" connectable="0">
           <mxGeometry x="0.5314" y="-3" relative="1" as="geometry">
             <mxPoint x="22" y="-3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="ReZCUSPsO-2el5Cs7sPV-0" target="BGaGpXArZXksQFDA-Fel-1">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="smBA0Inm2jj-qsSQyGSD-1" source="ReZCUSPsO-2el5Cs7sPV-0" target="BGaGpXArZXksQFDA-Fel-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="200" y="640" />
@@ -778,7 +778,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-10" value="Dzēšamā&lt;br&gt;ielūguma&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BGaGpXArZXksQFDA-Fel-9">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-10" value="Dzēšamā&lt;br&gt;ielūguma&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BGaGpXArZXksQFDA-Fel-9" vertex="1" connectable="0">
           <mxGeometry x="0.6136" relative="1" as="geometry">
             <mxPoint x="25" as="offset" />
           </mxGeometry>
@@ -819,11 +819,8 @@
         <mxCell id="ReZCUSPsO-2el5Cs7sPV-3" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" parent="ReZCUSPsO-2el5Cs7sPV-1" vertex="1">
           <mxGeometry x="20.619999999999997" y="310" width="127.5" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ReZCUSPsO-2el5Cs7sPV-4" value="Biedrs (Bez amata)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelBackgroundColor=none;fontColor=#000000;" parent="ReZCUSPsO-2el5Cs7sPV-1" vertex="1">
+        <mxCell id="ReZCUSPsO-2el5Cs7sPV-4" value="Biedrs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelBackgroundColor=none;fontColor=#000000;" parent="ReZCUSPsO-2el5Cs7sPV-1" vertex="1">
           <mxGeometry x="15.619999999999994" y="490" width="132.5" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="ReZCUSPsO-2el5Cs7sPV-14" value="Biedrs (Ar amatu)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelBackgroundColor=none;fontColor=#000000;" parent="ReZCUSPsO-2el5Cs7sPV-1" vertex="1">
-          <mxGeometry x="20.61999999999999" y="210" width="132.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="ReZCUSPsO-2el5Cs7sPV-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="smBA0Inm2jj-qsSQyGSD-1" source="smBA0Inm2jj-qsSQyGSD-4" target="smBA0Inm2jj-qsSQyGSD-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -887,44 +884,52 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-0" value="PSK-08&lt;br&gt;Ielūguma izveidošana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="smBA0Inm2jj-qsSQyGSD-1">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-0" value="PSK-08&lt;br&gt;Ielūguma izveidošana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">
           <mxGeometry x="310" y="810" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-1" value="PSK-09&lt;br&gt;Ielūguma dzēšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="smBA0Inm2jj-qsSQyGSD-1">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-1" value="PSK-09&lt;br&gt;Ielūguma dzēšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">
           <mxGeometry x="310" y="900" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-2" target="AhzboDb438PN-dDn9kWq-1">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-2" target="AhzboDb438PN-dDn9kWq-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="560" y="788" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-8" value="Ielūgumu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BGaGpXArZXksQFDA-Fel-7">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-8" value="Ielūgumu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BGaGpXArZXksQFDA-Fel-7" vertex="1" connectable="0">
           <mxGeometry x="0.3095" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-2" value="Ielūgumu datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#1F1F1F;" vertex="1" parent="smBA0Inm2jj-qsSQyGSD-1">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-2" value="Ielūgumu datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#1F1F1F;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">
           <mxGeometry x="520" y="823" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-0" target="BGaGpXArZXksQFDA-Fel-2">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-0" target="BGaGpXArZXksQFDA-Fel-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-6" value="Jauna ielūguma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BGaGpXArZXksQFDA-Fel-5">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-6" value="Jauna ielūguma dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BGaGpXArZXksQFDA-Fel-5" vertex="1" connectable="0">
           <mxGeometry x="-0.0958" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-1" target="BGaGpXArZXksQFDA-Fel-2">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="smBA0Inm2jj-qsSQyGSD-1" source="BGaGpXArZXksQFDA-Fel-1" target="BGaGpXArZXksQFDA-Fel-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BGaGpXArZXksQFDA-Fel-13" value="Ielūguma datu &lt;br&gt;dzēšana" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BGaGpXArZXksQFDA-Fel-12">
+        <mxCell id="BGaGpXArZXksQFDA-Fel-13" value="Ielūguma datu &lt;br&gt;dzēšana" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BGaGpXArZXksQFDA-Fel-12" vertex="1" connectable="0">
           <mxGeometry x="-0.401" y="-1" relative="1" as="geometry">
             <mxPoint x="18" y="-1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jQl35UlGP5zOyr-lm_Hc-0" value="PSK-10&lt;br&gt;Pasākuma reģistrāciju apskatīšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="smBA0Inm2jj-qsSQyGSD-1">
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="smBA0Inm2jj-qsSQyGSD-1" source="jQl35UlGP5zOyr-lm_Hc-0" target="ReZCUSPsO-2el5Cs7sPV-0" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-10" y="1030" />
+              <mxPoint x="-10" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jQl35UlGP5zOyr-lm_Hc-0" value="PSK-10&lt;br&gt;Pasākuma reģistrāciju apskatīšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">
           <mxGeometry x="310" y="990" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
@@ -1155,17 +1160,11 @@
         <mxCell id="XEwYEd2WJBLVuOc4Am11-6" value="" style="swimlane;startSize=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="50" y="210" width="150" height="460" as="geometry" />
         </mxCell>
-        <mxCell id="XEwYEd2WJBLVuOc4Am11-8" value="" style="swimlane;startSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="40" y="200" width="170" height="550" as="geometry" />
+        <mxCell id="dA-L6wPh5jj_AldxLc9y-1" value="Priekšnieks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" vertex="1" parent="XEwYEd2WJBLVuOc4Am11-6">
+          <mxGeometry x="10.630000000000003" y="100" width="128.75" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="CYDivtoI0Ex-WtxxrRTp-3" value="Priekšnieks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" parent="XEwYEd2WJBLVuOc4Am11-8" vertex="1">
-          <mxGeometry x="20.619999999999997" y="100" width="128.75" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="CYDivtoI0Ex-WtxxrRTp-2" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" parent="XEwYEd2WJBLVuOc4Am11-8" vertex="1">
-          <mxGeometry x="20.619999999999997" y="310" width="127.5" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="CYDivtoI0Ex-WtxxrRTp-1" value="Biedrs (Ar amatu)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelBackgroundColor=none;fontColor=#000000;" parent="XEwYEd2WJBLVuOc4Am11-8" vertex="1">
-          <mxGeometry x="15.619999999999994" y="490" width="132.5" height="40" as="geometry" />
+        <mxCell id="dA-L6wPh5jj_AldxLc9y-2" value="Administrators" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" vertex="1" parent="XEwYEd2WJBLVuOc4Am11-6">
+          <mxGeometry x="10.630000000000003" y="310" width="127.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="XEwYEd2WJBLVuOc4Am11-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="wF3FgU6j-m9fP0u-R_HK-1" target="XEwYEd2WJBLVuOc4Am11-1" edge="1">
           <mxGeometry relative="1" as="geometry" />

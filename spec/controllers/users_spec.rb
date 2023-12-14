@@ -109,8 +109,6 @@ RSpec.describe UsersController, type: :controller do
       user_to_delete.save!
       delete :destroy, params: { id: user_to_delete.id }
       expect(User.find(user_to_delete.id).activity_statuss).to eq("Izstājies")
-      expect(PersonalInformation.where(user: user_to_delete)).to be_empty
-
       expect(response).to redirect_to(unit_path(user.unit))
     end
   end
@@ -204,6 +202,21 @@ RSpec.describe UsersController, type: :controller do
         expect(flash[:notice]).to eq("Epasts ar paroles atjaunošanas instrukcijām nosūtīts")
 
         expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+      end
+    end
+
+    describe "POST #resignation" do
+      it "sends an email to unit leader and deletes personal information" do
+        post :resignation, params: { id: current_user.id }
+
+        expect(response).to redirect_to(edit_user_path(current_user))
+        expect(flash[:notice]).to eq("Jūsu iesniegums ir nosūtīts")
+
+        puts ActiveJob::Base.queue_adapter.enqueued_jobs
+        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+        expect(PersonalInformation.where(user: current_user)).to be_empty
+        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
       end
     end
   end

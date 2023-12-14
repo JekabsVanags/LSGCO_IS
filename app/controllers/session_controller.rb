@@ -18,11 +18,13 @@ class SessionController < ApplicationController
   end
 
   def first_login
+    session.clear
     @user = User.find(params[:id])
     @old_password = params[:password]
     session[:user_id] = @user.created_at > Date.today - 7 ? @user.id : nil
     session[:new_user] = true
     return if @user.authenticate(params[:password]) && @user.created_at == @user.updated_at && session[:user_id]
+    session.clear
 
     redirect_to root_path
   end

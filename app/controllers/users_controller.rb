@@ -59,9 +59,6 @@ class UsersController < ApplicationController
     @unit = @user.unit
 
     if @user.update(activity_statuss: "Izstājies")
-      if @user.personal_information.present?
-        @user.personal_information.destroy
-      end
       redirect_to unit_path(@unit), notice: 'Profils dzēsts'
     else
       redirect_to unit_path(@unit), notice: 'Kļūda'
@@ -166,6 +163,9 @@ class UsersController < ApplicationController
     @link = user_path(@user.id)
 
     if @user.update(activity_statuss: "Neaktīvs")
+      if @user.personal_information.present?
+        @user.personal_information.destroy
+      end
       UserMailer.user_resignation_email(@user, @user.unit.unit_leader, @link).deliver_later
       redirect_to edit_user_path(current_user), notice: "Jūsu iesniegums ir nosūtīts"
     else
