@@ -10,7 +10,6 @@ RSpec.describe Event, type: :model do
 
   it('should be valid without nullable fields') do
     event.description = nil
-    event.date_to = nil
     event.necessary_volunteers = nil
     event.max_participants = nil
     event.deleted_at = nil

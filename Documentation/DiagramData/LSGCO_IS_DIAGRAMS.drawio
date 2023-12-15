@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-12-14T18:43:17.334Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="o2h2v0dpwitJPQIWnIK-" version="22.0.2" type="device" pages="10">
+<mxfile host="Electron" modified="2023-12-14T20:59:11.747Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="mR3C3MXB9p1ojAQLtV5k" version="22.0.2" type="device" pages="10">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
     <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -414,6 +414,21 @@
         </mxCell>
         <mxCell id="_RINTh6XosqMoDz_c5jx-2" value="Ielūgumu&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="_RINTh6XosqMoDz_c5jx-1" vertex="1" connectable="0">
           <mxGeometry x="-0.0337" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AzZX-6PoHz6fXBAKiJ9B-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="386" as="sourcePoint" />
+            <mxPoint x="440" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="386" />
+              <mxPoint x="440" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AzZX-6PoHz6fXBAKiJ9B-2" value="Paroles&lt;br&gt;atiestatīšanas&lt;br&gt;epasta&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="AzZX-6PoHz6fXBAKiJ9B-1">
+          <mxGeometry x="0.2008" y="4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -1027,6 +1042,19 @@
             <mxPoint x="42" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=52.5;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="XEwYEd2WJBLVuOc4Am11-2" target="rF3lAgm1zl3F3VuPPw8w-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="920" y="543" />
+              <mxPoint x="920" y="840" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-6" value="Biedra dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rF3lAgm1zl3F3VuPPw8w-5">
+          <mxGeometry x="0.7708" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="XEwYEd2WJBLVuOc4Am11-2" value="Biedra naudu datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="650" y="490" width="80" height="80" as="geometry" />
         </mxCell>
@@ -1157,6 +1185,19 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="1" source="XEwYEd2WJBLVuOc4Am11-6" target="rF3lAgm1zl3F3VuPPw8w-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10" y="555" />
+              <mxPoint x="10" y="868" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-8" value="Pieprasījuma&lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rF3lAgm1zl3F3VuPPw8w-7">
+          <mxGeometry x="0.3147" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="XEwYEd2WJBLVuOc4Am11-6" value="" style="swimlane;startSize=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="50" y="210" width="150" height="460" as="geometry" />
         </mxCell>
@@ -1284,7 +1325,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="XEwYEd2WJBLVuOc4Am11-67" value="Pasākumu datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="650" y="820" width="80" height="80" as="geometry" />
+          <mxGeometry x="650" y="850" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="XEwYEd2WJBLVuOc4Am11-3" value="Vienību datubāze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="650" y="340" width="80" height="80" as="geometry" />
@@ -1329,6 +1370,20 @@
           <mxGeometry x="-0.4208" y="3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="rF3lAgm1zl3F3VuPPw8w-1" target="rF3lAgm1zl3F3VuPPw8w-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-4" value="Epasts ar&amp;nbsp;&lt;br&gt;instrukcijām" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rF3lAgm1zl3F3VuPPw8w-3">
+          <mxGeometry x="-0.0689" y="-2" relative="1" as="geometry">
+            <mxPoint x="42" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-1" value="VNB-13&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Vienības biedra paroles atiestatīšana&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="330" y="800" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rF3lAgm1zl3F3VuPPw8w-2" value="Biedrs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="61.24999999999999" y="700" width="127.5" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

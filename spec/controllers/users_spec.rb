@@ -14,25 +14,6 @@ RSpec.describe UsersController, type: :controller do
     session[:user_id] = current_user.id
   end
 
-  # describe "GET #index" do
-  #   it "gets the list of users" do
-  #     user.save!
-  #     user2.save!
-  #     user3.save!
-
-  #     get :index
-  #     expect(assigns(:users)).to eq(User.all)
-  #     expect(assigns(:users).length).to eq(4)
-  #     expect(response).to render_template(:index)
-  #   end
-
-  #   it "doesnt get the list without permissions" do
-  #     session[:user_id] = user.id
-  #     get :index
-  #     expect(response).to redirect_to(root_path)
-  #   end
-  # end
-
   describe "GET #new" do
     it "gets a new user instance and renders the template" do
       get :new
@@ -56,10 +37,10 @@ RSpec.describe UsersController, type: :controller do
     it "redirects to root_path on unsuccessful creation" do
       post :create, params: { user: { name: "", surname: "", rank: "" } }
       expect(response).to redirect_to(root_path)
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
 
-    it "cannot create if unit is innactive" do
+    it "cannot create if unit is inactive" do
       unit3.save!
       session[:user_id] = user3.id
 
@@ -92,18 +73,19 @@ RSpec.describe UsersController, type: :controller do
       expect(user_to_edit.surname).to eq("User")
       expect(user_to_edit.email).to eq("updated@example.com")
       expect(response).to redirect_to(root_path)
+      expect(flash[:notice]).to eq("Dati atjaunoti")
     end
 
     it "redirects to root_path on unsuccessful update" do
       user_to_edit = create(:user, unit: unit)
       patch :update, params: { id: user_to_edit.id, user: { name: "", surname: "", email: "" } }
       expect(response).to redirect_to(root_path)
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
   end
 
   describe "DELETE #destroy" do
-    it "marks the user as inactive and deletes associated personal information" do
+    it "marks the user as inactive" do
       user_to_delete = create(:user, unit: unit)
       personal_info = create(:personal_information, user: user_to_delete)
       user_to_delete.save!
@@ -165,6 +147,7 @@ RSpec.describe UsersController, type: :controller do
       session[:new_user] = true
       patch :password_update, params: { id: user.id, old_password: "wrong_password", password_digest: "new_password", repeat_password: "new_password" }
       expect(response).to redirect_to(root_path)
+      expect(flash[:notice]).to eq("Nepareiza parole")
     end
 
     it "redirects to edit_user_path on unsuccessful password update for existing users with notice" do
@@ -190,34 +173,33 @@ RSpec.describe UsersController, type: :controller do
       patch :password_update, params: { id: user.id, old_password: old_password, password_digest: "new_password", repeat_password: "different_password" }
       expect(response).to redirect_to(edit_user_path(user.id))
     end
+  end
 
-    describe "POST #send_password_reset" do
-      it "sends a password reset email" do
-        ActiveJob::Base.queue_adapter = :test
-        user.save!
+  describe "POST #send_password_reset" do
+    it "sends a password reset email" do
+      ActiveJob::Base.queue_adapter = :test
+      user.save!
 
-        post :send_password_reset, params: { id: user.id }
+      post :send_password_reset, params: { id: user.id }
 
-        expect(response).to redirect_to(user_path(user))
-        expect(flash[:notice]).to eq("Epasts ar paroles atjaunošanas instrukcijām nosūtīts")
+      expect(response).to redirect_to(user_path(user))
+      expect(flash[:notice]).to eq("Epasts ar paroles atjaunošanas instrukcijām nosūtīts")
 
-        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
-        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
-      end
+      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+      ActiveJob::Base.queue_adapter.enqueued_jobs.clear
     end
+  end
 
-    describe "POST #resignation" do
-      it "sends an email to unit leader and deletes personal information" do
-        post :resignation, params: { id: current_user.id }
+  describe "POST #resignation" do
+    it "sends an email to unit leader and deletes personal information" do
+      post :resignation, params: { id: current_user.id }
 
-        expect(response).to redirect_to(edit_user_path(current_user))
-        expect(flash[:notice]).to eq("Jūsu iesniegums ir nosūtīts")
+      expect(response).to redirect_to(edit_user_path(current_user))
+      expect(flash[:notice]).to eq("Jūsu iesniegums ir nosūtīts")
 
-        puts ActiveJob::Base.queue_adapter.enqueued_jobs
-        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
-        expect(PersonalInformation.where(user: current_user)).to be_empty
-        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
-      end
+      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+      expect(PersonalInformation.where(user: current_user)).to be_empty
+      ActiveJob::Base.queue_adapter.enqueued_jobs.clear
     end
   end
 end

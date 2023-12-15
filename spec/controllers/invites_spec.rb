@@ -44,7 +44,7 @@ RSpec.describe InvitesController, type: :controller do
       delete :destroy, params: { id: invite.id }
 
       expect(response).to redirect_to(edit_event_path(event))
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
   end
 end

@@ -7,7 +7,7 @@ class PositionsController < ApplicationController
     if @position.save!
       redirect_to user_path(position_params[:user_id]), notice: "Amats izveidots"
     else
-      redirect_to user_path(position_params[:user_id]), notice: "Kļūda"
+      redirect_to user_path(position_params[:user_id]), alert: "Kļūda"
     end
   end
 
@@ -17,7 +17,7 @@ class PositionsController < ApplicationController
     if @position.delete
       redirect_to user_path(@user), notice: "Amats dzēsts"
     else
-      redirect_to user_path(@user), notice: "Kļūda"
+      redirect_to user_path(@user), alert: "Kļūda"
     end
   end
 

@@ -28,7 +28,7 @@ class UnitsController < ApplicationController
     if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit) && @leader.activity_statuss == "Vadītājs"
       redirect_to unit_path(@unit), notice: "Jauna vienība izveidota"
     else
-      redirect_to root_path, notice: "Kļūda"
+      redirect_to root_path, alert: "Kļūda"
     end
   end
 
@@ -42,6 +42,7 @@ class UnitsController < ApplicationController
   def update
     @unit = Unit.find(params[:id])
     @leader = params[:leader_id] ? User.find(params[:leader_id]) : @unit.unit_leader
+    membership_fee = unit_update_params[:membership_fee].present? ? unit_update_params[:membership_fee] : 0
 
     if @leader != @unit.unit_leader
       if !@unit.unit_leader.pklv_valde?
@@ -53,10 +54,10 @@ class UnitsController < ApplicationController
       end
     end
 
-    if @unit.update(unit_update_params)
+    if @unit.update(unit_update_params.merge(membership_fee: membership_fee))
       redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
     else
-      redirect_to root_path, notice: "Kļūda"
+      redirect_to root_path, alert: "Kļūda"
     end
   end
 
@@ -65,7 +66,7 @@ class UnitsController < ApplicationController
     if @unit.update(deleted_at: Date.today)
       redirect_to unit_path(@unit), notice: "Vienības atzīmēta kā neaktīva"
     else
-      redirect_to root_path, notice: "Kļūda"
+      redirect_to root_path, alert: "Kļūda"
     end
   end
 
@@ -74,7 +75,7 @@ class UnitsController < ApplicationController
     if @unit.update(deleted_at: nil)
       redirect_to unit_path(@unit), notice: "Vienības atzīmēta kā aktīva"
     else
-      redirect_to root_path, notice: "Kļūda"
+      redirect_to root_path, alert: "Kļūda"
     end
   end
 

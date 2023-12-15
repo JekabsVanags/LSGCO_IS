@@ -9,11 +9,11 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       h1.title-normal
         |Vienību priekšnieka darbības
       .border-2.rounded-xl.p-5
-        = form_tag unit_update_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row"
+        = form_tag unit_update_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
           = select_tag :rank, options_for_select(@avalable_ranks, @user.rank), class: "input-field-blue w-full lg:w-1/2 "
           button.btn-primary.w-full.lg:w-2/5 type="submit"
             |Mainīt pakāpi
-        = form_tag promise_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row"
+        = form_tag promise_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
           input type="date" class="input-field-blue w-full lg:w-1/2 " name="promise_date" value= (@user.promise? ? @user.promise? : Date.today)
           button.btn-primary.w-full.lg:w-2/5.disabled:bg-scout-gray type="submit" disabled= @user.promise?
             = @user.promise? ? "Solījums veikts" : "Reģistrēt solījumu"
@@ -21,7 +21,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
           = select_tag :activity_statuss, options_for_select(["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Neaktīvs"], @user.activity_statuss), class: "input-field-blue w-full lg:w-1/2 "
           button.btn-primary.w-full.lg:w-2/5 type="submit"
             |Mainīt statusu
-        = form_tag unit_update_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row"
+        = form_tag unit_update_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
           = select_tag :unit_id, options_for_select(@units, @user.unit.id), class: "input-field-blue w-full lg:w-1/2 "
           button.btn-primary.w-full.lg:w-2/5 type="submit"
             |Mainīt vienību
@@ -42,8 +42,11 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
             =button_to "#{agent_mobile? ? "X" : "Dzēst"}", position_path(position), method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
 
         .flex.items-end.mt-5.flex-col
-          =link_to "Atiestatīt paroli", send_password_reset_user_path(@user), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5"
+          =link_to "Atiestatīt paroli", send_password_reset_user_path(@user), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
           -if @user != @current_user && @user.activity_statuss == "Neaktīvs"
-            =link_to "Dzēst biedru", user_path(@user), data: { turbo_method: "delete" }, class: "btn-primary bg-scout-red w-full flex items-center lg:w-2/5"
-          =link_to "Maksājumi", list_membership_fee_payment_path(@user), class: "btn-primary w-full flex items-center lg:w-2/5"
-  =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit mt-20"
+            =link_to "Dzēst biedru", user_path(@user), data: { turbo_method: "delete" }, class: "btn-primary bg-scout-red w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
+  .mt-20.flex.flex-col
+    =link_to list_membership_fee_payment_path(@user), class: "btn-primary w-1/5 flex items-center lg:w-1/5 items-center justify-between"
+      | #{@user.name} Maksājumi
+      =image_tag 'icons/money.svg', size:"30"
+    =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit"

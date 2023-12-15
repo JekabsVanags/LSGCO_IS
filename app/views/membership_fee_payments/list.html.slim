@@ -10,4 +10,4 @@
         |Jauns maksājums
       =render "payment_form"
 
-      =link_to "< Atgriezties", :back , class: "btn-primary w-full mt-10 lg:mt-0"
+      =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit", class: "btn-primary w-full mt-10 lg:mt-0"

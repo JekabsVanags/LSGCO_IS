@@ -26,7 +26,7 @@ class EventRegistrationsController < ApplicationController
     if @registration.save! && @event.save!
       redirect_to event_path(registration_params[:event_id]), notice: "Reģistrēta dalība"
     else
-      redirect_to event_path(registration_params[:event_id]), notice: "Kļūda"
+      redirect_to event_path(registration_params[:event_id]), alert: "Kļūda"
     end
   end
 
@@ -43,7 +43,7 @@ class EventRegistrationsController < ApplicationController
     if @registration.delete && @event.save!
       redirect_to event_path(@event.id), notice: "Reģistrācija atsaukta"
     else
-      redirect_to event_path(@event.id), notice: "Kļūda"
+      redirect_to event_path(@event.id), alert: "Kļūda"
     end
   end
 

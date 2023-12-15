@@ -59,7 +59,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
       delete :destroy, params: { id: payment.id }
 
       expect(response).to redirect_to(list_membership_fee_payment_path(user))
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
 
     it "returns an error and doesnt do anything if payment is already recalled" do
@@ -71,7 +71,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
       delete :destroy, params: { id: payment.id }
 
       expect(response).to redirect_to(list_membership_fee_payment_path(user))
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
   end
 end

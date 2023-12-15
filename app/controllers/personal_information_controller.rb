@@ -15,7 +15,7 @@ class PersonalInformationController < ApplicationController
     if @info.save
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa saglabāta."
     else
-      redirect_to aptaujas_lapa_path, notice: "Kļūda"
+      redirect_to aptaujas_lapa_path, alert: "Kļūda"
     end
   end
 
@@ -28,7 +28,7 @@ class PersonalInformationController < ApplicationController
     if @info.update(personal_information_params)
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa atjaunota."
     else
-      redirect_to aptaujas_lapa_path, notice: "Kļūda"
+      redirect_to aptaujas_lapa_path, alert: "Kļūda"
     end
   end
 
@@ -37,7 +37,7 @@ class PersonalInformationController < ApplicationController
     if @info.delete
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa dzēsta."
     else
-      redirect_to aptaujas_lapa_path, notice: "Kļūda"
+      redirect_to aptaujas_lapa_path, alert: "Kļūda"
     end
   end
 

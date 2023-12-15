@@ -1,5 +1,4 @@
-script src= javascript_path("popups")
-div.absolute.bottom-5.right-10
+div class="#{agent_mobile? ? "sticky top-0 right-0" : "absolute bottom-5 right-10"}"
   -if notice
     div.border-scout-gold.border-t-8.bg-scout-blue.rounded-b.text-white.px-4.py-3.shadow-md[id="popup"]
       .flex

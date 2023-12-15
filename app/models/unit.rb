@@ -8,7 +8,6 @@ class Unit < ApplicationRecord
   has_many :membership_fee_payments
   has_many :positions
   has_many :weekly_activities
-
   def full_name
     number == 0 ? "LSGCO" : "#{city}s #{number}. vienība"
   end
