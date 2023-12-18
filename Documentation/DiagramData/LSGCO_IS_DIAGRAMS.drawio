@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-18T15:45:35.952Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="Hjbod7Tixqu_2v9G03tV" version="22.1.11" type="github" pages="11">
+<mxfile host="app.diagrams.net" modified="2023-12-18T15:48:36.295Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="cwC1Tm_q_xIMmeSTwMmb" version="22.1.11" type="github" pages="11">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
     <mxGraphModel dx="1194" dy="735" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -2528,7 +2528,7 @@
           <mxGeometry x="50" y="501" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="T4kSkhIun03mCkUl2oeb-22" value="Simbolu skaidrojumi:" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="411" width="100" height="30" as="geometry" />
+          <mxGeometry x="40" y="411" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="T4kSkhIun03mCkUl2oeb-23" value="Pasākuma skats&amp;nbsp;&lt;br&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;B&lt;/font&gt;&amp;nbsp;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="334" width="120" height="30" as="geometry" />
