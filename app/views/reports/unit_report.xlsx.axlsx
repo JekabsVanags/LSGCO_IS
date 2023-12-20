@@ -1,11 +1,42 @@
 wb = xlsx_package.workbook
 
-wb.add_worksheet(name: "Biedri") do |sheet|
+wb.add_worksheet(name: "Vienības informācija") do |sheet|
+
+  title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  bold_style = sheet.styles.add_style(b: true)
+
+  sheet.add_row ["LSGCO Vienības biedru atskaite #{Date.current.year}"], style: title_style
+  sheet.merge_cells("A1:B1")
+  sheet.add_row ["Struktūrvienības (sk.g.v) nosaukums", @unit.full_name], style: [bold_style] + [nil]
+  sheet.add_row ["Adrese saziņai", @unit.legal_adress], style: [bold_style] + [nil]
+  sheet.add_row ["E-pasts", @unit.email ? @unit.email : @unit.unit_leader.email], style: [bold_style] + [nil]
+  sheet.add_row ["Telefona nr", "#{@unit.phone ? @unit.phone : @unit.unit_leader.phone}"], style: [bold_style] + [nil]
+  sheet.add_row
+  sheet.add_row ["Nodarbības vieta", @unit.activity_location_name], style: [bold_style] + [nil]
+  sheet.add_row ["Komentāri", @unit.comments], style: [bold_style] + [nil]
+  sheet.add_row
+  @weekly_activities.each_with_index do |activity, index|
+    sheet.add_row [index == 0 ? "Nodarbību laiki:" : "", "#{activity.day} #{activity.rank} no #{activity.time}"], style: [bold_style] + [nil]
+  end
+end
+
+wb.add_worksheet(name: "Biedru saraksts") do |sheet|
+    title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  index_style = sheet.styles.add_style(b: true, alignment: {horizontal: :center})
+
   # Galvene
-  sheet.add_row ["Vārds", "Uzvārds", "Vienība", "Pakāpe"]
+  sheet.add_row ["Nr","Vārds", "Uzvārds", "Dzimšanas datums", "Telefons", "Epasts", "Pakāpe", "Biedra statuss", "Amati"], style: title_style
   
   # Dati
-  @users.each do |user|
-    sheet.add_row [user.name, user.surname, user.unit.full_name, user.rank]
+  @users.each_with_index do |user, index|
+    sheet.add_row [index+1, user.name, user.surname, user.birth_date, user.phone, user.email, user.rank, user.activity_statuss, user.positions.map { |position| position.position_name }.join(', ')], style: [index_style, nil]
   end
 end

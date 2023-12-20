@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
     session[:current_tab] = "unit_report" #Iestatam, ka izvēlnes aktīvā sekcija ir vienību atskaite
     if params[:id] #Ja ir zināma vienība par ko vācam atskaiti, iegūstam datus
       @unit = Unit.find(params[:id])
+      @weekly_activities = @unit.weekly_activities
       @users = @unit.users
       @report = generate_unit_report_data
 
