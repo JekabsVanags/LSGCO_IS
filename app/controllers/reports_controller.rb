@@ -5,11 +5,15 @@ class ReportsController < ApplicationController
 
   def unit_report
     session[:current_tab] = "unit_report" #Iestatam, ka izvēlnes aktīvā sekcija ir vienību atskaite
-
     if params[:id] #Ja ir zināma vienība par ko vācam atskaiti, iegūstam datus
       @unit = Unit.find(params[:id])
       @users = @unit.users
       @report = generate_unit_report_data
+
+      respond_to do |format|
+        format.html
+        format.xlsx { response.headers["Content-Disposition"] = "attachment; filename=#{@unit.city}_#{@unit.number}_vienibas_biedru_atskaite_#{Date.today}.xlsx" }
+      end
     else #Citādi iegūstam sarakstu ar vienībām priekš izvēlnes, kas neiekļauj administrācijas vienību (ar ciparu 0)
       @units = Unit.where(deleted_at: nil).map do |unit|
         unless unit.number == 0
@@ -23,6 +27,11 @@ class ReportsController < ApplicationController
     session[:current_tab] = "member_report"  #Iestatam, ka izvēlnes aktīvā sekcija ir vienību atskaite
     @report = generate_mamber_report_data
     @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.xlsx { response.headers["Content-Disposition"] = "attachment; filename=lsgco_biedru_atskaite_#{Date.today}.xlsx" }
+    end
   end
 
   private

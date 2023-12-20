@@ -24,7 +24,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
           = f.text_field :bank_account, class: 'input-field-blue w-full', required: true
           = f.label :membership_fee, 'Biedra nauda (vienības)', class: 'input-label'
           = f.number_field :membership_fee, class: 'input-field-blue w-full'
-          = select_tag :leader_id, options_for_select(@leader_candidates, @unit.unit_leader.id), class: 'input-field-blue w-full', required: true
+          = select_tag :leader_id, options_for_select(@leader_candidates, @unit.unit_leader ? @unit.unit_leader.id : 0), class: 'input-field-blue w-full', required: true
           = f.submit "Atjaunot vienības datus", class: "btn-primary w-full mt-9"
     
   .w-full.flex.flex-col.lg:flex-row

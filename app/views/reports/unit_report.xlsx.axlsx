@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Biedri") do |sheet|
+  # Galvene
+  sheet.add_row ["Vārds", "Uzvārds", "Vienība", "Pakāpe"]
+  
+  # Dati
+  @users.each do |user|
+    sheet.add_row [user.name, user.surname, user.unit.full_name, user.rank]
+  end
+end

@@ -7,6 +7,11 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
             label.input-label 
               |Meklēt
             input.input-field-blue.w-full type="text" id="searchField"
+          div
+            = form_with url: vienibas_atskaites_path(format: :xlsx), method: :get do |f|
+              = f.hidden_field :id, value: @unit.id
+              = f.submit ".XLSX", class: "btn-primary"
+
 
         .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-1/2
           =render "users/user_table"
