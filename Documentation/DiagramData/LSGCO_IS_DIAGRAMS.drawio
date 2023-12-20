@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-20T14:50:26.504Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="MwKpfLE2GqypB64_vsF_" version="22.1.11" type="github" pages="11">
+<mxfile host="app.diagrams.net" modified="2023-12-20T19:50:01.615Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="Eh-BPnK46wlzGcB1heLV" version="22.1.11" type="github" pages="11">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
     <mxGraphModel dx="714" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -2445,7 +2445,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="9tvAYmI2J-eQTyoTRJ6I" name="Page-11">
-    <mxGraphModel dx="714" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="714" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2548,7 +2548,7 @@
         <mxCell id="T4kSkhIun03mCkUl2oeb-39" value="Pasākuma apskates skats&lt;br&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;B&lt;/font&gt;&amp;nbsp;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;br&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="710" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="T4kSkhIun03mCkUl2oeb-40" target="P7cOOc2ZXj3iu_WEHNCP-4">
+        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="T4kSkhIun03mCkUl2oeb-40" target="P7cOOc2ZXj3iu_WEHNCP-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="T4kSkhIun03mCkUl2oeb-40" value="Pasākuma reģistrāciju skats&lt;br&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;br&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -2566,10 +2566,10 @@
         <mxCell id="T4kSkhIun03mCkUl2oeb-60" value="&lt;font color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;font color=&quot;#7ea6e0&quot;&gt;&amp;nbsp;&lt;/font&gt;- pieejams valdei" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="50" y="628" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-1" value="Pasākuma izveides skats&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-1" value="Pasākuma izveides skats&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="658" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="P7cOOc2ZXj3iu_WEHNCP-1">
+        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="P7cOOc2ZXj3iu_WEHNCP-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="340" y="655" as="sourcePoint" />
             <mxPoint x="370" y="740" as="targetPoint" />
@@ -2579,8 +2579,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-4" value="Aptaujas lapas apskates skats&lt;br&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;br&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="P7cOOc2ZXj3iu_WEHNCP-4" value="Aptaujas lapas apskates skats&lt;br&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#7ea6e0&quot;&gt;P&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;br&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="670" y="710" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iba5n13z8hVGEFA_iiIG-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iba5n13z8hVGEFA_iiIG-1" target="T4kSkhIun03mCkUl2oeb-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iba5n13z8hVGEFA_iiIG-1" value="Paroles izveidošanas skats&lt;br&gt;&amp;nbsp;&lt;font color=&quot;#ea6b66&quot;&gt;B&lt;/font&gt; &lt;font color=&quot;#7ea6e0&quot;&gt;P &lt;/font&gt;&lt;font color=&quot;#97d077&quot;&gt;V&lt;/font&gt;&lt;span id=&quot;docs-internal-guid-1fead270-7fff-1928-8d13-1eaac9e8ea73&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="120" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
