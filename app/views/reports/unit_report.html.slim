@@ -1,10 +1,12 @@
+script src = javascript_path("views/reports")
+
 flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     -if @unit.present?
       .max-h-1/3.h-fit.w-full
-        .flex.flex-col.justify-between.lg:flex-row.lg:w-1/2
+        .flex.flex-col.justify-between.lg:flex-row.lg:w-2/3
           div.w-full.flex.items-center
-            label.input-label 
+            label.input-label
               |Meklēt
             input.input-field-blue.w-full type="text" id="searchField"
           div
@@ -13,9 +15,24 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
               = f.submit ".XLSX", class: "btn-primary"
 
 
-        .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-1/2
-          =render "users/user_table"
-    -else 
+        div id="user-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
+            =render "users/user_table"
+        div.hidden id="event-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
+            =render "events/event_table"
+        div.hidden id="fee-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
+            =render "users/user_table"
+        div
+          button.btn-ternary id="user-report-show"
+            |Biedri
+          button.btn-ternary id="event-report-show"
+            |Pasākumi
+          button.btn-ternary id="fee-report-show"
+            |Maksājumi
+
+    -else
       .max-h-1/3.h-fit.w-full
         div
           h1.title-normal

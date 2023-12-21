@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
       @unit = Unit.find(params[:id])
       @weekly_activities = @unit.weekly_activities
       @users = @unit.users
+      @events = (@unit.events + @unit.event_invites).uniq
       @report = generate_unit_report_data
 
       respond_to do |format|
