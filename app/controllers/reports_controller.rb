@@ -9,8 +9,9 @@ class ReportsController < ApplicationController
       @unit = Unit.find(params[:id])
       @weekly_activities = @unit.weekly_activities
       @users = @unit.users
-      @events = (@unit.events + @unit.event_invites).uniq
+      @events = (@unit.events.unscoped + @unit.event_invites).uniq
       @report = generate_unit_report_data
+      @payments = generate_payment_summary(@unit)
 
       respond_to do |format|
         format.html
@@ -37,6 +38,34 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def generate_payment_summary(unit)
+    users_with_payments = unit.users.includes(:payed_fees)
+
+    payment_summary = users_with_payments.map do |user|
+      user_summary = {}
+
+      (1..12).each do |month|
+        monthly_summary = user.payed_fees
+                              .where("EXTRACT(MONTH FROM date) = ?", month)
+                              .sum(:amount)
+
+        user_summary[month] = monthly_summary.positive? ? "#{monthly_summary}€" : "-"
+      end
+
+      {
+        id: user.id,
+        name: user.name,
+        surname: user.surname,
+        bilance: user.membership_fee_bilance,
+        summary: user_summary
+      }
+    end
+
+    payment_summary
+  end
+
+
 
   def generate_mamber_report_data
     year_new_users = User.where(created_at: Time.now.beginning_of_year..Time.now.end_of_year).count

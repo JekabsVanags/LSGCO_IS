@@ -1,0 +1,38 @@
+table.table-auto.w-full.text-sm id="dataTable3"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-4.py-3.text-start Vārds
+      th.px-4.py-3.text-start Uzvārds
+      th.px-4.py-3.text-start Jan
+      th.px-4.py-3.text-start Feb
+      th.px-4.py-3.text-start Mar
+      th.px-4.py-3.text-start Apr
+      th.px-4.py-3.text-start May
+      th.px-4.py-3.text-start Jun
+      th.px-4.py-3.text-start Jul
+      th.px-4.py-3.text-start Aug
+      th.px-4.py-3.text-start Sep
+      th.px-4.py-3.text-start Okt
+      th.px-4.py-3.text-start Nov
+      th.px-4.py-3.text-start Dec
+      th.px-4.py-3.text-center Bilance
+      th.px-4.py-3.no-sort
+
+  tbody
+    - @payments.each do |user|
+      tr.border-b
+        td.px-4.py-3
+          = user[:name]
+        td.px-4.py-3
+          = user[:surname]
+
+        - 12.times do |index|
+          td.px-4.py-3
+            =user[:summary][index+1]
+
+        td.pz-4.py-3.text-center
+          = user[:bilance]
+
+        td.px-4.py-3
+          =link_to list_membership_fee_payment_path(user[:id]), class: "block w-5"
+            =image_tag 'icons/show.svg', size:"30"

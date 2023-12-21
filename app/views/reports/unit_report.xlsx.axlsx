@@ -1,7 +1,9 @@
 wb = xlsx_package.workbook
 
+#Lapas izveide
 wb.add_worksheet(name: "Vienības informācija") do |sheet|
 
+  #Tabulas stili
   title_style = sheet.styles.add_style(:bg_color => "556987",
                            :fg_color => "FFFFFF",
                            :b => true,
@@ -9,6 +11,7 @@ wb.add_worksheet(name: "Vienības informācija") do |sheet|
                            :alignment=>{:horizontal => :center})
   bold_style = sheet.styles.add_style(b: true)
 
+  #Tabulas datu aizpilde
   sheet.add_row ["LSGCO Vienības biedru atskaite #{Date.current.year}"], style: title_style
   sheet.merge_cells("A1:B1")
   sheet.add_row ["Struktūrvienības (sk.g.v) nosaukums", @unit.full_name], style: [bold_style] + [nil]
@@ -25,7 +28,8 @@ wb.add_worksheet(name: "Vienības informācija") do |sheet|
 end
 
 wb.add_worksheet(name: "Biedru saraksts") do |sheet|
-    title_style = sheet.styles.add_style(:bg_color => "556987",
+  #Tabulas stili
+  title_style = sheet.styles.add_style(:bg_color => "556987",
                            :fg_color => "FFFFFF",
                            :b => true,
                            :border=>Axlsx::STYLE_THIN_BORDER,
@@ -34,7 +38,7 @@ wb.add_worksheet(name: "Biedru saraksts") do |sheet|
 
   # Galvene
   sheet.add_row ["Nr","Vārds", "Uzvārds", "Dzimšanas datums", "Telefons", "Epasts", "Pakāpe", "Biedra statuss", "Amati"], style: title_style
-  
+
   # Dati
   @users.each_with_index do |user, index|
     sheet.add_row [index+1, user.name, user.surname, user.birth_date, user.phone, user.email, user.rank, user.activity_statuss, user.positions.map { |position| position.position_name }.join(', ')], style: [index_style, nil]
