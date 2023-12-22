@@ -19,7 +19,7 @@ table.table-auto.w-full.text-sm id="dataTable2"
         td.px-4.py-3
           = event.name
         td.px-4.py-3
-          ="#{event.date_from.strftime("%d.%m")}#{event.date_to ? "-" + event.date_to.strftime("%d.%m") : ""}"
+          ="#{event.date_from.strftime("%d.%m.%y")}#{event.date_to ? "-" + event.date_to.strftime("%d.%m.%y") : ""}"
         td.px-4.py-3
           = event.deleted_at.present? ? "Nē" : "Jā"
         td.px-4.py-3

@@ -28,10 +28,10 @@ table.table-auto.w-full.text-sm id="dataTable3"
 
         - 12.times do |index|
           td.px-4.py-3
-            =user[:summary][index+1]
+            =user[:summary][index] == 0 ? "-" : "#{user[:summary][index]}€"
 
         td.pz-4.py-3.text-center
-          = user[:bilance]
+          | #{user[:bilance]}€
 
         td.px-4.py-3
           =link_to list_membership_fee_payment_path(user[:id]), class: "block w-5"

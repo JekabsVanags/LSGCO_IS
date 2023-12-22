@@ -31,6 +31,7 @@ document.addEventListener('turbo:before-cache', function () {
   $('#dataTable').DataTable().destroy();
   $('#dataTable2').DataTable().destroy();
   $('#dataTable3').DataTable().destroy();
+  $('#dataTable4').DataTable().destroy();
 });
 
 $(document).on('turbo:load', function () {
@@ -38,7 +39,8 @@ $(document).on('turbo:load', function () {
   const table1 = initializeDataTable('#dataTable')
   const table2 = initializeDataTable('#dataTable2')
   const table3 = initializeDataTable('#dataTable3')
-  var tables = [table1, table2, table3]
+  const table4 = initializeDataTable('#dataTable4')
+  var tables = [table1, table2, table3, table4]
 
   $('#searchField').on( 'keyup', function () {
       tables.forEach((table)=>{

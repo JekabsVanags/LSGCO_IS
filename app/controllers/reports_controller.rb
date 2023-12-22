@@ -8,10 +8,12 @@ class ReportsController < ApplicationController
     if params[:id] #Ja ir zināma vienība par ko vācam atskaiti, iegūstam datus
       @unit = Unit.find(params[:id])
       @weekly_activities = @unit.weekly_activities
-      @users = @unit.users
+      @users = @unit.users.includes(:positions)
       @events = (@unit.events.unscoped + @unit.event_invites).uniq
       @report = generate_unit_report_data
       @payments = generate_payment_summary(@unit)
+      @org_fee_bilance = generate_org_fee(@payments, @unit)
+      @positions = @unit.positions.includes(:user)
 
       respond_to do |format|
         format.html
@@ -43,26 +45,40 @@ class ReportsController < ApplicationController
     users_with_payments = unit.users.includes(:payed_fees)
 
     payment_summary = users_with_payments.map do |user|
-      user_summary = {}
+
+      if user.activity_statuss == "Izstājies" || user.activity_statuss == "Neaktīvs"
+        month_left = Date(user.updated_at).month
+
+      end
+      user_summary = []
 
       (1..12).each do |month|
         monthly_summary = user.payed_fees
                               .where("EXTRACT(MONTH FROM date) = ?", month)
                               .sum(:amount)
 
-        user_summary[month] = monthly_summary.positive? ? "#{monthly_summary}€" : "-"
+        user_summary[month-1] = monthly_summary
       end
 
-      {
+       {
         id: user.id,
         name: user.name,
         surname: user.surname,
         bilance: user.membership_fee_bilance,
+        payed_total: user_summary.sum,
         summary: user_summary
       }
     end
 
     payment_summary
+  end
+
+  def generate_org_fee(payments, unit)
+    org_fee = Unit.where({number: 0}).first.membership_fee
+    total_fee = org_fee + unit.membership_fee
+    payments.reduce(0) do |sum, payment|
+      sum += org_fee * (payment[:payed_total] / total_fee)
+    end
   end
 
 

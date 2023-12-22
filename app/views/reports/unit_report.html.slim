@@ -20,7 +20,12 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
         div.hidden id="event-report"
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
             =render "event_report_table"
+        div.hidden id="position-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
+            =render "position_report_table"
         div.hidden id="fee-report"
+          .p.text-end
+            |Vienībai LSGCO kontā jāieskaita: #{@org_fee_bilance.round(2)}€
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
             =render "fee_report_table"
 
@@ -31,6 +36,8 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
             |Pasākumi
           button.btn-ternary id="fee-report-show"
             |Maksājumi
+          button.btn-ternary id="position-report-show"
+            |Amati
 
     -else
       .h-fit.w-full

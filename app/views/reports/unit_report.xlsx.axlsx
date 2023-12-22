@@ -44,3 +44,50 @@ wb.add_worksheet(name: "Biedru saraksts") do |sheet|
     sheet.add_row [index+1, user.name, user.surname, user.birth_date, user.phone, user.email, user.rank, user.activity_statuss, user.positions.map { |position| position.position_name }.join(', ')], style: [index_style, nil]
   end
 end
+
+wb.add_worksheet(name: "Vienības pasākumi") do |sheet|
+  #Tabulas stili
+  title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  index_style = sheet.styles.add_style(b: true, alignment: {horizontal: :center})
+
+  # Galvene
+  sheet.add_row ["Nr","Nosaukums", "Datums", "Vai notika?", "Rīkotājvienība", "Dalībnieku skaits", "Dalībnieki no vienības", "Brīvprātīgo skaits", "Brīvprātīgie no vienības", "Iesaistītās pakāpes", "Iesaistītās vienības"], style: title_style
+
+  # Dati
+  @events.each_with_index do |event, index|
+    sheet.add_row [index+1, event.name, "#{event.date_from.strftime("%d.%m.%y")}#{event.date_to ? "-" + event.date_to.strftime("%d.%m.%y") : ""}", event.deleted_at.present? ? "Nē" : "Jā", event.unit == @unit ? "Jā" : "Nē", event.registered_participants, event.event_registrations.joins(:user).where(users: { unit: @unit }, role: "Dalībnieks").count, event.registered_volunteers, event.event_registrations.joins(:user).where(users: { unit: @unit }, role: "Brīvprātīgais").count, event.invites.map{|invite| invite.rank}.uniq.join(", "), event.invites.map{|invite| invite.unit.full_name}.uniq.join(", ")], style: [index_style, nil]
+  end
+end
+
+wb.add_worksheet(name: "Biedra naudas maksājumi") do |sheet|
+  #Tabulas stili
+  title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  index_style = sheet.styles.add_style(b: true, alignment: {horizontal: :center})
+  bold_style = sheet.styles.add_style(b: true)
+
+  sheet.add_row ["Vienībai LSGCO kontā jāieskaita:", "#{@org_fee_bilance}€"], style: [bold_style, nil]
+  sheet.add_row
+
+  # Galvene
+  sheet.add_row ["Vārds","Uzvārds", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dev", "Bilance"], style: title_style
+
+  # Dati
+  @payments.each do |user|
+    row_data = [
+      user[:name],
+      user[:surname],
+      *user[:summary].map { |payment| payment == 0 ? "-" : "#{payment}€" },
+      "#{user[:bilance]}€"
+    ]
+
+    sheet.add_row row_data
+  end
+end
