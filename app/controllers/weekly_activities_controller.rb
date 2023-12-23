@@ -1,5 +1,5 @@
 class WeeklyActivitiesController < ApplicationController
-  before_action :unit_access?
+  before_action :authorized?, :unit_access?
 
   def create
     @activity = WeeklyActivity.new(weekly_activity_params)

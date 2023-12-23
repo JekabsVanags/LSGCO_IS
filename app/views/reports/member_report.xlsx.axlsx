@@ -1,11 +1,47 @@
 wb = xlsx_package.workbook
 
+wb.add_worksheet(name: "Atrā statistika") do |sheet|
+  #Stili
+  title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  bold_style = sheet.styles.add_style(b: true)
+
+  #Dati
+  sheet.add_row ["LSGCO biedru atskaite #{Date.today.strftime("%d.%m.%y")}"], style: title_style
+  sheet.merge_cells("A1:C1")
+  sheet.add_row
+  sheet.add_row ["Biedru skaits:", @member_report[:member_count]], style: [bold_style, nil]
+  sheet.add_row ["Jauno biedru skaits:", @member_report[:new_members_count]], style: [bold_style, nil]
+  sheet.add_row ["Aktīvo vienību skaits:", @member_report[:unit_count]], style: [bold_style, nil]
+  sheet.add_row ["Neaktīvo vienību skaits:", @member_report[:inactive_count]], style: [bold_style, nil]
+  sheet.add_row ["Jauno vienību skaits:", @member_report[:new_unit_count]], style: [bold_style, nil]
+  sheet.add_row
+  sheet.add_row ["Pakāpe", "Skaits", "Ar solījumu"], style: title_style
+  
+  #Pakāpju dati
+  @rank_report.each do |rank| 
+  sheet.add_row ["#{rank[:rank]}", rank[:count], rank[:promise]], style: [bold_style, nil, nil]
+  end
+end
+
 wb.add_worksheet(name: "Biedri") do |sheet|
+
+  # Stili
+  title_style = sheet.styles.add_style(:bg_color => "556987",
+                           :fg_color => "FFFFFF",
+                           :b => true,
+                           :border=>Axlsx::STYLE_THIN_BORDER,
+                           :alignment=>{:horizontal => :center})
+  index_style = sheet.styles.add_style(b: true, alignment: {horizontal: :center})
+
   # Galvene
-  sheet.add_row ["Vārds", "Uzvārds", "Vienība", "Pakāpe"]
+  sheet.add_row ["Npk.","Vārds", "Uzvārds", "Vienība", "Dzimšanas d.", "Pakāpe", "Statuss", "Gadi org."], style: title_style
   
   # Dati
-  @users.each do |user|
-    sheet.add_row [user.name, user.surname, user.unit.full_name, user.rank]
+  @users.each_with_index do |user, index|
+    sheet.add_row [index, user.name, user.surname, user.unit.full_name, user.birth_date ? user.birth_date.strftime("%d.%m.%y") : "-",  "#{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }", user.activity_statuss, user.years_in_organization], style: [index_style, nil]
   end
 end

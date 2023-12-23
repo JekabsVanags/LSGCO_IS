@@ -18,7 +18,7 @@ class Unit < ApplicationRecord
   end
 
   def unit_leader
-    users.where(unit: @unit, permission_level: "pklv_vaditajs").first || users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
+    users.where(permission_level: "pklv_vaditajs").first || users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def unit_active?

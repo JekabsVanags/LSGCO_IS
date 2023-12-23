@@ -1,5 +1,5 @@
 class MembershipFeePaymentsController < ApplicationController
-  before_action :unit_access?, :authorized?
+  before_action :authorized?, :unit_access?
 
   def create
     @user = User.find(membership_fee_payment_params[:user_payed])
