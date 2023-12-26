@@ -53,6 +53,7 @@ class ReportsController < ApplicationController
       (1..12).each do |month| #Katram mēnesim atrodam kāda maksājumu summa katrā mēnesī, saglabājam masīvā vieglai apstrādei
         monthly_summary = user.payed_fees
                               .where("EXTRACT(MONTH FROM date) = ?", month)
+                              .where("EXTRACT(YEAR FROM date) = ?", Date.today.year)
                               .sum(:amount)
 
         user_summary[month - 1] = monthly_summary
