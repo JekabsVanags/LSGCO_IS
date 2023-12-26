@@ -41,7 +41,7 @@ class EventsController < ApplicationController
     if @event.save! && generate_invites(event_params[:units], event_params[:ranks], @event)
       redirect_to events_path, notice: "Pasākums izveidots"
     else
-      redirect_to events_path, notice: "Kļūda"
+      redirect_to events_path, alert: "Kļūda"
     end
   end
 
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to events_path, notice: "Pasākums atjaunots"
     else
-      redirect_to events_path, notice: "Kļūda"
+      redirect_to events_path, alert: "Kļūda"
     end
   end
 
@@ -61,7 +61,7 @@ class EventsController < ApplicationController
     if @event.update(deleted_at: Time.now) && delete_invites(@event) && delete_registrations(@event)
       redirect_to events_path, notice: "Pasākums dzēsts"
     else
-      redirect_to events_path, notice: "Kļūda"
+      redirect_to events_path, alert: "Kļūda"
     end
   end
 

@@ -1,0 +1,36 @@
+table.table-auto.w-full.text-sm id="dataTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-4.py-3.text-start Vārds
+      th.px-4.py-3.text-start Uzvārds
+      th.px-4.py-3.text-start Dzimšanas d.
+      th.px-4.py-3.text-start Telefons
+      th.px-4.py-3.text-start Epasts
+      th.px-4.py-3.text-start Pakāpe
+      th.px-4.py-3.text-start Status
+      th.px-4.py-3.text-start Amats
+      th.px-4.py-3.no-sort
+
+  tbody
+    - @users.each do |user|
+      tr.border-b
+        td.px-4.py-3
+          = user.name
+        td.px-4.py-3
+          = user.surname
+        td.px-4.py-3
+          = user.birth_date ? user.birth_date.strftime("%d.%m") : "-"
+        td.px-4.py-3
+          = user.phone.present? ? user.phone : "-"
+        td.px-4.py-3
+          = user.email.present? ? user.email : "-"
+        td.px-4.py-3
+          | #{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }
+        td.px-4.py-3
+          = user.activity_statuss
+        td.px-4.py-3.text-sm
+          div.overflow-auto.max-h-5
+            = user.positions.count > 0 ? user.positions.map { |position| position.position_name }.join(', ') : "-"
+        td.px-4.py-3
+          =link_to user_path(user), class: "block w-5"
+            =image_tag 'icons/edit.svg', size:"30"

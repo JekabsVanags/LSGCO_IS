@@ -154,7 +154,7 @@ RSpec.describe UnitsController, type: :controller do
       patch :update, params: { id: unit.id, unit: { city: "New City" } }
 
       expect(response).to redirect_to(root_path)
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
     end
   end
 end

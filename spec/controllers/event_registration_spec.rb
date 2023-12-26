@@ -73,7 +73,7 @@ RSpec.describe EventRegistrationsController, type: :controller do
       event.reload
 
       expect(response).to redirect_to(event_path(event.id))
-      expect(flash[:notice]).to eq("Kļūda")
+      expect(flash[:alert]).to eq("Kļūda")
       expect(EventRegistration.count).to eq(1)
       expect(event.registered_participants).to eq(1)
     end

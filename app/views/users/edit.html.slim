@@ -14,9 +14,9 @@ script src = javascript_path("views/user_edit")
     div.flex.flex-col.mt-2.lg:w-1/2.lg:mt-10 id="data_reset_form"
       = form_for @user do |f|
         = f.label :name, "Vārds", class: "input-label"
-        = f.text_field :name, class: "input-field-blue w-full"
+        = f.text_field :name, class: "input-field-blue w-full", required: true
         = f.label :surname, "Uzvārds", class: "input-label"
-        = f.text_field :surname, class: "input-field-blue w-full"
+        = f.text_field :surname, class: "input-field-blue w-full", required: true
         = f.label :email, "E-pasts", class: "input-label"
         = f.email_field :email, class: "input-field-blue w-full"
         = f.label :phone, "Telefona nummurs", class: "input-label"
@@ -32,7 +32,7 @@ script src = javascript_path("views/user_edit")
           = f.check_box :volunteer, class: "border-2 border-scout-blue rounded-md h-6 w-6"
           = f.label :volunteer, "Vēlos, lai man rāda pasākumus kuros var piedalīties kā brīvprātīgais", class: "input-label"
         .flex.mt-4.mb-6.mx-1.items-center
-          = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6"
+          = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6 terms-and-services", required: true
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label"
         = f.submit "Iesniegt", class: "btn-primary w-full"
       button.btn-ternary class="form_toggle"
@@ -42,13 +42,13 @@ script src = javascript_path("views/user_edit")
       =form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
         label.input-label 
           |Vecā parole
-        input.input-field-blue.w-full type="password" name="old_password"
+        input.input-field-blue.w-full type="password" name="old_password" required="true"
         label.input-label 
           |Jaunā parole
-        input.input-field-blue.w-full type="password" name="password_digest"
+        input.input-field-blue.w-full type="password" name="password_digest" required="true"
         label.input-label 
           |Atkārto paroli
-        input.input-field-blue.w-full type="password" name="repeat_password"
+        input.input-field-blue.w-full type="password" name="repeat_password" required="true"
         button.btn-primary.flex.items-center.justify-between.mt-4.w-full type="submit" 
           |Iesniegt
       button.btn-ternary class="form_toggle"

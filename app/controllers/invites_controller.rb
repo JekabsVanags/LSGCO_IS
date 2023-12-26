@@ -12,7 +12,7 @@ class InvitesController < ApplicationController
     if @invite.save!
       redirect_to edit_event_path(invite_params[:event]), notice: "Ielūgums izveidots"
     else
-      redirect_to edit_event_path(invite_params[:event]), notice: "Kļūda"
+      redirect_to edit_event_path(invite_params[:event]), alert: "Kļūda"
     end
   end
 
@@ -22,7 +22,7 @@ class InvitesController < ApplicationController
     if @invite.delete
       redirect_to edit_event_path(@event), notice: "Ielūgums dzēsts"
     else
-      redirect_to edit_event_path(@event), notice: "Kļūda"
+      redirect_to edit_event_path(@event), alert: "Kļūda"
     end
   end
 

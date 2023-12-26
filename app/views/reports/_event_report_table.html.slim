@@ -1,0 +1,41 @@
+table.table-auto.w-full.text-sm id="dataTable2"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-4.py-3.text-start Nosaukums
+      th.px-4.py-3.text-start Datums
+      th.px-4.py-3.text-start Vai notika
+      th.px-4.py-3.text-start Rīkoja
+      th.px-4.py-3.text-start Dalībnieku skaits
+      th.px-4.py-3.text-start Dalībnieki no vienības
+      th.px-4.py-3.text-start Brīvprātīgo skaits
+      th.px-4.py-3.text-start Brīvprātīgie no vienības
+      th.px-4.py-3.text-start Iesaistītās pakāpes
+      th.px-4.py-3.text-start Iesaistītās vienības
+      th.px-4.py-3.no-sort
+
+  tbody
+    - @events.each do |event|
+      tr.border-b
+        td.px-4.py-3
+          = event.name
+        td.px-4.py-3
+          ="#{event.date_from.strftime("%d.%m.%y")}#{event.date_to ? "-" + event.date_to.strftime("%d.%m.%y") : ""}"
+        td.px-4.py-3
+          = event.deleted_at.present? ? "Nē" : "Jā"
+        td.px-4.py-3
+          = event.unit == @unit ? "Jā" : "Nē"
+        td.px-4.py-3
+          = event.registered_participants
+        td.px-4.py-3
+          = event.event_registrations.joins(:user).where(users: { unit: @unit }, role: "Dalībnieks").count
+        td.px-4.py-3
+          = event.registered_volunteers
+        td.px-4.py-3
+          = event.event_registrations.joins(:user).where(users: { unit: @unit }, role: "Brīvprātīgais").count
+        td.px-4.py-3
+          = event.invites.map{|invite| invite.rank}.uniq.join(", ")
+        td.px-4.py-3
+          = event.invites.map{|invite| invite.unit.full_name}.uniq.join(", ")
+        td.px-4.py-3
+          =link_to event_path(event), class: "block w-5"
+            =image_tag 'icons/show.svg', size:"30"

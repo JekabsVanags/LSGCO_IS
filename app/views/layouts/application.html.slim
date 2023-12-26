@@ -9,12 +9,14 @@ html
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags  "application"
-    = favicon_link_tag asset_path('logo.svg')
+    = favicon_link_tag asset_path('LSGCO_logo_small.svg')
 
   script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"
   link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.tailwindcss.min.css"
   script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"
   script src = javascript_path("datatable")
+  script src = javascript_path("automatic_scripts")
+  script src = javascript_path("validations_and_alerts")
 
 
   body class="#{agent_mobile? ? "flex flex-col" : "flex"}"

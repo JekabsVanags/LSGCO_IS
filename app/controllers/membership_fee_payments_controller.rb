@@ -1,5 +1,5 @@
 class MembershipFeePaymentsController < ApplicationController
-  before_action :unit_access?, :authorized?
+  before_action :authorized?, :unit_access?
 
   def create
     @user = User.find(membership_fee_payment_params[:user_payed])
@@ -10,7 +10,7 @@ class MembershipFeePaymentsController < ApplicationController
     if @payment.save! && @user.update(membership_fee_bilance: @recalculated_bilance)
       redirect_to list_membership_fee_payment_path(@user), notice: "Maksājums reģistrēts"
     else
-      redirect_to list_membership_fee_payment_path(@user), notice: "Kļūda"
+      redirect_to list_membership_fee_payment_path(@user), alert: "Kļūda"
     end
   end
 
@@ -34,7 +34,7 @@ class MembershipFeePaymentsController < ApplicationController
        @user.update(membership_fee_bilance: @recalculated_bilance)
       redirect_to list_membership_fee_payment_path(@user), notice: "Maksājums atsaukts"
     else
-      redirect_to list_membership_fee_payment_path(@user), notice: "Kļūda"
+      redirect_to list_membership_fee_payment_path(@user), alert: "Kļūda"
     end
   end
 

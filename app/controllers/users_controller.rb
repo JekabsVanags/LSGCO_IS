@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       UserMailer.first_login_email(current_user, @user, link).deliver_later
       redirect_to root_path, notice: 'Biedrs pievienots'
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to root_path, alert: 'Kļūda'
     end
   end
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     if @user.update(user_update_params)
       redirect_to root_path, notice: 'Dati atjaunoti'
     else
-      redirect_to root_path, notice: 'Kļūda'
+      redirect_to root_path, alert: 'Kļūda'
     end
   end
 
@@ -59,12 +59,9 @@ class UsersController < ApplicationController
     @unit = @user.unit
 
     if @user.update(activity_statuss: "Izstājies")
-      if @user.personal_information.present?
-        @user.personal_information.destroy
-      end
       redirect_to unit_path(@unit), notice: 'Profils dzēsts'
     else
-      redirect_to unit_path(@unit), notice: 'Kļūda'
+      redirect_to unit_path(@unit), alert: 'Kļūda'
     end
 
   end
@@ -85,7 +82,7 @@ class UsersController < ApplicationController
       if @user.save!
         redirect_to user_path(@user), notice: 'Vienība nomainīta'
       else
-        redirect_to user_path(@user), notice: 'Kļūda'
+        redirect_to user_path(@user), alert: 'Kļūda'
       end
     end
 
@@ -94,7 +91,7 @@ class UsersController < ApplicationController
       if @user.save!
         redirect_to user_path(@user), notice: 'Aktivitātes statuss nomainīts'
       else
-        redirect_to user_path(@user), notice: 'Kļūda'
+        redirect_to user_path(@user), alert: 'Kļūda'
       end
     end
 
@@ -104,7 +101,7 @@ class UsersController < ApplicationController
     if @user.rank_histories.where(current: true).update(current: false) && @rank.save!
       redirect_to user_path(@user), notice: 'Pakāpe nomainīta'
     else
-      redirect_to user_path(@user), notice: 'Kļūda'
+      redirect_to user_path(@user), alert: 'Kļūda'
     end
     end
   end
@@ -115,7 +112,7 @@ class UsersController < ApplicationController
     if @user.rank_histories.where(current: true).update(date_of_oath: params[:promise_date] || Date.today)
       redirect_to user_path(@user), notice: 'Solījums atzīmēts'
     else
-      redirect_to user_path(@user), notice: 'Kļūda'
+      redirect_to user_path(@user), alert: 'Kļūda'
     end
   end
 
@@ -144,7 +141,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to edit_user_path(current_user), notice: success_notice
     else
-      redirect_to path, notice: 'Kļūda'
+      redirect_to path, alert: 'Kļūda'
     end
   end
 
@@ -166,10 +163,13 @@ class UsersController < ApplicationController
     @link = user_path(@user.id)
 
     if @user.update(activity_statuss: "Neaktīvs")
+      if @user.personal_information.present?
+        @user.personal_information.destroy
+      end
       UserMailer.user_resignation_email(@user, @user.unit.unit_leader, @link).deliver_later
       redirect_to edit_user_path(current_user), notice: "Jūsu iesniegums ir nosūtīts"
     else
-      redirect_to edit_user_path(current_user), notice: 'Kļūda'
+      redirect_to edit_user_path(current_user), alert: 'Kļūda'
     end
   end
 

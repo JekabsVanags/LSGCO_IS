@@ -29,7 +29,7 @@ PPA ir izstrādāts atbilstoši standartam "LVS 72:1996 Ieteicamā prakse progra
 
 ### Pārskats
 
-Dokumenta struktūru veido trīs daļas:
+Dokumenta struktūru veido sekojošās daļas:
 
 1. **Vispārīgs apraksts**, kas ietver
    
@@ -60,7 +60,7 @@ Dokumenta struktūru veido trīs daļas:
    
    - testēšanas procesa aprakstu
    - automatizēto vienībtestu dokumentāciju
-   - integrācijas testēšanas protokolu
+   - sistēmtestēšanas testēšanas protokolu
 
 5. **Projekta pārvaldības pārskats**
 
@@ -112,7 +112,7 @@ Sistēmai ir jānodrošina sekojošas funkcijas:
 **Attēls 1.1.1.** *0. līmeņa datu plūsmas diagramma*
 Kā redzams attēlā 1.1.1., sistēmas visi lietotāji tiek uzskatīti par Biedriem. Katra nākamā sistēmas lietotāja grupa iegūst jaunas tiesības, nezaudējot iepriekšējās. Sākot no Priekšnieka atļaujas līmeņa ir iespējams iegūt atskaites.
 
-- Organizācijas biedrs (turpmāk Biedrs) - lietotājs, kurš spēj papildināt datus par sevi, pievienoties pasākumiem, saņemt paziņojumus par beidra naudām, apskatīt un pieteikties pasākumiem. Šim lietotājam ir piekļuve sistēmas "Biedrs" modulim un tā funkcijām, daļai no "Pasākums" modeļa funkcijām.
+- Organizācijas biedrs (turpmāk Biedrs) - lietotājs, kurš spēj papildināt datus par sevi, pievienoties pasākumiem, saņemt paziņojumus par beidra naudām, apskatīt un pieteikties pasākumiem. Šim lietotājam ir piekļuve sistēmas "Biedrs" modulim un tā funkcijām, daļai no "Pasākums" moduļa funkcijām.
 - Struktūrvienības vadītājs (turpmāk Priekšnieks) - lietotājs, kurš spēj veikt visas darbības ko Biedrs, bet arī pārvaldīt vienības biedrus un to statusu, izveidot jaunu biedru, izveidot atskaites par vienību, izveidot pasākumus. Šim lietotājam ir piekļuve sistēmas "Biedrs", "Pasākums" un "Vienība" moduļiem un to funkcijām.
 - Nacionālā līmeņa biedrs (turpmāk Administrators) - lietotājs, kurš spēj veikt visas darbības ko Biedrs un Priekšnieks, bet arī pārvaldīt vienības, izveidot jaunu vienību, izveidot atskaites par organizāciju. Šim lietotājam ir piekļuve sistēmas "Biedrs", "Vienība", "Pasākums" un "Valde" moduļiem un to funkcijām.
 
@@ -132,21 +132,19 @@ Kā redzams attēlā 1.1.1., sistēmas visi lietotāji tiek uzskatīti par Biedr
 
 ### 2.1 Datu bāzes apraksts
 
-![Konceptuālais datu bāzes modelis](DB_konceptuala_diagramma.png)
-
 **Attēls 2.1.1.** *Konceptuālais datu bāzes modelis*
 Attēlā 2.2.1 var redzēt datubāzes konceptuālo modeli, kurā ir redzamas savstarpējās attiecības sistēmas entitātēm.
 
 ### 2.2 Funkcionālās prasības
 
-#### 2.2.2. Funkciju sadalījums pa modeļiem
+#### 2.2.2. Funkciju sadalījums pa moduļiem
 
 ![1. līmeņa datu plūsmas diagramma](1_limena_dpd.png)
 
 **Attēls 2.2.1.** *1. līmeņa datu plūsmas diagramma*
-Attēlā 2.2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo sistēmas moduļu miejdarbību ar sistēmas lietotājiem un datubāzi. Pārskatāmības dēļ 1. līmenī DB ir abstraktētas vairākās datubāzēs, un tā neatspoguļo reālo datubāzes uzbūvi. Detalizētāks modeļu funkciju apraksts ir apskatāms zemāk tabulā 2.2.
+Attēlā 2.2.1. ir redzama pirmā līmeņa datu plūsmas diagramma, kas atspoguļo sistēmas moduļu miejdarbību ar sistēmas lietotājiem un datubāzi. Pārskatāmības dēļ 1. līmenī DB ir abstraktētas vairākās datubāzēs, un tā neatspoguļo reālo datubāzes uzbūvi. Detalizētāks moduļu funkciju apraksts ir apskatāms zemāk tabulā 2.2.
 
-Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
+Sistēma ir sadalīta 5 galvenajos moduļos. Šie moduļi ir sekojoši:
 
 - "Biedrs" (**BDR**) modulis, kas ir domāts lietotāja personīgās informācijas uzturēšanai, labošanai un izmantošanai, kā arī biedra naudu izsekošanai.
   Funkciju sadalījums pa sistēmas moduļiem
@@ -170,7 +168,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
   |         | BDR-07               | Paroles izveide                                     | Biedrs, Priekšnieks, Administrators |
   | VNB     | VNB-01               | Biedra pievienošana                                 | Priekšnieks, Administrators         |
   |         | VNB-02               | Vienības biedru apskaīšana                          | Priekšnieks, Administrators         |
-  |         | VNB-03               | Vienības biedra vienības nomaiņa                    | Priekšnieks, Administrators         |
+  |         | VNB-03               | Vienības biedra datu nomaiņa                        | Priekšnieks, Administrators         |
   |         | VNB-04               | Vienības datu apskaīšana                            | Priekšnieks, Administrators         |
   |         | VNB-05               | Vienības datu atjaunošana                           | Priekšnieks, Administrators         |
   |         | VNB-06               | Vienības biedru atskaites sagatavošana              | Priekšnieks, Administrators         |
@@ -568,8 +566,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Izvaddati           | 1) Funkcija ir veiksmīga-  tiek parādīts paziņojums 1. <br> 2) Funkcija ir pārtraukta- ja ievaddatu vērtības loma ir dalībnieks, tiek parādīts paziņojums 2., ja ievaddatu vērtības loma ir brībprātīgais, tiek parādīts paziņojums 3. <br> 3) Funkcija ir neveiksmīga- tiek parādīts paziņojums 4.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Paziņojumi          | 1) 'Reģistrēta dalība'<br/>2) 'Pārāk daudz dalībnieku'<br/>3) 'Pieteikami brīvprātīgo'<br/>4) 'Ķļūda'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-
-
 **Tabula 2.2.5.5** *Pieteikšanās pasākumam funkcijas projektējums*
 
 ##### 2.2.5.6 Atteikšanās no pasākuma (PSK-06)
@@ -596,8 +592,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.5.7** *Aktuālo pasākumu iegūšanas funkcijas projektējums*
 
-
-
 ##### 2.2.5.8 Ielūguma izveidošana (PSK-08)
 
 | Funkcijas nosaukums | Ielūguma izveidošana (PSK-08)                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -610,8 +604,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 **Tabula 2.2.5.8** *Ielūguma izveidošanas funkcijas projektējums*
 
-
-
 ##### 2.2.5.9 Ielūguma dzēšana (PSK-09)
 
 | Funkcijas nosaukums | Ielūguma dzēšana (PSK-09)                                                                                                 |
@@ -623,8 +615,6 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 | Paziņojumi          | 1) 'Ielūgums dzēsts'<br/>2) 'Kļūda'                                                                                       |
 
 **Tabula 2.2.5.9** *Ielūguma dzēšanas funkcijas projektējums*
-
-
 
 2.2.5.10 Pasākuma reģistrāciju apskatīšana (PSK-10)
 
@@ -706,7 +696,7 @@ Sistēma ir sadalīta 5 galvenajos modeļos. Šie moduļi ir sekojoši:
 
 #### 2.3.4. Uzturēšanas prasības
 
-- Lietotne automātisko datu izpildi fiksē datubāzē
+- Lietotne automātisko funkciju izpildi fiksē datubāzē, nodrošinot izsekojamību
 
 - Lietotnē daļai no datu (biedri, vienības, pasākumi) tiek pielietota nestingrā dzēšana
 
@@ -764,8 +754,6 @@ Tāpat tiks veikta arī manuāla sistēmas testēšana. Tā ietvers manuālas p�
 | Apraksts                    | Šajā testu komplektā tiek pārbaudīta lietotāja modeļa funkcionalitāte.<br/>Šī testa komplekta testi ietver testus, kas pārbauda modeļa validāciju, noklusēto vērtību pielietošanu, modeļa saikni ar biedra naudas maksājuma, pieteikumu, amatu, pakāpes un vienības modeļiem. Tāpat tiek pārbaudītas modeļa funkcijas, kas ietver: gadi organizācijā aprēķināšana, biedra naudas bilances pārrēķināšana, aktuālo pasākumu iegūšana.<br/>Kopumā tiek pārbaudīti 14 scenāriji. |
 
 **Tabula 4.2.1** *Lietotāja modeļa vienībtestu apraksta tabula*
-
-
 
 | Testa komplekta nosaukums   | Lietotāja kontroliera integrācijas testi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

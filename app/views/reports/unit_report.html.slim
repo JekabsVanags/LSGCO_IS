@@ -1,17 +1,46 @@
-flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+script src = javascript_path("views/reports")
+
+flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     -if @unit.present?
-      .max-h-1/3.h-fit.w-full
-        .flex.flex-col.justify-between.lg:flex-row.lg:w-1/2
+      .h-full.w-full
+        .flex.flex-col.justify-between.w-full.lg:flex-row.h-full.lg:w-2/3
           div.w-full.flex.items-center
-            label.input-label 
+            label.input-label
               |Meklēt
             input.input-field-blue.w-full type="text" id="searchField"
+          div
+            = form_with url: vienibas_atskaites_path(format: :xlsx), method: :get do |f|
+              = f.hidden_field :id, value: @unit.id
+              = f.submit ".XLSX", class: "btn-primary"
 
-        .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-1/2
-          =render "users/user_table"
-    -else 
-      .max-h-1/3.h-fit.w-full
+        div id="user-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
+            =render "user_report_table"
+        div.hidden id="event-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
+            =render "event_report_table"
+        div.hidden id="position-report"
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
+            =render "position_report_table"
+        div.hidden id="fee-report"
+          .p.text-end
+            |Vienībai LSGCO kontā jāieskaita: #{@org_fee_bilance.round(2)}€
+          .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
+            =render "fee_report_table"
+
+        div.flex.sticky.bottom-0.left-23.bg-white.border-2.rounded-xl.lg:absolute.lg:border-0.lg:bottom-5
+          button.btn-ternary.text-scout-red id="user-report-show"
+            |Biedri
+          button.btn-ternary id="event-report-show"
+            |Pasākumi
+          button.btn-ternary id="fee-report-show"
+            |Maksājumi
+          button.btn-ternary id="position-report-show"
+            |Amati
+
+    -else
+      .h-fit.w-full
         div
           h1.title-normal
             | Norādiet vienību kurai iegūt atskaiti

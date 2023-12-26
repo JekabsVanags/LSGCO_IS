@@ -1,8 +1,6 @@
-script src= javascript_path("sidebar")
-
 div.border-2.flex.flex-col.px-5
   div.flex.justify-between.items-center
-    = image_tag  "LSGCO_logo.png", class:"h-32 text-center"
+    = image_tag  "LSGCO_logo_full.svg", class:"h-32 text-center p-4"
     button.h-15 
       =image_tag src="icons/burger_menu.svg", size: "30px", id: "dropdown-button"
   
@@ -30,9 +28,9 @@ div.border-2.flex.flex-col.px-5
               |Vienības
               =image_tag 'icons/units.svg', size:"30"
               
-        -if @user_permission_level == "pklv_vaditajs"
+        -if @user_permission_level == "pklv_vaditajs" ||  @user_permission_level == "pklv_valde" && @current_user.activity_statuss == "Vadītājs"
             div
-                  =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : current_user.unit.unit_active? ? "btn-primary flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3 disabled-link"
+              =link_to new_user_path, class: current_tab == "new_member" ? "btn-active flex items-center justify-between my-3" : current_user.unit.unit_active? ? "btn-primary flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3 disabled-link"
                 |Pievienot biedru
                 =image_tag 'icons/new_user.svg', size:"30"
               =link_to events_path, class: current_tab == "events" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"

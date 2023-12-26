@@ -1,11 +1,51 @@
 flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     .max-h-1/3.h-fit.w-full
-      .flex.flex-col.justify-between.lg:flex-row.lg:w-1/2
+      .flex.flex-col.justify-between.lg:flex-row.lg:w-2/3
         div.w-full.flex.items-center
           label.input-label 
             |Meklēt
           input.input-field-blue.w-full type="text" id="searchField"
+        div
+          =button_to ".XLSX", biedru_atskaites_path(format: :xlsx), method: :get, class: "btn-primary"
 
-      .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
-        =render "users/user_table"
+      .flex.flex-col.lg:flex-row
+        .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
+          =render "org_user_report"
+        .lg:w-1/3.mt-10.ml-0.lg:ml-5.lg:mt-0
+          p.title-normal.text-center
+            |Statistika
+          div.border-2.rounded-xl.p-2
+            table.auto.w-2/3.border-spacing-y-2.border-separate
+              tr 
+                td.font-semibold
+                  | Biedru skaits:
+                td = @member_report[:member_count]
+              tr 
+                td.font-semibold
+                  | Jauno biedru skaits:
+                td = @member_report[:new_members_count]
+              tr 
+                td.font-semibold 
+                  | Aktīvo vienību skaits:
+                td = @member_report[:unit_count]
+              tr 
+                td.font-semibold 
+                  | Neaktīvo vienību skaits:
+                td = @member_report[:inactive_count]
+              tr 
+                td.font-semibold
+                  | Jauno vienību skaits:
+                td = @member_report[:new_unit_count]
+              
+            table.auto.w-full
+              -@rank_report.each do |rank| 
+                  tr
+                    td 
+                      | #{rank[:rank]} skaits 
+                    td = rank[:count]
+                    td
+                      | Solījums: 
+                    td = rank[:promise]
+            
+      

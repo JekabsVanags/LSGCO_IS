@@ -1,5 +1,5 @@
 class WeeklyActivitiesController < ApplicationController
-  before_action :unit_access?
+  before_action :authorized?, :unit_access?
 
   def create
     @activity = WeeklyActivity.new(weekly_activity_params)
@@ -7,7 +7,7 @@ class WeeklyActivitiesController < ApplicationController
     if @activity.save!
       redirect_to edit_unit_path(current_user.unit), notice: "Iknedēļas nodarbība izveidota"
     else
-      redirect_to edit_unit_path(current_user.unit), notice: "Kļūda"
+      redirect_to edit_unit_path(current_user.unit), alert: "Kļūda"
     end
   end
 
@@ -16,7 +16,7 @@ class WeeklyActivitiesController < ApplicationController
     if @activity.delete
       redirect_to edit_unit_path(current_user.unit), notice: "Iknedēļas nodarbība dzēsta"
     else
-      redirect_to edit_unit_path(current_user.unit), notice: "Kļūda"
+      redirect_to edit_unit_path(current_user.unit), alert: "Kļūda"
     end
   end
 

@@ -16,7 +16,7 @@
           = f.date_field :date_from, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
         .flex.flex-col.ml-10.lg:w-1/2
           = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
-          = f.date_field :date_to, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.date_field :date_to, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
           = f.label :necessary_volunteers, "Vajadzīgie brīvprātīgie", class: 'input-label'
