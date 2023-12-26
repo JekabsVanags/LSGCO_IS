@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized?
-  before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
+  before_action :unit_access?, only: ["create", "new", "unit_update", "show", "promise"]
   before_action :org_access?, only: ["index"]
   before_action :unit_active?, only: ["create"]
 
