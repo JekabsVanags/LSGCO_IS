@@ -21,7 +21,7 @@ $(document).on('turbo:load', function () {
     
     if (!textfield.validity.valid) {
       if($(this).hasClass("terms-and-services")){
-        textfield.setCustomValidity('Šis ir vajadzīgs lai turpinātu lietot ')  
+        textfield.setCustomValidity('Šim ir jāpiekrīt, lai turpinātu lietot sistēmu')  
       }else{
         textfield.setCustomValidity('Lūdzu aizpildiet šo lauku')  
       }
