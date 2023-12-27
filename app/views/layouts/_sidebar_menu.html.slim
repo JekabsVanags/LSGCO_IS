@@ -21,7 +21,7 @@
             =link_to biedru_atskaites_path, class: current_tab == "member_report" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Biedru atskaite
               =image_tag 'icons/report.svg', size:"30"
-          =link_to vienibas_atskaites_path, class: current_tab == "unit_report" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+          =link_to current_user.pklv_valde? ? vienibas_atskaites_path() : vienibas_atskaites_path(id: current_user.unit), class: current_tab == "unit_report" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Vienības atskaite
               =image_tag 'icons/report.svg', size:"30"
       -if @user_permission_level == "pklv_valde"

@@ -18,12 +18,12 @@ div.flex.flex-col.divide-y-2.h-full
       h1.subtitle
         |Epasts:
       p.paragraph-normal
-        =@unit.email.present? ? @unit.email : "#{@unit_leader.email} (vienības priekšnieka epasts)"
+        =@unit.email.present? ? @unit.email : "#{@unit_leader.present? && @unit_leader.email.present? ? @unit_leader.email : "-"} (vienības priekšnieka epasts)"
     div.lg:flex.gap-2
       h1.subtitle
         |Telefons:
       p.paragraph-normal
-        =@unit.phone.present? ? @unit.phone : "#{@unit_leader.phone} (vienības priekšnieka telefons)"
+        =@unit.phone.present? ? @unit.phone : "#{@unit_leader.present? && @unit_leader.phone.present? ? @unit_leader.phone : "-"} (vienības priekšnieka telefons)"
   div.pt-5.pb-5
     div.lg:flex.gap-2
       h1.subtitle

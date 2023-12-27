@@ -76,7 +76,7 @@ class ReportsController < ApplicationController
   def generate_org_fee(payments, unit)
     #Aprēķinam atsevišķās maksājumu likmes
     org_fee = Unit.where({ number: 0 }).first.membership_fee
-    total_fee = org_fee + unit.membership_fee
+    total_fee = (org_fee.present? ? org_fee : 0) + (unit.membership_fee.present? ? unit.membership_fee : 0)
 
     payments.reduce(0) do |sum, payment| #Visus maksājumus pārveidojam par aprēķinātu summu.
       #Formula veidota, lai no kopēja maksājuma aprēķinātu cik daudz jāmaksā organizācijai.

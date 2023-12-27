@@ -68,7 +68,7 @@ RSpec.describe UnitsController, type: :controller do
       expect(flash[:notice]).to eq("Jauna vienība izveidota")
     end
 
-    it "does not create a new unit and does not update the leader" do
+    it "does not create a new unit and does not update the leader with invalid data" do
       session[:user_id] = admin.id
       expect { post :create, params: { leader_id: leader.id, unit: { name: nil } } }.to raise_error(ActiveRecord::RecordInvalid)
 

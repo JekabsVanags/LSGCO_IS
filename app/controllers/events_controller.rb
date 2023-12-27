@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new()
-    @units = Unit.where(deleted_at: nil).order(city: :asc)
+    @units = Unit.where(deleted_at: nil).where.not(number: 0).order(city: :asc)
   end
 
   def edit

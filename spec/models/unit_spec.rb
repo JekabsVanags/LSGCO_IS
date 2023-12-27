@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Unit, type: :model do
   let(:unit) { build :unit, number: 0 }
-  let(:unit2) { build :unit }
+  let(:unit2) { build :unit, city: "Ogre", number: 29 }
   let(:user1) { build :user, unit: }
   let(:user2) { build :user, unit: }
   let(:event) { build :event, unit: unit, date_from: Date.today + 200}
@@ -79,7 +79,7 @@ RSpec.describe Unit, type: :model do
   it('should get units full name') do
     unit.save!
 
-    expect(unit2.full_name).to eq("#{unit2.city}s #{unit2.number}. vienība")
+    expect(unit2.full_name).to eq("Ogres 29. vienība")
     expect(unit.full_name).to eq("LSGCO")
   end
 

@@ -36,13 +36,16 @@ class User < ApplicationRecord
   end
 
   def recalculate_bilance
-    return unless activity_statuss != "Neaktīvs" || activity_statuss != "Aktīvs"
-    bilance = membership_fee_bilance
-    fee = Unit.find_by(number: 0).membership_fee
-    if activity_statuss != "Daļēji aktīvs"
-      fee += unit.membership_fee
+    if activity_statuss == "Neaktīvs" || activity_statuss == "Izstājies"
+      return nil
     end
-    new_bilance = bilance - fee
+    bilance = membership_fee_bilance
+    org_fee = Unit.find_by(number: 0).membership_fee
+    full_fee = org_fee ? org_fee : 0
+    if activity_statuss != "Daļēji aktīvs"
+      full_fee += unit.membership_fee ? unit.membership_fee : 0
+    end
+    new_bilance = bilance - full_fee
     update(membership_fee_bilance: new_bilance)
     reload
   end

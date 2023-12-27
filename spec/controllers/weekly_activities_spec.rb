@@ -13,7 +13,7 @@ RSpec.describe WeeklyActivitiesController, type: :controller do
   end
 
   describe "POST #create" do
-    it "creates new position in unit and assigns it to user and redirects" do
+    it "creates new weekly_activity in unit and assigns it to user and redirects" do
       post :create, params: { weekly_activity: { time: Time.now, day: "Pirmdiena", rank: "Mazskauti/Guntiņas" } }
 
       expect(unit.weekly_activities.length).to eq(1)
@@ -33,7 +33,7 @@ RSpec.describe WeeklyActivitiesController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "deletes a position and redirects" do
+    it "deletes the weekly_activity and redirects" do
       weekly_activity1.save!
       weekly_activity2.save!
 

@@ -6,8 +6,18 @@
       .border-2.rounded-xl.overflow-y-auto
         =render "payment_table"
     .flex.flex-col.mt-10.lg:w-1/4.lg:ml-10.lg:mt-0
-      h1.title-normal
-        |Jauns maksājums
-      =render "payment_form"
+      .flex.flex-col.mb-10 
+        h1.title-normal
+          |Pašreizējā bilance
+        -if @user.membership_fee_bilance >= 0
+          h1.main-title.text-green-800
+            =@user.membership_fee_bilance.to_s + "€"
+        -else
+          h1.main-title.text-red-800
+            =@user.membership_fee_bilance.to_s + "€" 
+      .flex.flex-col 
+        h1.title-normal
+          |Jauns maksājums
+        =render "payment_form"
 
       =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit", class: "btn-primary w-full mt-10 lg:mt-0"
