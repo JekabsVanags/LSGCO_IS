@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   include ApplicationHelper
 
-  #Pārbaudam vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
+  #Pārbauda vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
   before_action :authorized?, :unit_access?
   before_action :org_access?, only: ["member_report"]
 

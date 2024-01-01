@@ -1,4 +1,5 @@
 class PersonalInformationController < ApplicationController
+  #Pārbauda vai lietotājs ir autorizējies
   before_action :authorized?
 
   def new #Tukša aptaujas lapa ar noklusētajām vērtībām, ko atrādīt formā
@@ -9,7 +10,7 @@ class PersonalInformationController < ApplicationController
     @info.diet = "-"
   end
 
-  def create #Pašreizējam lietotājam piesaistam aptaujas lapu, ja neizdodas saglabāt paziņojam kļūdu.
+  def create #Pašreizējam lietotājam piesaistam aptaujas lapu, ja neizdodas saglabāt Paziņo kļūdu.
     @info = PersonalInformation.new(personal_information_params)
     @info.user = current_user
     if @info.save
@@ -23,7 +24,7 @@ class PersonalInformationController < ApplicationController
     @info = current_user.personal_information
   end
 
-  def update #Atjaunojam pašreizējā lietotāja aptaujas lapu, ja neizdodas saglabāt paziņojam kļūdu.
+  def update #atjauno pašreizējā lietotāja aptaujas lapu, ja neizdodas saglabāt Paziņo kļūdu.
     @info = current_user.personal_information
     if @info.update(personal_information_params)
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa atjaunota."
@@ -32,7 +33,7 @@ class PersonalInformationController < ApplicationController
     end
   end
 
-  def destroy #Dzēšam pašreizējā lietotāja aptaujas lapu, ja neizdodas dzēst paziņojam kļūdu.
+  def destroy #Dzēšam pašreizējā lietotāja aptaujas lapu, ja neizdodas dzēst Paziņo kļūdu.
     @info = current_user.personal_information
     if @info.delete
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa dzēsta."
@@ -54,7 +55,7 @@ class PersonalInformationController < ApplicationController
 
   protected
 
-  #Pieņemam visus aptaujas lapas parametrus izņemot created at un updated at.
+  #Pieņem visus aptaujas lapas parametrus izņemot created at un updated at.
   def personal_information_params
     params.require(:personal_information).permit(PersonalInformation.column_names - ["created_at", "updated_at"])
   end
