@@ -36,14 +36,14 @@ class EventRegistrationsController < ApplicationController
 
     if @registration.role == "Dalībnieks"
       @event.registered_participants -= 1
-    elsif @registration.role == "Brīvprātīgais"
+    else
       @event.registered_volunteers -= 1
     end
 
     if @registration.delete && @event.save!
-      redirect_to event_path(@event.id), notice: "Reģistrācija atsaukta"
+      redirect_to event_registration_path(@event.id), notice: "Reģistrācija atsaukta"
     else
-      redirect_to event_path(@event.id), alert: "Kļūda"
+      redirect_to event_registration_path(@event.id), alert: "Kļūda"
     end
   end
 

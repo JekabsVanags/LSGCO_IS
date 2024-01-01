@@ -21,7 +21,7 @@
           p.text-sm.text-scout-red.m-2.font-bold
             |Ja Jums nav iesniegta aptaujas lapa, lūdzam to sagatavot rakstiskā formā uz nometni.
           =f.submit "Pieteikties", class: "btn-primary"
-    -elsif Date.today > @event.date_from-7
+    -elsif !current_user_registered_for(@event.id).present? 
       div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit.mb-5
         p.font-bold
           | Pieteikšanās uz šo pasākumu beigusies

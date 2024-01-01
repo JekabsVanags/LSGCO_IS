@@ -59,7 +59,7 @@ RSpec.describe EventRegistrationsController, type: :controller do
       delete :destroy, params: { id: event_registration }
       event.reload
 
-      expect(response).to redirect_to(event_path(event.id))
+      expect(response).to redirect_to(event_registration_path(event.id))
       expect(flash[:notice]).to eq("Reģistrācija atsaukta")
       expect(EventRegistration.count).to eq(0)
       expect(event.registered_participants).to eq(0)
@@ -72,7 +72,7 @@ RSpec.describe EventRegistrationsController, type: :controller do
       delete :destroy, params: { id: event_registration }
       event.reload
 
-      expect(response).to redirect_to(event_path(event.id))
+      expect(response).to redirect_to(event_registration_path(event.id))
       expect(flash[:alert]).to eq("Kļūda")
       expect(EventRegistration.count).to eq(1)
       expect(event.registered_participants).to eq(1)

@@ -1,11 +1,15 @@
 class User < ApplicationRecord
-  has_secure_password
+  has_secure_password #Paroles šifrēšana (bcrypt gem)
+
+  #Definējam obligātos laukus
   validates :name, :surname, :activity_statuss, :membership_fee_bilance, :joined_date, :permission_level, presence: true
 
+  #Definējam iespējamās vērtības
   enum activity_statuss: ["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs", "Neaktīvs", "Izstājies"]
   enum sex: ["M", "F", "O"]
   enum permission_level: ["pklv_biedrs", "pklv_vaditajs", "pklv_valde"]
 
+  #Objektu saistības
   has_many :rank_histories
   has_one :personal_information, dependent: :destroy
   belongs_to :unit
@@ -18,50 +22,51 @@ class User < ApplicationRecord
 
   has_many :positions
 
-  scope :active_members, -> { where(:activity_statuss != "Izstājies") }
-  scope :ex_members, -> { where(:activity_statuss == "Izstājies") }
-
-  def years_in_organization
+  def years_in_organization #Pilni gadi organizācijā
     ((Date.today - joined_date) / 365).to_i
   end
 
-  def rank
+  def rank #Pašreiz aktīvā pakāpe
     history = rank_histories.where(current: true).first
     history ? history.rank : "Tev nav norādīta pakāpe"
   end
 
-  def promise?
+  def promise? #Vai pašreizējā pakāpe ir ar solījuma datumu, atgriež datumu
     history = rank_histories.where(current: true).first
     history.present? ? history.date_of_oath : false
   end
 
-  def recalculate_bilance
-    if activity_statuss == "Neaktīvs" || activity_statuss == "Izstājies"
+  def recalculate_bilance #Pārrēķina bilanci, tiek izsaukta automātiski
+    if activity_statuss == "Neaktīvs" || activity_statuss == "Izstājies" #Ja lietotājs nav aktīvs, pārtraucam funkciju
       return nil
     end
+
     bilance = membership_fee_bilance
     org_fee = Unit.find_by(number: 0).membership_fee
-    full_fee = org_fee ? org_fee : 0
-    if activity_statuss != "Daļēji aktīvs"
+    full_fee = org_fee ? org_fee : 0 #Visiem lietotājiem jāmaksā organizācijas dalības maksa
+
+    if activity_statuss != "Daļēji aktīvs" #Lietotājiem kas ir aktīvi jāmaksā arī vienības dalības maksa
       full_fee += unit.membership_fee ? unit.membership_fee : 0
     end
+
+    #Atjauno bilances datus DB
     new_bilance = bilance - full_fee
     update(membership_fee_bilance: new_bilance)
     reload
   end
 
-  def available_events
-    events = unit.get_actual_events(rank)
+  def available_events #Aktuālo pasākumu sarakstss
+    events = unit.get_actual_events(rank) #Vienības aktuālie pasākumi lietotāja pakāpei
 
-    if volunteer
+    if volunteer #Ja lietotājs ir brīvprātīgais pievieno visus pasākumus kam vajadzīgi brīvprātīgie
       future_events = Event.future.where("necessary_volunteers >= registered_volunteers")
       events.concat(future_events)
     end
 
-    events.each do |event|
+    events.each do |event| #Sarakstā atzīmējam uz kuriem pasākumiem lietotājs ir reģistrējies
       event.registered = event_registrations.exists?(event: event)
     end
 
-    return events.uniq
+    return events.uniq #Atgriežam tikai unikālos ierakstus
   end
 end

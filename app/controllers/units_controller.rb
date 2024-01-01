@@ -5,6 +5,7 @@ class UnitsController < ApplicationController
   def new
     session[:current_tab] = "new_unit"
     @unit = Unit.new()
+    @unit.membership_fee = 0
     @users = User.where(activity_statuss: "Vadītājs").map { |user| ["#{user.name} #{user.surname}", user.id] }
   end
 
@@ -36,7 +37,7 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @new_activity = WeeklyActivity.new
-    @leader_candidates = @unit.users.where(activity_statuss: "Vadītājs").map { |user| ["#{user.name} #{user.surname}", user.id] }
+    @leader_candidates = @unit.users.where("activity_statuss = ? OR permission_level = ?", 3, 1).map { |user| ["#{user.name} #{user.surname}", user.id] }
   end
 
   def update

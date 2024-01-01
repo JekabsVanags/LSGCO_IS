@@ -16,7 +16,7 @@ class MembershipFeePaymentsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
-    @payments = MembershipFeePayment.where(user_payed: params[:id]).order(created_at: :desc)
+    @payments = MembershipFeePayment.where(user_payed: params[:id]).order(date: :desc)
     @new_payment = MembershipFeePayment.new(date: Date.today)
   end
 

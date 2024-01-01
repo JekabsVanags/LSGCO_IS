@@ -56,6 +56,6 @@ div.border-2.flex.flex-col.px-5
             =link_to profils_path, class: current_tab == "profile" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Mans profils
               =image_tag 'icons/current_user.svg', size:"30"
-            =link_to session_path, class: "btn-primary flex items-center justify-between my-3"
+            =link_to session_path, data: { turbo_method: "delete" }, class: "btn-primary flex items-center justify-between my-3"
               |Izrakstīties
               =image_tag 'icons/logout.svg', size:"30"

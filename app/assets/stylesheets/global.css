@@ -23,6 +23,12 @@
   background-color: #7d8787;
 }
 
-p{
+p, td{
   white-space: pre-wrap
 }
+
+html {
+  font-family: NunitoSans, sans-serif;
+}
+
+
