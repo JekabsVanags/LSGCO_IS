@@ -60,7 +60,7 @@ RSpec.describe ReportsController, type: :controller do
         expect(assigns(:payments)).to match_array([{ id: user.id, name: user.name, surname: user.surname, bilance: 0.0, payed_total: 18.0, summary: [6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.0] },
                                                    { id: user2.id, name: user2.name, surname: user2.surname, bilance: -6.0, payed_total: 12.0, summary: [0.0, 12.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
                                                    { id: user3.id, name: user3.name, surname: user3.surname, bilance: 0.0, payed_total: 0.0, summary: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] }])
-        expect(assigns(:org_fee_bilance)).to eq(12.0)
+        expect(assigns(:profit)).to eq(30.0)
       end
     end
 

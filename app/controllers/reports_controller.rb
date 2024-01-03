@@ -62,7 +62,6 @@ class ReportsController < ApplicationController
       #Par katru lietotāju atgriežam sekojošos datus
       {
         id: user.id,
-        status: user.activity_statuss,
         name: user.name,
         surname: user.surname,
         bilance: user.membership_fee_bilance,
