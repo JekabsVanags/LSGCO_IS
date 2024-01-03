@@ -53,6 +53,9 @@ group :development, :test do
   # Testing data faking
   gem "factory_bot_rails"
   gem "faker"
+
+  # Epastu pārvaldīšana izstrādē
+  gem "letter_opener"
 end
 
 group :development do

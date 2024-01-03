@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  #Pārveido informāciju, ar ko aizpilda epasta tekstu
+
   def first_login_email(creator, user, link)
     @creator = creator
     @user = user

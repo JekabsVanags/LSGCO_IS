@@ -4,7 +4,7 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     -if @unit.present?
       .h-full.w-full
-        .flex.flex-col.justify-between.w-full.lg:flex-row.h-full.lg:w-2/3
+        .flex.flex-col.justify-between.w-full.lg:flex-row.lg:h-full.lg:w-2/3
           div.w-full.flex.items-center
             label.input-label
               |Meklēt
@@ -25,11 +25,11 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
             =render "position_report_table"
         div.hidden id="fee-report"
           .p.text-end
-            |Vienībai LSGCO kontā jāieskaita: #{@org_fee_bilance.round(2)}€
+            |Vienības kopējie ienākumi: #{@profit.round(2)}€
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
             =render "fee_report_table"
 
-        div.flex.sticky.bottom-0.left-23.bg-white.border-2.rounded-xl.lg:absolute.lg:border-0.lg:bottom-5
+        div.flex.sticky.bottom-0.left-23.bg-white.border-2.rounded-xl.overflow-auto.lg:absolute.lg:border-0.lg:bottom-5
           button.btn-ternary.text-scout-red id="user-report-show"
             |Biedri
           button.btn-ternary id="event-report-show"
@@ -46,5 +46,5 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
             | Norādiet vienību kurai iegūt atskaiti
         = form_with url: vienibas_atskaites_path, method: :get do |f|
           div.flex.flex-col
-            = f.select :id, options_for_select(@units), {}, class: "input-field-blue w-1/3"
-            = f.submit "Iegūt atskaiti", class: "btn-primary w-1/3"
+            = f.select :id, options_for_select(@units), {}, class: "input-field-blue lg:w-1/3"
+            = f.submit "Iegūt atskaiti", class: "btn-primary lg:w-1/3"

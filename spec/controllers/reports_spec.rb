@@ -6,7 +6,7 @@ RSpec.describe ReportsController, type: :controller do
   !let(:unit3) { create(:unit, number: 0, membership_fee: 1) }
   !let(:unit4) { create(:unit, membership_fee: 1, deleted_at: Date.today) }
   !let(:user) { create(:user, joined_date: Date.today - 380, unit: unit, activity_statuss: "Vadītājs", permission_level: "pklv_vaditajs") }
-  !let(:user2) { create(:user, unit: unit, activity_statuss: "Aktīvs", permission_level: "pklv_valde") }
+  !let(:user2) { create(:user, joined_date: Date.today, unit: unit, activity_statuss: "Aktīvs", permission_level: "pklv_valde") }
   !let(:user3) { create(:user, unit: unit, activity_statuss: "Izstājies") }
   !let(:weekly_activitity) { create(:weekly_activity, unit: unit) }
   !let(:weekly_activitity2) { create(:weekly_activity, unit: unit) }

@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe EventsController, type: :controller do
-  let(:unit) { create(:unit) }
-  let(:unit2) { create(:unit) }
-  let(:unit3) { create(:unit, deleted_at: Date.today) }
+  let(:unit) { create(:unit, number: 12) }
+  let(:unit2) { create(:unit, number: 43) }
+  let(:unit3) { create(:unit, deleted_at: Date.today, number: 15) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:user2) { create(:user, unit: unit, permission_level: "pklv_biedrs") }
   let(:user3) { create(:user, unit: unit3, permission_level: "pklv_valde") }
@@ -55,7 +55,7 @@ RSpec.describe EventsController, type: :controller do
       get :new
 
       expect(assigns(:event)).to be_a_new(Event)
-      expect(assigns(:units)).to eq(Unit.where(deleted_at: nil).order(city: :asc))
+      expect(assigns(:units)).to match_array([unit, unit2])
     end
   end
 

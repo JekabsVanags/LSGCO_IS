@@ -1,7 +1,8 @@
 class PersonalInformationController < ApplicationController
+  #Pārbauda vai lietotājs ir autorizējies
   before_action :authorized?
 
-  def new
+  def new #Tukša aptaujas lapa ar noklusētajām vērtībām, ko atrādīt formā
     @info = PersonalInformation.new()
     @info.health_issues = "-"
     @info.medication_during_event = "-"
@@ -9,7 +10,7 @@ class PersonalInformationController < ApplicationController
     @info.diet = "-"
   end
 
-  def create
+  def create #Pašreizējam lietotājam piesaistam aptaujas lapu, ja neizdodas saglabāt Paziņo kļūdu.
     @info = PersonalInformation.new(personal_information_params)
     @info.user = current_user
     if @info.save
@@ -19,11 +20,11 @@ class PersonalInformationController < ApplicationController
     end
   end
 
-  def edit
+  def edit #Iegūstam pašreizējā lietotāja aptaujas lapu, ko atrādīt formā.
     @info = current_user.personal_information
   end
 
-  def update
+  def update #atjauno pašreizējā lietotāja aptaujas lapu, ja neizdodas saglabāt Paziņo kļūdu.
     @info = current_user.personal_information
     if @info.update(personal_information_params)
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa atjaunota."
@@ -32,7 +33,7 @@ class PersonalInformationController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #Dzēšam pašreizējā lietotāja aptaujas lapu, ja neizdodas dzēst Paziņo kļūdu.
     @info = current_user.personal_information
     if @info.delete
       redirect_to aptaujas_lapa_path, notice: "Aptaujas lapa dzēsta."
@@ -41,12 +42,12 @@ class PersonalInformationController < ApplicationController
     end
   end
 
-  def show
+  def show #Lentenē aktīvā sadaļa aptaujas lapa, iegūstam pašreizējā lietotāja aptaujas lapu.
     session[:current_tab] = "private_info"
     @info = current_user.personal_information
   end
 
-  def display
+  def display #Pēc reģistrācijas ID atrodam lietotāja aptaujas lapu, ko atgriežam.
     @registration = EventRegistration.find(params[:id])
     @user = @registration.user
     @info = @user.personal_information
@@ -54,6 +55,7 @@ class PersonalInformationController < ApplicationController
 
   protected
 
+  #Pieņem visus aptaujas lapas parametrus izņemot created at un updated at.
   def personal_information_params
     params.require(:personal_information).permit(PersonalInformation.column_names - ["created_at", "updated_at"])
   end

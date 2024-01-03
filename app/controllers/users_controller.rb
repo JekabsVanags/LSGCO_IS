@@ -1,30 +1,32 @@
 class UsersController < ApplicationController
+  #Pārbauda vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
   before_action :authorized?
-  before_action :unit_access?, only: ["create", "unit_update", "show", "promise"]
-  before_action :org_access?, only: ["index"]
-  before_action :unit_active?, only: ["create"]
+  before_action :unit_access?, only: ["create", "new", "unit_update", "show", "promise"]
+  before_action :org_access?, only: ["index"]   #Tikai var apskatīties sarakstu ar visiem lietotājiem
+  before_action :unit_active?, only: ["create"]   #Veidojam jaunu lietotāju tikai aktīvām vienībām
 
-  def new
-    session[:current_tab] = "new_member"
+  def new #Tukšs lietotāja objekts ar ko aizpildīt jauna lietotāja formu
+    session[:current_tab] = "new_member"  #Iestatam, ka izvēlnes aktīvā sekcija ir jauna lietotāja pievienošana
     @user = User.new
   end
 
-  def index
-    session[:current_tab] = "user_list"
+  def index #Visi sistēmas lietotāji
+    session[:current_tab] = "user_list"  #Iestatam, ka izvēlnes aktīvā sekcija ir biedru saraksts
     @users = User.all
   end
 
-  def create
-    @user = User.new(user_params.except(:rank))
-    @user.unit = current_user.unit
-    password = Faker::Alphanumeric.alphanumeric
-    @user.password_digest = BCrypt::Password.create(password).to_s
+  def create #Izveido jaunu lietotāju
+    @user = User.new(user_params.except(:rank)) #Aizpildam ar vērtībām izņemot rank, ko izmanto zemāk, lietotāja vienība sakrīt ar tā veidotāja vienību
+    @user.unit = current_user.unit 
+    password = Faker::Alphanumeric.alphanumeric #Pagaidu randomizēta parole
+    @user.password_digest = BCrypt::Password.create(password).to_s #Šifrēšana
 
-    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_params[:rank], current: true)
+    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_params[:rank], current: true) #Lietotāja pakāpes vēsture
 
-    @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s
-    if @user.save && @rank.save
-      link = aktivizet_path(id: @user.id, password:)
+    @user.username = user_params[:name].capitalize + user_params[:surname].capitalize + current_user.unit.number.to_s #Lietotāja lietotājvārda izveide (piem. VārdsUzvārds29)
+    if @user.save && @rank.save #Ja kļūda saglabājot lietotāju un pakāpi, paziņo
+      #Saite uz paroles atiestatīšanu, epasta nosūtīšana
+      link = aktivizet_path(id: @user.id, password:) 
       UserMailer.first_login_email(current_user, @user, link).deliver_later
       redirect_to root_path, notice: 'Biedrs pievienots'
     else
@@ -32,19 +34,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def edit #Lietotāja objekts ar ko aizpildīt lietotāja datu atjaunošanas formu
     @user = User.find(params[:id])
     @new_user = session[:new_user]
   end
 
-  def show
+  def show #Lietotāja dati vienības priekšnieka apskatei
     @user = User.find(params[:id])
-    @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys
-    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]}
-    @new_position = Position.new()
+    @avalable_ranks = RankHistory.ranks.filter{|rank| !@user.rank_histories.where(rank: rank, current: false).present?}.keys #Pakāpes, kurās lietotājs nav bijis
+    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]} #Organizācijas vienību saraksts
+    @new_position = Position.new() #Tukšs jauna amata objekts
   end
 
-  def update
+  def update #atjauno lietotāju, ja neizdodas saglabāt Paziņo kļūdu.
     @user = User.find(params[:id])
 
     if @user.update(user_update_params)
@@ -54,7 +56,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #Nestingrā dzēšana lietotājam, ja neizdodas nomainīt statusu Paziņo kļūdu
     @user = User.find(params[:id])
     @unit = @user.unit
 
@@ -66,18 +68,18 @@ class UsersController < ApplicationController
 
   end
 
-  def profile
-    session[:current_tab] = "profile"
+  def profile #Lietotāja dati lietotāja apskatei
+    session[:current_tab] = "profile"  #Iestatam, ka izvēlnes aktīvā sekcija ir profils
     @new_user = session[:new_user]
     @user = current_user
-    @events = @user.available_events.sort_by(&:date_from)
+    @events = @user.available_events.sort_by(&:date_from) #Lietotāja aktuālie pasākumi
 
   end
 
-  def unit_update
+  def unit_update #Lietotāja atjaunošana, ko veic vienības priekšnieks
     @user = User.find(params[:id])
 
-    if user_unit_edit_params[:unit_id]
+    if user_unit_edit_params[:unit_id] #Maina vienību, ja tāda norādīta, Paziņo ja kļūda
       @user.unit = Unit.find(user_unit_edit_params[:unit_id])
       if @user.save!
         redirect_to user_path(@user), notice: 'Vienība nomainīta'
@@ -86,7 +88,7 @@ class UsersController < ApplicationController
       end
     end
 
-    if user_unit_edit_params[:activity_statuss]
+    if user_unit_edit_params[:activity_statuss] #Maina aktivitātes statusu, ja tas norādīts, Paziņo ja kļūda
       @user.activity_statuss = user_unit_edit_params[:activity_statuss]
       if @user.save!
         redirect_to user_path(@user), notice: 'Aktivitātes statuss nomainīts'
@@ -95,10 +97,10 @@ class UsersController < ApplicationController
       end
     end
 
-    if user_unit_edit_params[:rank]
-    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_unit_edit_params[:rank], current: true)
+    if user_unit_edit_params[:rank] #Mainam pakāpi ja tā norādita, Paziņo ja kļūda
+    @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_unit_edit_params[:rank], current: true) #Izveidojam jaunu pašreizējo pakāpes vēstures objektu.
 
-    if @user.rank_histories.where(current: true).update(current: false) && @rank.save!
+    if @user.rank_histories.where(current: true).update(current: false) && @rank.save! #Vecajai pakāpes vēsturei noņemam pašreizējās statusu un saglabājam jauno, Paziņo
       redirect_to user_path(@user), notice: 'Pakāpe nomainīta'
     else
       redirect_to user_path(@user), alert: 'Kļūda'
@@ -106,7 +108,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def promise
+  def promise #Reģistrējam pašreizējās pakāpes solījuma datumu, ja neizdodas Paziņo kļūdu
     @user = User.find(params[:id])
 
     if @user.rank_histories.where(current: true).update(date_of_oath: params[:promise_date] || Date.today)
@@ -116,19 +118,20 @@ class UsersController < ApplicationController
     end
   end
 
-  def password_update
+  def password_update #Lietotāja paroles atiestatīšana
     @user = User.find(params[:id])
-    path = session[:new_user] == true ? aktivizet_path(@user.id, params[:old_password]) : edit_user_path(@user.id)
+    #Atkarībā no tā vai lietotājs ir jauns atšķiras saite uz ko pārvirzīt to un ar kādu paziņojumu
+    path = session[:new_user] == true || session[:password_reset] == true ? aktivizet_path(@user.id, params[:old_password]) : edit_user_path(@user.id)
     success_notice = session[:new_user] == true ? "Parole izveidota" : "Parole atjaunota"
 
-    if params[:password_digest] != params[:repeat_password]
+    if params[:password_digest] != params[:repeat_password] #Pārbaude vai 2x ievadītā parole sakrīt, ja nē pārvirzam ar paziņojumu
       redirect_to path, notice: 'Paroles nesakrīt'
       return
     end
 
-    if @user.authenticate(params[:old_password])
+    if @user.authenticate(params[:old_password]) #Ja vecās paroles parametrs sakrīt ar lietotāja paroli šifrējam jauno paroli un atjauno.
       @user.password_digest = BCrypt::Password.create(params[:password_digest]).to_s
-    else
+    else #Citādi Paziņo. Jauns lietotājs tiek pārvirzīts uz sākuma skatu, reģistrējies uz lietotāja datu atjaunošanu
       if session[:new_user] == true
       session.clear
       redirect_to root_path, notice: 'Nepareiza parole'
@@ -138,31 +141,34 @@ class UsersController < ApplicationController
       return
     end
 
-    if @user.save
+    if @user.save #Saglabājam jauno paroli un Paziņo
       redirect_to edit_user_path(current_user), notice: success_notice
     else
       redirect_to path, alert: 'Kļūda'
     end
   end
 
-  def send_password_reset
+  def send_password_reset #Paroles atiestatīšanas epasta nosūtīšana lietotājam
     @user = User.find(params[:id])
+    #atjauno lietotāja paroli uz pagaidu randomizētu paroli
     password = Faker::Alphanumeric.alphanumeric
     @user.password_digest = BCrypt::Password.create(password).to_s
     @user.save!
 
-    @link = atjaunot_path(id: @user.id, password:)
+    @link = atjaunot_path(id: @user.id, password:) #Saite uz paroles atiestatīšanas skatu
 
-    UserMailer.password_reset_email(@user, @link).deliver_later
+    #Nosūtam epastu un Paziņo par to
+    UserMailer.password_reset_email(@user, @link).deliver_later 
     redirect_to user_path(@user), notice: "Epasts ar paroles atjaunošanas instrukcijām nosūtīts"
   end
 
-  def resignation
+  def resignation #Lietotāja izstāšanās iesniegums
     @user = @current_user
 
-    @link = user_path(@user.id)
+    @link = user_path(@user.id) #Links uz lietotāja biedra paneli
 
     if @user.update(activity_statuss: "Neaktīvs")
+      #Ja izdodas atjaunot statusu dzēšam aptaujas lapu ja tāda ir un nosūtam epastu vienības priekšniekam.
       if @user.personal_information.present?
         @user.personal_information.destroy
       end
@@ -175,14 +181,17 @@ class UsersController < ApplicationController
 
   protected
 
+   #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto veicot vienības priekšnieka darbības ar lietotāju.
   def user_unit_edit_params
     params.permit(:activity_statuss, :unit_id, :rank)
   end
 
+   #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto atjaunojot lietotāju.
   def user_update_params
     params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_data_collection, :volunteer)
   end
 
+  #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto taisot jaunu lietotāju.
   def user_params
     params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date, :rank)
   end

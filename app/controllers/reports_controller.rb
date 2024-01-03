@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   include ApplicationHelper
 
-  #Pārbaudam vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
+  #Pārbauda vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
   before_action :authorized?, :unit_access?
   before_action :org_access?, only: ["member_report"]
 
@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
       @users = @unit.users.includes(:positions)
       @events = (@unit.events.unscoped + @unit.event_invites).uniq
       @payments = generate_payment_summary(@unit)
-      @org_fee_bilance = generate_org_fee(@payments, @unit)
+      @profit = calculate_profit(@payments, @unit)
       @positions = @unit.positions.includes(:user)
 
       respond_to do |format|
@@ -62,6 +62,7 @@ class ReportsController < ApplicationController
       #Par katru lietotāju atgriežam sekojošos datus
       {
         id: user.id,
+        status: user.activity_statuss,
         name: user.name,
         surname: user.surname,
         bilance: user.membership_fee_bilance,
@@ -73,16 +74,14 @@ class ReportsController < ApplicationController
     payment_summary
   end
 
-  def generate_org_fee(payments, unit)
+  def calculate_profit(payments, unit)
     #Aprēķinam atsevišķās maksājumu likmes
     org_fee = Unit.where({ number: 0 }).first.membership_fee
-    total_fee = org_fee + unit.membership_fee
+    total_fee = (org_fee.present? ? org_fee : 0) + (unit.membership_fee.present? ? unit.membership_fee : 0)
 
-    payments.reduce(0) do |sum, payment| #Visus maksājumus pārveidojam par aprēķinātu summu.
-      #Formula veidota, lai no kopēja maksājuma aprēķinātu cik daudz jāmaksā organizācijai.
-      #Reizinam organizācijas dalības maksu ar mēnešu skaitu par ko maksāts, ko iegūstam
-      #dalot samaksāto ar to cik jāmaksā katru mēnesi kopā. Neieskaitam mēnešus, kas maksāti avansā.
-      sum += org_fee * ((payment[:payed_total] - payment[:bilance]) / total_fee)
+    #Visus maksājumus pārveidojam par aprēķinātu summu.
+    payments.reduce(0) do |sum, payment|
+      sum += payment[:payed_total]
     end
   end
 

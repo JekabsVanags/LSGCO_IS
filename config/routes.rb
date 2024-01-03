@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #Aplikācijas sesijas ceļi
   post "/session", to: "session#create"
-  get "/session", to: "session#destroy" # Using get to link to destroy due to rails depriciation of link_to method specification
+  delete "/session", to: "session#destroy"
 
   #Lietotāja daļas ceļi
   get ":password/aktivizet", to: "session#first_login", as: "aktivizet"

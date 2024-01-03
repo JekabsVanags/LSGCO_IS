@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe MembershipFeePaymentsController, type: :controller do
   let(:unit) { create(:unit) }
-  let(:user) { create(:user, unit: unit) }
-  let(:user2) { create(:user, unit: unit, permission_level: "pklv_valde") }
+  let(:user) { create(:user, unit: unit, email: "test@test") }
+  let(:user2) { create(:user, unit: unit, email: "test2@test", permission_level: "pklv_valde") }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:payment) { create(:membership_fee_payment, user_payed: user, user_recorded: current_user, unit: unit, amount: 10) }
 

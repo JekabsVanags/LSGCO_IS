@@ -18,7 +18,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
         .flex.flex-col.content-around.h-2/3.lg:w-1/2.lg:ml-10
           = f.label :email, "Epasts #{!@unit.email.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
           = f.email_field :email, class: 'input-field-blue w-full'
-          = f.label :phone, "Telefona nummurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka telefona nummurs)" : ""}", class: 'input-label'
+          = f.label :phone, "Telefona numurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka telefona numurs)" : ""}", class: 'input-label'
           = f.phone_field :phone, class: 'input-field-blue w-full'
           = f.label :bank_account, 'Bankas konts', class: 'input-label'
           = f.text_field :bank_account, class: 'input-field-blue w-full', required: true

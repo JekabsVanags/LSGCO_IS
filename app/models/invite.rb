@@ -5,5 +5,6 @@ class Invite < ApplicationRecord
 
   enum rank: ["MZSK/GNT", "SK/G", "DZSK/DZG", "ROV/LG", "VAD", "VIEDSK/VIEDG", "CITS"]
 
+  #Nākotnes pasākumu ielūgumi
   scope :future, -> { joins(:event).where("events.date_from > ?", Date.today) }
 end

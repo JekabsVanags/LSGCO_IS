@@ -1,8 +1,8 @@
-  .flex.flex-col.w-full.h-full.lg:w-2/3.place-content-between
+  .flex.flex-col.w-full.h-full.lg:w-full.place-content-between
     div  
       h1.title-normal 
         =@event.name
-      div.flex.flex-col.gap-1.lg:flex-row.mb-5
+      div.flex.flex-col.gap-1.lg:flex-row.mb-5.w-full
         div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             =@event.event_type
@@ -15,7 +15,15 @@
         div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
           p.font-bold
             | Rīko: #{@event.unit.full_name}
-            .flex.flex-col.w-2/3
+        -if registration_positions(@event.id).include?("Dalībnieks")
+          div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
+            p.font-bold
+              | Pieteikušies: #{@event.registered_participants} / #{@event.max_participants}
+        -if registration_positions(@event.id).include?("Brīvprātīgais") ||  registration_positions(@event.id).include?("Organizators")
+          div.border-2.rounded-3xl.text-center.border-scout-blue.py-1.px-2.w-fit
+            p.font-bold
+              | Brīvprātīgie: #{@event.registered_volunteers} / #{@event.necessary_volunteers}
+        
       div.border-l-2.pl-2.w-full.border-scout-blue
         p
           =@event.description
