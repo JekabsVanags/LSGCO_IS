@@ -3,7 +3,7 @@ require "bcrypt"
 require "faker"
 
 org_unit = Unit.create(city: "Latvija", number: 0, legal_adress: "Org Unit Address",
-                       email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "0")
+                       email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "10")
 
 def random_seeder
   ogre_unit = Unit.create(city: "Ogre", number: 29, legal_adress: "Ogre Unit Address",
@@ -37,8 +37,8 @@ def random_seeder
     generate_fake_user(tukums_unit, "DZSK/DZG")
   end
 
-  test_event1 = Event.create(name: "Nometne", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 60), date_to: (Date.today + 60), event_type: "Nometne", unit: org_unit)
-  test_event2 = Event.create(name: "Pārgājiens", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: org_unit)
+  test_event1 = Event.create(name: "Nometne", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 60), date_to: (Date.today + 60), event_type: "Nometne", unit: ogre_unit)
+  test_event2 = Event.create(name: "Pārgājiens", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: ogre_unit)
   test_event3 = Event.create(name: "Pārgājiens mazajiem", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: ogre_unit)
   Invite.create(event: test_event1, unit: ogre_unit, rank: "DZSK/DZG")
   Invite.create(event: test_event2, unit: ogre_unit, rank: "DZSK/DZG")
@@ -114,6 +114,7 @@ def generate_fake_user(unit, rank)
 end
 
 if Rails.env.development?
+  #random_seeder()
   bdr_test_seeder()
   vnb_test_seeder()
   vld_test_seeder()

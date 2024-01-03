@@ -5,7 +5,7 @@ module RegistrationHelpers
     if Invite.where(rank: current_user.rank, unit: current_user.unit, event: event).present? #Ja lietotāja pakāpe un vienība ielūgta, var kā dalībnieks.
       positions.push("Dalībnieks")
     end
-    if current_user.unit == event.unit && current_user.rank > 0 #Ja lietotāja vienība organizē un nav mazskauts, var kā organizētājs.
+    if current_user.unit == event.unit && current_user.rank != "MZSK/GNT" #Ja lietotāja vienība organizē un nav mazskauts, var kā organizētājs.
       positions.push("Organizētājs")
     end
     if current_user.volunteer #Ja lietotājs ir brīvprātīgais, var kā brīvprātīgais

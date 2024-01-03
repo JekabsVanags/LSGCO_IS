@@ -4,7 +4,7 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     -if @unit.present?
       .h-full.w-full
-        .flex.flex-col.justify-between.w-full.lg:flex-row.h-full.lg:w-2/3
+        .flex.flex-col.justify-between.w-full.lg:flex-row.lg:h-full.lg:w-2/3
           div.w-full.flex.items-center
             label.input-label
               |Meklēt
@@ -25,7 +25,7 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
             =render "position_report_table"
         div.hidden id="fee-report"
           .p.text-end
-            |Vienībai LSGCO kontā jāieskaita: #{@org_fee_bilance.round(2)}€
+            |Vienības kopējie ienākumi: #{@profit.round(2)}€
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
             =render "fee_report_table"
 

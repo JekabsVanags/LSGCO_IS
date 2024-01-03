@@ -73,7 +73,7 @@ wb.add_worksheet(name: "Biedra naudas maksājumi") do |sheet|
   index_style = sheet.styles.add_style(b: true, alignment: {horizontal: :center})
   bold_style = sheet.styles.add_style(b: true)
 
-  sheet.add_row ["Vienībai LSGCO kontā jāieskaita:", "#{@org_fee_bilance}€"], style: [bold_style, nil]
+  sheet.add_row ["Vienības kopējie ienākumi:", " #{@profit.round(2)}€"], style: [bold_style, nil]
   sheet.add_row
 
   # Galvene
