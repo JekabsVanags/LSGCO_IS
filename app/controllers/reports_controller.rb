@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
       @unit = Unit.find(params[:id])
       @weekly_activities = @unit.weekly_activities
       @users = @unit.users.includes(:positions)
-      @events = (@unit.events.unscoped + @unit.event_invites).uniq
+      @events = (@unit.events + @unit.event_invites).uniq
       @payments = generate_payment_summary(@unit)
       @profit = calculate_profit(@payments, @unit)
       @positions = @unit.positions.includes(:user)

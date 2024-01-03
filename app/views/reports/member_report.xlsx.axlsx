@@ -42,6 +42,6 @@ wb.add_worksheet(name: "Biedri") do |sheet|
   
   # Dati
   @users.each_with_index do |user, index|
-    sheet.add_row [index, user.name, user.surname, user.unit.full_name, user.birth_date ? user.birth_date.strftime("%d.%m.%y") : "-",  "#{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }", user.activity_statuss, user.years_in_organization], style: [index_style, nil]
+    sheet.add_row [index + 1, user.name, user.surname, user.unit.full_name, user.birth_date ? user.birth_date.strftime("%d.%m.%y") : "-",  "#{user.rank} #{ user.promise? ? (user.sex == "F" ? "☘️" : "⚜️") : "" }", user.activity_statuss, user.years_in_organization], style: [index_style, nil]
   end
 end
