@@ -27,6 +27,7 @@ class UnitsController < ApplicationController
   def create #Izveido jaunu vienību
     @leader = User.find(params[:leader_id])
     @unit = Unit.new(unit_create_params)
+    @unit.membership_fee = 0 #Noklusējumā 0 dalības maksa
 
     #Saglabā jauno vienību un atjauno vienības priekšnieka piekļuves līmeni, paziņo
     if @unit.save! && @leader.update(permission_level: "pklv_vaditajs", unit: @unit) && @leader.activity_statuss == "Vadītājs"
