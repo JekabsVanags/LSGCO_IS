@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
       @users = @unit.users.includes(:positions)
       @events = (@unit.events + @unit.event_invites).uniq
       @payments = generate_payment_summary(@unit)
-      @profit = calculate_profit(@payments, @unit)
+      @profit = calculate_profit(@payments)
       @positions = @unit.positions.includes(:user)
 
       respond_to do |format|
@@ -73,11 +73,7 @@ class ReportsController < ApplicationController
     payment_summary
   end
 
-  def calculate_profit(payments, unit)
-    #Aprēķinam atsevišķās maksājumu likmes
-    org_fee = Unit.where({ number: 0 }).first.membership_fee
-    total_fee = (org_fee.present? ? org_fee : 0) + (unit.membership_fee.present? ? unit.membership_fee : 0)
-
+  def calculate_profit(payments)
     #Visus maksājumus pārveidojam par aprēķinātu summu.
     payments.reduce(0) do |sum, payment|
       sum += payment[:payed_total]
