@@ -33,14 +33,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @invites = Invite.where(event: @event) #Pasākuma ielūgumi
     @invite = Invite.new()
-    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]} #Organizācijas vienības priekš izvēles
+    @units = Unit.where(deleted_at: nil).where.not(number: 0).map {|unit| [unit.full_name, unit.id]} #Organizācijas vienības priekš izvēles
   end
 
   def create #Izveido pasākumu pašreizējā lietotāja vienībai un ielūgumus atzīmētajām vienībām un pakāpēm, ja kļūda paziņo
     @unit = current_user.unit
     @event = Event.new(event_params.except(:units, :ranks))
     @event.unit = @unit
-    
+
     if @event.save! && generate_invites(event_params[:units], event_params[:ranks], @event)
       redirect_to events_path, notice: "Pasākums izveidots"
     else

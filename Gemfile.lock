@@ -99,10 +99,6 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.0)
-    emailbutler (0.7.5)
-      pagy (> 4.0)
-      rails (> 6.0.0)
-      sassc-rails
     erubi (1.12.0)
     factory_bot (6.4.2)
       activesupport (>= 5.0.0)
@@ -111,7 +107,6 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     htmlentities (4.3.4)
@@ -160,7 +155,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
-    pagy (6.2.0)
     pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -231,14 +225,6 @@ GEM
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -304,7 +290,6 @@ DEPENDENCIES
   caxlsx
   caxlsx_rails
   debug
-  emailbutler
   factory_bot_rails
   faker
   importmap-rails
