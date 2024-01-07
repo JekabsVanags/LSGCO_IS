@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-12-29T19:17:53.375Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="hhEoCy_yw5SczR1o96Ys" version="22.0.2" type="device" pages="13">
+<mxfile host="Electron" modified="2024-01-07T13:54:38.093Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="yp7_5PvksG0f8WeOxA0Y" version="22.0.2" type="device" pages="13">
   <diagram name="0.limena DPD" id="kyhz5JBkrRfaqJCVx-hS">
-    <mxGraphModel dx="474" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -76,14 +76,14 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5mjOYpnXp0rIxijapYqB-1" value="Finanšu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+        <mxCell id="5mjOYpnXp0rIxijapYqB-1" value="Finanšu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="450" y="530" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="6GguuWpty2bciPeQia3-" name="1.limena DPD">
-    <mxGraphModel dx="474" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -434,10 +434,10 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5mKUtcMUhZihN7Qku_Pd-1" value="Sistema" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="5mKUtcMUhZihN7Qku_Pd-1" value="Sistema" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="990" y="510" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="5mKUtcMUhZihN7Qku_Pd-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.145;entryY=1;entryDx=0;entryDy=-4.35;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="SORPuBcUJhG7LsbTGvI3-1" target="xGXgSaPmuUJwHho-_G7R-26">
+        <mxCell id="5mKUtcMUhZihN7Qku_Pd-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.145;entryY=1;entryDx=0;entryDy=-4.35;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="SORPuBcUJhG7LsbTGvI3-1" target="xGXgSaPmuUJwHho-_G7R-26" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="958" y="630" />
@@ -445,7 +445,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5mKUtcMUhZihN7Qku_Pd-3" value="Pārrēķināti finanšu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5mKUtcMUhZihN7Qku_Pd-2">
+        <mxCell id="5mKUtcMUhZihN7Qku_Pd-3" value="Pārrēķināti finanšu dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5mKUtcMUhZihN7Qku_Pd-2" vertex="1" connectable="0">
           <mxGeometry x="-0.4716" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -454,7 +454,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="RomifQWhu---GyK7lGh1" name="2.limena_BDR_DPD">
-    <mxGraphModel dx="474" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -532,6 +532,11 @@
         </mxCell>
         <mxCell id="MXYnbciH-DPMy_TdMkv_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="vp05-B3GRNU1gS82rTva-1" target="MXYnbciH-DPMy_TdMkv_-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1OJtGZ6KSjBMZiNOK94I-1" value="Paroles dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MXYnbciH-DPMy_TdMkv_-2">
+          <mxGeometry x="0.4616" y="-2" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="vp05-B3GRNU1gS82rTva-1" value="" style="swimlane;startSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="10" y="170" width="170" height="300" as="geometry" />
@@ -636,11 +641,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="1OJtGZ6KSjBMZiNOK94I-3" value="Atjaunošanas &lt;br&gt;dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MXYnbciH-DPMy_TdMkv_-3">
+          <mxGeometry x="-0.6929" y="2" relative="1" as="geometry">
+            <mxPoint x="4" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram name="2.limena_PSK_DPD" id="HjhPy4mUsqIYgYORl6Yw">
-    <mxGraphModel dx="2045" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2284" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="smBA0Inm2jj-qsSQyGSD-0" />
         <mxCell id="smBA0Inm2jj-qsSQyGSD-1" parent="smBA0Inm2jj-qsSQyGSD-0" />
@@ -960,6 +970,11 @@
               <mxPoint x="-10" y="1030" />
               <mxPoint x="-10" y="640" />
             </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R_w4EmGdJ1-UWBU-h1K5-0" value="Pasākuma reģistrācijas dati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="jQl35UlGP5zOyr-lm_Hc-5">
+          <mxGeometry x="-0.4514" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="jQl35UlGP5zOyr-lm_Hc-0" value="PSK-10&lt;br&gt;Pasākuma reģistrāciju apskatīšana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="smBA0Inm2jj-qsSQyGSD-1" vertex="1">

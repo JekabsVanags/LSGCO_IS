@@ -22,8 +22,8 @@ class User < ApplicationRecord
 
   has_many :positions
 
-  def years_in_organization #Pilni gadi organizācijā
-    ((Date.today - joined_date) / 365).to_i
+  def years_in_organization #Pilni gadi organizācijā. 365.25 dienas gadā ņemot vērā garos gadus.
+    ((Date.today - joined_date) / 365.25).to_i
   end
 
   def rank #Pašreiz aktīvā pakāpe
