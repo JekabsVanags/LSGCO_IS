@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
       @users = @unit.users.includes(:positions)
       @events = (@unit.events + @unit.event_invites).uniq
       @payments = generate_payment_summary(@unit)
-      @profit = calculate_profit(@payments)
+      @org_fee = generate_org_fee(@unit)
       @positions = @unit.positions.includes(:user)
 
       respond_to do |format|
@@ -65,7 +65,6 @@ class ReportsController < ApplicationController
         name: user.name,
         surname: user.surname,
         bilance: user.membership_fee_bilance,
-        payed_total: user_summary.sum, #Kopējā maksājumu summa
         summary: user_summary,  #Maksājumi pa mēnešiem
       }
     end
@@ -73,10 +72,14 @@ class ReportsController < ApplicationController
     payment_summary
   end
 
-  def calculate_profit(payments)
-    #Visus maksājumus pārveidojam par aprēķinātu summu.
-    payments.reduce(0) do |sum, payment|
-      sum += payment[:payed_total]
+  def generate_org_fee(unit)
+    users_with_payments = unit.users.includes(:payed_fees)
+
+    org_fee = users_with_payments.reduce(0) do |sum, user|
+      #Katram lietotājam izveidojam atsevišķu atskaiti
+      sum += user.payed_fees
+      .where("EXTRACT(YEAR FROM date) = ?", Date.today.year)
+      .sum(:org_fee)
     end
   end
 

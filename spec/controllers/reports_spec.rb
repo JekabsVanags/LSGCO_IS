@@ -14,9 +14,9 @@ RSpec.describe ReportsController, type: :controller do
   !let(:event2) { create(:event, unit: unit2) }
   !let(:invite) { create(:invite, unit: unit, event: event2, rank: "SK/G") }
   !let(:position) { create(:position, user: user, unit: unit) }
-  !let(:payment) { create(:membership_fee_payment, user_payed: user, user_recorded: user, unit: unit, amount: 6, date: Date.new(Date.today.year, 1, 12)) }
-  !let(:payment2) { create(:membership_fee_payment, user_payed: user, user_recorded: user, amount: 12, unit: unit, date: Date.new(Date.today.year, 12, 12)) }
-  !let(:payment3) { create(:membership_fee_payment, user_payed: user2, user_recorded: user, amount: 12, unit: unit, date: Date.new(Date.today.year, 2, 12)) }
+  !let(:payment) { create(:membership_fee_payment, user_payed: user, user_recorded: user, unit: unit, amount: 6, org_fee: 1, date: Date.new(Date.today.year, 1, 12)) }
+  !let(:payment2) { create(:membership_fee_payment, user_payed: user, user_recorded: user, amount: 12, org_fee: 1, unit: unit, date: Date.new(Date.today.year, 12, 12)) }
+  !let(:payment3) { create(:membership_fee_payment, user_payed: user2, user_recorded: user, amount: 12, org_fee: 1, unit: unit, date: Date.new(Date.today.year, 2, 12)) }
   !let(:rank) { create(:rank_history, user: user, rank: "SK/G", date_of_oath: Date.today, current: true) }
   !let(:rank2) { create(:rank_history, user: user, rank: "MZSK/GNT", date_of_oath: Date.today) }
   !let(:rank3) { create(:rank_history, user: user2, rank: "DZSK/DZG", date_of_oath: nil, current: true) }
@@ -57,10 +57,10 @@ RSpec.describe ReportsController, type: :controller do
         payment3.save!
         user2.update(membership_fee_bilance: -6)
         get :unit_report, params: { id: unit.id }
-        expect(assigns(:payments)).to match_array([{ id: user.id, name: user.name, surname: user.surname, bilance: 0.0, payed_total: 18.0, summary: [6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.0] },
-                                                   { id: user2.id, name: user2.name, surname: user2.surname, bilance: -6.0, payed_total: 12.0, summary: [0.0, 12.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
-                                                   { id: user3.id, name: user3.name, surname: user3.surname, bilance: 0.0, payed_total: 0.0, summary: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] }])
-        expect(assigns(:profit)).to eq(30.0)
+        expect(assigns(:payments)).to match_array([{ id: user.id, name: user.name, surname: user.surname, bilance: 0.0, summary: [6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.0] },
+                                                   { id: user2.id, name: user2.name, surname: user2.surname, bilance: -6.0, summary: [0.0, 12.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
+                                                   { id: user3.id, name: user3.name, surname: user3.surname, bilance: 0.0, summary: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] }])
+        expect(assigns(:org_fee)).to eq(3)
       end
     end
 

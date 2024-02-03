@@ -72,7 +72,7 @@ class EventsController < ApplicationController
 
   #Pieņem pasākuma objektu ar atļautajiem laukiem
   def event_params
-    params.require(:event).permit(:name, :description, :date_from, :date_to, :event_type, :necessary_volunteers, :max_participants, :deleted_at, units: [], ranks: [])
+    params.require(:event).permit(:name, :description, :date_from, :date_to, :event_type, :necessary_volunteers, :max_participants, :deleted_at, :registration_till, units: [], ranks: [])
   end
 
   #Funkcija, kas izveido ielūgumus vienību masīva pakāpēm, kas pakāpju masīvā

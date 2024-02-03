@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  validates :name, :date_from, :date_to, :event_type, presence: true
+  validates :name, :date_from, :date_to, :event_type, :registration_till, presence: true
 
   enum event_type: ["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]
 
@@ -14,6 +14,7 @@ class Event < ApplicationRecord
 
   #Nestingrā dzēšana- noklusējumā rādam tikai nedzēstos pasākumus
   default_scope { where(deleted_at: nil) }
+
   #Nākotnes pasākumi
   scope :future, -> { where("date_from > ?", Date.today) }
 end

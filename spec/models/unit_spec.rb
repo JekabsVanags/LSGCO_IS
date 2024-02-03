@@ -58,6 +58,13 @@ RSpec.describe Unit, type: :model do
     expect(unit2.event_invites.first).to eq(event)
   end
 
+  it('should get units associated unit leader') do
+    user1.save!
+    unit.unit_leader = user1
+    unit.save!
+    expect(unit.unit_leader).to eq(user1)
+  end
+
   it('should get the units membership fee payments') do
     unit.save!
     user1.save!

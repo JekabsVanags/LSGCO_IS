@@ -3,6 +3,8 @@ class Unit < ApplicationRecord
   validates :city, :number, :legal_adress, :bank_account, presence: true
 
   #Objektu saistības
+  belongs_to :unit_leader, class_name: "User", optional: true
+
   has_many :users, foreign_key: 'unit_id'
   has_many :events
   has_many :invites
@@ -12,15 +14,21 @@ class Unit < ApplicationRecord
   has_many :weekly_activities
 
   def full_name #Vienības pilnais nosaukums
-    number == 0 ? "LSGCO" : "#{city}s #{number}. vienība"
+    if number == 0 
+      "LSGCO"
+    elsif city.ends_with?("i")
+      "#{city.slice(0...-1)}u #{number}. vienība"
+    elsif city.ends_with?("ls")
+      "#{city} #{number}. vienība"
+    elsif city.ends_with?("s")
+      "#{city.slice(0...-1)}a #{number}. vienība"
+    else
+      "#{city}s #{number}. vienība"
+    end
   end
 
   def get_actual_events(rank) #Pasākumi, kuriem vienībai ir ielūgumi norādītajai pakāpei
     invites.includes(:event).future.where(rank:).map(&:event)
-  end
-
-  def unit_leader #Vienības priekšnieks- lietotājs kam ir vadītāja piekļuve, vai arī valdes piekļuve un vadītāja pakāpe.
-    users.where(permission_level: "pklv_vaditajs").first || users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first
   end
 
   def unit_active? #Vai vienība ir dzēsta
