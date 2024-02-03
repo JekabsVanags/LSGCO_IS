@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe MembershipFeePaymentsController, type: :controller do
   let(:unit) { create(:unit) }
+  let(:org_unit) { create(:unit, number: 0, membership_fee: 2) }
   let(:user) { create(:user, unit: unit, email: "test@test") }
   let(:user2) { create(:user, unit: unit, email: "test2@test", permission_level: "pklv_valde") }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
@@ -9,6 +10,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
 
   before do
     current_user.save!
+    org_unit.save!
     session[:user_id] = current_user.id
   end
 

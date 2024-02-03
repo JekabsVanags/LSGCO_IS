@@ -15,7 +15,18 @@ def random_seeder
   admin_user = User.create(name: "Jekabs", surname: "Vanags", activity_statuss: "Vadītājs", joined_date: Date.today,
                            password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: ogre_unit,
                            username: "JekabsVanags29", permission_level: "pklv_valde")
+  
+  admin2_user = User.create(name: "Andris", surname: "Vanags", activity_statuss: "Vadītājs", joined_date: Date.today,
+                           password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: ogre_unit,
+                           username: "AndrisVanags12", permission_level: "pklv_vaditajs")
+
   RankHistory.create(date_begin: (Date.today - 1075), user: admin_user, rank: "DZSK/DZG")
+
+  ogre_unit.unit_leader = admin_user
+  ogre_unit.save!
+
+  tukums_unit.unit_leader = admin2_user
+  tukums_unit.save!
 
   12.times do
     generate_fake_user(ogre_unit, "MZSK/GNT")
@@ -36,13 +47,6 @@ def random_seeder
   2.times do
     generate_fake_user(tukums_unit, "DZSK/DZG")
   end
-
-  test_event1 = Event.create(name: "Nometne", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 60), date_to: (Date.today + 60), event_type: "Nometne", unit: ogre_unit)
-  test_event2 = Event.create(name: "Pārgājiens", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: ogre_unit)
-  test_event3 = Event.create(name: "Pārgājiens mazajiem", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 90), date_to: (Date.today + 60), event_type: "Pārgājiens", unit: ogre_unit)
-  Invite.create(event: test_event1, unit: ogre_unit, rank: "DZSK/DZG")
-  Invite.create(event: test_event2, unit: ogre_unit, rank: "DZSK/DZG")
-  Invite.create(event: test_event3, unit: ogre_unit, rank: "MZSK/GNT")
 end
 
 def bdr_test_seeder
@@ -51,9 +55,9 @@ def bdr_test_seeder
   unit_b = Unit.create(city: "Valka", number: 52, legal_adress: "Valka Unit Address",
                        email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "10")
 
-  user = User.create(name: "Test", surname: "User", activity_statuss: "Aktīvs", joined_date: Date.today,
+  user = User.create(name: "Jēkabs", surname: "Vanags", activity_statuss: "Aktīvs", joined_date: Date.today,
                      password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: unit_a,
-                     username: "TestUser29", permission_level: "pklv_biedrs", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
+                     username: "JēkabsVanags29", permission_level: "pklv_biedrs", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
   RankHistory.create(date_begin: (Date.today - 1075), user: user, rank: "SK/G")
 
   test_event_a = Event.create(name: "P/A", description: Faker::Books::Lovecraft.paragraph, date_from: (Date.today + 60), date_to: (Date.today + 60), event_type: "Nometne", unit: unit_b, necessary_volunteers: 10, max_participants: 10)
@@ -67,10 +71,10 @@ end
 def vnb_test_seeder
   unit_a = Unit.where(number: 29).first
 
-  user_a = User.create(name: "Test2", surname: "User", activity_statuss: "Aktīvs", joined_date: Date.today,
+  user_a = User.create(name: "Agnese", surname: "Zīmele", activity_statuss: "Aktīvs", joined_date: Date.today,
                        password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: unit_a,
-                       username: "Test2User29", permission_level: "pklv_vaditajs", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
-  RankHistory.create(date_begin: (Date.today - 1075), user: user_a, rank: "SK/G")
+                       username: "AgneseZīmele29", permission_level: "pklv_vaditajs", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
+  RankHistory.create(date_begin: (Date.today - 1075), user: user_a, rank: "VAD")
 
   user_b = User.create(name: Faker::Name.first_name, surname: Faker::Name.last_name, activity_statuss: "Aktīvs", joined_date: Date.today,
                        password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: unit_a,
@@ -95,10 +99,10 @@ def vld_test_seeder
   unit_d = Unit.create(city: "Jelgava", number: 72, legal_adress: "Jelgava Unit Address",
                        email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "10")
 
-  user_a = User.create(name: "Test3", surname: "User", activity_statuss: "Aktīvs", joined_date: Date.today,
+  user_a = User.create(name: "Inga", surname: "Kuple", activity_statuss: "Aktīvs", joined_date: Date.today,
                        password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: unit_a,
-                       username: "Test3User29", permission_level: "pklv_valde", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
-  RankHistory.create(date_begin: (Date.today - 1075), user: user_a, rank: "SK/G")
+                       username: "IngaKuple29", permission_level: "pklv_valde", phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
+  RankHistory.create(date_begin: (Date.today - 1075), user: user_a, rank: "VAD")
 
   user_b = User.create(name: "Jānis", surname: "Kļaviņš", activity_statuss: "Vadītājs", joined_date: Date.today,
                        password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: unit_a,
@@ -114,8 +118,8 @@ def generate_fake_user(unit, rank)
 end
 
 if Rails.env.development?
-  #random_seeder()
-  bdr_test_seeder()
-  vnb_test_seeder()
-  vld_test_seeder()
+  random_seeder()
+  # bdr_test_seeder()
+  # vnb_test_seeder()
+  # vld_test_seeder()
 end

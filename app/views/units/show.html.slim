@@ -4,7 +4,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       .flex.flex-col.justify-between.lg:flex-row
         h1.title-normal 
           |Vienības dati
-        -if @current_user.pklv_vaditajs? ||  @current_user.pklv_valde? && @current_user.activity_statuss == "Vadītājs"
+        -if @current_user == @unit.unit_leader
           =link_to "Labot datus" ,edit_unit_path(@unit), class:"btn-ternary ml-0 p-0"
         -if @current_user.pklv_valde?
           -if @unit.unit_active?

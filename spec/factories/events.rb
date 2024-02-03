@@ -10,6 +10,7 @@ FactoryBot.define do
     registered_volunteers { 0 }
     max_participants { 10 }
     registered_participants { 0 }
+    registration_till {Faker::Date.in_date_period(year: 2020)}
     deleted_at { nil }
   end
 end

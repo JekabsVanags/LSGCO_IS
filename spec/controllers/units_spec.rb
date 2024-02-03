@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.describe UnitsController, type: :controller do
-  !let(:unit) { create(:unit) }
-  !let(:unit2) { create(:unit) }
+  !let(:org_unit) { create(:unit, number: 0) }
+  !let(:unit) { create(:unit, number: 2) }
+  !let(:unit2) { create(:unit, number: 1) }
   !let(:user) { create(:user, unit: unit, activity_statuss: "Vadītājs", permission_level: "pklv_vaditajs") }
   !let(:leader) { create(:user, unit: unit, activity_statuss: "Vadītājs") }
   !let(:admin) { create(:user, unit: unit, permission_level: "pklv_valde") }
@@ -104,6 +105,9 @@ RSpec.describe UnitsController, type: :controller do
 
   describe "GET #show" do
     it "gets unit, weekly activities, members, and unit leader" do
+      unit.unit_leader = user
+      unit.save!
+
       get :show, params: { id: unit.id }
 
       expect(assigns(:unit)).to eq(unit)

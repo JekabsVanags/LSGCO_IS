@@ -5,7 +5,7 @@
   .flex.flex-col.mt-10.lg:w-1/3.lg:ml-10.lg:mt-0
     h1.title-normal.text-center.text-xl
       | Pieteikties
-    -if !current_user_registered_for(@event.id).present? && Date.today < @event.date_from-7
+    -if !current_user_registered_for(@event.id).present? && Date.today < @event.registration_till
       =form_for @event_registration do |f|
         div.border-2.rounded-xl.p-2.flex.flex-col
           =f.label :role, "Piesakos kā:", class: "input-label"

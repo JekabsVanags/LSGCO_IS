@@ -21,7 +21,11 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @members = @unit.users.where.not(activity_statuss: "Izstājies") #Aktīvie biedri
-    @unit_leader = @unit.users.where(unit: @unit, permission_level: "pklv_vaditajs").first || @unit.users.where(permission_level: "pklv_valde", activity_statuss: "Vadītājs").first #Vienības priekšnieks
+    @unit_leader = @unit.unit_leader
+
+    if @unit.number == 0
+      render 'org_edit'
+    end
   end
 
   def create #Izveido jaunu vienību
@@ -47,20 +51,27 @@ class UnitsController < ApplicationController
   def update #Vienības datu atjaunošana
     @unit = Unit.find(params[:id])
     @leader = params[:leader_id] ? User.find(params[:leader_id]) : @unit.unit_leader #Norādītais priekšnieks
-    membership_fee = unit_update_params[:membership_fee].present? ? unit_update_params[:membership_fee] : 0  #Vienmēr jābūt dalības maksai
+    
+     membership_fee = unit_update_params[:membership_fee].present? ? unit_update_params[:membership_fee] : 0  #Vienmēr jābūt dalības maksai
 
     if @leader != @unit.unit_leader #Ja priekšnieks mainīts, atjauno priekšnieku un tā piekļuves, un noņem vecā priekšnieka piekļuves
       if !@unit.unit_leader.pklv_valde?
         @unit.unit_leader.update(permission_level: "pklv_biedrs")
       end
 
+      @unit.unit_leader = @leader
+      
       if !@leader.pklv_valde? #Ja valdes loceklis, nevajag mainīt piekļuves
         @leader.update(permission_level: "pklv_vaditajs")
       end
     end
 
     if @unit.update(unit_update_params.merge(membership_fee: membership_fee)) #Saglabājam vienības datus ar dalības maksu, ja kļūda Paziņo
-      redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
+      unless @unit.number == 0 
+         redirect_to unit_path(@unit), notice: "Vienības infromācija atjaunota"
+         return
+      end
+      redirect_to units_path, notice: "Organizācijas informācija atjaunota"
     else
       redirect_to root_path, alert: "Kļūda"
     end

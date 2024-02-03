@@ -5,10 +5,13 @@
     = f.text_field :name, required: true, class: 'input-field-blue w-full'
     = f.label :name, "Apraksts", class: 'input-label'   
     = f.text_area :description, class: 'input-field-blue w-full h-60 overflow-auto'
-    .flex.flex-col.w-full.mt-2.lg:flex-row
-      .flex.flex-col.w-full
+    .flex.w-full.mt-2
+      .flex.flex-col.lg:w-1/2
         = f.label :event_type, "Pasākuma veids", class: 'input-label'
         = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
+      .flex.flex-col.ml-10.lg:w-1/2
+        = f.label :registration_till, "Reģistrēšanās līdz", class: 'input-label'
+        = f.date_field :registration_till, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
     .flex.w-full.mt-2
       .flex.flex-col.w-1/2
         = f.label :date_from, "No", class: 'input-label'

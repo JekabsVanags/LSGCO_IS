@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :rank_histories
   has_one :personal_information, dependent: :destroy
   belongs_to :unit
+  has_one :leader_for_unit, foreign_key: "unit_leader_id", class_name: "Unit"
 
   has_many :event_registrations
   has_many :events, through: :event_registrations

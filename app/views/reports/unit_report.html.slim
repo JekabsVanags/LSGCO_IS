@@ -25,7 +25,7 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
             =render "position_report_table"
         div.hidden id="fee-report"
           .p.text-end
-            |Vienības kopējie ienākumi: #{@profit.round(2)}€
+            |Vienībai organizācijas kontā jāiemaksā: #{@org_fee.round(2)}€
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full
             =render "fee_report_table"
 
