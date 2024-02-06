@@ -5,6 +5,42 @@ require "faker"
 org_unit = Unit.create(city: "Latvija", number: 0, legal_adress: "Org Unit Address",
                        email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "10")
 
+def demonstration_seeder
+  ogre_unit = Unit.create(city: "Ogre", number: 29, legal_adress: "Ogre Unit Address",
+  email: "ogre@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "3")
+
+  ogre_admin_user = User.create(name: "Agnese", surname: "Zīmele", activity_statuss: "Vadītājs", joined_date: Date.today,
+  password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: ogre_unit,
+  username: "AgneseZīmele29", permission_level: "pklv_vaditajs")
+
+  ogre_unit.unit_leader = ogre_admin_user
+  ogre_unit.save!
+
+  tukums_unit = Unit.create(city: "Tukums", number: 12, legal_adress: "Tukums Unit Address",
+    email: "tukums@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "3")
+  
+  tukums_admin_user = User.create(name: "Inga", surname: "Kuple", activity_statuss: "Vadītājs", joined_date: Date.today,
+  password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: tukums_unit,
+  username: "IngaKuple12", permission_level: "pklv_vaditajs")
+
+  tukums_unit.unit_leader = tukums_admin_user
+  tukums_unit.save!
+
+  riga_unit = Unit.create(city: "Rīga", number: 2, legal_adress: "Rigas 2. Unit Address",
+    email: "rigas2@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "3")
+
+  riga_admin_user = User.create(name: "Madara", surname: "Skudra", activity_statuss: "Vadītājs", joined_date: Date.today,
+  password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: tukums_unit,
+  username: "MadaraSkudra2", permission_level: "pklv_vaditajs")
+
+  riga_unit.unit_leader = riga_admin_user
+  riga_unit.save!
+
+  admin_user = User.create(name: "Jēkabs", surname: "Vanags", activity_statuss: "Aktīvs", joined_date: Date.today,
+                           password_digest: BCrypt::Password.create("test").to_s, agreed_to_data_collection: true, unit: ogre_unit,
+                           username: "JēkabsVanags29", permission_level: "pklv_valde")
+end
+
 def random_seeder
   ogre_unit = Unit.create(city: "Ogre", number: 29, legal_adress: "Ogre Unit Address",
                           email: "info@skautiungaidas.lv", phone: "23232323", bank_account: "GB59BARC20038041146187", membership_fee: "2")
@@ -118,7 +154,8 @@ def generate_fake_user(unit, rank)
 end
 
 if Rails.env.development?
-  random_seeder()
+   demonstration_seeder()
+  # random_seeder()
   # bdr_test_seeder()
   # vnb_test_seeder()
   # vld_test_seeder()

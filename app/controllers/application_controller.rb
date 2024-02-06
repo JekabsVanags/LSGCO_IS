@@ -39,5 +39,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "Vienība neaktīva"
   end
 
-  helper_method :current_user, :current_tab
+  def user_access?(screen)
+    access = {
+      "user_management" => ["pklv_vaditajs", "pklv_biedrs", "pklv_valde"],
+      "unit_management" => ["pklv_vaditajs", "pklv_valde"],
+      "event_management" => ["pklv_vaditajs", "pklv_valde"],
+      "structure_management" => ["pklv_valde"],
+      "report_management" => ["pklv_valde", "pklv_vaditajs"],
+      "org_report" => ["pklv_valde"]
+    }
+
+    access[screen].include?(current_user.permission_level)
+  end
+
+  helper_method :current_user, :current_tab, :user_access?
 end

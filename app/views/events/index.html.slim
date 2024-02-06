@@ -3,12 +3,12 @@
     .max-h-1/3.h-fit.lg:w-1/2.overflow-y-auto
       .flex.justify-between.items-center
         h1.title-normal 
-          |Vienības rīkotie pasākumi
+          = @mode == "unit" ? "Vienības rīkotie pasākumi" : "Organizācijas rīkotie pasākumi"
         =link_to "+Pasākums" ,new_event_path, class:  @current_user.unit.unit_active? ? 'btn-primary ' : "btn-primary disabled-link"
       .border-2.rounded-xl.overflow-y-auto
         =render "event_table"
     .max-h-1/3.h-fit.mt-10.lg:w-1/2.lg:ml-10.lg:mt-0
       h1.title-normal
-        |Vienības tuvākie pasākumi
+        = @mode == "unit" ? "Vienības tuvākie pasākumi" : "Organizācijas tuvākie pasākumi"
       .border-2.rounded-xl.overflow-y-auto
         =render "invite_table"

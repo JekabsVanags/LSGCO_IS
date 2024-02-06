@@ -11,8 +11,16 @@ class EventsController < ApplicationController
 
   def index #Vienības pasākumu un pasākumu uz ko vienība ielūgta saraksts
     session[:current_tab] = "events"
-    @events = current_user.unit.events
-    @invites = current_user.unit.invites.map(&:event).uniq
+
+    if current_user.leader_for_unit.present? || current_user.pklv_vaditajs?
+      @events = current_user.unit.events
+      @invites = current_user.unit.invites.map(&:event).uniq
+      @mode = "unit"
+    elsif current_user.pklv_valde?
+      @events = Unit.where(number: 0).first.events. future
+      @invites = Event.future
+      @mode = "org"
+    end
   end
 
   def show #Pasākuma dati lietotājam
@@ -37,7 +45,7 @@ class EventsController < ApplicationController
   end
 
   def create #Izveido pasākumu pašreizējā lietotāja vienībai un ielūgumus atzīmētajām vienībām un pakāpēm, ja kļūda paziņo
-    @unit = current_user.unit
+    @unit = current_user.leader_for_unit.present? ? current_user.unit : Unit.where(number: 0).first
     @event = Event.new(event_params.except(:units, :ranks))
     @event.unit = @unit
 

@@ -1,6 +1,7 @@
 class Unit < ApplicationRecord
   #Definējam obligātos laukus
   validates :city, :number, :legal_adress, :bank_account, presence: true
+  validates_uniqueness_of :number
 
   #Objektu saistības
   belongs_to :unit_leader, class_name: "User", optional: true

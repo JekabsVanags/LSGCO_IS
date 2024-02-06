@@ -7,5 +7,7 @@ class Refactoring < ActiveRecord::Migration[7.0]
     add_column :membership_fee_payments, :org_fee, :decimal
 
     add_column :events, :registration_till, :date
+
+    add_index :units, :number, unique: true
   end
 end

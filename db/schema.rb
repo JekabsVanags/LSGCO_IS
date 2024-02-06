@@ -125,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_130747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "unit_leader_id"
+    t.index ["number"], name: "index_units_on_number", unique: true
   end
 
   create_table "users", force: :cascade do |t|
