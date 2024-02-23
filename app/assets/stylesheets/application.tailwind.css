@@ -5,7 +5,7 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[45px] hover:bg-scout-blue-darkened ;
+    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[60px] hover:bg-scout-blue-darkened ;
   }
 
   .btn-secondary {
@@ -21,7 +21,7 @@
   }
 
   .input-label {
-    @apply font-semibold text-sm ml-2 text-scout-blue block;
+    @apply text-sm ml-2 text-scout-blue relative top-[45px] left-[20px];
   }
 
   .input-label-inline {
@@ -29,7 +29,7 @@
   }
 
   .input-field-blue {
-    @apply py-2 px-2 m-1 border-2 border-scout-blue rounded-xl h-[50px];
+    @apply py-2 px-2 m-1 border-2 border-scout-blue rounded-full h-[60px];
   }
 
   .main-title {
