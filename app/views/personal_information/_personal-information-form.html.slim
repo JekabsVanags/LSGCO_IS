@@ -19,7 +19,7 @@
                 = f.label :emergency_contact_number, "Ārkārtas kontakttālrunis, kas", class: "input-label"
                 = f.telephone_field :emergency_contact_number, required: true, class: "input-field-blue w-[95%]"
               .flex.flex-col.w-1/4
-                = f.label :emergency_contact_relationship, "ir", class: "input-label-inline"
+                = f.label :emergency_contact_relationship, "ir", class: "input-label-static"
                 = f.select :emergency_contact_relationship, options_for_select( ["Tēvs", "Māte", "Vecvecāks", "Dzīvesbiedrs"]), {required: true}, class: "input-field-blue"
 
           div
