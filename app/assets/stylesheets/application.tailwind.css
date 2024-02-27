@@ -5,23 +5,23 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[60px] hover:bg-scout-blue-darkened ;
+    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[60px] hover:bg-scout-blue-darkened items-center flex;
   }
 
   .btn-secondary {
-    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[45px] hover:border-scout-blue-darkened;
+    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[60px] hover:border-scout-blue-darkened  items-center flex;
   }
 
   .btn-ternary {
-    @apply py-2 px-4 m-1 text-scout-blue underline text-start font-sans text-xl font-semibold h-[50px] hover:text-scout-blue-darkened;
+    @apply py-2 px-4 m-1 text-scout-blue underline text-start font-sans text-xl font-semibold h-[60px] hover:text-scout-blue-darkened;
   }
 
   .btn-active {
-    @apply py-2 px-4 m-1 bg-scout-red text-white text-start rounded-md font-sans text-xl font-semibold h-[50px] ;
+    @apply py-2 px-4 m-1 bg-scout-red text-white text-start rounded-full font-sans text-xl font-semibold h-[60px] items-center flex;
   }
 
   .input-label {
-    @apply text-sm ml-2 text-scout-blue relative top-[45px] left-[20px];
+    @apply text-sm ml-2 text-scout-blue relative left-[20px] bg-white duration-100 ease-linear bottom-5 peer-focus:bottom-5 p-2 peer-placeholder-shown:bottom-[48px] ;
   }
 
   .input-label-inline {
@@ -29,7 +29,7 @@
   }
 
   .input-field-blue {
-    @apply py-2 px-2 m-1 border-2 border-scout-blue rounded-full h-[60px];
+    @apply py-2 px-5 m-1 border-2 border-scout-blue rounded-full h-[60px] w-full;
   }
 
   .main-title {
