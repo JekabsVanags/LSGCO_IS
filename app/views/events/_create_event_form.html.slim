@@ -2,46 +2,51 @@
 =form_for @event do |f|
   .flex.flex-col.w-full.lg:flex-row 
     .flex.flex-col.lg:w-1/2
-      = f.label :name, "Nosaukums", class: 'input-label'
-      = f.text_field :name, required: true, class: 'input-field-blue w-full'
-      = f.label :name, "Apraksts", class: 'input-label'   
-      = f.text_area :description, class: 'input-field-blue w-full h-60 overflow-auto'
+      div
+        = f.text_field :name, required: true, class: 'input-field-blue w-full peer', placeholder: ""
+        = f.label :name, "Nosaukums", class: 'input-label'
+      div
+        = f.text_area :description, class: 'input-field-blue rounded-[30px] w-full h-60 overflow-auto peer', placeholder: ""
+        = f.label :name, "Apraksts", class: 'input-label'   
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.label :event_type, "Pasākuma veids", class: 'input-label'
           = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
+          = f.label :event_type, "Pasākuma veids", class: 'input-label'
         .flex.flex-col.ml-10.lg:w-1/2
-          = f.label :registration_till, "Reģistrēšanās līdz", class: 'input-label'
           = f.date_field :registration_till, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.label :registration_till, "Reģistrēšanās līdz", class: 'input-label'
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.label :date_from, "No", class: 'input-label'
           = f.date_field :date_from, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.label :date_from, "No", class: 'input-label'
         .flex.flex-col.ml-10.lg:w-1/2
-          = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
           = f.date_field :date_to, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.label :necessary_volunteers, "Vajadzīgie brīvprātīgie", class: 'input-label'
           = f.number_field :necessary_volunteers, required: true, class: 'input-field-blue w-full'
+          = f.label :necessary_volunteers, "Vajadzīgie brīvprātīgie", class: 'input-label-static'
         .flex.flex-col.ml-10.lg:w-1/2
-          = f.label :max_participants, "Maksimālais dalībnieku skaits", class: 'input-label'
           = f.number_field :max_participants, required: true, class: 'input-field-blue w-full'
-    .flex.lg:w-1/2.flex-col.mt-10.lg:ml-10.lg:mt-0
-      label for="ranks" class="input-label mb-2"
-        |Pasākums paredzēts šīm pakāpēm:
-      .flex.flex-wrap.w-full class="lg:h-[60px]"
-        -ranks_short.each do |rank|
-          .flex.p-2
-            = check_box_tag 'event[ranks][]', rank, false,  class: 'border-2 border-scout-blue rounded-sm'
-            = label_tag "rank#{rank}", rank, class: 'text-sm font-bold text-scout-blue ml-2'
-      label for="ranks" class="input-label mb-2 mt-2 lg:mt-0" 
-        |Ielūgtas šādas vienības:
-      .flex.flex-col.w-full.border-2.border-scout-blue.p-2.rounded-xl.overflow-auto class="h-fit max-h-[425px] overflow-auto"
-       - @units.each do |unit|
-          .flex.p-2 
-            = check_box_tag 'event[units][]', unit.id, false, class: 'border-2 border-scout-blue rounded-sm'
-            = label_tag "units#{unit.id}", unit.full_name, class: 'text-sm font-bold text-scout-blue ml-2'
-      = f.submit "Izveidot pasākumu", class: 'btn-primary w-full mt-11'
+          = f.label :max_participants, "Max dalībnieku skaits", class: 'input-label-static'
+    .flex.lg:w-1/2.flex-col.mt-10.lg:ml-10.lg:mt-0.items-center
+      .w-4/5
+        .flex.flex-wrap.border-2.border-scout-blue.p-2.overflow-auto class="lg:h-[100px] max-h-[425px] overflow-auto rounded-[30px] px-5"
+          -ranks_short.each do |rank|
+            .flex.p-2
+              = check_box_tag 'event[ranks][]', rank, false,  class: 'border-2 border-scout-blue rounded-sm'
+              = label_tag "rank#{rank}", rank, class: 'text-sm font-bold text-scout-blue ml-2'
+        label for="ranks" class="input-label-static"
+          |Pasākums paredzēts šīm pakāpēm
+      .w-4/5.mt-10
+        .flex.flex-col.border-2.border-scout-blue.p-2.overflow-auto class="h-fit max-h-[60vh] overflow-auto rounded-[30px] px-5 pb-5"
+          - @units.each do |unit|
+              .flex.p-2 
+                = check_box_tag 'event[units][]', unit.id, false, class: 'border-2 border-scout-blue rounded-sm'
+                = label_tag "units#{unit.id}", unit.full_name, class: 'text-sm font-bold text-scout-blue ml-2'
+        label for="ranks" class="input-label-static" 
+          |Ielūgtas šādas vienības
+
+      = f.submit "Izveidot pasākumu", class: 'btn-primary w-4/5 mt-10'
 
 

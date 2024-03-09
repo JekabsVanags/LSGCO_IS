@@ -5,19 +5,24 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
         h1.title-normal 
           |Organizācijas iestatījumi
       = form_for @unit do |f|
-        div.flex.flex-col.w-full.mb-10.lg:flex-row.lg:mb-20
+        div.flex.flex-col.w-full.mb-10.lg:flex-row.lg:mt-20
           .flex.flex-col.content-around.h-2/3.lg:w-1/2
-            = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
-            = f.text_field :legal_adress, class: 'input-field-blue w-full', required: true
-            = f.label :membership_fee, 'Biedra nauda (organizāciajs)', class: 'input-label'
-            = f.number_field :membership_fee, class: 'input-field-blue w-full'
-            = f.label :email, "Epasts #{!@unit.email.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
-            = f.email_field :email, class: 'input-field-blue w-full'
-            = f.label :phone, "Telefona numurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka telefona numurs)" : ""}", class: 'input-label'
-            = f.phone_field :phone, class: 'input-field-blue w-full'
-            = f.label :bank_account, 'Bankas konts', class: 'input-label'
-            = f.text_field :bank_account, class: 'input-field-blue w-full', required: true
-            = f.submit "Atjaunot organizācijas datus", class: "btn-primary w-full mt-9"
+            .
+              = f.text_field :legal_adress, class: 'input-field-blue w-full peer', required: true, placeholder: ""
+              = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
+            .
+              = f.number_field :membership_fee, class: 'input-field-blue w-full peer', placeholder: ""
+              = f.label :membership_fee, 'Biedra nauda (organizāciajs)', class: 'input-label'
+            .
+              = f.email_field :email, class: 'input-field-blue w-full peer', placeholder: ""
+              = f.label :email, "Epasts #{!@unit.email.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka epasts)" : ""}", class: 'input-label'
+            .
+              = f.phone_field :phone, class: 'input-field-blue w-full peer', placeholder: ""
+              = f.label :phone, "Telefona numurs #{!@unit.phone.present? ? "(ja atstāts tukš tiek lietots vienības priekšnieka telefona numurs)" : ""}", class: 'input-label'
+            .
+              = f.text_field :bank_account, class: 'input-field-blue w-full peer', required: true, placeholder: ""
+              = f.label :bank_account, 'Bankas konts', class: 'input-label'
+            = f.submit "Atjaunot organizācijas datus", class: "btn-primary w-full"
 
            
            

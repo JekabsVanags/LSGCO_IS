@@ -5,11 +5,11 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 m-1 mt-10 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[55px] hover:bg-scout-blue-darkened items-center flex;
+    @apply py-2 px-4 mx-1 my-3 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[55px] hover:bg-scout-blue-darkened items-center flex;
   }
 
   .btn-secondary {
-    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[55px] hover:border-scout-blue-darkened  items-center flex;
+    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[55px] hover:border-scout-blue-darkened  items-center flex;
   }
 
   .btn-ternary {
@@ -21,11 +21,15 @@
   }
 
   .input-label {
-    @apply text-sm ml-2 text-scout-blue relative left-[20px] bg-white duration-100 ease-linear bottom-4 peer-focus:bottom-4 px-1 peer-placeholder-shown:bottom-[48px] ;
+    @apply text-sm ml-2 text-scout-blue relative left-[20px] bg-white w-fit duration-100 ease-linear bottom-4 peer-focus:bottom-4 px-1 peer-placeholder-shown:bottom-[48px] ;
   }
 
   .input-label-static {
     @apply text-sm ml-2 text-scout-blue relative left-[20px] bottom-4 px-1 bg-white w-fit;
+  }
+
+  .input-label-inline {
+    @apply text-sm ml-2 text-scout-blue;
   }
 
   .input-field-blue {
