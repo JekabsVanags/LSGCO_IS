@@ -24,7 +24,7 @@
                 = f.telephone_field :emergency_contact_number, required: true, class: "input-field-blue w-[95%] peer", placeholder: ""
                 = f.label :emergency_contact_number, "Ārkārtas kontakttālrunis", class: "input-label"
               .flex.flex-col.w-1/4
-                = f.select :emergency_contact_relationship, options_for_select( ["Tēvs", "Māte", "Vecvecāks", "Dzīvesbiedrs"]), {required: true}, class: "input-field-blue"
+                = f.select :emergency_contact_relationship, options_for_select( ["Tēvs", "Māte", "Vecvecāks", "Dzīvesbiedrs"], selected: @info.emergency_contact_relationship), {required: true}, class: "input-field-blue"
                 = f.label :emergency_contact_relationship, "Attiecības", class: "input-label-static"
 
           div
