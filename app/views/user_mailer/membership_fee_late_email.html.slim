@@ -10,9 +10,11 @@ div style="font-family: sans"
 
   p 
     | Lūdzam tevi pārskaitīt #{@user.membership_fee_bilance.abs.to_s + "€"  } uz tavu vienības kontu:
+  b 
+    |Latvijas skautu un gaidu centrālā organizācija:
   b
-    =@user.unit.bank_account 
-
+    |#{@user.unit.bank_account}
+    
   p style="margin-top: 10px" 
     em 
       | Ja radušies kādi jautājumi, vai neskaidrības, lūdzu sazinieties ar savu vienības priekšnieku pa talruni #{@user.unit.phone}

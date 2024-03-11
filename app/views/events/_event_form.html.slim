@@ -10,17 +10,17 @@
         = f.label :name, "Apraksts", class: 'input-label'   
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
+          = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"], selected: @event.event_type), {}, class: 'input-field-blue w-full'
           = f.label :event_type, "Pasākuma veids", class: 'input-label'
         .flex.flex-col.ml-10.lg:w-1/2
-          = f.date_field :registration_till, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.date_field :registration_till, required: true, class: 'input-field-blue w-full'
           = f.label :registration_till, "Reģistrēšanās līdz", class: 'input-label'
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.date_field :date_from, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.date_field :date_from, required: true, class: 'input-field-blue w-full'
           = f.label :date_from, "No", class: 'input-label'
         .flex.flex-col.ml-10.lg:w-1/2
-          = f.date_field :date_to, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
+          = f.date_field :date_to, required: true,  class: 'input-field-blue w-full'
           = f.label :date_to, "Līdz", class: 'input-label', id: 'event_date_to_label'
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
