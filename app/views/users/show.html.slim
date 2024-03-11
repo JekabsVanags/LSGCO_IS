@@ -45,7 +45,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
           =link_to "Atiestatīt paroli", send_password_reset_user_path(@user), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
           -if @user != @current_user && @user.activity_statuss == "Neaktīvs"
             =link_to "Dzēst biedru", user_path(@user), data: { turbo_method: "delete" }, class: "btn-primary bg-scout-red w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
-  .mt-20.flex.flex-col
+  .mt-10.flex.flex-col
     =link_to list_membership_fee_payment_path(@user), class: "btn-primary flex items-center lg:w-1/5 items-center justify-between"
       | #{@user.name} Maksājumi
       =image_tag 'icons/money.svg', size:"30"

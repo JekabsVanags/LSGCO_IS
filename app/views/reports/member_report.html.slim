@@ -1,18 +1,19 @@
 flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     .max-h-1/3.h-fit.w-full
-      .flex.flex-col.justify-between.lg:flex-row.lg:w-2/3
-        div.w-full.flex.items-center
-          label.input-label 
-            |Meklēt
-          input.input-field-blue.w-full type="text" id="searchField"
-        div
-          =button_to ".XLSX", biedru_atskaites_path(format: :xlsx), method: :get, class: "btn-primary"
+      .flex.flex-col.justify-between.lg:flex-row
+        div.w-full.flex.place-content-between
+          div.w-8/12
+            input.input-field-blue.w-full type="text" id="searchField"
+            label.input-label-static 
+              |Meklēt
+          div
+            =button_to "Lejupielādēt .XLSX", biedru_atskaites_path(format: :xlsx), method: :get, class: "btn-primary"
 
       .flex.flex-col.lg:flex-row
         .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-2/3
           =render "org_user_report"
-        .lg:w-1/3.mt-10.ml-0.lg:ml-5.lg:mt-0
+        .lg:w-1/3.mt-10.ml-0.lg:ml-5.lg:mt-10
           p.title-normal.text-center
             |Statistika
           div.border-2.rounded-xl.p-2

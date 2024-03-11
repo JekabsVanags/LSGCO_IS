@@ -6,14 +6,19 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
     = form_for @unit, url: units_path, method: :post do |f|
       div.flex.flex-col.w-full.mb-10.lg:flex-row.lg:mb-20
         .flex.flex-col.content-around.h-2/3.lg:w-1/2
-          = f.label :city, 'Pilsēta', class: 'input-label'
-          = f.text_field :city, class: 'input-field-blue w-full', required: true
-          = f.label :number, 'Cipars', class: 'input-label'
-          = f.number_field :number, class: 'input-field-blue', required: true
-          = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
-          = f.text_field :legal_adress, class: 'input-field-blue w-full', required: true
-          = f.label :bank_account, 'Bankas konts', class: 'input-label'
-          = f.text_field :bank_account, class: 'input-field-blue w-full', required: true
-          = f.label :leader_id, class: 'input-label'
-          = select_tag :leader_id, options_for_select(@users), class: 'input-field-blue w-full', required: true
+          .
+            = f.text_field :city, class: 'input-field-blue w-full peer', required: true, placeholder: ""
+            = f.label :city, 'Pilsēta', class: 'input-label'
+          .
+            = f.number_field :number, class: 'input-field-blue peer', required: true, placeholder: ""
+            = f.label :number, 'Cipars', class: 'input-label'
+          .
+            = f.text_field :legal_adress, class: 'input-field-blue w-full peer', required: true, placeholder: ""
+            = f.label :legal_adress, 'Juridiskā adrese', class: 'input-label'
+          .  
+            = f.text_field :bank_account, class: 'input-field-blue w-full peer', required: true, placeholder: ""
+            = f.label :bank_account, 'Bankas konts', class: 'input-label'
+          .
+            = select_tag :leader_id, options_for_select(@users), class: 'input-field-blue w-full', required: true
+            = f.label :leader_id, "Vienības priekšnieks", class: 'input-label-static'
           = f.submit "Izveidot vienību", class: 'btn-primary w-full'

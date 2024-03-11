@@ -5,31 +5,35 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 m-1 bg-scout-blue text-white text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[45px] hover:bg-scout-blue-darkened ;
+    @apply py-2 px-4 mx-1 my-3 bg-scout-blue text-white text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[55px] hover:bg-scout-blue-darkened items-center flex;
   }
 
   .btn-secondary {
-    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-md font-sans text-xl h-fit font-semibold min-h-[45px] hover:border-scout-blue-darkened;
+    @apply py-2 px-4 m-1 border-2 border-scout-blue text-scout-blue text-start rounded-full font-sans text-xl h-fit font-semibold min-h-[55px] hover:border-scout-blue-darkened  items-center flex;
   }
 
   .btn-ternary {
-    @apply py-2 px-4 m-1 text-scout-blue underline text-start font-sans text-xl font-semibold h-[50px] hover:text-scout-blue-darkened;
+    @apply py-2 px-4 m-1 text-scout-blue underline text-start font-sans text-xl font-semibold h-[55px] hover:text-scout-blue-darkened;
   }
 
   .btn-active {
-    @apply py-2 px-4 m-1 bg-scout-red text-white text-start rounded-md font-sans text-xl font-semibold h-[50px] ;
+    @apply py-2 px-4 m-1 bg-scout-red text-white text-start rounded-full font-sans text-xl font-semibold h-[55px] items-center flex;
   }
 
   .input-label {
-    @apply font-semibold text-sm ml-2 text-scout-blue block;
+    @apply text-sm ml-2 text-scout-blue relative left-[20px] bg-white w-fit duration-100 ease-linear bottom-4 peer-focus:bottom-4 px-1 peer-placeholder-shown:bottom-[48px] ;
+  }
+
+  .input-label-static {
+    @apply text-sm ml-2 text-scout-blue relative left-[20px] bottom-4 px-1 bg-white w-fit;
   }
 
   .input-label-inline {
-    @apply font-semibold text-sm ml-2 text-scout-blue;
+    @apply text-sm ml-2 text-scout-blue;
   }
 
   .input-field-blue {
-    @apply py-2 px-2 m-1 border-2 border-scout-blue rounded-xl h-[50px];
+    @apply py-2 px-5 m-1 border-2 border-scout-blue rounded-full h-[60px] w-full;
   }
 
   .main-title {

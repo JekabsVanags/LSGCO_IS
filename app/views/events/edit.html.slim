@@ -6,15 +6,17 @@
       =render "event_form"
       =button_to "Dzēst pasākumu", event_path(@event.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
     .flex.mb-10.lg:w-1/2.flex-col.lg:ml-10.lg:mb-0
-      p.input-label.mb-1 
-        |Uz pasākumu ir ielūgti
-      .flex.flex-col.w-full.border-2.border-scout-blue.rounded-xl.p-4.overflow-auto class="max-h-[400px] lg:max-h-[80vh]"
+      .flex.flex-col.w-full.border-2.border-scout-blue.p-4.overflow-auto class="max-h-[400px] lg:max-h-[80vh] rounded-[30px]"
         =form_for @invite do |f|
           .flex.flex-col.items-center.place-content-between.w-full.lg:flex-row
-            = f.select :unit, options_for_select(@units), {}, class: "input-field-blue ml-0 pr-10 w-full lg:w-fit"
-            = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue lg:ml-[-40px] w-full lg:w-fit"
+            .flex.flex-col
+              = f.select :unit, options_for_select(@units), {}, class: "input-field-blue ml-0 pr-10 w-full lg:w-fit"
+              = f.label :unit, "Vienība", class: "input-label-static"
+            .flex.flex-col
+              = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue lg:ml-[-40px] w-full lg:w-fit"
+              = f.label :unit, "Pakāpe", class: "input-label-static lg:ml-[-40px] "
             = f.hidden_field :event, value: @event.id
-            = f.submit "Ielūgt", class: "btn-secondary w-full lg:w-fit"
+            = f.submit "Ielūgt", class: "btn-secondary w-full lg:w-fit mb-5"
         table
           -@invites.each do |invite|
             tr.flex.items-center.place-content-between
@@ -24,3 +26,5 @@
                 =invite.rank
               td
                 =button_to "#{agent_mobile? ? "X" : "Dzēst"}", invite_path(invite.id), method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
+      p.input-label-static.mb-1 
+        |Uz pasākumu ir ielūgti

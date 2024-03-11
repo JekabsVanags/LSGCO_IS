@@ -8,10 +8,11 @@
     -if !current_user_registered_for(@event.id).present? && Date.today < @event.registration_till
       =form_for @event_registration do |f|
         div.border-2.rounded-xl.p-2.flex.flex-col
-          =f.label :role, "Piesakos kā:", class: "input-label"
           =f.select :role,  options_for_select(registration_positions(@event.id)), {}, class: "input-field-blue"
-          =f.label :position, "Komentāri:", class: "input-label"
-          =f.text_area :position, class: "input-field-blue h-60"
+          =f.label :role, "Piesakos kā:", class: "input-label-static"
+          .
+            =f.text_area :position, class: "input-field-blue h-60 peer rounded-[30px]", placeholder: ""
+            =f.label :position, "Komentāri:", class: "input-label"
           =f.hidden_field :event_id, value: @event.id
           -if current_user.personal_information.present?
             div

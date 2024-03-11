@@ -4,10 +4,10 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       .flex.flex-col.justify-between.lg:flex-row
         h1.title-normal 
           |Organizācijas vienības
-        div.w-full.flex.items-center
-          label.input-label 
-            |Meklēt
-          input.input-field-blue.w-full type="text" id="searchField"
+        div.w-full
+          input.input-field-blue.w-full.peer type="text" id="searchField" placeholder=""
+          label.input-label
+                |Meklēt
 
       .border-2.rounded-xl.overflow-y-auto.mt-5
         =render "unit_table"

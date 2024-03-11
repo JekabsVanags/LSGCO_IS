@@ -4,15 +4,16 @@ flex.flex-col.justify-start.px-5.pt-2.w-full.lg:w-4/5.lg:h-full.lg:p-10
   .flex.flex-col.w-full.h-full.lg:flex-row
     -if @unit.present?
       .h-full.w-full
-        .flex.flex-col.justify-between.w-full.lg:flex-row.lg:h-full.lg:w-2/3
-          div.w-full.flex.items-center
-            label.input-label
-              |Meklēt
-            input.input-field-blue.w-full type="text" id="searchField"
-          div
-            = form_with url: vienibas_atskaites_path(format: :xlsx), method: :get do |f|
-              = f.hidden_field :id, value: @unit.id
-              = f.submit ".XLSX", class: "btn-primary"
+        .flex.flex-col.justify-between.w-full.lg:flex-row.lg:h-full
+          div.w-full.flex.place-content-between
+            div.w-8/12
+              input.input-field-blue.w-full.peer type="text" id="searchField" placeholder=""
+              label.input-label
+                |Meklēt
+            div
+              = form_with url: vienibas_atskaites_path(format: :xlsx), method: :get do |f|
+                = f.hidden_field :id, value: @unit.id
+                = f.submit "Lejupielādēt .XLSX", class: "btn-primary"
 
         div id="user-report"
           .border-2.rounded-xl.overflow-y-auto.mt-5.lg:w-full

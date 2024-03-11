@@ -8,20 +8,23 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
 
   .flex.flex-col.mt-10.w-full.lg:w-1/2
     = form_for @user do |f|
-      = f.label :name, "Vārds", class: "input-label"
-      = f.text_field :name, class: "input-field-blue w-full ", required: true
-      = f.label :surname, "Uzvārds", class: "input-label"
-      = f.text_field :surname, class: "input-field-blue w-full", required: true
-      = f.label :email, "E-pasts", class: "input-label"
-      = f.email_field :email, class: "input-field-blue w-full"
+      div
+        = f.text_field :name, class: "input-field-blue w-full peer", required: true, placeholder: ""
+        = f.label :name, "Vārds", class: "input-label"
+      div
+        = f.text_field :surname, class: "input-field-blue w-full peer", required: true, placeholder: ""
+        = f.label :surname, "Uzvārds", class: "input-label"
+      div
+        = f.email_field :email, class: "input-field-blue w-full peer", placeholder: ""
+        = f.label :email, "E-pasts", class: "input-label"
       .flex.w-full
-        .flex.flex-col.w-2/3
-          = f.label :joined_date, "Pievienošanās datums", class: "input-label-inline"
+        .flex.flex-col.w-2/3.mr-10
           = f.date_field :joined_date, value: Date.today,  class: "input-field-blue", required: true
+          = f.label :joined_date, "Pievienošanās datums", class: "input-label-static"
         .flex.flex-col.w-1/3
-          = f.label :activity_statuss, "Statuss", class: "input-label-inline"
           = f.select :activity_statuss, options_for_select(["Aktīvs", "Daļēji aktīvs", "Interesents", "Vadītājs", "Vecbiedrs"]), {}, class: "input-field-blue"
+          = f.label :activity_statuss, "Statuss", class: "input-label-static"
       .flex.flex-col.w-full
-          = f.label :rank, "Pakāpe", class: "input-label-inline"
           = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue"
+          = f.label :rank, "Pakāpe", class: "input-label-static"
       = f.submit "Pievienot Biedru", class: "btn-primary w-full text-center"
