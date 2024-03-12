@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create #Izveido jaunu lietotāju
     @user = User.new(user_params.except(:rank)) #Aizpildam ar vērtībām izņemot rank, ko izmanto zemāk, lietotāja vienība sakrīt ar tā veidotāja vienību
     @user.unit = current_user.unit 
-    password = Faker::Alphanumeric.alphanumeric #Pagaidu randomizēta parole
+    password = rand(36**20).to_s(36)  #Pagaidu randomizēta parole
     @user.password_digest = BCrypt::Password.create(password).to_s #Šifrēšana
 
     @rank = RankHistory.new(user: @user, date_begin: Date.today, rank: user_params[:rank], current: true) #Lietotāja pakāpes vēsture
@@ -151,7 +151,7 @@ class UsersController < ApplicationController
   def send_password_reset #Paroles atiestatīšanas epasta nosūtīšana lietotājam
     @user = User.find(params[:id])
     #atjauno lietotāja paroli uz pagaidu randomizētu paroli
-    password = Faker::Alphanumeric.alphanumeric
+    password = rand(36**20).to_s(36)
     @user.password_digest = BCrypt::Password.create(password).to_s
     @user.save!
 
