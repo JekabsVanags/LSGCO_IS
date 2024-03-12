@@ -3,13 +3,13 @@ div class="#{agent_mobile? ? "sticky top-0 right-0" : "absolute bottom-5 right-1
     div.border-scout-gold.border-t-8.bg-scout-blue.rounded-b.text-white.px-4.py-3.shadow-md[id="popup"]
       .flex
         div.px-3.py-1
-          img src= asset_path("icons/info")
+          img src= asset_path("icons/info.svg")
         div.text-lg.pr-3
           = notice
   -elsif alert
     div.border-scout-red.border-t-8.bg-scout-blue.rounded-b.text-white.px-4.py-3.shadow-md[id="popup"]
       .flex
         div.px-3.py-1
-          img src= asset_path("icons/alert")
+          img src= asset_path("icons/alert.svg")
         div.text-lg.pr-3
           = alert
