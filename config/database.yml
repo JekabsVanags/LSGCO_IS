@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
   database: lsgco_is_development
-
+  
 test:
   <<: *default
   database: lsgco_is_test
