@@ -83,3 +83,5 @@ gem "tailwindcss-rails", "~> 2.0"
 
 # To work with .slim files
 gem "slim-rails", "~> 3.1", ">= 3.1.1"
+
+gem "mail", "~> 2.8"

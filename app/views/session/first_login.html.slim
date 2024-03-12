@@ -8,12 +8,12 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
 
   .flex.flex-col.mt-20
     = form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
-      .
-        input.input-field-blue.lg:w-1/2.peer type="password" name="password_digest" placeholder=""
+      .lg:w-1/2
+        input.input-field-blue.peer type="password" name="password_digest" placeholder=""
         label.input-label 
           |Parole
-      . 
-        input.input-field-blue.lg:w-1/2 type="password" name="repeat_password"
+      .lg:w-1/2
+        input.input-field-blue.peer type="password" name="repeat_password" placeholder=""
         label.input-label 
           |Atkārto paroli
       input.input-field-blue type="hidden" name="old_password" value=@old_password
