@@ -11,8 +11,11 @@ module LSGCOIs
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.factory_bot.definition_file_paths = ["spec/factories"]
-
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
+    
     config.before_configuration do
       # Add any additional conditions if needed
       if Rails.env.development? || Rails.env.test?
