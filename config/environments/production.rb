@@ -69,14 +69,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:         'smtp.gmail.com',
     port:            587,
-    domain:          'gmail.com',
-    user_name:       'jecobv',
-    password:        'vzre kday oqdc apul',
+    domain:          'skautiungaidas.lv',
+    user_name:       'jekabs.vanags@skautiungaidas.lv',
+    password:        ENV['EMAIL_PASSWORD'],
     authentication:  'plain',
     enable_starttls: true,
     open_timeout:    5,
     read_timeout:    5 }
-
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
