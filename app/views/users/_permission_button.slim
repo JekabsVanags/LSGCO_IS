@@ -1,0 +1,18 @@
+.
+  -if @user.pklv_biedrs? && @current_user.pklv_vaditajs?
+      = form_tag empower_user_user_path(@user, {permission: "pklv_vaditajs"}), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
+        button.btn-primary.w-full.lg:w-2/5 type="submit"
+          |Piešķirt pilnvaru pārvaldīt vienību
+  -elsif @user.pklv_vaditajs?  
+      = form_tag depower_user_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
+        button.btn-primary.w-full.lg:w-2/5 type="submit"
+          |Noņemt pilnvaru pārvaldīt vienību
+
+  -if @user.pklv_biedrs? && @current_user.pklv_valde?
+      = form_tag empower_user_user_path(@user, {permission: "pklv_valde"}), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
+        button.btn-primary.w-full.lg:w-2/5 type="submit"
+          |Pievienot valdei
+  -elsif @user.pklv_valde?  
+      = form_tag depower_user_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
+        button.btn-primary.w-full.lg:w-2/5 type="submit"
+          |Noņemt no valdes

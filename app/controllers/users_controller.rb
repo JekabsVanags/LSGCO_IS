@@ -185,12 +185,12 @@ class UsersController < ApplicationController
    if permission_level == "pklv_vaditajs" && @current_user.leader_for_unit || permission_level == "pklv_valde" && @current_user.permission_level == "pklv_valde"
       @user = User.find(params[:id])
       if @user.update(permission_level: permission_level)
-        redirect_to edit_user_path(params[:id]), notice: 'Piekļuve piešķirta'
+        redirect_to user_path(params[:id]), notice: 'Piekļuve piešķirta'
       else
-        redirect_to edit_user_path(params[:id]), alert: 'Kļūda'
+        redirect_to user_path(params[:id]), alert: 'Kļūda'
       end
     else
-      redirect_to edit_user_path(params[:id]), alert: 'Trūkst piekļuves'
+      redirect_to user_path(params[:id]), alert: 'Trūkst piekļuves'
     end
   end
 
@@ -203,9 +203,9 @@ class UsersController < ApplicationController
     end
 
     if @user.update(permission_level: permission)
-      redirect_to edit_user_path(params[:id]), alert: 'Piekļuve samazināta'
+      redirect_to user_path(params[:id]), alert: 'Piekļuve samazināta'
     else
-      redirect_to edit_user_path(params[:id]), alert: 'Kļūda'
+      redirect_to user_path(params[:id]), alert: 'Kļūda'
     end
   end
 

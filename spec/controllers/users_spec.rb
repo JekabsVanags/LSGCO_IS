@@ -213,7 +213,7 @@ RSpec.describe UsersController, type: :controller do
 
       post :empower_user, params: { id: user.id, permission: "pklv_vaditajs" }
 
-      expect(response).to redirect_to(edit_user_path(user.id))
+      expect(response).to redirect_to(user_path(user.id))
       expect(flash[:notice]).to eq("Piekļuve piešķirta")
 
       user.reload
@@ -227,7 +227,7 @@ RSpec.describe UsersController, type: :controller do
 
       post :empower_user, params: { id: user.id, permission: "pklv_valde" }
 
-      expect(response).to redirect_to(edit_user_path(user.id))
+      expect(response).to redirect_to(user_path(user.id))
       expect(flash[:notice]).to eq("Piekļuve piešķirta")
 
       user.reload
@@ -239,7 +239,7 @@ RSpec.describe UsersController, type: :controller do
 
       post :empower_user, params: { id: user.id, permission: "pklv_vaditajs" }
 
-      expect(response).to redirect_to(edit_user_path(user.id))
+      expect(response).to redirect_to(user_path(user.id))
       expect(flash[:alert]).to eq("Trūkst piekļuves")
 
       user.reload
@@ -253,7 +253,7 @@ RSpec.describe UsersController, type: :controller do
 
       post :empower_user, params: { id: user.id, permission: "pklv_valde" }
 
-      expect(response).to redirect_to(edit_user_path(user.id))
+      expect(response).to redirect_to(user_path(user.id))
       expect(flash[:alert]).to eq("Trūkst piekļuves")
 
       user.reload
@@ -266,7 +266,7 @@ RSpec.describe UsersController, type: :controller do
     it "revokes permissions to member" do
       post :depower_user, params: { id: user2.id }
 
-      expect(response).to redirect_to(edit_user_path(user2.id))
+      expect(response).to redirect_to(user_path(user2.id))
       expect(flash[:alert]).to eq("Piekļuve samazināta")
 
       user2.reload
@@ -281,7 +281,7 @@ RSpec.describe UsersController, type: :controller do
 
       post :depower_user, params: { id: user2.id }
 
-      expect(response).to redirect_to(edit_user_path(user2.id))
+      expect(response).to redirect_to(user_path(user2.id))
       expect(flash[:alert]).to eq("Piekļuve samazināta")
 
       user2.reload
