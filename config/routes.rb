@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       post "promise"
       post "send_password_reset"
       post "resignation"
+      post "empower_user"
+      post "depower_user"
     end
   end
 

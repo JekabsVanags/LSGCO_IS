@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #Pārbauda vai lietotājs ir autorizējies un vai tam ir pieteikamas piekļuves
   before_action :authorized?
-  before_action :unit_access?, only: ["create", "new", "unit_update", "show", "promise"]
+  before_action :unit_access?, only: ["create", "new", "unit_update", "show", "promise", "empower_user", "depower_user"]
   before_action :org_access?, only: ["index"]   #Tikai var apskatīties sarakstu ar visiem lietotājiem
   before_action :unit_active?, only: ["create"]   #Veidojam jaunu lietotāju tikai aktīvām vienībām
 
@@ -176,6 +176,36 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(current_user), notice: "Jūsu iesniegums ir nosūtīts"
     else
       redirect_to edit_user_path(current_user), alert: 'Kļūda'
+    end
+  end
+
+  def empower_user
+    permission_level = params[:permission]
+
+   if permission_level == "pklv_vaditajs" && @current_user.leader_for_unit || permission_level == "pklv_valde" && @current_user.permission_level == "pklv_valde"
+      @user = User.find(params[:id])
+      if @user.update(permission_level: permission_level)
+        redirect_to edit_user_path(params[:id]), notice: 'Piekļuve piešķirta'
+      else
+        redirect_to edit_user_path(params[:id]), alert: 'Kļūda'
+      end
+    else
+      redirect_to edit_user_path(params[:id]), alert: 'Trūkst piekļuves'
+    end
+  end
+
+  def depower_user
+    @user = User.find(params[:id])
+    permission = "pklv_biedrs"
+
+    if @user.leader_for_unit
+      permission = "pklv_vaditajs"
+    end
+
+    if @user.update(permission_level: permission)
+      redirect_to edit_user_path(params[:id]), alert: 'Piekļuve samazināta'
+    else
+      redirect_to edit_user_path(params[:id]), alert: 'Kļūda'
     end
   end
 
