@@ -8,12 +8,14 @@ div.border-2.flex.flex-col.px-5
     -if @user_permission_level == "login"
       =form_tag session_path do
         .flex.flex-col
-          label.input-label
-            |Lietotājs
-          input.input-field-blue type="text" name="username"
-          label.input-label
-            |Parole
-          input.input-field-blue type="password" name="password"
+          div.group
+            input.input-field-blue.peer type="text" name="username" placeholder=""
+            label.input-label
+              |Lietotājs
+          div
+            input.input-field-blue.peer type="password" name="password" placeholder=""
+            label.input-label
+              |Parole
           button.btn-primary.flex.items-center.justify-between.my-3 type="submit" 
             |Pievienoties
             =image_tag 'icons/login.svg', size:"30"
