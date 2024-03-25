@@ -1,18 +1,8 @@
-.
-  -if @user.pklv_biedrs? && @current_user.pklv_vaditajs?
-      = form_tag empower_user_user_path(@user, {permission: "pklv_vaditajs"}), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
-        button.btn-primary.w-full.lg:w-2/5 type="submit"
-          |Piešķirt pilnvaru pārvaldīt vienību
-  -elsif @user.pklv_vaditajs?  
-      = form_tag depower_user_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
-        button.btn-primary.w-full.lg:w-2/5 type="submit"
-          |Noņemt pilnvaru pārvaldīt vienību
+-if @user.pklv_biedrs? && (@current_user.pklv_vaditajs? || @current_user.pklv_valde?) && @current_user.leader_for_unit.present?
+  =link_to "Pilnvarot", empower_user_user_path(@user, {permission: "pklv_vaditajs"}), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
 
-  -if @user.pklv_biedrs? && @current_user.pklv_valde?
-      = form_tag empower_user_user_path(@user, {permission: "pklv_valde"}), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
-        button.btn-primary.w-full.lg:w-2/5 type="submit"
-          |Pievienot valdei
-  -elsif @user.pklv_valde?  
-      = form_tag depower_user_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
-        button.btn-primary.w-full.lg:w-2/5 type="submit"
-          |Noņemt no valdes
+-if( @user.pklv_biedrs? || @user.pklv_vaditajs?) && @current_user.pklv_valde?
+  =link_to "Pilnvarot Valde", empower_user_user_path(@user, {permission: "pklv_valde"}), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
+
+-if (@user.pklv_valde? && @current_user.pklv_valde? ) || (@user.pklv_vaditajs? && @current_user.pklv_vaditajs? && @current_user.leader_for_unit.present?)
+  =link_to "Dzēst pilnvaras", depower_user_user_path(@user), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
