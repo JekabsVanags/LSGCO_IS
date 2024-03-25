@@ -4,7 +4,7 @@ RSpec.describe UsersController, type: :controller do
   let(:unit) { create(:unit) }
   let(:unit3) { create(:unit, deleted_at: Date.today) }
   let(:user) { create(:user, unit: unit, permission_level: "pklv_biedrs") }
-  let(:user2) { create(:user, unit: unit) }
+  let(:user2) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:user3) { create(:user, unit: unit3, permission_level: "pklv_valde") }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:rank) { create(:rank_history, user: current_user, rank: "SK/G", current: true) }
@@ -202,4 +202,91 @@ RSpec.describe UsersController, type: :controller do
       ActiveJob::Base.queue_adapter.enqueued_jobs.clear
     end
   end
+
+  describe "POST #empower_user" do
+    it "empowers member to unit manager" do
+      current_user.permission_level = "pklv_vaditajs"
+      current_user.leader_for_unit = unit
+      current_user.save!
+
+      expect(user.permission_level).to eq("pklv_biedrs")
+
+      post :empower_user, params: { id: user.id, permission: "pklv_vaditajs" }
+
+      expect(response).to redirect_to(user_path(user.id))
+      expect(flash[:notice]).to eq("Piekļuve piešķirta")
+
+      user.reload
+
+      expect(user.permission_level).to eq("pklv_vaditajs")
+    end
+
+    it "empowers member to board member" do
+
+      expect(user.permission_level).to eq("pklv_biedrs")
+
+      post :empower_user, params: { id: user.id, permission: "pklv_valde" }
+
+      expect(response).to redirect_to(user_path(user.id))
+      expect(flash[:notice]).to eq("Piekļuve piešķirta")
+
+      user.reload
+
+      expect(user.permission_level).to eq("pklv_valde")
+    end
+
+    it "throws error if current user doesnt have permissions (unit)" do
+
+      post :empower_user, params: { id: user.id, permission: "pklv_vaditajs" }
+
+      expect(response).to redirect_to(user_path(user.id))
+      expect(flash[:alert]).to eq("Trūkst piekļuves")
+
+      user.reload
+
+      expect(user.permission_level).to eq("pklv_biedrs")
+    end
+
+    it "throws error if current user doesnt have permissions (board)" do
+      current_user.permission_level = "pklv_vaditajs"
+      current_user.save!
+
+      post :empower_user, params: { id: user.id, permission: "pklv_valde" }
+
+      expect(response).to redirect_to(user_path(user.id))
+      expect(flash[:alert]).to eq("Trūkst piekļuves")
+
+      user.reload
+
+      expect(user.permission_level).to eq("pklv_biedrs")
+    end
+  end
+
+  describe "POST #depower_user" do
+    it "revokes permissions to member" do
+      post :depower_user, params: { id: user2.id }
+
+      expect(response).to redirect_to(user_path(user2.id))
+      expect(flash[:alert]).to eq("Piekļuve samazināta")
+
+      user2.reload
+
+      expect(user2.permission_level).to eq("pklv_biedrs")
+    end
+
+    it "revokes permissions till unit leader if user is unit leader" do
+      user2.leader_for_unit = unit
+      user2.save!
+
+
+      post :depower_user, params: { id: user2.id }
+
+      expect(response).to redirect_to(user_path(user2.id))
+      expect(flash[:alert]).to eq("Piekļuve samazināta")
+
+      user2.reload
+
+      expect(user2.permission_level).to eq("pklv_vaditajs")
+    end
+ end
 end
