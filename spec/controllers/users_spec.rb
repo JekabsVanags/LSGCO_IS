@@ -8,6 +8,8 @@ RSpec.describe UsersController, type: :controller do
   let(:user3) { create(:user, unit: unit3, permission_level: "pklv_valde") }
   let(:current_user) { create(:user, unit: unit, permission_level: "pklv_valde") }
   let(:rank) { create(:rank_history, user: current_user, rank: "SK/G", current: true) }
+  let(:rank2) { create(:rank_history, user: user, rank: "ROV/LG", current: true) }
+
 
   before do
     current_user.save!
@@ -208,6 +210,7 @@ RSpec.describe UsersController, type: :controller do
       current_user.permission_level = "pklv_vaditajs"
       current_user.leader_for_unit = unit
       current_user.save!
+      rank2.save!
 
       expect(user.permission_level).to eq("pklv_biedrs")
 
@@ -222,7 +225,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "empowers member to board member" do
-
+      rank2.save!
       expect(user.permission_level).to eq("pklv_biedrs")
 
       post :empower_user, params: { id: user.id, permission: "pklv_valde" }
@@ -236,7 +239,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "throws error if current user doesnt have permissions (unit)" do
-
+      rank2.save!
       post :empower_user, params: { id: user.id, permission: "pklv_vaditajs" }
 
       expect(response).to redirect_to(user_path(user.id))
@@ -248,6 +251,21 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "throws error if current user doesnt have permissions (board)" do
+      rank2.save!
+      current_user.permission_level = "pklv_vaditajs"
+      current_user.save!
+
+      post :empower_user, params: { id: user.id, permission: "pklv_valde" }
+
+      expect(response).to redirect_to(user_path(user.id))
+      expect(flash[:alert]).to eq("Trūkst piekļuves")
+
+      user.reload
+
+      expect(user.permission_level).to eq("pklv_biedrs")
+    end
+
+    it "throws error if current user isnt 16+" do
       current_user.permission_level = "pklv_vaditajs"
       current_user.save!
 

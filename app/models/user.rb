@@ -32,6 +32,10 @@ class User < ApplicationRecord
     history ? history.rank : "Tev nav norādīta pakāpe"
   end
 
+  def youth? #Vai ir dižskauts vai vecāks
+    ["DZSK/DZG", "ROV/LG", "VAD", "VIEDSK/VIEDG"].include?(rank)
+  end
+
   def promise? #Vai pašreizējā pakāpe ir ar solījuma datumu, atgriež datumu
     history = rank_histories.where(current: true).first
     history.present? ? history.date_of_oath : false
