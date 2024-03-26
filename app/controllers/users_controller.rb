@@ -181,9 +181,9 @@ class UsersController < ApplicationController
 
   def empower_user
     permission_level = params[:permission]
-
-   if permission_level == "pklv_vaditajs" && @current_user.leader_for_unit || permission_level == "pklv_valde" && @current_user.permission_level == "pklv_valde"
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
+    
+    if @user.youth? && permission_level == "pklv_vaditajs" && @current_user.leader_for_unit || permission_level == "pklv_valde" && @current_user.permission_level == "pklv_valde"
       if @user.update(permission_level: permission_level)
         redirect_to user_path(params[:id]), notice: 'Piekļuve piešķirta'
       else
