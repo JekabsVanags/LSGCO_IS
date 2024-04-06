@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     member do
       get "list"
     end
+    collection do
+      get "bulk_payment", to: "membership_fee_payments#bulk_payment"
+    end
   end
 
   #Atskaišu ceļi

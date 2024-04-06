@@ -1,5 +1,5 @@
-=form_for @new_payment, url: membership_fee_payments_path do |f|
+= form_for @new_payment, url: membership_fee_payments_path do |f|
   = f.date_field :date, class: "input-field-blue w-full", required: true
   = f.number_field :amount, step: "0.01", class: "input-field-blue w-full", required: true
-  = f.hidden_field :user_payed, value: @user.id
+  = f.collection_select :user_payed, @users, :id, :full_name, {}, {class: 'input-field-blue w-full'}
   = f.submit "Reģistrēt", class: 'btn-primary w-full'

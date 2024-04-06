@@ -1,0 +1,14 @@
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+  .flex.flex-col.w-full.h-full.lg:flex-row
+    .flex.flex-col.lg:w-3/4
+      h1.title-normal
+        |Reģistrēt biedra naudas maksājumus
+      .border-2.rounded-xl.overflow-y-auto
+        =render "payment_table_bulk"
+    .flex.flex-col.mt-10.lg:w-1/4.lg:ml-10.lg:mt-0
+      .flex.flex-col 
+        h1.title-normal
+          |Jauns maksājums
+        =render "payment_form_bulk"
+
+      =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit", class: "btn-primary w-full mt-10 lg:mt-0"

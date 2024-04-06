@@ -27,6 +27,10 @@ class User < ApplicationRecord
     ((Date.today - joined_date) / 365.25).to_i
   end
 
+  def full_name
+    "#{name} #{surname}"
+  end
+
   def rank #Pašreiz aktīvā pakāpe
     history = rank_histories.where(current: true).first
     history ? history.rank : "Tev nav norādīta pakāpe"
