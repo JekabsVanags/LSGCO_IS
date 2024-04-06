@@ -50,7 +50,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
             = render partial: "permission_button", locals: {user: @user}
         
   .mt-10.flex.flex-col
-    =link_to list_membership_fee_payment_path(@user), class: "btn-primary flex items-center lg:w-1/5 items-center justify-between"
+    =link_to maksajumi_membership_fee_payment_path(@user), class: "btn-primary flex items-center lg:w-1/5 items-center justify-between"
       | #{@user.name} Maksājumi
       =image_tag 'icons/money.svg', size:"30"
     =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit"

@@ -5,7 +5,7 @@ class MembershipFeePaymentsController < ApplicationController
   def create #Izveido jaunu maksājumu
     @user = User.find(membership_fee_payment_params[:user_payed])
     
-    @redirect = request.referer.include?("bulk") ? bulk_payment_membership_fee_payments_path() : list_membership_fee_payment_path(@user)
+    @redirect = request.referer.include?("registret_maksajumus") ? registret_maksajumus_membership_fee_payments_path() : maksajumi_membership_fee_payment_path(@user)
 
     #Aprēķinam cik no naudas iet organizācijai
     @organization_fee = (Unit.where(number: 0).first).membership_fee
@@ -25,7 +25,7 @@ class MembershipFeePaymentsController < ApplicationController
 
   def list #Uzsaita lietotāja maksājumus
     @user = User.find(params[:id])
-    @payments = MembershipFeePayment.where(user_payed: params[:id]).order(date: :desc)
+    @payments = MembershipFeePayment.where(user_payed: params[:id]).order(created_at: :desc)
     @new_payment = MembershipFeePayment.new(date: Date.today) #Tukš maksājuma objekts
   end
 
@@ -33,7 +33,7 @@ class MembershipFeePaymentsController < ApplicationController
     @payment = MembershipFeePayment.find(params[:id])
     @user = @payment.user_payed
 
-    @redirect = request.referer.include?("bulk") ? bulk_payment_membership_fee_payments_path() : list_membership_fee_payment_path(@user)
+    @redirect = request.referer.include?("registret_maksajumus") ? registret_maksajumus_membership_fee_payments_path() : maksajumi_membership_fee_payment_path(@user)
 
     #Izveido jaunu maksājumu kas ir pretējs tam ko atceļam.
     @reverse = MembershipFeePayment.new({ date: Date.today, amount: -(@payment.amount), user_payed: @payment.user_payed, user_recorded: current_user, unit: @payment.unit, recalled: true, org_fee: -(@payment.org_fee), user_statuss: (@payment.user_statuss) })
@@ -53,9 +53,9 @@ class MembershipFeePaymentsController < ApplicationController
   end
 
   def bulk_payment
-    @users = current_user.unit.users
+    @users = current_user.unit.users.order(name: :asc)
     @new_payment = MembershipFeePayment.new(date: Date.today)
-    @payments = MembershipFeePayment.where(user_recorded: current_user).limit(10)
+    @payments = MembershipFeePayment.where(user_recorded: current_user).limit(10).order(created_at: :desc)
     render "bulk_payment"
   end
 
