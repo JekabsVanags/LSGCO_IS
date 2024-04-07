@@ -2,6 +2,7 @@ function initializeDataTable(tableSelector) {
   const pageLength = window.innerWidth > 1024 ? 13 : 5;
 
   return $(tableSelector).DataTable({
+    order: [],
     dom: 'lrtip',
     paging: true,
     ordering: true,
@@ -42,9 +43,9 @@ $(document).on('turbo:load', function () {
   const table4 = initializeDataTable('#dataTable4')
   var tables = [table1, table2, table3, table4]
 
-  $('#searchField').on( 'keyup', function () {
-      tables.forEach((table)=>{
-        table.search( this.value ).draw();
-      })
-  } );
+  $('#searchField').on('keyup', function () {
+    tables.forEach((table) => {
+      table.search(this.value).draw();
+    })
+  });
 });

@@ -1,5 +1,9 @@
 =form_for @new_payment, url: membership_fee_payments_path do |f|
-  = f.date_field :date, class: "input-field-blue w-full", required: true
-  = f.number_field :amount, step: "0.01", class: "input-field-blue w-full", required: true
+  div
+    = f.date_field :date, class: "input-field-blue w-full", required: true
+    = f.label :date, "Maksājuma datums", class: "input-label-static"
+  div
+    = f.number_field :amount, step: "0.01", class: "input-field-blue w-full", required: true
+    = f.label :amount, "Summa (eiro)", class: "input-label-static"
   = f.hidden_field :user_payed, value: @user.id
   = f.submit "Reģistrēt", class: 'btn-primary w-full'
