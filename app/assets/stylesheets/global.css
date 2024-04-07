@@ -1,3 +1,4 @@
+#Datatables
 .dataTables_paginate{
   margin-top: 10px;
   text-align: center;
@@ -23,6 +24,8 @@
   background-color: #7d8787;
 }
 
+
+#Global
 p, td{
   white-space: pre-wrap
 }

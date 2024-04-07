@@ -1,0 +1,8 @@
+-if @user.pklv_biedrs? && (@current_user.pklv_vaditajs? || @current_user.pklv_valde?) && @current_user.leader_for_unit.present?
+  =link_to "Pilnvarot", empower_user_user_path(@user, {permission: "pklv_vaditajs"}), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
+
+-if( @user.pklv_biedrs? || @user.pklv_vaditajs?) && @current_user.pklv_valde?
+  =link_to "Pievienot valdei", empower_user_user_path(@user, {permission: "pklv_valde"}), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"
+
+-if (@user.pklv_valde? && @current_user.pklv_valde? ) || (@user.pklv_vaditajs? && @current_user.leader_for_unit.present?)
+  =link_to "Dzēst pilnvaras", depower_user_user_path(@user), data: { turbo_method: "post" }, class: "btn-primary w-full flex items-center lg:w-2/5", onclick: "return showAlert()"

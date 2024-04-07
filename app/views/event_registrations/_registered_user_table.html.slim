@@ -25,7 +25,7 @@ table.table-auto.w-full id="dataTable"
         td.px-6.py-3 
           =link_to aptaujas_lapa_skatit_path(id: registration.id), class: "flex w-5"
             =image_tag 'icons/show.svg', size:"30"
-            p.ml-2.input-label class="#{registration.user.personal_information ? "text-scout-blue" : "text-scout-red"}"
+            p.ml-2.input-label-static class="#{registration.user.personal_information ? "text-scout-blue" : "text-scout-red"}"
               =registration.user.personal_information ? "Iesniegta" : "Neiesniegta"
         td.px-6.py-3 
           =button_to event_registration_path(registration.id), method: :delete, class: "block w-5"

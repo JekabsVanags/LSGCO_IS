@@ -13,9 +13,14 @@ Rails.application.routes.draw do
     member do
       post "unit_update"
       post "password_update"
-      post "promise"
       post "send_password_reset"
       post "resignation"
+      post "empower_user"
+      post "depower_user"
+    end
+    collection do
+      post "promise"
+      get "solijuma_registracija", to: "users#bulk_promise"
     end
   end
 
@@ -38,7 +43,10 @@ Rails.application.routes.draw do
   resources :weekly_activities, only: ["create", "destroy"]
   resources :membership_fee_payments, path: :biedra_naudas_maksajumi, only: ["create", "destroy"] do
     member do
-      get "list"
+      get "maksajumi", to: "membership_fee_payments#list"
+    end
+    collection do
+      get "registret_maksajumus", to: "membership_fee_payments#bulk_payment"
     end
   end
 
@@ -53,7 +61,7 @@ Rails.application.routes.draw do
     end
   end
   resources :invites, only: ["create", "destroy"]
-  resources :event_registrations, only: ["create", "destroy", "show"]
+  resources :event_registrations, only: ["create", "destroy", "show"], path: "pieteikumi"
 
   #Lapa kurā nav vajadzīga reģistrācija
   root "static#landing"
