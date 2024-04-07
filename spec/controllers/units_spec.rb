@@ -44,7 +44,7 @@ RSpec.describe UnitsController, type: :controller do
       session[:user_id] = admin.id
       other_user = create(:user, activity_statuss: "Vadītājs", unit: unit)
       get :new
-      expect(assigns(:users)).to include(["#{other_user.name} #{other_user.surname}", other_user.id], ["#{user.name} #{user.surname}", user.id])
+      expect(assigns(:users)).to include([other_user.full_name, other_user.id], [user.full_name, user.id])
     end
 
     it "doesnt lead to new unit creation without permission" do

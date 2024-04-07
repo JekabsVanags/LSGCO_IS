@@ -23,7 +23,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
       expect(user.payed_fees.length).to eq(1)
       expect(user.membership_fee_bilance).to eq(10)
 
-      expect(response).to redirect_to(list_membership_fee_payment_path(user))
+      expect(response).to redirect_to(maksajumi_membership_fee_payment_path(user))
     end
 
     it "redirects to root path if user doesnt have the permissions" do
@@ -49,7 +49,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
       expect(user.membership_fee_bilance).to eq(0)
       expect(payment.recalled).to eq(true)
 
-      expect(response).to redirect_to(list_membership_fee_payment_path(user))
+      expect(response).to redirect_to(maksajumi_membership_fee_payment_path(user))
     end
 
     it "returns an error and doesnt do anything if user that created the payment isnt the one deleting it" do
@@ -60,7 +60,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
 
       delete :destroy, params: { id: payment.id }
 
-      expect(response).to redirect_to(list_membership_fee_payment_path(user))
+      expect(response).to redirect_to(maksajumi_membership_fee_payment_path(user))
       expect(flash[:alert]).to eq("Kļūda")
     end
 
@@ -72,7 +72,7 @@ RSpec.describe MembershipFeePaymentsController, type: :controller do
 
       delete :destroy, params: { id: payment.id }
 
-      expect(response).to redirect_to(list_membership_fee_payment_path(user))
+      expect(response).to redirect_to(maksajumi_membership_fee_payment_path(user))
       expect(flash[:alert]).to eq("Kļūda")
     end
   end

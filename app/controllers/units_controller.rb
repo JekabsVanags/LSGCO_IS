@@ -8,7 +8,7 @@ class UnitsController < ApplicationController
     session[:current_tab] = "new_unit"  #Iestatam, ka izvēlnes aktīvā sekcija ir jaunas vienības pievienošana
     @unit = Unit.new()
     @unit.membership_fee = 0
-    @users = User.where(activity_statuss: "Vadītājs").map { |user| ["#{user.name} #{user.surname}", user.id] } #Vienību priekšnieku kandidāti
+    @users = User.where(activity_statuss: "Vadītājs").map { |user| [user.full_name, user.id] } #Vienību priekšnieku kandidāti
   end
 
   def index #Visas sistēmas vienības
@@ -45,7 +45,7 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     @weekly_activities = @unit.weekly_activities.all.order(day: :asc)
     @new_activity = WeeklyActivity.new #Tukšs iknedēļas nodarbības objekts
-    @leader_candidates = @unit.users.where("activity_statuss = ? OR id = ?", 3, current_user.id).map { |user| ["#{user.name} #{user.surname}", user.id] } #Vienības priekšnieku kandindāti un esošie priekšnieki
+    @leader_candidates = @unit.users.where("activity_statuss = ? OR id = ?", 3, current_user.id).map { |user| [user.full_name, user.id] } #Vienības priekšnieku kandindāti un esošie priekšnieki
   end
 
   def update #Vienības datu atjaunošana

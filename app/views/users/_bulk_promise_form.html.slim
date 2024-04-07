@@ -1,0 +1,13 @@
+script src = javascript_path("multiselect")
+
+link rel="stylesheet" href=stylesheet_path("multiselect_override")
+
+=form_tag promise_users_path() do 
+  .
+    div 
+      = select_tag :user_ids, options_for_select(@users.map {|user| [user.full_name, user.id]}), multiple: true, id: "multiSelect", class: "input-field-blue w-full h-full"
+    label for="user_ids" class="input-label-static"
+      |Solījumu deva
+  button type="submit" class="btn-primary"
+    |Reģistrēt solījumus
+    

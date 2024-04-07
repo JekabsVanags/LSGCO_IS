@@ -108,15 +108,32 @@ class UsersController < ApplicationController
     end
   end
 
-  def promise #Reģistrējam pašreizējās pakāpes solījuma datumu, ja neizdodas Paziņo kļūdu
-    @user = User.find(params[:id])
+  def promise
+    date = params[:promise_date]
+  
+    if params[:user_ids].present?
+      users = params[:user_ids]
+      results = []
+      users.each do |user|
+        user_record = User.find(user)
+        results.push(register_promise(user_record, date))
+      end
 
-    if @user.rank_histories.where(current: true).update(date_of_oath: params[:promise_date] || Date.today)
-      redirect_to user_path(@user), notice: 'Solījums atzīmēts'
-    else
-      redirect_to user_path(@user), alert: 'Kļūda'
+      if results.include?(false)
+        redirect_to solijuma_registracija_users_path(), alert: 'Kļūda'
+      else
+        redirect_to solijuma_registracija_users_path(), notice: 'Solījums atzīmēts'
+      end
+    elsif params[:id].present?
+      user_record = User.find(params[:id])
+      if register_promise(user_record, date)
+        redirect_to user_path(user), notice: 'Solījums atzīmēts'
+      else
+        redirect_to user_path(user), alert: 'Kļūda'
+      end
     end
   end
+  
 
   def password_update #Lietotāja paroles atiestatīšana
     @user = User.find(params[:id])
@@ -209,6 +226,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def bulk_promise
+    @users = User.joins(:rank_histories).where(unit: current_user.unit, rank_histories: {current: true, date_of_oath: nil}).order(name: :asc)
+  end
+
   protected
 
    #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto veicot vienības priekšnieka darbības ar lietotāju.
@@ -224,5 +245,11 @@ class UsersController < ApplicationController
   #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto taisot jaunu lietotāju.
   def user_params
     params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date, :rank)
+  end
+
+
+  #HELPER METHODS
+  def register_promise(user, date)
+    user.rank_histories.where(current: true).update(date_of_oath: date || Date.today)
   end
 end
