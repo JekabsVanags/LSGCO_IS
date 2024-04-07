@@ -1,0 +1,9 @@
+.flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+  .flex.flex-col.w-full.h-full.lg:flex-row
+    .flex.flex-col.lg:w-3/4
+      h1.title-normal
+        |Reģistrēt solījumu
+      div 
+        =render "bulk_promise_form"
+
+      =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit", class: "btn-primary w-fit mt-10 lg:mt-0"

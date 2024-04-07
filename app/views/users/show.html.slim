@@ -13,8 +13,9 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
           = select_tag :rank, options_for_select(@avalable_ranks, @user.rank), class: "input-field-blue w-full lg:w-1/2 "
           button.btn-primary.w-full.lg:w-2/5 type="submit"
             |Mainīt pakāpi
-        = form_tag promise_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
-          input type="date" class="input-field-blue w-full lg:w-1/2 " name="promise_date" value= (@user.promise? ? @user.promise? : Date.today)
+        = form_tag promise_users_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row form-with-alert"
+          input type="date" class="input-field-blue w-full lg:w-1/2 " name="promise_date" value=(@user.promise? ? @user.promise? : Date.today)
+          input type="hidden" name="id" value=(@user.id)
           button.btn-primary.w-full.lg:w-2/5.disabled:bg-scout-gray type="submit" disabled= @user.promise?
             = @user.promise? ? "Solījums veikts" : "Reģistrēt solījumu"
         = form_tag unit_update_user_path(@user), class: "flex flex-col items-center mb-5 place-content-between lg:mb-0 lg:flex-row"

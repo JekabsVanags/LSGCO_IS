@@ -13,14 +13,14 @@ Rails.application.routes.draw do
     member do
       post "unit_update"
       post "password_update"
-      post "promise"
       post "send_password_reset"
       post "resignation"
       post "empower_user"
       post "depower_user"
     end
     collection do
-      post "bulk_promise"
+      post "promise"
+      get "solijuma_registracija", to: "users#bulk_promise"
     end
   end
 
