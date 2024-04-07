@@ -5,7 +5,9 @@ class MembershipFeePaymentsController < ApplicationController
   def create #Izveido jaunu maksājumu
     @user = User.find(membership_fee_payment_params[:user_payed])
     
-    @redirect = request.referer.include?("registret_maksajumus") ? registret_maksajumus_membership_fee_payments_path() : maksajumi_membership_fee_payment_path(@user)
+    @redirect =  request.referer.present? && request.referer.include?("registret_maksajumus") ? 
+                  registret_maksajumus_membership_fee_payments_path() : 
+                  maksajumi_membership_fee_payment_path(@user)
 
     #Aprēķinam cik no naudas iet organizācijai
     @organization_fee = (Unit.where(number: 0).first).membership_fee
@@ -33,7 +35,9 @@ class MembershipFeePaymentsController < ApplicationController
     @payment = MembershipFeePayment.find(params[:id])
     @user = @payment.user_payed
 
-    @redirect = request.referer.include?("registret_maksajumus") ? registret_maksajumus_membership_fee_payments_path() : maksajumi_membership_fee_payment_path(@user)
+    @redirect =  request.referer.present? && request.referer.include?("registret_maksajumus") ? 
+                  registret_maksajumus_membership_fee_payments_path() : 
+                  maksajumi_membership_fee_payment_path(@user)
 
     #Izveido jaunu maksājumu kas ir pretējs tam ko atceļam.
     @reverse = MembershipFeePayment.new({ date: Date.today, amount: -(@payment.amount), user_payed: @payment.user_payed, user_recorded: current_user, unit: @payment.unit, recalled: true, org_fee: -(@payment.org_fee), user_statuss: (@payment.user_statuss) })
