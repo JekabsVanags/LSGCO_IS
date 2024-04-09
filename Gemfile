@@ -85,3 +85,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "slim-rails", "~> 3.1", ">= 3.1.1"
 
 gem "mail", "~> 2.8"
+
+gem "rdoc", ">= 6.6.3.1"
