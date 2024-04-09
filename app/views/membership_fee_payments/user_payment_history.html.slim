@@ -1,0 +1,18 @@
+.flex.flex-col.p-5.w-full.lg:w-4/5.lg:h-dvh.lg:p-10.justify-between
+  .flex.lg:flex-row.flex-col
+    div.lg:w-3/4.content-between.mr-10
+      h1.title-normal
+        |Tava biedra naudas maksājumu vēsture
+      .border-2.rounded-xl.overflow-y-auto
+        =render "payment_table_user"
+    div.lg:w-1/4
+      h1.title-normal
+          |Aprēķinātā bilance
+      div.border-2.rounded-xl.h-full.p-5.justify-items-center
+        -if @membership_fee_bilance >= 0
+          h1.title-normal.text-green-800
+            ="#{@membership_fee_bilance} €"
+        -else
+          h1.title-normal.text-red-800
+            ="#{@membership_fee_bilance} €"
+  =button_tag "< Atgriezties", onClick: "history.go(-1);", class: "btn-primary w-fit", class: "btn-primary w-full mt-10 lg:mt-0"

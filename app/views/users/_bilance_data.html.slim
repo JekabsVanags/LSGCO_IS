@@ -1,10 +1,13 @@
 .flex.flex-col.items-center.gap-2
-  -if @user.membership_fee_bilance >= 0
-    h1.main-title.text-green-800
-      =@user.membership_fee_bilance.to_s + "€"
-  -else
-    h1.main-title.text-red-800
-      =@user.membership_fee_bilance.to_s + "€"  
+  div.flex.gap-2
+    -if @user.membership_fee_bilance >= 0
+      h1.main-title.text-green-800
+        =@user.membership_fee_bilance.to_s + "€"
+    -else
+      h1.main-title.text-red-800
+        =@user.membership_fee_bilance.to_s + "€"  
+    =link_to maksajumu_vesture_membership_fee_payments_path()
+       =image_tag 'icons/info_black.svg', size:"30"
   p.text-lg.text-center.mt-2
     |Lai nomaksātu biedra naudu, lūdzu pārskaitīt naudu uz savas vienības kontu: 
   b 
