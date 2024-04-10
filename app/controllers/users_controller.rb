@@ -239,7 +239,7 @@ class UsersController < ApplicationController
 
    #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto atjaunojot lietotāju.
   def user_update_params
-    params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_data_collection, :volunteer)
+    params.require(:user).permit(:name, :surname, :phone, :email, :birth_date, :sex, :agreed_to_photos, :agreed_to_data_collection, :volunteer)
   end
 
   #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto taisot jaunu lietotāju.

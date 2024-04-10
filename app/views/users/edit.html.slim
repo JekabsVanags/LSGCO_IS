@@ -38,6 +38,9 @@ script src = javascript_path("views/user_edit")
         .flex.mt-4.mb-6.mx-1.items-center
           = f.check_box :agreed_to_data_collection, class: "border-2 border-scout-blue rounded-md h-6 w-6 terms-and-services", required: true
           = f.label :agreed_to_data_collection, "Piekrītu, ka LSGCO ievāc manus datus", class: "input-label-inline"
+        .flex.mt-4.mb-6.mx-1.items-center
+          = f.check_box :agreed_to_photos, class: "border-2 border-scout-blue rounded-md h-6 w-6 terms-and-services"
+          = f.label :agreed_to_photos, "Piekrītu, ka pasākumos tieku fotogrāfēts/filmēts", class: "input-label-inline"
         = f.submit "Iesniegt", class: "btn-primary w-full"
       button.btn-ternary class="form_toggle"
         | Atjaunot paroli
