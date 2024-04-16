@@ -7,6 +7,7 @@ table.table-auto.w-full id="dataTable"
       th.px-6.py-3.text-start Vienība 
       th.px-6.py-3.text-start Dalība kā  
       th.px-6.py-3.text-start Aptaujas lapa
+      th.px-6.py-3.text-start Piekrīt fotogrāfēšanai
       th.px-6.py-3.text-start Dzēst 
 
   tbody
@@ -25,8 +26,10 @@ table.table-auto.w-full id="dataTable"
         td.px-6.py-3 
           =link_to aptaujas_lapa_skatit_path(id: registration.id), class: "flex w-5"
             =image_tag 'icons/show.svg', size:"30"
-            p.ml-2.input-label-static class="#{registration.user.personal_information ? "text-scout-blue" : "text-scout-red"}"
+            p.ml-2.input-label-inline class="#{registration.user.personal_information ? "text-scout-blue" : "text-scout-red"}"
               =registration.user.personal_information ? "Iesniegta" : "Neiesniegta"
+        td.px-6.py-3 class="#{registration.user.agreed_to_photos ? "text-scout-blue" : "text-scout-red"}"
+          = registration.user.agreed_to_photos ? "Jā" : "Nē"
         td.px-6.py-3 
           =button_to event_registration_path(registration.id), method: :delete, class: "block w-5"
             =image_tag 'icons/cancel.svg', size:"30"
