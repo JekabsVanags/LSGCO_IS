@@ -10,7 +10,7 @@
         = f.label :name, "Apraksts", class: 'input-label'   
       .flex.w-full.mt-2
         .flex.flex-col.lg:w-1/2
-          = f.select :event_type,  options_for_select(["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]), {}, class: 'input-field-blue w-full'
+          = f.select :event_type,  options_for_select(Event.event_types.keys), {}, class: 'input-field-blue w-full'
           = f.label :event_type, "Pasākuma veids", class: 'input-label'
         .flex.flex-col.ml-10.lg:w-1/2
           = f.date_field :registration_till, required: true, value: Date.today + 1, class: 'input-field-blue w-full'
@@ -29,6 +29,12 @@
         .flex.flex-col.ml-10.lg:w-1/2
           = f.number_field :max_participants, required: true, class: 'input-field-blue w-full'
           = f.label :max_participants, "Max dalībnieku skaits", class: 'input-label-static'
+      .flex.flex-col
+        = f.select :volunteer_scope,  options_for_select(Event.volunteer_scopes.keys), {}, class: 'input-field-blue w-full'
+        = f.label :volunteer_scope, "Kuriem brīvprātīgajiem rādīt šo pasākumu?", class: 'input-label-static'
+      .flex.p-2
+        = f.check_box :publishable, class: 'border-2 border-scout-blue rounded-sm'
+        = f.label :publishable, "Vai vēlaties lai šis pasākums tiktu rādīts biedriem?", class: 'text-sm font-bold text-scout-blue ml-2'
     .flex.lg:w-1/2.flex-col.mt-10.lg:ml-10.lg:mt-0.items-center
       .w-4/5
         .flex.flex-wrap.border-2.border-scout-blue.p-2.overflow-auto class="lg:h-[100px] max-h-[425px] overflow-auto rounded-[30px] px-5"

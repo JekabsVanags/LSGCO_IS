@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  validates :name, :date_from, :date_to, :event_type, :registration_till, :volunteer_scope, :publishable, presence: true
+  validates :name, :date_from, :date_to, :event_type, :registration_till, :volunteer_scope, presence: true
 
   enum event_type: ["Nometne", "Pārgājiens", "Darba grupa", "Labais darbs", "Cits"]
   enum volunteer_scope: ["Vienība", "Ielūgtās vienības", "Organizācija"]
