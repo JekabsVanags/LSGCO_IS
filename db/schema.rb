@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_140321) do
   create_table "invites", force: :cascade do |t|
     t.bigint "unit_id", null: false
     t.bigint "event_id", null: false
-    t.integer "rank"
+    t.integer "rank", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_invites_on_event_id"

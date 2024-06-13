@@ -1,0 +1,36 @@
+.flex.flex-1.flex-col.p-5.lg:h-dvh.lg:p-10.justify-start
+  h1.title-normal
+    |Tava biedra naudas maksājumu vēsture
+  .flex.flex-1.lg:flex-row.flex-col.justify-between.gap-10
+    div.lg:w-3/4.content-between
+      .border-2.rounded-xl.overflow-y-auto
+        =render "payment_table_user"
+    div.flex.flex-col.flex-1.gap-10.lg:w-1/4
+      p.paragraph-normal 
+        |Te ir redzama tava biedra naudas maksājumu vēsture. Gadījumā, ja šeit redzamie dati nesakrīt ar reālo maksājumu vēsturi, 
+        |lūgums sazināties ar savas vienības priekšnieku.
+      
+      div
+        h1.title-normal 
+          |Maksājuma informācija: 
+        b.paragraph-normal 
+          | Saņēmējs:
+        p.paragraph-normal 
+          | Latvijas skautu un gaidu centrālā organizācija
+        b.paragraph-normal 
+          | Konts:
+        p.paragraph-normal 
+          | #{@user_unit.bank_account} 
+        b.paragraph-normal 
+          | Pamatojums:
+        p.paragraph-normal 
+          | Biedra naudas nomaksa Vārds, Uzvārds par periodu dd.mm.yy - dd.mm.yy
+      div 
+        h1.title-normal
+            |Aprēķinātā bilance
+        -if @membership_fee_bilance >= 0
+          h1.title-normal.text-green-800
+            ="#{@membership_fee_bilance} €"
+        -else
+          h1.title-normal.text-red-800
+            ="#{@membership_fee_bilance} €"

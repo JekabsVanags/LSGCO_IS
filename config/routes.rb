@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     end
     collection do
       get "registret_maksajumus", to: "membership_fee_payments#bulk_payment"
+      get "maksajumu_vesture", to: "membership_fee_payments#user_payment_history"
     end
   end
 

@@ -1,0 +1,17 @@
+table.table-auto.w-full id="dataTable"
+  thead.bg-scout-blue.text-white
+    tr
+      th.px-6.py-3.text-start Datums 
+      th.px-6.py-3.text-start Summa
+      th.px-6.py-3.text-start Maksājumu reģistrēja
+
+  tbody
+    - @payments.each do |payment|
+      tr.border-b
+        td.px-6.py-3 
+          = payment.date
+        td.px-6.py-3 class="#{payment.amount > 0 ? "text-green-800" : "text-scout-red"}" 
+          = payment.amount
+        td.px-6.py-3 
+          | #{payment.user_recorded.name} #{payment.user_recorded.surname}
+        
