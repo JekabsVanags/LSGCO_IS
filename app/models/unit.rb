@@ -28,7 +28,13 @@ class Unit < ApplicationRecord
   end
 
   def get_actual_events(rank) #Pasākumi, kuriem vienībai ir ielūgumi norādītajai pakāpei
-    invites.includes(:event).future.where(rank:).map(&:event)
+    if(rank == "volunteer")
+      invites.includes(:event).future.where("necessary_volunteers >= registered_volunteers").map(&:event).select { |event| event.publishable &&
+        event.volunteer_scope == "Ielūgtās vienības" || 
+        event.volunteer_scope == "Vienība" && event.unit == self}
+    else
+      invites.includes(:event).future.where(rank:).map(&:event).select { |event| event.publishable }
+    end
   end
 
   def unit_active? #Vai vienība ir dzēsta

@@ -68,8 +68,10 @@ class User < ApplicationRecord
     events = unit.get_actual_events(rank) #Vienības aktuālie pasākumi lietotāja pakāpei
 
     if volunteer #Ja lietotājs ir brīvprātīgais pievieno visus pasākumus kam vajadzīgi brīvprātīgie
-      future_events = Event.future.where("necessary_volunteers >= registered_volunteers")
-      events.concat(future_events)
+      global_events = Event.future.select { |event| event.publishable && event.volunteer_scope == "Organizācija"}
+      events.concat(global_events)
+      volunteer_events = unit.get_actual_events("volunteer")
+      events.concat(volunteer_events)
     end
 
     events.each do |event| #Sarakstā atzīmējam uz kuriem pasākumiem lietotājs ir reģistrējies

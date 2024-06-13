@@ -48,7 +48,7 @@
         .flex.flex-col.border-2.border-scout-blue.p-2.overflow-auto class="h-fit max-h-[60vh] overflow-auto rounded-[30px] px-5 pb-5"
           - @units.each do |unit|
               .flex.p-2 
-                = check_box_tag 'event[units][]', unit.id, false, class: 'border-2 border-scout-blue rounded-sm'
+                = check_box_tag 'event[units][]', unit.id, unit == current_user.unit ? true : false, class: 'border-2 border-scout-blue rounded-sm'
                 = label_tag "units#{unit.id}", unit.full_name, class: 'text-sm font-bold text-scout-blue ml-2'
         label for="ranks" class="input-label-static" 
           |Ielūgtas šādas vienības
