@@ -52,6 +52,9 @@ div.border-2.flex.flex-col.px-5
                 =image_tag 'icons/unit.svg', size:"30"
         -if @user_permission_level == "pklv_biedrs" || @user_permission_level == "pklv_vaditajs" || @user_permission_level == "pklv_valde"
           div
+            =link_to maksajumu_vesture_membership_fee_payments_path, class: current_tab == "payments" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
+              |Maksājumi 
+              =image_tag 'icons/money.svg', size:"30"
             =link_to aptaujas_lapa_path, class: current_tab == "private_info" ? "btn-active flex items-center justify-between my-3" : "btn-primary flex items-center justify-between my-3"
               |Aptaujas lapa 
               =image_tag 'icons/private_information.svg', size:"30"
