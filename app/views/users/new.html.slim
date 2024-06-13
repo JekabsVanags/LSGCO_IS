@@ -1,4 +1,4 @@
-flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
+flex.flex-col.flex-1.justify-start.p-5.lg:h-full.lg:p-10
   div 
     h1.title-normal
       |Pievienot Biedru
@@ -27,4 +27,8 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       .flex.flex-col.w-full
           = f.select :rank, options_for_select(ranks_short), {}, class: "input-field-blue"
           = f.label :rank, "Pakāpe", class: "input-label-static"
+      -if @current_user.pklv_valde?
+        .flex.flex-col.w-full
+            = f.select :unit, options_for_select(@units, current_user.unit.id), {}, class: "input-field-blue"
+            = f.label :unit, "Vienība", class: "input-label-static"
       = f.submit "Pievienot Biedru", class: "btn-primary w-full text-center"
