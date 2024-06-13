@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def new #Tukšs lietotāja objekts ar ko aizpildīt jauna lietotāja formu
     session[:current_tab] = "new_member"  #Iestatam, ka izvēlnes aktīvā sekcija ir jauna lietotāja pievienošana
+    @units = Unit.where(deleted_at: nil).map {|unit| [unit.full_name, unit.id]}
     @user = User.new
   end
 
@@ -16,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   def create #Izveido jaunu lietotāju
-    @user = User.new(user_params.except(:rank)) #Aizpildam ar vērtībām izņemot rank, ko izmanto zemāk, lietotāja vienība sakrīt ar tā veidotāja vienību
-    @user.unit = current_user.unit 
+    @user = User.new(user_params.except(:rank, :unit)) #Aizpildam ar vērtībām izņemot rank un unit, ko izmanto zemāk, lietotāja vienība sakrīt ar tā veidotāja vienību ja nav admin
+    @user.unit = user_params[:unit].present? ? Unit.find(user_params[:unit]) : current_user.unit 
     password = rand(36**20).to_s(36)  #Pagaidu randomizēta parole
     @user.password_digest = BCrypt::Password.create(password).to_s #Šifrēšana
 
@@ -244,7 +245,7 @@ class UsersController < ApplicationController
 
   #Pieņem lietotāja objektu, kas aizpildīts atļautajiem laukiem. Šo izmanto taisot jaunu lietotāju.
   def user_params
-    params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date, :rank)
+    params.require(:user).permit(:name, :surname, :activity_statuss, :email, :joined_date, :rank, :unit)
   end
 
 
