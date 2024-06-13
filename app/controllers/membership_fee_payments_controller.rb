@@ -7,10 +7,11 @@ class MembershipFeePaymentsController < ApplicationController
     
     redirect =  request.referer.present? && request.referer.include?("registret_maksajumus") ? 
                   registret_maksajumus_membership_fee_payments_path() : 
-                  maksajumi_membership_fee_payment_path(@user)
+                  maksajumi_membership_fee_payment_path(user)
 
     #Aprēķinam cik no naudas iet organizācijai
-    organization_fee = (Unit.where(number: 0).first).membership_fee
+    organization_unit = Unit.where(number: 0).first
+    organization_fee = organization_unit.present? ? organization_unit.membership_fee : 0
     fee = user.unit.membership_fee + organization_fee
     org_fee = user.activity_statuss != "Daļēji aktīvs" ? (membership_fee_payment_params[:amount].to_i / fee) * organization_fee : membership_fee_payment_params[:amount]
 
@@ -63,8 +64,10 @@ class MembershipFeePaymentsController < ApplicationController
   end
 
   def user_payment_history
+    session[:current_tab] = "payments"
     @payments = MembershipFeePayment.where(user_payed: current_user).order(created_at: :desc)
     @membership_fee_bilance = current_user.membership_fee_bilance
+    @user_unit = current_user.unit
   end
 
   private
