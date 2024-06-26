@@ -79,8 +79,16 @@ RSpec.describe EventsController, type: :controller do
   describe "POST #create" do
     it "creates an event and redirects to events path with notice and creates invites" do
       post :create, params: {
-                      event: { name: "Test Event", date_from: Date.today, date_to: Date.tomorrow, registration_till: Date.today, necessary_volunteers: 2, max_participants: 2, event_type: "Pārgājiens", units: [unit.id],
-                               ranks: ["SK/G", "MZSK/GNT"] },
+                      event: { name: "Test Event", 
+                      date_from: Date.today, 
+                      date_to: Date.tomorrow, 
+                      registration_till: Date.today, 
+                      necessary_volunteers: 2, 
+                      max_participants: 2, 
+                      event_type: "Pārgājiens", 
+                      units: [unit.id],
+                      ranks: ["SK/G", "MZSK/GNT"],
+                      volunteer_scope: "Organizācija" },
                     }
 
       expect(response).to redirect_to(events_path)
@@ -91,7 +99,15 @@ RSpec.describe EventsController, type: :controller do
 
     it "creates an event with no invites and redirects to events path with notice" do
       post :create, params: {
-                      event: { name: "Test Event", date_from: Date.today, date_to: Date.tomorrow, registration_till: Date.today, necessary_volunteers: 2, max_participants: 2, event_type: "Pārgājiens" },
+                      event: { 
+                        name: "Test Event", 
+                        date_from: Date.today, 
+                        date_to: Date.tomorrow, 
+                        registration_till: Date.today, 
+                        necessary_volunteers: 2, 
+                        max_participants: 2, 
+                        event_type: "Pārgājiens",
+                        volunteer_scope: "Organizācija" },
                     }
 
       expect(response).to redirect_to(events_path)
