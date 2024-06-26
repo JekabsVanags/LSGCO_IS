@@ -10,8 +10,8 @@
       .my-5.flex.flex-col
         .flex.flex-col.items-end
           =link_to "Labot aptaujas lapu", aptaujas_lapa_labot_path, class: "btn-ternary m-0 p-2"
-          =button_to "Dzēst aptaujas lapu", aptaujas_lapa_path, method: :delete, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
-        
+          =button_to "Dzēst aptaujas lapu", aptaujas_lapa_path, method: :delete, form: {data: {turbo_confirm: 'Vai esat drošs? Ja informācijas lapa nebūs iesniegta elektroniski, tā ir jāiesniedz fiziski nometnēs.'}}, class: "btn-secondary border-scout-red text-scout-red text-sm min-h-[18px] lg:text-lg"
+
         .border-2.border-scout-blue.rounded-xl.p-4.overflow-y-auto
           div.space-y-2.pb-3
             div.lg:flex.gap-2

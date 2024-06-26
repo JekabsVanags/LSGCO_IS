@@ -4,7 +4,7 @@ flex.flex-col.justify-start.p-5.w-full.lg:w-4/5.lg:h-full.lg:p-10
       |Sveicināti, #{current_user.name}.
     p.paragraph-normal
       |Tu esi reģistrēts LSGCO Informācijas Sistēmā kā #{current_user.unit.full_name}. vienības biedrs. 
-      |Lai pabeigtu savu reģistrāciju, lūdzu ievadi savu paroli!
+      |Lai pabeigtu savu reģistrāciju, lūdzu izveido savu paroli!
 
   .flex.flex-col.mt-20
     = form_tag "/lietotajs/#{current_user.id}/atjaunot_paroli"
