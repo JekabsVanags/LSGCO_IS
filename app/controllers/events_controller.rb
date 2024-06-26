@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   def index #Vienības pasākumu un pasākumu uz ko vienība ielūgta saraksts
     session[:current_tab] = "events"
     @events = current_user.unit.events
-    @invites = current_user.unit.invites.map(&:event).uniq
+    @invites = current_user.unit.invites.map(&:event).select { |event| event.publishable }.uniq
   end
 
   def show #Pasākuma dati lietotājam
@@ -72,7 +72,7 @@ class EventsController < ApplicationController
 
   #Pieņem pasākuma objektu ar atļautajiem laukiem
   def event_params
-    params.require(:event).permit(:name, :description, :date_from, :date_to, :event_type, :necessary_volunteers, :max_participants, :deleted_at, :registration_till, units: [], ranks: [])
+    params.require(:event).permit(:name, :description, :date_from, :date_to, :event_type, :necessary_volunteers, :max_participants, :deleted_at, :registration_till, :publishable, :volunteer_scope, units: [], ranks: [])
   end
 
   #Funkcija, kas izveido ielūgumus vienību masīva pakāpēm, kas pakāpju masīvā

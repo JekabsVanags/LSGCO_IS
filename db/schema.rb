@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_10_140321) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_13_135224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_140321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "registration_till"
+    t.boolean "publishable"
+    t.integer "volunteer_scope", null: false
     t.index ["unit_id"], name: "index_events_on_unit_id"
   end
 
