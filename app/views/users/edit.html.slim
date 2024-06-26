@@ -30,7 +30,7 @@ script src = javascript_path("views/user_edit")
             = f.date_field :birth_date,  class: "input-field-blue"
             = f.label :birth_date, "Dzimšanas datums", class: "input-label-static"
           .flex.flex-col.w-1/3.ml-10
-            = f.select :sex, options_for_select([["Vīrietis", "M"], ["Sieviete", "F"], ["Nevēlos norādīt", "O"]], selected: @user.sex), {}, class: "input-field-blue"
+            = f.select :sex, options_for_select([["Vīrietis", "M"], ["Sieviete", "F"], ["Nevēlos norādīt", "O"]], selected: @user.sex), { prompt: "-" }, class: "input-field-blue"
             = f.label :sex, "Dzimums", class: "input-label-static"
         .flex.mt-4.mb-6.mx-1.items-center
           = f.check_box :volunteer, class: "border-2 border-scout-blue rounded-md h-6 w-6", disabled: current_user.rank == "MZSK/GNT"
