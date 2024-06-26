@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:unit) { build :unit }
+  let(:unit2) { build :unit }
   let(:base_unit) {build :unit, number: 0, membership_fee: 2}
   let(:user) { build :user, unit:, joined_date: Date.today - 1008 }
   let(:user_volunteer) {build :user, unit:, joined_date: Date.today - 100, volunteer: true}
@@ -17,6 +18,7 @@ RSpec.describe User, type: :model do
   let(:event2) { build :event, unit: unit, date_from: Date.today + 200,necessary_volunteers: 10, registered_volunteers: 2 }
   let(:invite) { build :invite, event:, unit: unit, rank: 'SK/G' }
   let(:invite2) { build :invite, event: event2, unit: unit, rank: 'MZSK/GNT' }
+  let(:invite3) { build :invite, event:, unit: unit2, rank: 'SK/G' }
 
   it('should fill default attributes with default values') do
     user = User.new
@@ -110,14 +112,57 @@ RSpec.describe User, type: :model do
     expect(user.membership_fee_bilance).to eq(-4)
   end
 
-  it('should return all upcomming events for volunteers') do
+  it('should return all upcomming events with organization scope for volunteers') do
     unit.save!
     user_volunteer.save!
-    rank_current_volunteer.save!
     event.save!
     event2.save!
     invite.save!
     
+    expect(user_volunteer.available_events.length).to eq(2)
+  end
+
+  it('should return only aplicable events with invited unit scope for volunteers') do
+    unit.save!
+    unit2.save!
+    user_volunteer.unit = unit2
+    user_volunteer.save!
+    
+    #Pirmais event tiek rādīts tikai vienībām kas ir ielūgtas
+    event.volunteer_scope = "Ielūgtās vienības" 
+    event.save!
+    event2.save!
+    invite.save!
+    
+    expect(user_volunteer.available_events.length).to eq(1)
+
+    invite3.save!
+
+    expect(user_volunteer.available_events.length).to eq(2)
+  end
+
+
+  it('should return only units events with unit scope for volunteers') do
+    unit.save!
+    unit2.save!
+    user_volunteer.unit = unit2
+    user_volunteer.save!
+    rank_current_volunteer.rank = "VAD"
+    rank_current_volunteer.save!
+    event.volunteer_scope = "Vienība" 
+    event.save!
+    event2.save!
+    invite.save!
+    
+    expect(user_volunteer.available_events.length).to eq(1)
+
+    invite3.save!
+
+    expect(user_volunteer.available_events.length).to eq(1)
+
+    user_volunteer.unit = unit
+    user_volunteer.save!
+
     expect(user_volunteer.available_events.length).to eq(2)
   end
 
