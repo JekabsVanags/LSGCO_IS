@@ -1,10 +1,10 @@
-div.border-2.flex.flex-col.px-5
+div.border-2.flex.flex-col.px-5 x-data="{menuOpen: false}"
   div.flex.justify-between.items-center
     = image_tag  "LSGCO_logo_full.svg", class:"h-32 text-center p-4"
-    button.h-15 
+    button(x-on:click="menuOpen = !menuOpen")
       =image_tag src="icons/burger_menu.svg", size: "30px", id: "dropdown-button"
   
-  div hidden="true" id="dropdown"
+  div (x-show="menuOpen" x-transition)
     -if @user_permission_level == "login"
       =form_tag session_path do
         .flex.flex-col
